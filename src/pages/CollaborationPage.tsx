@@ -1,0 +1,738 @@
+import React, { useState } from 'react';
+import { 
+  Award, 
+  Users, 
+  MapPin, 
+  Building, 
+  Briefcase, 
+  CheckCircle,
+  Star,
+  ArrowRight,
+  Download,
+  Quote,
+  TrendingUp,
+  Shield,
+  Target,
+  Zap,
+  Play,
+  Calendar,
+  Clock,
+  X,
+  ChevronRight,
+  FileText,
+  GraduationCap,
+  Settings,
+  Rocket,
+  Mail,
+  Phone,
+  User,
+  MessageSquare,
+  Building2,
+  Globe,
+  Handshake,
+  Trophy,
+  BookOpen,
+  Lightbulb,
+  Network,
+  DollarSign,
+  Camera,
+  Megaphone,
+  TrendingDown
+} from 'lucide-react';
+
+const CollaborationPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    institutionName: '',
+    contactPerson: '',
+    designation: '',
+    email: '',
+    phone: '',
+    city: '',
+    collaborationType: '',
+    message: '',
+    studentCount: ''
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const benefits = [
+    {
+      icon: Award,
+      title: 'Government-Recognized Drone Training',
+      description: 'DGCA-approved syllabus and certification',
+      color: 'text-[#26A65B]',
+      bgColor: 'bg-green-50'
+    },
+    {
+      icon: DollarSign,
+      title: 'Special Institutional Pricing',
+      description: 'Up to 40% discount for bulk student batches',
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50'
+    },
+    {
+      icon: Building2,
+      title: 'Custom Training at Your Campus',
+      description: 'We send trainers + simulators to your college',
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-50'
+    },
+    {
+      icon: FileText,
+      title: 'Joint Certification with Your Branding',
+      description: 'IDA & college name on certificate',
+      color: 'text-orange-600',
+      bgColor: 'bg-orange-50'
+    },
+    {
+      icon: Settings,
+      title: 'Access to Simulator + Real Drone Equipment',
+      description: 'Includes free practice hours for students',
+      color: 'text-red-600',
+      bgColor: 'bg-red-50'
+    },
+    {
+      icon: Briefcase,
+      title: 'Placement & Startup Guidance',
+      description: 'Career sessions, entrepreneurship mentoring',
+      color: 'text-indigo-600',
+      bgColor: 'bg-indigo-50'
+    },
+    {
+      icon: Globe,
+      title: 'Exclusive Drone Industry Webinars',
+      description: 'Guest sessions from industry partners like Corteva, Drone TV',
+      color: 'text-teal-600',
+      bgColor: 'bg-teal-50'
+    },
+    {
+      icon: Megaphone,
+      title: 'Social Media & Press Promotion',
+      description: 'We publicly highlight all institutional tie-ups',
+      color: 'text-pink-600',
+      bgColor: 'bg-pink-50'
+    },
+    {
+      icon: Trophy,
+      title: 'MoU Recognition for NAAC/AICTE',
+      description: 'Boosts institutional ranking and student engagement',
+      color: 'text-yellow-600',
+      bgColor: 'bg-yellow-50'
+    },
+    {
+      icon: Star,
+      title: 'Priority Access to National Events & Drone Expos',
+      description: 'Showcase student work in IDA-backed expos',
+      color: 'text-emerald-600',
+      bgColor: 'bg-emerald-50'
+    }
+  ];
+
+  const existingPartners = [
+    { name: 'Narayanamma Institute of Technology & Science', type: 'Premier Engineering College', location: 'Hyderabad' },
+    { name: 'Mallareddy College of Engineering', type: 'Top Engineering Institution', location: 'Hyderabad' },
+    { name: 'CBIT (Chaitanya Bharathi Institute)', type: 'Autonomous Engineering College', location: 'Hyderabad' },
+    { name: 'VJIT (Vignan\'s Institute of Technology)', type: 'Leading Technical Institute', location: 'Hyderabad' },
+    { name: 'MGIT (Mahatma Gandhi Institute)', type: 'Prestigious Engineering College', location: 'Hyderabad' },
+    { name: 'JNTUH (Jawaharlal Nehru Technological University)', type: 'State Technical University', location: 'Hyderabad' },
+    { name: 'Osmania University', type: 'Central University', location: 'Hyderabad' },
+    { name: 'IIIT Hyderabad', type: 'Institute of National Importance', location: 'Hyderabad' },
+    { name: 'VNR VJIET', type: 'Top Engineering College', location: 'Hyderabad' },
+    { name: 'CMR College of Engineering', type: 'Leading Engineering Institute', location: 'Hyderabad' },
+    { name: 'Gokaraju Rangaraju Institute', type: 'Premier Technical College', location: 'Hyderabad' },
+    { name: 'Sreenidhi Institute of Science', type: 'Autonomous Engineering College', location: 'Hyderabad' }
+  ];
+
+  const collaborationModels = [
+    {
+      title: 'MoU-Based Training at Your Campus',
+      description: 'Complete training setup at your institution with our certified instructors and equipment.',
+      features: ['On-campus training', 'Equipment provided', 'Certified instructors', 'Flexible scheduling'],
+      icon: Building2,
+      color: 'from-blue-500 to-blue-600'
+    },
+    {
+      title: 'Joint Certificate Program with Revenue Share',
+      description: 'Collaborative program where both institutions benefit from student enrollments.',
+      features: ['Revenue sharing model', 'Joint certification', 'Marketing support', 'Ongoing partnership'],
+      icon: Handshake,
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      title: 'Custom Bootcamps for Final-Year Students',
+      description: 'Intensive training programs designed specifically for graduating students.',
+      features: ['Career-focused training', 'Placement assistance', 'Industry connections', 'Fast-track certification'],
+      icon: Rocket,
+      color: 'from-purple-500 to-purple-600'
+    }
+  ];
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    console.log('Collaboration request submitted:', formData);
+    setIsSubmitted(true);
+    setIsSubmitting(false);
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({
+        institutionName: '',
+        contactPerson: '',
+        designation: '',
+        email: '',
+        phone: '',
+        city: '',
+        collaborationType: '',
+        message: '',
+        studentCount: ''
+      });
+    }, 3000);
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header Spacer */}
+      <div className="h-20"></div>
+
+      {/* Hero Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#26A65B] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                Partner With India's{' '}
+                <span className="text-[#F15A24]">Leading Drone Training Academy</span>
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                We empower institutions to deliver government-certified drone training programs on their campuses.
+              </p>
+              
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 mb-8">
+                <div className="flex items-center">
+                  <Award className="w-4 h-4 mr-2 text-[#26A65B]" />
+                  <span>DGCA Approved</span>
+                </div>
+                <div className="flex items-center">
+                  <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
+                  <span>50+ Top Institutions</span>
+                </div>
+                <div className="flex items-center">
+                  <Trophy className="w-4 h-4 mr-2 text-[#26A65B]" />
+                  <span>NAAC/AICTE Recognition</span>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <button
+                onClick={() => document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
+              >
+                Get Started With a Collaboration
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </button>
+            </div>
+
+            {/* Hero Image */}
+            <div className="relative">
+              <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="MOU signing ceremony between IDA and educational institution"
+                  className="w-full h-80 object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Floating Stats */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4">
+                <div className="text-2xl font-bold text-[#26A65B]">50+</div>
+                <div className="text-sm text-gray-600">Partner Institutions</div>
+              </div>
+              
+              <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
+                <div className="text-2xl font-bold text-[#F15A24]">40%</div>
+                <div className="text-sm text-gray-600">Bulk Discount</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              What Your Institution Gains From This Collaboration
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive benefits designed to enhance your institution's offerings and student outcomes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {benefits.map((benefit, index) => {
+              const IconComponent = benefit.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                >
+                  <div className={`w-12 h-12 ${benefit.bgColor} rounded-xl flex items-center justify-center mb-4`}>
+                    <IconComponent className={`w-6 h-6 ${benefit.color}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Existing Collaborations */}
+      <section className="py-16 lg:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Trusted by Top Engineering Colleges
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Join our prestigious network of premier engineering colleges and universities across Telangana and Andhra Pradesh.
+            </p>
+          </div>
+
+          {/* Partners Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+            {existingPartners.map((partner, index) => (
+              <div
+                key={index}
+                className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <Building className="w-8 h-8 text-[#F15A24]" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2 text-sm text-center leading-tight">
+                  {partner.name}
+                </h3>
+                <p className="text-xs text-gray-600 text-center mb-1">
+                  {partner.type}
+                </p>
+                <div className="flex items-center justify-center text-xs text-gray-500">
+                  <MapPin className="w-3 h-3 mr-1" />
+                  {partner.location}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Featured Partnerships */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              Featured Partnerships
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-[#26A65B] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-10 h-10 text-[#26A65B]" />
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Narayanamma Institute</h4>
+                <p className="text-gray-600 text-sm">500+ students trained in drone technology with 95% placement success</p>
+              </div>
+              <div className="text-center">
+                <div className="w-20 h-20 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Trophy className="w-10 h-10 text-[#F15A24]" />
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">Mallareddy College</h4>
+                <p className="text-gray-600 text-sm">Joint certification program with dedicated drone lab setup on campus</p>
+              </div>
+              <div className="text-center">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-10 h-10 text-blue-600" />
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">JNTUH</h4>
+                <p className="text-gray-600 text-sm">University-wide drone curriculum integration across multiple engineering branches</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Caption */}
+          <div className="text-center mt-8">
+            <p className="text-gray-600 italic">
+              Expanding partnerships with top engineering colleges across South India
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Collaboration Models */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Choose a Model That Works for You
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Flexible collaboration options designed to meet your institution's specific needs and goals.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {collaborationModels.map((model, index) => {
+              const IconComponent = model.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group"
+                >
+                  {/* Header */}
+                  <div className={`bg-gradient-to-r ${model.color} p-6 text-white`}>
+                    <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{model.title}</h3>
+                    <p className="text-white text-opacity-90">{model.description}</p>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <ul className="space-y-3 mb-6">
+                      {model.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center">
+                          <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <button
+                      onClick={() => document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="w-full bg-[#F15A24] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200"
+                    >
+                      Request This Model
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Special Pricing Banner */}
+      <section className="py-16 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            Special Institutional Pricing
+          </h2>
+          <p className="text-xl text-orange-100 mb-8 max-w-4xl mx-auto">
+            We offer <strong>up to 40% discount</strong> for institutions onboarding batches of 20+ students.
+          </p>
+          <p className="text-lg text-orange-100 mb-8">
+            Custom pricing available for government colleges, autonomous institutions, and women's colleges.
+          </p>
+          
+          <button
+            onClick={() => document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
+          >
+            <Download className="w-5 h-5 mr-2" />
+            Request Pricing Sheet
+          </button>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section id="collaboration-form" className="py-16 lg:py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Let's Build a Collaboration
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Fill this form and our team will reach out within 24 hours to discuss partnership opportunities.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
+            {!isSubmitted ? (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="institutionName" className="block text-sm font-medium text-gray-700 mb-2">
+                      Institution Name *
+                    </label>
+                    <div className="relative">
+                      <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
+                        type="text"
+                        id="institutionName"
+                        name="institutionName"
+                        value={formData.institutionName}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                        placeholder="Your institution name"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700 mb-2">
+                      Contact Person Name *
+                    </label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
+                        type="text"
+                        id="contactPerson"
+                        name="contactPerson"
+                        value={formData.contactPerson}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                        placeholder="Your full name"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="designation" className="block text-sm font-medium text-gray-700 mb-2">
+                      Designation *
+                    </label>
+                    <input
+                      type="text"
+                      id="designation"
+                      name="designation"
+                      value={formData.designation}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                      placeholder="Principal, Dean, Director, etc."
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+                      City/Location *
+                    </label>
+                    <div className="relative">
+                      <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                        placeholder="City, State"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                        placeholder="your.email@institution.edu"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number *
+                    </label>
+                    <div className="relative">
+                      <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                        placeholder="+91 98765 43210"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="collaborationType" className="block text-sm font-medium text-gray-700 mb-2">
+                      Collaboration Type *
+                    </label>
+                    <select
+                      id="collaborationType"
+                      name="collaborationType"
+                      value={formData.collaborationType}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                    >
+                      <option value="">Select collaboration type</option>
+                      <option value="mou-campus">MoU-Based Training at Campus</option>
+                      <option value="joint-certificate">Joint Certificate Program</option>
+                      <option value="custom-bootcamp">Custom Bootcamps</option>
+                      <option value="other">Other (specify in message)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="studentCount" className="block text-sm font-medium text-gray-700 mb-2">
+                      Expected Student Count
+                    </label>
+                    <input
+                      type="text"
+                      id="studentCount"
+                      name="studentCount"
+                      value={formData.studentCount}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                      placeholder="e.g., 50-100 students per batch"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Message / Proposal / Additional Details
+                  </label>
+                  <div className="relative">
+                    <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={5}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                      placeholder="Tell us about your institution, student demographics, specific requirements, or any questions you have..."
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#F15A24] text-white font-bold py-4 px-6 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                      Submitting Request...
+                    </>
+                  ) : (
+                    <>
+                      Submit Request
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </>
+                  )}
+                </button>
+              </form>
+            ) : (
+              <div className="text-center py-8">
+                <div className="w-16 h-16 bg-[#26A65B] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle className="w-8 h-8 text-[#26A65B]" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Thank you for your interest!
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Our team will connect with you shortly to discuss collaboration opportunities and next steps.
+                </p>
+                <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4">
+                  <p className="text-[#26A65B] font-medium">
+                    📧 You'll receive a confirmation email within 24 hours with detailed information about our partnership programs.
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+            Still Have Questions?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            Our business development team is here to help you explore partnership opportunities.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+917799100040"
+              className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Call +91 7799100040
+            </a>
+            <a
+              href="mailto:bd@indiadroneacademy.com"
+              className="bg-gray-100 text-gray-700 font-bold px-8 py-4 rounded-lg hover:bg-gray-200 transition-all duration-200 flex items-center justify-center"
+            >
+              <Mail className="w-5 h-5 mr-2" />
+              Email bd@indiadroneacademy.com
+            </a>
+            <a
+              href="https://wa.me/917799100040?text=Hi, I'm interested in institutional collaboration with IDA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"
+            >
+              <MessageSquare className="w-5 h-5 mr-2" />
+              Talk on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default CollaborationPage;
