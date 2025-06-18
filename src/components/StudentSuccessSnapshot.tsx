@@ -109,8 +109,8 @@ const StudentSuccessSnapshot: React.FC = () => {
         <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg mb-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: '10,000+', label: 'Students Placed', icon: Users },
-              { number: '95%', label: 'Success Rate', icon: TrendingUp },
+              { number: '2500+', label: 'Students Placed', icon: Users },
+              { number: '100%', label: 'Success Rate', icon: TrendingUp },
               { number: '₹6L+', label: 'Average Salary', icon: Award },
               { number: '500+', label: 'Partner Companies', icon: Users }
             ].map((stat, index) => {

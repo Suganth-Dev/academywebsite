@@ -65,13 +65,11 @@ const ApplyNowPage: React.FC = () => {
   ];
 
   const locations = [
-    'Hyderabad, Telangana',
-    'Bangalore, Karnataka',
-    'Mumbai, Maharashtra',
-    'Delhi, NCR',
-    'Pune, Maharashtra',
-    'Chennai, Tamil Nadu',
-    'Vijayawada, Andhra Pradesh'
+   'Gurugram, Haryana',
+  'Harsola, Madhya Pradesh',
+  'Meerut, Uttar Pradesh',
+  'Nagpur, Maharashtra',
+  'Belgaum, Karnataka'
   ];
 
   const batchDates = [
@@ -454,37 +452,7 @@ const ApplyNowPage: React.FC = () => {
                       )}
                     </div>
 
-                    <div>
-                      <label htmlFor="batchDate" className="block text-sm font-medium text-gray-700 mb-2">
-                        Preferred Batch Date *
-                      </label>
-                      <div className="relative">
-                        <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                        <select
-                          id="batchDate"
-                          name="batchDate"
-                          value={formData.batchDate}
-                          onChange={handleInputChange}
-                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 appearance-none ${
-                            errors.batchDate ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        >
-                          <option value="">Select batch date</option>
-                          {batchDates.map((batch) => (
-                            <option key={batch} value={batch}>
-                              {batch}
-                            </option>
-                          ))}
-                        </select>
-                        <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                      </div>
-                      {errors.batchDate && (
-                        <p className="mt-1 text-sm text-red-600 flex items-center">
-                          <AlertCircle className="w-4 h-4 mr-1" />
-                          {errors.batchDate}
-                        </p>
-                      )}
-                    </div>
+                    
                   </div>
 
                   {/* Optional Message */}
@@ -562,9 +530,9 @@ const ApplyNowPage: React.FC = () => {
                 <div className="space-y-4">
                   {[
                     { icon: Award, text: 'DGCA Certified RPTO' },
-                    { icon: Users, text: '10,000+ Students Trained' },
+                    { icon: Users, text: '2500+ Students Trained' },
                     { icon: CheckCircle, text: 'Placement Guidance & Startup Support' },
-                    { icon: Star, text: '95% Success Rate' }
+                    { icon: Star, text: '100% Success Rate' }
                   ].map((item, index) => {
                     const IconComponent = item.icon;
                     return (

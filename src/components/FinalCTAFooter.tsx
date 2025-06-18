@@ -53,8 +53,8 @@ const FinalCTAFooter: React.FC = () => {
           {/* Success Metrics */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
-              { number: '10,000+', label: 'Graduates' },
-              { number: '95%', label: 'Success Rate' },
+              { number: '2500+', label: 'Graduates' },
+              { number: '100%', label: 'Success Rate' },
               { number: '₹6L+', label: 'Avg. Salary' },
               { number: '5 Days', label: 'To Certification' }
             ].map((metric, index) => (
@@ -89,10 +89,7 @@ const FinalCTAFooter: React.FC = () => {
               <CheckCircle className="w-5 h-5 mr-2" />
               <span>No Hidden Fees</span>
             </div>
-            <div className="flex items-center">
-              <CheckCircle className="w-5 h-5 mr-2" />
-              <span>Lifetime Support</span>
-            </div>
+            
             <div className="flex items-center">
               <CheckCircle className="w-5 h-5 mr-2" />
               <span>Money Back Guarantee</span>
