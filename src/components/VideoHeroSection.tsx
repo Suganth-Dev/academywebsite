@@ -39,7 +39,9 @@ const VideoHeroSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-[87vh] flex items-center justify-center overflow-hidden">
+
+
         {/* Background Video */}
         <div className="absolute inset-0 w-full h-full">
           <video
@@ -95,11 +97,11 @@ const VideoHeroSection: React.FC = () => {
               <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-8 md:mb-12">
                 <div className="flex items-center text-gray-300">
                   <Users className="w-5 h-5 mr-2 text-[#26A65B]" />
-                  <span className="font-medium text-sm sm:text-base">10,000+ Careers Launched</span>
+                  <span className="font-medium text-sm sm:text-base">2500+ Careers Launched</span>
                 </div>
                 <div className="flex items-center text-gray-300">
                   <CheckCircle className="w-5 h-5 mr-2 text-[#26A65B]" />
-                  <span className="font-medium text-sm sm:text-base">95% Success Rate</span>
+                  <span className="font-medium text-sm sm:text-base">100% Success Rate</span>
                 </div>
                 <div className="flex items-center text-gray-300">
                   <Award className="w-5 h-5 mr-2 text-[#26A65B]" />

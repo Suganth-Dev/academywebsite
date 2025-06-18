@@ -12,23 +12,23 @@ const UpcomingBatchesBanner: React.FC = () => {
       location: 'Hyderabad',
       seatsLeft: 8,
       totalSeats: 20,
-      urgency: 'Few Seats Left'
+     
     },
     {
       course: 'Agriculture Training',
-      startDate: 'Every Wednesday',
+      startDate: 'Every Monday',
       location: 'Pune',
       seatsLeft: 12,
       totalSeats: 15,
-      urgency: 'Available'
+      
     },
     {
       course: 'Women Program',
-      startDate: 'Every Friday',
+      startDate: 'Every Monday',
       location: 'Bangalore',
       seatsLeft: 5,
       totalSeats: 15,
-      urgency: 'Almost Full'
+      
     }
   ];
 
@@ -65,13 +65,7 @@ const UpcomingBatchesBanner: React.FC = () => {
               <div key={index} className="bg-white rounded-xl p-6 shadow-md">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="font-bold text-gray-900">{batch.course}</h3>
-                  <span className={`px-2 py-1 rounded-full text-xs font-bold ${
-                    batch.urgency === 'Few Seats Left' ? 'bg-red-100 text-red-800' :
-                    batch.urgency === 'Almost Full' ? 'bg-yellow-100 text-yellow-800' :
-                    'bg-green-100 text-green-800'
-                  }`}>
-                    {batch.urgency}
-                  </span>
+                  
                 </div>
                 
                 <div className="space-y-2 mb-4">
