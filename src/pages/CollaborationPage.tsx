@@ -220,7 +220,7 @@ const CollaborationPage: React.FC = () => {
             {/* Content */}
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Partner With India's{' '}
+               Collaborate with India's{' '}
                 <span className="text-[#F15A24]">Leading Drone Training Academy</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -362,7 +362,7 @@ const CollaborationPage: React.FC = () => {
                   <Star className="w-10 h-10 text-[#26A65B]" />
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Narayanamma Institute</h4>
-                <p className="text-gray-600 text-sm">500+ students trained in drone technology with 95% placement success</p>
+                <p className="text-gray-600 text-sm">500+ students trained in drone technology with 100% placement success</p>
               </div>
               <div className="text-center">
                 <div className="w-20 h-20 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -710,14 +710,14 @@ const CollaborationPage: React.FC = () => {
               className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call +91 7799100040
+              Call +91 8804349999
             </a>
             <a
               href="mailto:bd@indiadroneacademy.com"
               className="bg-gray-100 text-gray-700 font-bold px-8 py-4 rounded-lg hover:bg-gray-200 transition-all duration-200 flex items-center justify-center"
             >
               <Mail className="w-5 h-5 mr-2" />
-              Email bd@indiadroneacademy.com
+              Email training@indiadroneacademy.com
             </a>
             <a
               href="https://wa.me/917799100040?text=Hi, I'm interested in institutional collaboration with IDA"

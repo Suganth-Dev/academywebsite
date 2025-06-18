@@ -5,36 +5,51 @@ import { useNavigate } from 'react-router-dom';
 const WhyIDASection: React.FC = () => {
   const navigate = useNavigate();
 
-  const benefits = [
-    {
-      icon: Award,
-      title: 'DGCA-Approved Curriculum',
-      description: 'Government-recognized certification that employers trust nationwide.',
-      color: 'text-[#26A65B]',
-      bgColor: 'bg-green-50'
-    },
-    {
-      icon: Users,
-      title: 'Real-Time Simulator Access',
-      description: 'Train on India\'s most advanced drone simulators with realistic scenarios.',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50'
-    },
-    {
-      icon: Plane,
-      title: '100% Placement Support',
-      description: 'Comprehensive job assistance with our network of 500+ hiring partners.',
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50'
-    },
-    {
-      icon: Briefcase,
-      title: 'Industry Tie-ups & Certifications',
-      description: 'Direct partnerships with leading companies for immediate job opportunities.',
-      color: 'text-[#F15A24]',
-      bgColor: 'bg-orange-50'
-    }
-  ];
+const benefits = [
+  {
+    icon: Award,
+    title: 'DGCA-Approved Curriculum',
+    description: 'Government-recognized certification that employers trust nationwide.',
+    color: 'text-[#26A65B]',
+    bgColor: 'bg-green-50'
+  },
+  {
+    icon: Users,
+    title: 'Real-Time Simulator Access',
+    description: 'Train on India\'s most advanced drone simulators with realistic scenarios.',
+    color: 'text-blue-600',
+    bgColor: 'bg-blue-50'
+  },
+  {
+    icon: Plane,
+    title: '100% Placement Support',
+    description: 'Comprehensive job assistance with our network of 500+ hiring partners.',
+    color: 'text-purple-600',
+    bgColor: 'bg-purple-50'
+  },
+  {
+    icon: Briefcase,
+    title: 'Industry Tie-ups & Certifications',
+    description: 'Direct partnerships with leading companies for immediate job opportunities.',
+    color: 'text-[#F15A24]',
+    bgColor: 'bg-orange-50'
+  },
+  {
+    icon: Target,
+    title: 'Industrial-Based Training',
+    description: 'Hands-on sessions aligned with real-time industrial drone use-cases and challenges.',
+    color: 'text-red-500',
+    bgColor: 'bg-red-50'
+  },
+  {
+    icon: Zap,
+    title: 'AI & GIS Integration',
+    description: 'Master next-gen drone operations with AI and Geographic Information Systems.',
+    color: 'text-yellow-600',
+    bgColor: 'bg-yellow-50'
+  }
+];
+
 
   const handleApplyClick = () => {
     navigate('/apply');
@@ -59,24 +74,23 @@ const WhyIDASection: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Benefits Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
             {benefits.map((benefit, index) => {
               const IconComponent = benefit.icon;
               return (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
-                >
-                  <div className={`w-16 h-16 ${benefit.bgColor} rounded-2xl flex items-center justify-center mb-6`}>
-                    <IconComponent className={`w-8 h-8 ${benefit.color}`} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
+                
+                  <div
+  key={index}
+  className="bg-white rounded-xl p-3 h-[230px] flex flex-col justify-start shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100"
+>
+  <div className={`w-11 h-11 ${benefit.bgColor} rounded-lg flex items-center justify-center mb-3`}>
+    <IconComponent className={`w-6 h-6 ${benefit.color}`} />
+  </div>
+  <h3 className="text-base font-semibold text-gray-1000 mb-2">{benefit.title}</h3>
+  <p className="text-sm text-gray-700 leading-tight">{benefit.description}</p>
+</div>
+
               );
             })}
           </div>
@@ -88,7 +102,7 @@ const WhyIDASection: React.FC = () => {
               <img
                 src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Students learning drone operations at India Drone Academy"
-                className="w-full h-96 object-cover"
+                className="w-full  h-[450px] object-cover"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -102,12 +116,12 @@ const WhyIDASection: React.FC = () => {
 
             {/* Floating Stats */}
             <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-6">
-              <div className="text-3xl font-bold text-[#26A65B] mb-2">95%</div>
+              <div className="text-3xl font-bold text-[#26A65B] mb-2">100%</div>
               <div className="text-gray-600 font-medium">Success Rate</div>
             </div>
             
             <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-lg p-6">
-              <div className="text-3xl font-bold text-[#F15A24] mb-2">10K+</div>
+              <div className="text-3xl font-bold text-[#F15A24] mb-2">2.5K+</div>
               <div className="text-gray-600 font-medium">Graduates</div>
             </div>
 

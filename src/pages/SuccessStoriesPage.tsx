@@ -369,8 +369,8 @@ const SuccessStoriesPage: React.FC = () => {
             {/* Key Stats */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {[
-                { number: '10,000+', label: 'Success Stories' },
-                { number: '95%', label: 'Career Growth' },
+                { number: '2500+', label: 'Success Stories' },
+                { number: '100%', label: 'Career Growth' },
                 { number: '₹8L+', label: 'Average Salary' },
                 { number: '500+', label: 'Companies Hiring' }
               ].map((stat, index) => (
@@ -714,8 +714,8 @@ const SuccessStoriesPage: React.FC = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: '10,000+', label: 'Pilots Trained', icon: Users },
-              { number: '95%', label: 'Course Satisfaction', icon: Star },
+              { number: '2500+', label: 'Pilots Trained', icon: Users },
+              { number: '100%', label: 'Course Satisfaction', icon: Star },
               { number: '15+', label: 'States Covered', icon: MapPin },
               { number: '500+', label: 'Partner Companies', icon: Briefcase }
             ].map((stat, index) => {

@@ -90,7 +90,7 @@ const WhyIDAPage: React.FC = () => {
     { feature: 'Women-Focused Programs', ida: true, others: false },
     { feature: 'Free Career Guidance', ida: true, others: false },
     { feature: 'Industry Partnerships', ida: true, others: false },
-    { feature: 'Lifetime Alumni Support', ida: true, others: false }
+    { feature: 'Alumni Support', ida: true, others: false }
   ];
 
   const founderMessage = {
@@ -177,7 +177,7 @@ const WhyIDAPage: React.FC = () => {
               {/* Trust Badge */}
               <div className="inline-flex items-center bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-6 py-3 rounded-full font-bold mb-8">
                 <Award className="w-5 h-5 mr-2" />
-                10,000+ Certified Drone Pilots Trained
+                2500+ Certified Drone Pilots Trained
               </div>
 
               {/* CTA */}
@@ -204,7 +204,7 @@ const WhyIDAPage: React.FC = () => {
 
               {/* Floating Stats */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4">
-                <div className="text-2xl font-bold text-[#26A65B]">95%</div>
+                <div className="text-2xl font-bold text-[#26A65B]">100%</div>
                 <div className="text-sm text-gray-600">Success Rate</div>
               </div>
               

@@ -126,7 +126,7 @@ const PartnershipsPage: React.FC = () => {
   ];
 
   const benefits = [
-    'Access to 10,000+ certified pilots across India',
+    'Access to 2500+ certified pilots across India',
     'DGCA-approved training infrastructure',
     'Real-world testing grounds (simulators + outdoor)',
     'Joint branding and media exposure',
@@ -235,7 +235,7 @@ const PartnershipsPage: React.FC = () => {
                 </div>
                 <div className="flex items-center">
                   <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
-                  <span>10,000+ Pilots Trained</span>
+                  <span>2500+ Pilots Trained</span>
                 </div>
                 <div className="flex items-center">
                   <Building className="w-4 h-4 mr-2 text-[#26A65B]" />
@@ -372,20 +372,46 @@ const PartnershipsPage: React.FC = () => {
           </div>
 
           {/* Featured In Section */}
+          
           <div className="text-center">
-            <p className="text-gray-600 mb-4">Featured In:</p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-              <span>The Hindu</span>
-              <span>•</span>
-              <span>Eenadu</span>
-              <span>•</span>
-              <span>Times of India</span>
-              <span>•</span>
-              <span>Business Standard</span>
-              <span>•</span>
-              <span>Economic Times</span>
-            </div>
-          </div>
+  <p className="text-gray-600 mb-8 text-lg font-medium">Featured In:</p>
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center">
+    {[
+      {
+        name: 'The Hindu',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/The_Hindu_Logo.svg/512px-The_Hindu_Logo.svg.png',
+        info: 'National Daily Coverage'
+      },
+      {
+        name: 'Eenadu',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eenadu_logo.svg/512px-Eenadu_logo.svg.png',
+        info: 'Regional Telugu Feature'
+      },
+      {
+        name: 'Times of India',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Times_of_India_logo.svg/512px-The_Times_of_India_logo.svg.png',
+        info: 'Tech & Education Column'
+      },
+      {
+        name: 'Business Standard',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Business_Standard_logo.svg/512px-Business_Standard_logo.svg.png',
+        info: 'Business Feature'
+      },
+      {
+        name: 'Economic Times',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/The_Economic_Times_logo.svg/512px-The_Economic_Times_logo.svg.png',
+        info: 'Start-up Highlights'
+      }
+    ].map((item, idx) => (
+      <div key={idx} className="bg-white shadow-md rounded-xl p-4 flex flex-col items-center text-center">
+        <img src={item.img} alt={item.name} className="h-12 object-contain mb-3" />
+        <p className="font-semibold text-gray-800 text-sm">{item.name}</p>
+        <p className="text-xs text-gray-500">{item.info}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
         </div>
       </section>
 
@@ -432,7 +458,7 @@ const PartnershipsPage: React.FC = () => {
 
               {/* Floating Stats */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6">
-                <div className="text-3xl font-bold text-[#F15A24] mb-2">95%</div>
+                <div className="text-3xl font-bold text-[#F15A24] mb-2">100%</div>
                 <div className="text-gray-600 font-medium">Partner Satisfaction</div>
               </div>
             </div>
