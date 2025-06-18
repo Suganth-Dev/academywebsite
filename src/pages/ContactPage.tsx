@@ -46,23 +46,45 @@ const ContactPage: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Contact form submitted:', formData);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', courseOfInterest: '', message: '' });
-    }, 3000);
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  const payload = {
+    fullName: formData.name,
+    phone: formData.phone,
+    email: formData.email,
+    courseInterest: formData.courseOfInterest || "Not Sure - Need Guidance",
+    message: formData.message
   };
+
+  try {
+    const response = await fetch("https://npip9wce0m.execute-api.ap-south-1.amazonaws.com/PostContactform", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      console.log("API Success:", result);
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', courseOfInterest: '', message: '' });
+    } else {
+      console.error("API Error:", result);
+      alert("Something went wrong: " + result.error || "Please try again.");
+    }
+  } catch (error) {
+    console.error("Request Failed:", error);
+    alert("Network error. Please check your connection.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const contactMethods = [
     {
