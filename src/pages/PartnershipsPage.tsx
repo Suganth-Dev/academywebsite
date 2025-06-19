@@ -1,60 +1,68 @@
 import React, { useState } from 'react';
-import {
-  Handshake,
-  Rocket,
-  Users,
-  Building,
-  Briefcase,
+
+import { 
+  Rocket, 
+  Users, 
+  Building, 
   CheckCircle,
   Star,
   ArrowRight,
-  Download,
   Quote,
-  TrendingUp,
-  Shield,
-  Target,
-  Zap,
-  Play,
   Calendar,
-  Clock,
-  X,
-  ChevronRight,
-  FileText,
   Settings,
   Mail,
   Phone,
   User,
   MessageSquare,
   Building2,
-  Globe,
-  Trophy,
-  BookOpen,
-  Lightbulb,
-  Network,
-  DollarSign,
-  Camera,
   Megaphone,
-  Cpu,
-  Wrench,
-  GraduationCap,
+  Cpu,  
   MapPin,
   Award,
-  Eye,
-  Heart,
-  Share2,
-  ExternalLink
 } from 'lucide-react';
 
 const PartnershipsPage: React.FC = () => {
-  const [formData, setFormData] = useState({
+
+type PartnershipFormData = {
+    companyName: string;
+    contactPerson: string;
+    designation: string;
+    email: string;
+    phone: string;
+    city: string;
+    partnershipType: string[];
+    message: string;
+    otherPartnership: string;
+    revenue: string;
+    clients: string;
+    website: string;
+    experience: string;
+    teamSize: string;
+    model: string;
+    linkedin: string;
+    gst: string;
+    droneExperience: string;
+  };
+
+  const [formData, setFormData] = useState<PartnershipFormData>({
     companyName: '',
     contactPerson: '',
     designation: '',
     email: '',
     phone: '',
     city: '',
-    partnershipType: '',
-    message: ''
+    partnershipType: [],
+    message: '',
+    otherPartnership: '', // 
+    revenue: '',
+    clients: '',
+    website: '',
+    experience: '',
+    teamSize: '',
+    model: '',
+    linkedin: '',
+    gst: '',
+    droneExperience: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -168,39 +176,58 @@ const PartnershipsPage: React.FC = () => {
     }
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const handleInputChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+) => {
+  const target = e.target as HTMLInputElement;
+  const { name, value, type } = target;
+
+  if (type === 'checkbox' && name === 'partnershipType') {
+    const checked = target.checked;
+    const newSelection = checked
+      ? [...formData.partnershipType, value]
+      : formData.partnershipType.filter(item => item !== value);
+    setFormData({ ...formData, partnershipType: newSelection });
+  } else {
+    setFormData({ ...formData, [name]: value });
+  }
+};
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.partnershipType.length === 0) {
+      alert('Please select at least one partnership type.');
+      return;
+    }
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
 
+
+
+    await new Promise(resolve => setTimeout(resolve, 2000));
     console.log('Partnership request submitted:', formData);
     setIsSubmitted(true);
     setIsSubmitting(false);
-
-    // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        companyName: '',
-        contactPerson: '',
-        designation: '',
-        email: '',
-        phone: '',
-        city: '',
-        partnershipType: '',
-        message: ''
+        companyName: '', contactPerson: '', designation: '', email: '', phone: '', city: '',
+        partnershipType: [], message: '', revenue: '', clients: '', website: '', experience: '',
+        teamSize: '', model: '', linkedin: '', gst: '', droneExperience: '', otherPartnership: '', // 
       });
     }, 3000);
   };
+
+  const partnershipOptions: { label: string; value: string }[] = [
+    { label: 'Drone Technology Partnership', value: 'technology' },
+    { label: 'Simulator & Hardware Vendor', value: 'hardware' },
+    { label: 'Corporate Training Tie-Up', value: 'corporate' },
+    { label: 'Placement & Recruitment Partner', value: 'recruitment' },
+    { label: 'Startup Incubation Partner', value: 'incubation' },
+    { label: 'Media & Outreach Collaborator', value: 'media' },
+    { label: 'Other (specify in message)', value: 'other' }
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -649,30 +676,93 @@ const PartnershipsPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
+     <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Type of Partnership *
+        </label>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-x-8 gap-y-4">
+          {partnershipOptions.map(option => (
+            <label
+              key={option.value}
+              className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-[#F15A24] transition-all"
+            >
+              <input
+                type="checkbox"
+                name="partnershipType"
+                value={option.value}
+                checked={formData.partnershipType.includes(option.value)}
+                onChange={handleInputChange}
+                className="h-5 w-5 text-[#F15A24] mr-4"
+              />
+              <span className="text-gray-800 font-medium">{option.label}</span>
+            </label>
+          ))}
+        </div>
+        {formData.partnershipType.includes('other') && (
+          <div className="mt-4">
+            <input
+              type="text"
+              name="otherPartnership"
+              placeholder="Please specify"
+              value={formData.otherPartnership}
+              onChange={handleInputChange}
+              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg"
+            />
+          </div>
+        )}
+      </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="revenue" className="block text-sm font-medium text-gray-700 mb-2">Revenue Bracket *</label>
+          <select id="revenue" name="revenue" value={formData.revenue} onChange={handleInputChange} required className="w-full px-4 py-3 border border-gray-300 rounded-lg">
+            <option value="">Select</option>
+            <option value="<10L">Less than ₹10 Lakh</option>
+            <option value="10-50L">₹10–50 Lakh</option>
+            <option value="50L-2Cr">₹50 Lakh – 2 Cr</option>
+            <option value="2-10Cr">₹2–10 Cr</option>
+            <option value=">10Cr">Above ₹10 Cr</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">Company Website</label>
+          <input type="url" id="website" name="website" value={formData.website} onChange={handleInputChange} placeholder="https://example.com" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+        </div>
+      </div>
 
-                <div>
-                  <label htmlFor="partnershipType" className="block text-sm font-medium text-gray-700 mb-2">
-                    Type of Partnership *
-                  </label>
-                  <select
-                    id="partnershipType"
-                    name="partnershipType"
-                    value={formData.partnershipType}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                  >
-                    <option value="">Select partnership type</option>
-                    <option value="technology">Drone Technology Partnership</option>
-                    <option value="hardware">Simulator & Hardware Vendor</option>
-                    <option value="corporate">Corporate Training Tie-Up</option>
-                    <option value="recruitment">Placement & Recruitment Partner</option>
-                    <option value="incubation">Startup Incubation Partner</option>
-                    <option value="media">Media & Outreach Collaborator</option>
-                    <option value="other">Other (specify in message)</option>
-                  </select>
-                </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">Years of Experience</label>
+          <input type="number" id="experience" name="experience" value={formData.experience} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+        </div>
+        <div>
+          <label htmlFor="teamSize" className="block text-sm font-medium text-gray-700 mb-2">Team Size</label>
+          <input type="number" id="teamSize" name="teamSize" value={formData.teamSize} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+        </div>
+      </div>
 
+      <div>
+        <label htmlFor="clients" className="block text-sm font-medium text-gray-700 mb-2">Key Clients / Industries</label>
+        <textarea id="clients" name="clients" value={formData.clients} onChange={handleInputChange} rows={3} className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Mention a few key clients or sectors you serve." />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+     
+        <div>
+          <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-2">LinkedIn Profile</label>
+          <input type="url" id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="https://linkedin.com/in/yourprofile" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="gst" className="block text-sm font-medium text-gray-700 mb-2">GST / Business Registration No.</label>
+          <input type="text" id="gst" name="gst" value={formData.gst} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+        </div>
+        <div>
+          <label htmlFor="droneExperience" className="block text-sm font-medium text-gray-700 mb-2">Past Drone Collaboration?</label>
+          <input type="text" id="droneExperience" name="droneExperience" value={formData.droneExperience} onChange={handleInputChange} placeholder="Yes / No. If yes, describe briefly." className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+        </div>
+      </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message / Proposal *
