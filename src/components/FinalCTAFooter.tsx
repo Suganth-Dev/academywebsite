@@ -10,7 +10,7 @@ const FinalCTAFooter: React.FC = () => {
   };
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/917799100040?text=Hi, I need information about drone courses', '_blank');
+    window.open('https://wa.me/919188883344?text=Hi, I need information about drone courses', '_blank');
   };
 
   return (

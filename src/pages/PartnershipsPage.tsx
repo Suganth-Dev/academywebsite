@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Handshake, 
-  Rocket, 
-  Users, 
-  Building, 
-  Briefcase, 
+import {
+  Handshake,
+  Rocket,
+  Users,
+  Building,
+  Briefcase,
   CheckCircle,
   Star,
   ArrowRight,
@@ -178,14 +178,14 @@ const PartnershipsPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     console.log('Partnership request submitted:', formData);
     setIsSubmitted(true);
     setIsSubmitting(false);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -226,7 +226,7 @@ const PartnershipsPage: React.FC = () => {
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Together, let's shape the future of drone innovation, training, and deployment across India and beyond.
               </p>
-              
+
               {/* Trust Indicators */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 mb-8">
                 <div className="flex items-center">
@@ -269,7 +269,7 @@ const PartnershipsPage: React.FC = () => {
                 <div className="text-2xl font-bold text-[#26A65B]">500+</div>
                 <div className="text-sm text-gray-600">Active Partners</div>
               </div>
-              
+
               <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
                 <div className="text-2xl font-bold text-[#F15A24]">15+</div>
                 <div className="text-sm text-gray-600">Industries</div>
@@ -372,14 +372,13 @@ const PartnershipsPage: React.FC = () => {
           </div>
 
           {/* Featured In Section */}
-          
           <div className="text-center">
-  <p className="text-gray-600 mb-8 text-lg font-medium">Featured In:</p>
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center">
+  <p className="text-gray-600 mb-8 text-xl font-semibold">Featured In:</p>
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 justify-center">
     {[
       {
         name: 'The Hindu',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/The_Hindu_Logo.svg/512px-The_Hindu_Logo.svg.png',
+        img: '/5.jpg',
         info: 'National Daily Coverage'
       },
       {
@@ -403,10 +402,13 @@ const PartnershipsPage: React.FC = () => {
         info: 'Start-up Highlights'
       }
     ].map((item, idx) => (
-      <div key={idx} className="bg-white shadow-md rounded-xl p-4 flex flex-col items-center text-center">
-        <img src={item.img} alt={item.name} className="h-12 object-contain mb-3" />
-        <p className="font-semibold text-gray-800 text-sm">{item.name}</p>
-        <p className="text-xs text-gray-500">{item.info}</p>
+      <div
+        key={idx}
+        className="bg-white shadow-xl rounded-2xl p-8 min-h-[220px] flex flex-col items-center text-center"
+      >
+        <img src={item.img} alt={item.name} className="h-20 object-contain mb-5" />
+        <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
+        <p className="text-sm text-gray-500">{item.info}</p>
       </div>
     ))}
   </div>
@@ -448,7 +450,7 @@ const PartnershipsPage: React.FC = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                
+
                 {/* Overlay Content */}
                 <div className="absolute bottom-6 left-6 text-white">
                   <h4 className="text-xl font-bold mb-2">Partnership Success</h4>
@@ -483,7 +485,7 @@ const PartnershipsPage: React.FC = () => {
               <div key={testimonial.id} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 {/* Quote Icon */}
                 <Quote className="w-10 h-10 text-[#F15A24] mb-6" />
-                
+
                 {/* Rating */}
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -739,7 +741,7 @@ const PartnershipsPage: React.FC = () => {
           <p className="text-xl text-orange-100 mb-8">
             Our partnership team is ready to discuss opportunities and answer any questions you may have.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://calendly.com/indiadroneacademy/partnership-discussion"
@@ -751,7 +753,7 @@ const PartnershipsPage: React.FC = () => {
               Schedule a Call
             </a>
             <a
-              href="https://wa.me/917799100040?text=Hi, I'm interested in exploring partnership opportunities with IDA"
+              href="https://wa.me/919188883344?text=Hi, I'm interested in exploring partnership opportunities with IDA"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Award, 
-  Users, 
-  MapPin, 
-  Building, 
-  Briefcase, 
+import {
+  Award,
+  Users,
+  MapPin,
+  Building,
+  Briefcase,
   CheckCircle,
   Star,
   ArrowRight,
@@ -41,19 +41,65 @@ import {
 } from 'lucide-react';
 
 const CollaborationPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    institutionName: '',
-    contactPerson: '',
-    designation: '',
-    email: '',
-    phone: '',
-    city: '',
-    collaborationType: '',
-    message: '',
-    studentCount: ''
-  });
+ type CriteriaKeys =
+  | 'mou'
+  | 'infrastructure'
+  | 'transport'
+  | 'studentBase'
+  | 'mbaSupport'
+  | 'promotion'
+  | 'techInterest'
+  | 'pastExposure';
+
+type FormData = {
+  institutionName: string;
+  contactPerson: string;
+  designation: string;
+  email: string;
+  phone: string;
+  city: string;
+  collaborationType: string;
+  message: string;
+  studentCount: string;
+  criteria: Record<CriteriaKeys, string>; // ensures valid keys
+};
+
+const [formData, setFormData] = useState<FormData>({
+  institutionName: '',
+  contactPerson: '',
+  designation: '',
+  email: '',
+  phone: '',
+  city: '',
+  collaborationType: '',
+  message: '',
+  studentCount: '',
+  criteria: {
+    mou: '',
+    infrastructure: '',
+    transport: '',
+    studentBase: '',
+    mbaSupport: '',
+    promotion: '',
+    techInterest: '',
+    pastExposure: ''
+  }
+});
+
+
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const criteriaList = [
+    { key: 'mou', label: 'Willingness to sign MoU with IDA for long-term drone technology collaboration' },
+    { key: 'infrastructure', label: 'Availability of AV-enabled classrooms, computer labs, and open flying grounds' },
+    { key: 'transport', label: 'College bus facility to reach IDA flying zone' },
+    { key: 'studentBase', label: 'Large base from engineering, agriculture, or management disciplines' },
+    { key: 'mbaSupport', label: 'MBA students to assist IDA branding and outreach' },
+    { key: 'promotion', label: 'Students to promote IDA on social media and peer networks' },
+    { key: 'techInterest', label: 'Active interest in innovation and drone applications' },
+    { key: 'pastExposure', label: 'Preferred: Previous drone tech exposure or project involvement' },
+  ];
 
   const benefits = [
     {
@@ -177,14 +223,14 @@ const CollaborationPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
+
+    // Simulate API cal
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     console.log('Collaboration request submitted:', formData);
     setIsSubmitted(true);
     setIsSubmitting(false);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -197,18 +243,42 @@ const CollaborationPage: React.FC = () => {
         city: '',
         collaborationType: '',
         message: '',
-        studentCount: ''
+        studentCount: '',
+        criteria: {
+          mou: '',
+          infrastructure: '',
+          transport: '',
+          studentBase: '',
+          mbaSupport: '',
+          promotion: '',
+          techInterest: '',
+          pastExposure: ''
+        }
       });
+
+
     }, 3000);
   };
+  const handleRadioChange = (key: string, value: 'Yes' | 'No') => {
+    setFormData(prev => ({
+      ...prev,
+      criteria: {
+        ...prev.criteria,
+        [key]: value
+      }
+    }));
+  };
+
+
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-      <div className="h-20"></div>
+
 
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      <section className="pt-0 pb-16 lg:pt-0 lg:pb-16 min-h-screen bg-gradient-to-br from-gray-50 to-white relative overflow-hidden flex items-center">
+
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
@@ -220,13 +290,13 @@ const CollaborationPage: React.FC = () => {
             {/* Content */}
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-               Collaborate with India's{' '}
+                Collaborate with India's{' '}
                 <span className="text-[#F15A24]">Leading Drone Training Academy</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 We empower institutions to deliver government-certified drone training programs on their campuses.
               </p>
-              
+
               {/* Trust Indicators */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 mb-8">
                 <div className="flex items-center">
@@ -259,7 +329,8 @@ const CollaborationPage: React.FC = () => {
                 <img
                   src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="MOU signing ceremony between IDA and educational institution"
-                  className="w-full h-80 object-cover rounded-lg"
+                  className="w-full h-[100%] min-h-[400px] max-h-[550px] object-cover rounded-lg"
+
                   loading="lazy"
                 />
               </div>
@@ -269,7 +340,7 @@ const CollaborationPage: React.FC = () => {
                 <div className="text-2xl font-bold text-[#26A65B]">50+</div>
                 <div className="text-sm text-gray-600">Partner Institutions</div>
               </div>
-              
+
               <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
                 <div className="text-2xl font-bold text-[#F15A24]">40%</div>
                 <div className="text-sm text-gray-600">Bulk Discount</div>
@@ -456,7 +527,7 @@ const CollaborationPage: React.FC = () => {
           <p className="text-lg text-orange-100 mb-8">
             Custom pricing available for government colleges, autonomous institutions, and women's colleges.
           </p>
-          
+
           <button
             onClick={() => document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
@@ -635,6 +706,45 @@ const CollaborationPage: React.FC = () => {
                     />
                   </div>
                 </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-6">
+                    College Selection Criteria <span className="text-red-500">*</span>
+                  </label>
+
+                  <div className="space-y-6">
+                    {criteriaList.map((criterion, index) => (
+                      <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                        <p className="font-medium text-gray-800 mb-2">{criterion.label}</p>
+                        <div className="flex space-x-6">
+                          <label className="flex items-center space-x-2">
+                            <input
+                              type="radio"
+                              name={`criteria_${index}`}
+                              value="Yes"
+                              checked={formData.criteria[criterion.key] === 'Yes'}
+                              onChange={() => handleRadioChange(criterion.key, 'Yes')}
+                              className="text-[#26A65B]"
+                            />
+                            <span>Yes</span>
+                          </label>
+                          <label className="flex items-center space-x-2">
+                            <input
+                              type="radio"
+                              name={`criteria_${index}`}
+                              value="No"
+                              checked={formData.criteria[criterion.key] === 'No'}
+                              onChange={() => handleRadioChange(criterion.key, 'No')}
+                              className="text-red-500"
+                            />
+                            <span>No</span>
+                          </label>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
@@ -703,14 +813,14 @@ const CollaborationPage: React.FC = () => {
           <p className="text-xl text-gray-600 mb-8">
             Our business development team is here to help you explore partnership opportunities.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+917799100040"
+              href="tel:+919188883344"
               className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call +91 8804349999
+              Call +91 8804349999/ +91 9188883344
             </a>
             <a
               href="mailto:bd@indiadroneacademy.com"
@@ -720,7 +830,7 @@ const CollaborationPage: React.FC = () => {
               Email training@indiadroneacademy.com
             </a>
             <a
-              href="https://wa.me/917799100040?text=Hi, I'm interested in institutional collaboration with IDA"
+              href="https://wa.me/919188883344?text=Hi, I'm interested in institutional collaboration with IDA"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"
