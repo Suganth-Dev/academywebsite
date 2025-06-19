@@ -149,10 +149,10 @@ const WhyIDAPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-      <div className="h-20"></div>
+      
 
       {/* Hero Intro */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>

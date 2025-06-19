@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import { 
-  Rocket, 
-  Users, 
-  Building, 
+import {
+  Rocket,
+  Users,
+  Building,
   CheckCircle,
   Star,
   ArrowRight,
@@ -16,14 +16,14 @@ import {
   MessageSquare,
   Building2,
   Megaphone,
-  Cpu,  
+  Cpu,
   MapPin,
   Award,
 } from 'lucide-react';
 
 const PartnershipsPage: React.FC = () => {
 
-type PartnershipFormData = {
+  type PartnershipFormData = {
     companyName: string;
     contactPerson: string;
     designation: string;
@@ -177,21 +177,21 @@ type PartnershipFormData = {
   ];
 
   const handleInputChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-) => {
-  const target = e.target as HTMLInputElement;
-  const { name, value, type } = target;
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const target = e.target as HTMLInputElement;
+    const { name, value, type } = target;
 
-  if (type === 'checkbox' && name === 'partnershipType') {
-    const checked = target.checked;
-    const newSelection = checked
-      ? [...formData.partnershipType, value]
-      : formData.partnershipType.filter(item => item !== value);
-    setFormData({ ...formData, partnershipType: newSelection });
-  } else {
-    setFormData({ ...formData, [name]: value });
-  }
-};
+    if (type === 'checkbox' && name === 'partnershipType') {
+      const checked = target.checked;
+      const newSelection = checked
+        ? [...formData.partnershipType, value]
+        : formData.partnershipType.filter(item => item !== value);
+      setFormData({ ...formData, partnershipType: newSelection });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -232,10 +232,10 @@ type PartnershipFormData = {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-      <div className="h-20"></div>
+
 
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
@@ -400,46 +400,51 @@ type PartnershipFormData = {
 
           {/* Featured In Section */}
           <div className="text-center">
-  <p className="text-gray-600 mb-8 text-xl font-semibold">Featured In:</p>
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 justify-center">
-    {[
-      {
-        name: 'The Hindu',
-        img: '/5.jpg',
-        info: 'National Daily Coverage'
-      },
-      {
-        name: 'Eenadu',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eenadu_logo.svg/512px-Eenadu_logo.svg.png',
-        info: 'Regional Telugu Feature'
-      },
-      {
-        name: 'Times of India',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Times_of_India_logo.svg/512px-The_Times_of_India_logo.svg.png',
-        info: 'Tech & Education Column'
-      },
-      {
-        name: 'Business Standard',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Business_Standard_logo.svg/512px-Business_Standard_logo.svg.png',
-        info: 'Business Feature'
-      },
-      {
-        name: 'Economic Times',
-        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/The_Economic_Times_logo.svg/512px-The_Economic_Times_logo.svg.png',
-        info: 'Start-up Highlights'
-      }
-    ].map((item, idx) => (
-      <div
-        key={idx}
-        className="bg-white shadow-xl rounded-2xl p-8 min-h-[220px] flex flex-col items-center text-center"
-      >
-        <img src={item.img} alt={item.name} className="h-20 object-contain mb-5" />
-        <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
-        <p className="text-sm text-gray-500">{item.info}</p>
-      </div>
-    ))}
-  </div>
-</div>
+            <p className="text-gray-600 mb-8 text-xl font-semibold"></p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 justify-center">
+              {[
+                {
+                  name: 'The Hindu',
+                  img: '/5.jpg',
+                  info: 'National Daily Coverage'
+                },
+                {
+                  name: 'Eenadu',
+                  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eenadu_logo.svg/512px-Eenadu_logo.svg.png',
+                  info: 'Regional Telugu Feature'
+                },
+                {
+                  name: 'Times of India',
+                  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Times_of_India_logo.svg/512px-The_Times_of_India_logo.svg.png',
+                  info: 'Tech & Education Column'
+                },
+                {
+                  name: 'Business Standard',
+                  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Business_Standard_logo.svg/512px-Business_Standard_logo.svg.png',
+                  info: 'Business Feature'
+                },
+                {
+                  name: 'Economic Times',
+                  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/The_Economic_Times_logo.svg/512px-The_Economic_Times_logo.svg.png',
+                  info: 'Start-up Highlights'
+                }
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white shadow-xl rounded-2xl p-8 min-h-[220px] flex flex-col items-center text-center"
+                >
+                  <img 
+  src={item.img} 
+  alt={item.name} 
+  className="w-44 h-44 rounded-full object-cover mb-5 border border-gray-200 shadow-sm"
+/>
+
+                  <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
+                  <p className="text-sm text-gray-500">{item.info}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       </section>
@@ -676,93 +681,93 @@ type PartnershipFormData = {
                     </div>
                   </div>
                 </div>
-     <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Type of Partnership *
-        </label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-x-8 gap-y-4">
-          {partnershipOptions.map(option => (
-            <label
-              key={option.value}
-              className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-[#F15A24] transition-all"
-            >
-              <input
-                type="checkbox"
-                name="partnershipType"
-                value={option.value}
-                checked={formData.partnershipType.includes(option.value)}
-                onChange={handleInputChange}
-                className="h-5 w-5 text-[#F15A24] mr-4"
-              />
-              <span className="text-gray-800 font-medium">{option.label}</span>
-            </label>
-          ))}
-        </div>
-        {formData.partnershipType.includes('other') && (
-          <div className="mt-4">
-            <input
-              type="text"
-              name="otherPartnership"
-              placeholder="Please specify"
-              value={formData.otherPartnership}
-              onChange={handleInputChange}
-              className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg"
-            />
-          </div>
-        )}
-      </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="revenue" className="block text-sm font-medium text-gray-700 mb-2">Revenue Bracket *</label>
-          <select id="revenue" name="revenue" value={formData.revenue} onChange={handleInputChange} required className="w-full px-4 py-3 border border-gray-300 rounded-lg">
-            <option value="">Select</option>
-            <option value="<10L">Less than ₹10 Lakh</option>
-            <option value="10-50L">₹10–50 Lakh</option>
-            <option value="50L-2Cr">₹50 Lakh – 2 Cr</option>
-            <option value="2-10Cr">₹2–10 Cr</option>
-            <option value=">10Cr">Above ₹10 Cr</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">Company Website</label>
-          <input type="url" id="website" name="website" value={formData.website} onChange={handleInputChange} placeholder="https://example.com" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-        </div>
-      </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Type of Partnership *
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-x-8 gap-y-4">
+                    {partnershipOptions.map(option => (
+                      <label
+                        key={option.value}
+                        className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-[#F15A24] transition-all"
+                      >
+                        <input
+                          type="checkbox"
+                          name="partnershipType"
+                          value={option.value}
+                          checked={formData.partnershipType.includes(option.value)}
+                          onChange={handleInputChange}
+                          className="h-5 w-5 text-[#F15A24] mr-4"
+                        />
+                        <span className="text-gray-800 font-medium">{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {formData.partnershipType.includes('other') && (
+                    <div className="mt-4">
+                      <input
+                        type="text"
+                        name="otherPartnership"
+                        placeholder="Please specify"
+                        value={formData.otherPartnership}
+                        onChange={handleInputChange}
+                        className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg"
+                      />
+                    </div>
+                  )}
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="revenue" className="block text-sm font-medium text-gray-700 mb-2">Revenue Bracket *</label>
+                    <select id="revenue" name="revenue" value={formData.revenue} onChange={handleInputChange} required className="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                      <option value="">Select</option>
+                      <option value="<10L">Less than ₹10 Lakh</option>
+                      <option value="10-50L">₹10–50 Lakh</option>
+                      <option value="50L-2Cr">₹50 Lakh – 2 Cr</option>
+                      <option value="2-10Cr">₹2–10 Cr</option>
+                      <option value=">10Cr">Above ₹10 Cr</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">Company Website</label>
+                    <input type="url" id="website" name="website" value={formData.website} onChange={handleInputChange} placeholder="https://example.com" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                  </div>
+                </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">Years of Experience</label>
-          <input type="number" id="experience" name="experience" value={formData.experience} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-        </div>
-        <div>
-          <label htmlFor="teamSize" className="block text-sm font-medium text-gray-700 mb-2">Team Size</label>
-          <input type="number" id="teamSize" name="teamSize" value={formData.teamSize} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-        </div>
-      </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">Years of Experience</label>
+                    <input type="number" id="experience" name="experience" value={formData.experience} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                  </div>
+                  <div>
+                    <label htmlFor="teamSize" className="block text-sm font-medium text-gray-700 mb-2">Team Size</label>
+                    <input type="number" id="teamSize" name="teamSize" value={formData.teamSize} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                  </div>
+                </div>
 
-      <div>
-        <label htmlFor="clients" className="block text-sm font-medium text-gray-700 mb-2">Key Clients / Industries</label>
-        <textarea id="clients" name="clients" value={formData.clients} onChange={handleInputChange} rows={3} className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Mention a few key clients or sectors you serve." />
-      </div>
+                <div>
+                  <label htmlFor="clients" className="block text-sm font-medium text-gray-700 mb-2">Key Clients / Industries</label>
+                  <textarea id="clients" name="clients" value={formData.clients} onChange={handleInputChange} rows={3} className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Mention a few key clients or sectors you serve." />
+                </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-     
-        <div>
-          <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-2">LinkedIn Profile</label>
-          <input type="url" id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="https://linkedin.com/in/yourprofile" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-        </div>
-      </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label htmlFor="gst" className="block text-sm font-medium text-gray-700 mb-2">GST / Business Registration No.</label>
-          <input type="text" id="gst" name="gst" value={formData.gst} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-        </div>
-        <div>
-          <label htmlFor="droneExperience" className="block text-sm font-medium text-gray-700 mb-2">Past Drone Collaboration?</label>
-          <input type="text" id="droneExperience" name="droneExperience" value={formData.droneExperience} onChange={handleInputChange} placeholder="Yes / No. If yes, describe briefly." className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-        </div>
-      </div>
+                  <div>
+                    <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-2">LinkedIn Profile</label>
+                    <input type="url" id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="https://linkedin.com/in/yourprofile" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="gst" className="block text-sm font-medium text-gray-700 mb-2">GST / Business Registration No.</label>
+                    <input type="text" id="gst" name="gst" value={formData.gst} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                  </div>
+                  <div>
+                    <label htmlFor="droneExperience" className="block text-sm font-medium text-gray-700 mb-2">Past Drone Collaboration?</label>
+                    <input type="text" id="droneExperience" name="droneExperience" value={formData.droneExperience} onChange={handleInputChange} placeholder="Yes / No. If yes, describe briefly." className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                  </div>
+                </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message / Proposal *

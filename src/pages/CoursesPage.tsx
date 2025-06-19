@@ -24,7 +24,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/dgca-small',
       features: ['DGCA Certification', 'Theory & Practical', 'Job Assistance', 'Small Drone Operations'],
-      locations: ['Hyderabad', 'Bangalore', 'Mumbai', 'Delhi']
+     
     },
     {
       id: 2,
@@ -452,10 +452,11 @@ const CoursesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-      <div className="h-20"></div>
+      
 
       {/* Page Header */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="pt-6 pb-16 bg-gradient-to-br from-gray-50 to-white">
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
@@ -602,15 +603,7 @@ const CoursesPage: React.FC = () => {
                     </div>
 
                     {/* Locations */}
-                    <div className="mb-6">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <MapPin className="w-4 h-4 mr-2" />
-                        <span>{course.locations.slice(0, 2).join(', ')}</span>
-                        {course.locations.length > 2 && (
-                          <span className="ml-1">+{course.locations.length - 2} more</span>
-                        )}
-                      </div>
-                    </div>
+                    
 
                     {/* CTA Buttons */}
                     <div className="flex gap-2">

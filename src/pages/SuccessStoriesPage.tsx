@@ -345,10 +345,10 @@ const SuccessStoriesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-      <div className="h-20"></div>
+      
 
       {/* Professional Hero Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
@@ -883,26 +883,59 @@ const SuccessStoriesPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-2">
-                    Course Completed *
-                  </label>
-                  <div className="relative">
-                    <Award className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <select
-                      id="course"
-                      name="course"
-                      value={formData.course}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select your course</option>
-                      <option value="DGCA Pilot Training">DGCA Pilot Training</option>
-                      <option value="Agriculture Drone Training">Agriculture Drone Training</option>
-                      <option value="Women Drone Program">Women Drone Program</option>
-                      <option value="1-Day Special Course">1-Day Special Course</option>
-                    </select>
-                  </div>
+                  
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+  Courses Completed *
+</label>
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  {[
+    "DGCA Small Category",
+    "DGCA Medium Category",
+    "Medium Upgrade",
+    "Small + Medium Combined",
+    "Agriculture Spraying",
+    "Site Asset Mapping",
+    "Mining Excavation Analysis",
+    "Aerial Cinematography",
+    "Data Processing",
+    "Drone Assembly Basic",
+    "Drone Assembly Advanced",
+    "FPV Training Basic",
+    "FPV Training Advanced",
+    "Women Drone Pilot Bootcamp",
+    "Drone-Didi Agri Program",
+    "DGCA Small + Cinematography",
+    "DGCA Medium + 3D Mapping",
+    "Ultimate Pro Bundle",
+    "Thermal Inspection & LiDAR",
+    "BVLOS Training",
+    "Drone Safety & Incident Response",
+    "Simulator Refresher",
+    "Corporate Training",
+    "Online Theory Crash Course"
+  ].map((course, index) => (
+    <label key={index} className="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        name="course"
+        value={course}
+        onChange={(e) => {
+          const selected = [...formData.course.split(',')];
+          if (e.target.checked) {
+            selected.push(e.target.value);
+          } else {
+            const i = selected.indexOf(e.target.value);
+            if (i > -1) selected.splice(i, 1);
+          }
+          setFormData({ ...formData, course: selected.join(',') });
+        }}
+        className="w-4 h-4 text-[#F15A24] border-gray-300 rounded"
+      />
+      <span className="text-gray-700">{course}</span>
+    </label>
+  ))}
+</div>
+
                 </div>
 
                 <div>
