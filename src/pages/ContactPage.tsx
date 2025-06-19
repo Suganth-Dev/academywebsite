@@ -46,26 +46,7 @@ const ContactPage: React.FC = () => {
       [e.target.name]: e.target.value
     });
   };
-
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Contact form submitted:', formData);
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', courseOfInterest: [] as string[], message: '' });
-    }, 3000);
-
- const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setIsSubmitting(true);
 
@@ -73,9 +54,10 @@ const ContactPage: React.FC = () => {
     fullName: formData.name,
     phone: formData.phone,
     email: formData.email,
-    courseInterest: formData.courseOfInterest || "Not Sure - Need Guidance",
+    courseInterest: formData.courseOfInterest.length > 0
+      ? formData.courseOfInterest.join(', ')
+      : "Not Sure - Need Guidance",
     message: formData.message
-
   };
 
   try {
@@ -92,10 +74,10 @@ const ContactPage: React.FC = () => {
     if (response.ok) {
       console.log("API Success:", result);
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', courseOfInterest: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', courseOfInterest: [], message: '' });
     } else {
       console.error("API Error:", result);
-      alert("Something went wrong: " + result.error || "Please try again.");
+      alert("Something went wrong: " + (result.error || "Please try again."));
     }
   } catch (error) {
     console.error("Request Failed:", error);
@@ -104,6 +86,7 @@ const ContactPage: React.FC = () => {
     setIsSubmitting(false);
   }
 };
+
 
 
   const contactMethods = [
