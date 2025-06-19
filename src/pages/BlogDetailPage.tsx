@@ -25,7 +25,7 @@ import {
   Linkedin,
   CheckCircle
 } from 'lucide-react';
-import { blogPosts } from '../data/blogData';
+import { blogPosts } from '../data/blogData';//eheh
 
 const BlogDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
