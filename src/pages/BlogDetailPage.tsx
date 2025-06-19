@@ -350,6 +350,7 @@ const BlogDetailPage: React.FC = () => {
           </div>
         </div>
       </section>
+      //ty
     </div>
   );
 };
