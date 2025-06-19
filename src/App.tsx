@@ -17,7 +17,7 @@ import TermsPage from './pages/TermsPage';
 import SitemapPage from './pages/SitemapPage';
 import CollaborationPage from './pages/CollaborationPage';
 import PartnershipsPage from './pages/PartnershipsPage';
-
+//added
 function App() {
   return (
     <Router>
