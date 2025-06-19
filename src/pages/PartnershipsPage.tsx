@@ -195,29 +195,50 @@ const PartnershipsPage: React.FC = () => {
 
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.partnershipType.length === 0) {
-      alert('Please select at least one partnership type.');
-      return;
+  e.preventDefault();
+  if (formData.partnershipType.length === 0) {
+    alert('Please select at least one partnership type.');
+    return;
+  }
+  setIsSubmitting(true);
+
+  try {
+    // Send the data to the backend API
+    const response = await fetch('https://clxqhy12ik.execute-api.ap-south-1.amazonaws.com/postpartner', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Error submitting partnership request');
     }
-    setIsSubmitting(true);
 
-
-
-
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log('Partnership request submitted:', formData);
+    const data = await response.json();
+    console.log('Partnership request submitted:', data);
+    
+    // Set submission status
     setIsSubmitted(true);
+  } catch (error) {
+    console.error('Submission failed:', error);
+    alert('There was an issue with your submission. Please try again.');
+  } finally {
     setIsSubmitting(false);
+
+    // Reset the form after a delay
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
         companyName: '', contactPerson: '', designation: '', email: '', phone: '', city: '',
         partnershipType: [], message: '', revenue: '', clients: '', website: '', experience: '',
-        teamSize: '', model: '', linkedin: '', gst: '', droneExperience: '', otherPartnership: '', // 
+        teamSize: '', model: '', linkedin: '', gst: '', droneExperience: '', otherPartnership: '',
       });
     }, 3000);
-  };
+  }
+};
+
 
   const partnershipOptions: { label: string; value: string }[] = [
     { label: 'Drone Technology Partnership', value: 'technology' },
