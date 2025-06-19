@@ -59,51 +59,47 @@ const StudentSuccessSnapshot: React.FC = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              {/* Quote Icon */}
-              <Quote className="w-10 h-10 text-[#F15A24] mb-6" />
-              
-              {/* Rating */}
-              <div className="flex items-center mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+  {testimonials.map((testimonial) => (
+    <div
+      key={testimonial.id}
+      className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-center"
+    >
+      {/* Profile Image */}
+      <img
+        src={testimonial.image}
+        alt={testimonial.name}
+        className="w-16 h-16 rounded-full object-cover mx-auto mb-4"
+        loading="lazy"
+      />
 
-              {/* Testimonial Text */}
-              <blockquote className="text-gray-700 leading-relaxed mb-6">
-                "{testimonial.quote}"
-              </blockquote>
+      {/* Name & Info */}
+      <h4 className="font-bold text-gray-900 text-lg mb-1">{testimonial.name}</h4>
+      <p className="text-gray-600 text-sm mb-1">{testimonial.role}</p>
+      <p className="text-[#F15A24] text-sm font-medium mb-3">{testimonial.course}</p>
 
-              {/* Achievement Highlight */}
-              <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4 mb-6">
-                <p className="text-[#26A65B] font-bold text-sm">
-                  🎉 {testimonial.achievement}
-                </p>
-              </div>
+      {/* Rating Stars */}
+      <div className="flex justify-center mb-3">
+        {[...Array(testimonial.rating)].map((_, i) => (
+          <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+        ))}
+      </div>
 
-              {/* Student Info */}
-              <div className="flex items-center">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                  <p className="text-[#F15A24] text-sm font-medium">{testimonial.course}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* Review */}
+      <blockquote className="text-gray-700 text-sm leading-relaxed mb-4 px-2">
+        "{testimonial.quote}"
+      </blockquote>
+
+      {/* Achievement */}
+      <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3">
+        <p className="text-[#26A65B] font-bold text-xs">
+          🎉 {testimonial.achievement}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+
 
         {/* Stats Section */}
         <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg mb-12">

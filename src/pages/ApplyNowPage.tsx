@@ -24,13 +24,9 @@ import {
 
 const ApplyNowPage: React.FC = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    phone: '',
-    email: '',
-    course: '',
-    location: '',
-    batchDate: '',
-    message: ''
+    fullName: '', phone: '', email: '', course: '', location: '', batchDate: '', message: '',
+    category: '', preferredCourses: [], city: '', state: '', pinCode: '',
+    isEmployed: '', careerPurpose: '', heardFrom: '', groupDetails: '', discountCode: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -63,8 +59,11 @@ const ApplyNowPage: React.FC = () => {
     { value: 'online-theory', label: 'Online Theory Crash Course - ₹7,500 + GST' },
     { value: 'corporate', label: 'Corporate Training (Flexible) - ₹25,000 + GST' }
   ];
+const allCourses = courses.map(c => c.label);
 
   const locations = [
+    'Hyderabad, Telangana',
+    'Vijayawada, Andhra Pradesh',
    'Gurugram, Haryana',
   'Harsola, Madhya Pradesh',
   'Meerut, Uttar Pradesh',
@@ -115,6 +114,15 @@ const ApplyNowPage: React.FC = () => {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
+const handleCheckboxChange = (courseLabel: string) => {
+  setFormData(prev => {
+    const isChecked = prev.preferredCourses.includes(courseLabel);
+    const updatedCourses = isChecked
+      ? prev.preferredCourses.filter(c => c !== courseLabel)
+      : [...prev.preferredCourses, courseLabel];
+    return { ...prev, preferredCourses: updatedCourses };
+  });
+};
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -384,6 +392,191 @@ const ApplyNowPage: React.FC = () => {
                       </p>
                     )}
                   </div>
+                  <div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">Category *</label>
+  <div className="flex gap-4">
+    <label className="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        name="category"
+        value="Small"
+        checked={formData.category === 'Small'}
+        onChange={() => setFormData(prev => ({ ...prev, category: 'Small' }))}
+      />
+      <span>Small Category</span>
+    </label>
+    <label className="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        name="category"
+        value="Medium"
+        checked={formData.category === 'Medium'}
+        onChange={() => setFormData(prev => ({ ...prev, category: 'Medium' }))}
+      />
+      <span>Medium Category</span>
+    </label>
+  </div>
+</div>
+<div className="mb-8">
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Drone Pilot Training Course(s) Interested In *
+  </label>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    {allCourses.map((course, index) => (
+      <label
+        key={index}
+        className={`flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+          formData.preferredCourses.includes(course)
+            ? 'bg-[#F15A24]/10 border-[#F15A24]'
+            : 'bg-white border-gray-300 hover:shadow-sm hover:border-[#F15A24]/50'
+        }`}
+      >
+        <input
+          type="checkbox"
+          checked={formData.preferredCourses.includes(course)}
+          onChange={() => handleCheckboxChange(course)}
+          className="mt-1 accent-[#F15A24] w-5 h-5"
+        />
+        <span className="text-sm text-gray-800 leading-snug">{course}</span>
+      </label>
+    ))}
+  </div>
+  {errors.preferredCourses && (
+    <p className="mt-1 text-sm text-red-600 flex items-center">
+      <AlertCircle className="w-4 h-4 mr-1" />
+      {errors.preferredCourses}
+    </p>
+  )}
+</div>
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-2">City *</label>
+    <input
+      type="text"
+      name="city"
+      value={formData.city}
+      onChange={handleInputChange}
+      className="w-full px-4 py-2 border rounded"
+      placeholder="City"
+    />
+  </div>
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-2">State *</label>
+    <input
+      type="text"
+      name="state"
+      value={formData.state}
+      onChange={handleInputChange}
+      className="w-full px-4 py-2 border rounded"
+      placeholder="State"
+    />
+  </div>
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-2">City Pin Code *</label>
+    <input
+      type="text"
+      name="pinCode"
+      value={formData.pinCode}
+      onChange={handleInputChange}
+      className="w-full px-4 py-2 border rounded"
+      placeholder="PIN Code"
+    />
+  </div>
+</div>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+ 
+  
+  
+</div>
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">Are you currently employed? *</label>
+  <div className="flex gap-6">
+    <label className="flex items-center">
+      <input
+        type="radio"
+        name="isEmployed"
+        value="Yes"
+        checked={formData.isEmployed === 'Yes'}
+        onChange={handleInputChange}
+      />
+      <span className="ml-2">Yes</span>
+    </label>
+    <label className="flex items-center">
+      <input
+        type="radio"
+        name="isEmployed"
+        value="No"
+        checked={formData.isEmployed === 'No'}
+        onChange={handleInputChange}
+      />
+      <span className="ml-2">No</span>
+    </label>
+  </div>
+</div>
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    Are you looking DGCA Pilot Certificate for? *
+  </label>
+  <select
+    name="careerPurpose"
+    value={formData.careerPurpose}
+    onChange={handleInputChange}
+    className="w-full px-4 py-2 border rounded"
+  >
+    <option value="">-- Select an option --</option>
+    <option value="Employment">Employment</option>
+    <option value="Own Business">Own Business</option>
+    <option value="Career Change">Want to Change Career / Learn New Tech</option>
+    <option value="Aerial Photography">Aerial Photography and Videography</option>
+    <option value="Agri Spraying">Agriculture Spraying</option>
+    <option value="Other">Other</option>
+  </select>
+</div>
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    How do you know about us? *
+  </label>
+  <select
+    name="heardFrom"
+    value={formData.heardFrom}
+    onChange={handleInputChange}
+    className="w-full px-4 py-2 border rounded"
+  >
+    <option value="">-- Select an option --</option>
+    <option value="Google">Google Search</option>
+    <option value="YouTube">YouTube</option>
+    <option value="Facebook">Facebook</option>
+    <option value="Instagram">Instagram</option>
+    <option value="Other">Other</option>
+  </select>
+</div>
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    For Group Discount, Please Enter Number of Members, Names who want to join
+  </label>
+  <textarea
+    name="groupDetails"
+    value={formData.groupDetails}
+    onChange={handleInputChange}
+    className="w-full px-4 py-2 border rounded"
+    placeholder="e.g., 3 Members - Rahul, Priya, Arjun"
+  />
+</div>
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    If you have Discount Code, Please Enter
+  </label>
+  <input
+    type="text"
+    name="discountCode"
+    value={formData.discountCode}
+    onChange={handleInputChange}
+    className="w-full px-4 py-2 border rounded"
+    placeholder="e.g., DRONE20"
+  />
+</div>
+
 
                   {/* Course Selection */}
                   <div>
@@ -512,7 +705,7 @@ const ApplyNowPage: React.FC = () => {
                   Talk to our advisors instantly on WhatsApp. Get personalized course recommendations and answers to all your questions.
                 </p>
                 <a
-                  href="https://wa.me/917799100040?text=Hi, I need help choosing the right drone course"
+                  href="https://wa.me/919188883344?text=Hi, I need help choosing the right drone course"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-[#25D366] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"

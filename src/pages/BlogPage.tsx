@@ -559,7 +559,7 @@ const BlogPage: React.FC = () => {
               <ArrowRight className="w-5 h-5 ml-2" />
             </button>
             <a
-              href="https://wa.me/917799100040?text=Hi, I need information about drone courses"
+              href="https://wa.me/919188883344?text=Hi, I need information about drone courses"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 flex items-center justify-center"

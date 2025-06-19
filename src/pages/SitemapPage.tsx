@@ -232,7 +232,7 @@ const SitemapPage: React.FC = () => {
                 Contact Us
               </a>
               <a
-                href="tel:+917799100040"
+                href="tel:+919188883344"
                 className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 flex items-center justify-center"
               >
                 <Phone className="w-5 h-5 mr-2" />

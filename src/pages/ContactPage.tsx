@@ -33,7 +33,8 @@ const ContactPage: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    courseOfInterest: '',
+   courseOfInterest: [] as string[],
+
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -46,6 +47,24 @@ const ContactPage: React.FC = () => {
     });
   };
 
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    console.log('Contact form submitted:', formData);
+    setIsSubmitted(true);
+    setIsSubmitting(false);
+    
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', email: '', phone: '', courseOfInterest: [] as string[], message: '' });
+    }, 3000);
+
  const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setIsSubmitting(true);
@@ -56,6 +75,7 @@ const ContactPage: React.FC = () => {
     email: formData.email,
     courseInterest: formData.courseOfInterest || "Not Sure - Need Guidance",
     message: formData.message
+
   };
 
   try {
@@ -90,9 +110,9 @@ const ContactPage: React.FC = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      primary: '+91 7799100040',
+      primary: '+91 9188883344',
       secondary: 'Mon-Sat, 9 AM - 6 PM',
-      action: 'tel:+917799100040',
+      action: 'tel:+919188883344',
       actionText: 'Call Now',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
@@ -100,7 +120,7 @@ const ContactPage: React.FC = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      primary: 'bd@indiadroneacademy.com',
+      primary: 'training@indiadroneacademy.com',
       secondary: 'We reply within 24 hours',
       action: 'mailto:bd@indiadroneacademy.com',
       actionText: 'Send Email',
@@ -112,7 +132,7 @@ const ContactPage: React.FC = () => {
       title: 'WhatsApp',
       primary: 'Instant Support',
       secondary: 'Get quick answers to your questions',
-      action: 'https://wa.me/917799100040?text=Hi, I need information about drone courses',
+      action: 'https://wa.me/919188883344?text=Hi, I need information about drone courses',
       actionText: 'Chat Now',
       color: 'text-[#25D366]',
       bgColor: 'bg-green-50'
@@ -123,8 +143,8 @@ const ContactPage: React.FC = () => {
     {
       city: 'Hyderabad (Main Campus)',
       address: 'White Waters, 5A/6B, Lane beside KIMS Hospital, Timber Lake Colony, Shaikpet, Hyderabad, Telangana 500008',
-      phone: '+91 7799100040',
-      email: 'hyderabad@indiadroneacademy.com',
+      phone: '+91 9188883344',
+      email: 'training@indiadroneacademy.com',
       hours: 'Mon-Sat: 9:00 AM - 6:00 PM',
       mapLink: 'https://maps.google.com/?q=White+Waters+Shaikpet+Hyderabad',
       isMain: true
@@ -132,8 +152,8 @@ const ContactPage: React.FC = () => {
     {
       city: 'Vijayawada',
       address: 'Training Center, Vijayawada, Andhra Pradesh',
-      phone: '+91 7799100041',
-      email: 'vijayawada@indiadroneacademy.com',
+      phone: '+91 9188883344',
+      email: 'training@indiadroneacademy.com',
       hours: 'Mon-Sat: 9:00 AM - 6:00 PM',
       mapLink: 'https://maps.google.com/?q=Vijayawada+Andhra+Pradesh',
       isMain: false
@@ -189,6 +209,15 @@ const ContactPage: React.FC = () => {
     'Corporate Training',
     'Not Sure - Need Guidance'
   ];
+const handleCheckboxChange = (course: string) => {
+  setFormData(prev => {
+    const isSelected = prev.courseOfInterest.includes(course);
+    const updated = isSelected
+      ? prev.courseOfInterest.filter(c => c !== course)
+      : [...prev.courseOfInterest, course];
+    return { ...prev, courseOfInterest: updated };
+  });
+};
 
   return (
     <div className="min-h-screen bg-white">
@@ -216,7 +245,7 @@ const ContactPage: React.FC = () => {
             
             {/* Quick WhatsApp CTA */}
             <a
-              href="https://wa.me/917799100040?text=Hi, I need information about drone courses"
+              href="https://wa.me/919188883344?text=Hi, I need information about drone courses"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-[#25D366] text-white px-8 py-4 rounded-lg hover:bg-[#20B954] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
@@ -462,21 +491,22 @@ const ContactPage: React.FC = () => {
                     Course of Interest
                   </label>
                   <div className="relative">
-                    <Award className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <select
-                      id="courseOfInterest"
-                      name="courseOfInterest"
-                      value={formData.courseOfInterest}
-                      onChange={handleInputChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select a course</option>
-                      {courseOptions.map((course) => (
-                        <option key={course} value={course}>
-                          {course}
-                        </option>
-                      ))}
-                    </select>
+                    
+                   <div className="space-y-3">
+  {courseOptions.map((course) => (
+    <label key={course} className="flex items-center space-x-3">
+      <input
+        type="checkbox"
+        value={course}
+        checked={formData.courseOfInterest.includes(course)}
+        onChange={() => handleCheckboxChange(course)}
+        className="text-[#F15A24] focus:ring-[#F15A24]"
+      />
+      <span className="text-gray-700">{course}</span>
+    </label>
+  ))}
+</div>
+
                   </div>
                 </div>
 
@@ -527,7 +557,7 @@ const ContactPage: React.FC = () => {
                 </p>
                 <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4">
                   <p className="text-[#26A65B] font-medium">
-                    📱 For urgent queries, you can also WhatsApp us at +91 7799100040
+                    📱 For urgent queries, you can also WhatsApp us at +91 9188883344
                   </p>
                 </div>
               </div>
@@ -599,14 +629,14 @@ const ContactPage: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+917799100040"
+              href="tel:+91 9188883344"
               className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
             >
               <Phone className="w-5 h-5 mr-2" />
               Call Now
             </a>
             <a
-              href="https://wa.me/917799100040?text=Hi, I need information about drone courses"
+              href="https://wa.me/919188883344?text=Hi, I need information about drone courses"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"
