@@ -134,7 +134,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     },
     {
       city: 'Vijayawada',
-      address: 'Training Center, Vijayawada, Andhra Pradesh',
+      address: 'Vijayawada, Andhra Pradesh',
       phone: '+91 9188883344',
       email: 'training@indiadroneacademy.com',
       hours: 'Mon-Sat: 9:00 AM - 6:00 PM',
@@ -352,24 +352,28 @@ const handleCheckboxChange = (course: string) => {
                   </div>
                 </div>
                 
-                <div className="flex gap-3 mt-6">
-                  <a
-                    href={location.mapLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-[#F15A24] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200 flex items-center justify-center"
-                  >
-                    <Navigation className="w-4 h-4 mr-2" />
-                    Get Directions
-                  </a>
-                  <a
-                    href={`tel:${location.phone}`}
-                    className="flex-1 bg-gray-100 text-gray-700 font-bold py-3 px-4 rounded-lg hover:bg-gray-200 transition-all duration-200 flex items-center justify-center"
-                  >
-                    <Phone className="w-4 h-4 mr-2" />
-                    Call
-                  </a>
-                </div>
+               <div className="flex gap-3 mt-6">
+  {/* Get Directions Button */}
+  <a
+    href="https://maps.app.goo.gl/dM67EeLA4LxQXND86"  
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex-1 bg-[#F15A24] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200 flex items-center justify-center"
+  >
+    <Navigation className="w-4 h-4 mr-2" />
+    Get Directions
+  </a>
+
+  {/* Call Button */}
+  <a
+    href={`tel:${location.phone}`}  
+    className="flex-1 bg-gray-100 text-gray-700 font-bold py-3 px-4 rounded-lg hover:bg-gray-200 transition-all duration-200 flex items-center justify-center"
+  >
+    <Phone className="w-4 h-4 mr-2" />
+    Call
+  </a>
+</div>
+
               </div>
             ))}
           </div>
