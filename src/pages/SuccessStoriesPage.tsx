@@ -83,7 +83,7 @@ const uploadImageToS3 = async (file: File) => {
       Body: file,  // File (or Blob) as Body
       ContentType: file.type,  // The MIME type of the file
       ACL: ObjectCannedACL.public_read,
-    };
+    };//heee
     
     const command = new PutObjectCommand(params);
     await s3Client.send(command);
