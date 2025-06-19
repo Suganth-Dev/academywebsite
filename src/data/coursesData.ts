@@ -138,6 +138,7 @@ export const coursesData: Record<string, CourseData> = {
       'Job placement assistance'
     ]
   },
+
   'dgca-medium': {
     id: 'dgca-medium',
     title: 'DGCA Medium Category Training',
@@ -1532,5 +1533,493 @@ export const coursesData: Record<string, CourseData> = {
       'Industry-specific content',
       'Ongoing support included'
     ]
-  }
+  },
+  'site-asset-inspection': {
+  id: 'site-inspection',
+  title: 'Site Asset Mapping & Inspection',
+  subtitle: 'Inspection and mapping of roads, railways, telecom, and industrial assets',
+  description: 'Inspection and mapping of roads, railways, telecom, and industrial sites using drone technology. Understand tools, software, and field protocols.',
+  heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Special Courses',
+  badgeColor: 'bg-orange-600',
+  price: '₹35,000',
+  gst: '+ 18% GST',
+  duration: '5 Days',
+  mode: 'Practical + Mapping Tools',
+  certificate: 'Site Inspection & Mapping Certificate',
+  language: 'English / Hindi',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Intermediate',
+  learningOutcomes: [
+    'Infrastructure inspection workflow',
+    'Telecom and railway asset mapping',
+    'Drone flying for inspection purposes',
+    'Survey tool usage and planning',
+    'Report generation using mapping software',
+    'Utilities inspection case studies',
+    'On-field mission execution'
+  ],
+  courseFeatures: [
+    {
+      icon: 'MapPin',
+      title: 'Field Work',
+      description: 'Real-world asset mapping scenarios'
+    },
+    {
+      icon: 'Settings',
+      title: 'Software Training',
+      description: 'Hands-on with mapping tools'
+    },
+    {
+      icon: 'Users',
+      title: 'Industry Use Cases',
+      description: 'Practical projects across sectors'
+    },
+    {
+      icon: 'Briefcase',
+      title: 'Job Opportunities',
+      description: 'Inspection and GIS roles'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'March 20, 2025',
+      endDate: 'March 24, 2025',
+      location: 'Hyderabad',
+      seatsLeft: 10,
+      totalSeats: 15
+    }
+  ],
+  instructor: {
+    name: 'Mr. Naveen Rao',
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Senior GIS & Asset Mapping Trainer',
+    experience: '12+ Years in Infra Mapping',
+    description: 'Expert in UAV-based mapping and asset documentation with hundreds of successful government and private sector projects.',
+    credentials: ['Drone Survey Expert', 'GIS Trainer', 'Infrastructure Consultant', '500+ Sites Mapped']
+  },
+  faq: [
+    {
+      question: 'Is this suitable for civil engineers?',
+      answer: 'Yes, this course is highly recommended for civil engineers, planners, and survey professionals.'
+    },
+    {
+      question: 'Do I need to bring my drone?',
+      answer: 'No, drones and software access will be provided during the training.'
+    }
+  ],
+  highlights: [
+    'Real-site inspection experience',
+    'Utility and infrastructure mapping',
+    'Survey-grade workflows',
+    'Industry-led instruction'
+  ]
+},
+'mining-excavation': {
+  id: 'mining-excavation',
+  title: 'Mining Excavation Volumetric Analysis',
+  subtitle: 'Analyze and calculate volumes for mining excavation projects using drones',
+  description: 'Learn to measure volumes of excavation sites using aerial survey and photogrammetry techniques. Perfect for mining professionals seeking drone-based volumetrics.',
+  heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Special Courses',
+  badgeColor: 'bg-blue-600',
+  price: '₹35,000',
+  gst: '+ 18% GST',
+  duration: '5 Days',
+  mode: 'Field + Software Training',
+  certificate: 'Volumetric Analysis Certificate',
+  language: 'English / Hindi',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Advanced',
+  learningOutcomes: [
+    'Volume calculation using drones',
+    'Stockpile analysis and cut/fill estimation',
+    'Photogrammetry and elevation modeling',
+    'Aerial data collection for mines',
+    'Data processing and 3D point cloud handling',
+    'Contour and DEM extraction',
+    'Case study on mining productivity improvement'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Settings',
+      title: 'Data Processing Tools',
+      description: 'Hands-on training in Pix4D, DJI Terra, or similar'
+    },
+    {
+      icon: 'Target',
+      title: 'Precision Mapping',
+      description: 'Survey-grade results with control points'
+    },
+    {
+      icon: 'Users',
+      title: 'Mining Use Cases',
+      description: 'Volumetric workflows applied to real mines'
+    },
+    {
+      icon: 'Award',
+      title: 'Job Focused',
+      description: 'Targeted at mining engineers and surveyors'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'April 5, 2025',
+      endDate: 'April 9, 2025',
+      location: 'Hyderabad',
+      seatsLeft: 8,
+      totalSeats: 15
+    }
+  ],
+  instructor: {
+    name: 'Dr. Ravi Kumar',
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Mining GIS Analyst',
+    experience: '10+ Years in UAV + Mining Projects',
+    description: 'Experienced in integrating drone technology into mining productivity and survey operations for large mining sites across India.',
+    credentials: ['Certified Drone Surveyor', 'Mining GIS Consultant', 'Autodesk & Pix4D Certified']
+  },
+  faq: [
+    {
+      question: 'Do I need to know GIS or CAD before joining?',
+      answer: 'Basic familiarity is helpful but not mandatory. Training includes beginner-friendly walkthroughs.'
+    },
+    {
+      question: 'Will we fly drones at mining sites?',
+      answer: 'Drone flights will be simulated or executed on similar terrains. Permissions for real mines depend on schedule.'
+    }
+  ],
+  highlights: [
+    'Mining-specific volumetrics',
+    'Hands-on drone data processing',
+    'Field-level application',
+    'Industry-grade software use'
+  ]
+},
+'agriculture-precision': {
+  id: 'agriculture-precision',
+  title: 'Agriculture Spraying & Precision Farming',
+  subtitle: 'Precision spraying techniques for crop protection and optimized agriculture',
+  description: 'This course trains participants in modern spraying techniques using drones for crop protection and field productivity. It combines flight skills with crop monitoring and mapping practices tailored for agriculture.',
+  heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Special Courses',
+  badgeColor: 'bg-green-600',
+  price: '₹25,000',
+  gst: '+ 18% GST',
+  duration: '3 Days',
+  mode: 'On-field + Simulator',
+  certificate: 'Agri Drone Spraying Certificate',
+  language: 'English / Hindi / Telugu',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Beginner Friendly',
+  learningOutcomes: [
+    'Basics of precision farming with drones',
+    'Drone operation for spraying',
+    'Flight planning using farm mapping apps',
+    'Payload setup and calibration for liquid sprays',
+    'Safety and pesticide handling',
+    'Real-time monitoring with multispectral drones',
+    'Post-mission assessment and data recording'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Wheat',
+      title: 'Agri Mapping',
+      description: 'Learn to map and analyze agricultural plots'
+    },
+    {
+      icon: 'Zap',
+      title: 'Spraying Demos',
+      description: 'Live field demos with agri-spraying drones'
+    },
+    {
+      icon: 'Users',
+      title: 'For Farmers & Agri Techs',
+      description: 'Tailored for rural entrepreneurs and professionals'
+    },
+    {
+      icon: 'Award',
+      title: 'Certification',
+      description: 'Recognized agri spraying course certificate'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'July 8, 2025',
+      endDate: 'July 10, 2025',
+      location: 'Hyderabad',
+      seatsLeft: 12,
+      totalSeats: 20
+    }
+  ],
+  instructor: {
+    name: 'Ms. Ritu Sharma',
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Agri Drone Specialist',
+    experience: '8+ Years in Precision Farming',
+    description: 'Ritu is a drone agronomist specializing in spraying operations, crop monitoring analytics, and digital farming practices.',
+    credentials: ['Certified Pesticide UAV Operator', 'Agri Drone Trainer', 'Worked with 50+ Farmer Producer Orgs']
+  },
+  faq: [
+    {
+      question: 'Is prior farming knowledge needed?',
+      answer: 'Not required. The course is designed for beginners as well as experienced agri professionals.'
+    },
+    {
+      question: 'Do we get hands-on flying?',
+      answer: 'Yes, both simulator and real drone operations are included.'
+    }
+  ],
+  highlights: [
+    'Live spraying demonstrations',
+    'Beginner-friendly format',
+    'Rural entrepreneurship focused',
+    'Government-ready skills'
+  ]
+},
+'assembly-advanced': {
+  id: 'assembly-advanced',
+  title: 'Drone Assembly & Repair (Advanced)',
+  subtitle: 'Master advanced repairs, calibration, soldering and maintenance for drone fleets',
+  description: 'This intensive program focuses on advanced drone assembly and maintenance skills including soldering, calibration, firmware configuration, and repair of components like ESCs, motors, and IMUs. Ideal for technicians and engineers maintaining drone fleets.',
+  heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Special Courses',
+  badgeColor: 'bg-red-600',
+  price: '₹45,000',
+  gst: '+ 18% GST',
+  duration: '5 Days',
+  mode: 'Hands-on + Lab Work',
+  certificate: 'Advanced Repair & Maintenance Certificate',
+  language: 'English / Hindi',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Advanced',
+  learningOutcomes: [
+    'Drone electronics and wiring diagnosis',
+    'Motor, ESC, and flight controller setup',
+    'Advanced soldering and connector repairs',
+    'IMU, GPS, and compass calibration',
+    'PID tuning for optimized performance',
+    'Troubleshooting flight instability',
+    'Component-level maintenance practices'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Wrench',
+      title: 'Hands-on Repairs',
+      description: 'Live workshop on drone breakdown and reassembly'
+    },
+    {
+      icon: 'Settings',
+      title: 'Flight Tuning',
+      description: 'PID and firmware tuning for flight performance'
+    },
+    {
+      icon: 'Monitor',
+      title: 'Testing & Tools',
+      description: 'Hands-on with testing tools and lab instruments'
+    },
+    {
+      icon: 'Award',
+      title: 'Certification',
+      description: 'Completion certificate for repair engineers'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'July 15, 2025',
+      endDate: 'July 19, 2025',
+      location: 'Bangalore',
+      seatsLeft: 8,
+      totalSeats: 15
+    }
+  ],
+  instructor: {
+    name: 'Mr. Ashwin Desai',
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'UAV Maintenance Specialist',
+    experience: '10+ Years in Drone Tech',
+    description: 'Ashwin is a UAV technician with a specialization in hardware diagnostics, repair procedures, and tuning for racing and industrial drones.',
+    credentials: ['FPV Technician', 'ESC Firmware Expert', 'Drone Lab Consultant']
+  },
+  faq: [
+    {
+      question: 'Is prior technical knowledge required?',
+      answer: 'Yes, basic understanding of electronics or prior drone experience is recommended.'
+    },
+    {
+      question: 'Will I receive a toolkit?',
+      answer: 'Tools will be provided during the course. You can purchase kits separately post-training.'
+    }
+  ],
+  highlights: [
+    'Advanced-level soldering training',
+    'Firmware + Hardware repair coverage',
+    'Drone technician career focus',
+    'Hands-on lab exercises'
+  ]
+},
+
+'custom-training': {
+  id: 'custom-training',
+  title: 'Custom Training / Workshop for Institutes',
+  subtitle: 'Tailored drone workshops for universities and government agencies',
+  description: 'This flexible program is designed for institutions that want to introduce drones into their curriculum or operations. Training is customized to fit institutional goals, whether technical, academic, or administrative.',
+  heroImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Special Courses',
+  badgeColor: 'bg-orange-500',
+  price: '₹25,000',
+  gst: '+ 18% GST',
+  duration: '3 Days',
+  mode: 'On-site / Campus Workshop',
+  certificate: 'Institutional Workshop Certificate',
+  language: 'English / Hindi / Regional',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Customized',
+  learningOutcomes: [
+    'Designing a drone curriculum for institutes',
+    'On-campus flight training demonstrations',
+    'Hands-on exposure to mapping, inspection, or spraying modules',
+    'Certificate generation and project assessments',
+    'Collaborative project model building for departments'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Building',
+      title: 'Tailored Curriculum',
+      description: 'Based on institutional needs and level of students'
+    },
+    {
+      icon: 'Users',
+      title: 'Group Training',
+      description: 'Multiple departments or batches can be trained at once'
+    },
+    {
+      icon: 'Calendar',
+      title: 'Flexible Schedule',
+      description: 'You decide the dates and structure'
+    },
+    {
+      icon: 'Award',
+      title: 'Workshop Certification',
+      description: 'Custom certificates and badges available'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'August 1, 2025',
+      endDate: 'August 3, 2025',
+      location: 'Hyderabad Campus',
+      seatsLeft: 20,
+      totalSeats: 30
+    }
+  ],
+  instructor: {
+    name: 'Ms. Shruthi Anil',
+    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Educational Drone Consultant',
+    experience: '8+ Years in Institutional Drone Programs',
+    description: 'Shruthi has trained hundreds of college faculty and students across India in curriculum-based drone education.',
+    credentials: ['Academic Workshop Leader', 'STEM Drone Curriculum Expert', 'Women-in-Drone Advocate']
+  },
+  faq: [
+    {
+      question: 'Can this be conducted on our campus?',
+      answer: 'Yes, we offer both on-campus and hybrid formats based on your infrastructure.'
+    },
+    {
+      question: 'Can multiple departments join?',
+      answer: 'Absolutely. We encourage inter-departmental participation for better collaboration.'
+    }
+  ],
+  highlights: [
+    'Institution-focused workshop design',
+    'Certificate & curriculum support',
+    'Hands-on learning with drones',
+    'Custom topics based on college/agency'
+  ]
+},
+'dgca-cinematography-bundle': {
+  id: 'dgca-cinematography-bundle',
+  title: 'DGCA Small + Cinematography',
+  subtitle: 'Complete package combining DGCA certification with aerial cinematography',
+  description: 'Master the fundamentals of drone operation under DGCA rules while also developing creative aerial cinematography techniques. Ideal for aspiring drone filmmakers, content creators, and certified professionals.',
+  heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Bundles',
+  badgeColor: 'bg-purple-600',
+  price: '₹85,000',
+  gst: '+ 18% GST',
+  duration: '8 Days',
+  mode: 'Classroom + Field Flight',
+  certificate: 'DGCA + Aerial Cinematography Certificate',
+  language: 'English / Hindi',
+  locations: ['Mumbai', 'Bangalore', 'Hyderabad'],
+  level: 'Beginner to Advanced',
+  learningOutcomes: [
+    'Basic & advanced drone flying skills',
+    'DGCA drone pilot training (Small category)',
+    'Camera operation & gimbal control',
+    'Creative framing and motion techniques',
+    'Shot planning for video storytelling',
+    'Safety & regulation practices',
+    'Post-production editing basics'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Camera',
+      title: 'Creative Drone Skills',
+      description: 'Learn gimbal control, cinematic angles, and drone photography'
+    },
+    {
+      icon: 'Plane',
+      title: 'DGCA Certification',
+      description: 'Government-approved small category license training'
+    },
+    {
+      icon: 'Monitor',
+      title: 'On-Field Shoots',
+      description: 'Real-world camera-based flight exercises'
+    },
+    {
+      icon: 'Award',
+      title: 'Portfolio Project',
+      description: 'Complete a creative film or reel for your showreel'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'September 12, 2025',
+      endDate: 'September 20, 2025',
+      location: 'Bangalore',
+      seatsLeft: 5,
+      totalSeats: 12
+    }
+  ],
+  instructor: {
+    name: 'Mr. Rohit V.',
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Drone Pilot & Cinematography Coach',
+    experience: '10+ Years in Film & UAV Production',
+    description: 'Rohit has shot ad films, documentaries, and cinematic reels using drones for clients in India and abroad.',
+    credentials: ['Certified DGCA Pilot', 'Cinematography Trainer', 'Commercial Drone Operator']
+  },
+  faq: [
+    {
+      question: 'Do I need prior flying experience?',
+      answer: 'No, this course is designed for beginners as well as creatives new to drones.'
+    },
+    {
+      question: 'Will I get a DGCA certificate?',
+      answer: 'Yes, after clearing the practical and theory sessions, you will receive the DGCA Small Category certificate.'
+    }
+  ],
+  highlights: [
+    'Dual learning: regulation + creativity',
+    'On-field cinematic flight training',
+    'Licensed & creative career boost',
+    'Edit-ready project output'
+  ]
+}
+
+
+
 };
