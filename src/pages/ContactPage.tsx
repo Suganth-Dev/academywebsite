@@ -375,23 +375,24 @@ const handleCheckboxChange = (course: string) => {
           </div>
 
           {/* Embedded Map */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Find Our Hyderabad Campus
-            </h3>
-            <div className="relative h-96 rounded-xl overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.6!2d78.3!3d17.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI0JzAwLjAiTiA3OMKwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="India Drone Academy Hyderabad Location"
-              ></iframe>
-            </div>
-          </div>
+<div className="bg-white rounded-2xl p-8 shadow-lg">
+  <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+    Find Our Hyderabad Campus
+  </h3>
+  <div className="relative h-96 rounded-xl overflow-hidden">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.893470680235!2d78.38136607377082!3d17.416899301957038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb956e0635a7fb%3A0x730c0d9fd9fa88d1!2sIndia%20Drone%20Academy!5e0!3m2!1sen!2sin!4v1750334582121!5m2!1sen!2sin"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      title="India Drone Academy Hyderabad Location"
+    ></iframe>
+  </div>
+</div>
+
         </div>
       </section>
 
