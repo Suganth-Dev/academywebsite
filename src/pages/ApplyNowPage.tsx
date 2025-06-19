@@ -21,7 +21,6 @@ import {
   ChevronUp,
   HelpCircle
 } from 'lucide-react';
-//added form data
 interface FormData {
   fullName: string;
   phone: string;
