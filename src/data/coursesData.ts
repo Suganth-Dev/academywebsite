@@ -547,6 +547,100 @@ export const coursesData: Record<string, CourseData> = {
       'Industry certification'
     ]
   },
+  'master-drone-tech': {
+  id: 'master-drone-tech',
+  title: 'Master Drone Technology (Training + Internship)',
+  subtitle: '12-Week Advanced Training & Internship in Drone Applications',
+  description: 'A comprehensive program combining advanced drone pilot training with real-world internship exposure in drone data processing, GIS applications, and engineering solutions. Designed for individuals seeking deep industry knowledge and hands-on experience.',
+  heroImage: 'https://images.pexels.com/photos/163230/drone-camera-gopro-quadrocopter-163230.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Professional',
+  badgeColor: 'bg-blue-600',
+  price: '₹95,000',
+  gst: '+ 18% GST',
+  duration: '12 Weeks',
+  mode: 'Classroom + Field + Internship',
+  certificate: 'Advanced Drone Technology & Internship',
+  language: 'English / Hindi',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Advanced',
+  learningOutcomes: [
+    'Hands-on DGCA drone pilot training',
+    'End-to-end drone operations',
+    'Photogrammetry and LiDAR data handling',
+    'GIS mapping and spatial analysis',
+    'CAD-based planning and modeling',
+    'Real-time internship on live projects',
+    'Data processing with industry software',
+    'Drone applications in agriculture, mining, and infra'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Award',
+      title: 'DGCA Pilot License',
+      description: 'Certified pilot training aligned with DGCA guidelines'
+    },
+    {
+      icon: 'Monitor',
+      title: 'GIS & Photogrammetry',
+      description: 'In-depth GIS applications using drone-generated data'
+    },
+    {
+      icon: 'Briefcase',
+      title: 'Internship Included',
+      description: 'Work on live client projects during your internship'
+    },
+    {
+      icon: 'Globe',
+      title: 'Multi-Industry Exposure',
+      description: 'Applications in agriculture, engineering, and mining'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'July 15, 2025',
+      endDate: 'October 7, 2025',
+      location: 'Hyderabad',
+      seatsLeft: 8,
+      totalSeats: 15
+    },
+    {
+      startDate: 'August 5, 2025',
+      endDate: 'October 28, 2025',
+      location: 'Bangalore',
+      seatsLeft: 10,
+      totalSeats: 15
+    }
+  ],
+  instructor: {
+    name: 'Ms. Rhea Mehta',
+    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Senior UAV & GIS Specialist',
+    experience: '9+ Years in Drone Engineering & GIS Analysis',
+    description: 'Renowned instructor in drone data systems, GIS platforms, and enterprise drone solutions across civil and industrial domains.',
+    credentials: ['DGCA Certified Trainer', 'GIS Analyst', 'LiDAR Specialist', 'Drone Software Consultant']
+  },
+  faq: [
+    {
+      question: 'Is the DGCA license part of the course?',
+      answer: 'Yes, this course includes DGCA-compliant drone pilot training and certification.'
+    },
+    {
+      question: 'What kind of internship will I do?',
+      answer: 'You will work on real-world projects involving surveying, GIS mapping, volumetrics, and reporting under industry experts.'
+    },
+    {
+      question: 'Is placement assistance provided?',
+      answer: 'Yes, participants will be connected to industry partners and startups through our placement support cell.'
+    }
+  ],
+  highlights: [
+    'Complete training + internship combo',
+    'Government-aligned DGCA certification',
+    'Real project experience with top companies',
+    'Career-ready GIS and drone data skills'
+  ]
+}
+,
   'agriculture-spraying': {
     id: 'agriculture-spraying',
     title: 'Agriculture Spraying & Precision Farming',
@@ -629,7 +723,364 @@ export const coursesData: Record<string, CourseData> = {
       'Farmer network connections'
     ]
   },
-  'aerial-cinematography': {
+  'advanced-missions': {
+  id: 'advanced-missions',
+  title: 'Advanced Drone Missions & Payload Handling',
+  subtitle: 'Train on Thermal, LiDAR, Oblique Flights & Payload Drop Missions',
+  description: 'This advanced training program is designed for drone professionals seeking to master dynamic missions involving payload operations, thermal imaging, oblique capture, and LiDAR scanning. Gain hands-on experience with advanced flight patterns and mission planning for industrial and emergency use-cases.',
+  heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Industrial',
+  badgeColor: 'bg-blue-700',
+  price: '₹30,000',
+  gst: '+ 18% GST',
+  duration: '4 Days',
+  mode: 'Field + Simulation Training',
+  certificate: 'Payload Mission Specialist',
+  language: 'English / Hindi',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Advanced',
+  learningOutcomes: [
+    'Payload mounting and drop missions',
+    'Thermal and LiDAR sensor usage',
+    'Oblique and orbit flight planning',
+    'Emergency deployment scenarios',
+    'Industrial inspection techniques',
+    'Real-time mission execution',
+    'Advanced mission software use',
+    'Payload integration and testing'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Zap',
+      title: 'Dynamic Missions',
+      description: 'Orbit, oblique, and complex mission handling'
+    },
+    {
+      icon: 'Camera',
+      title: 'Thermal Imaging',
+      description: 'Operate and interpret thermal data'
+    },
+    {
+      icon: 'Wrench',
+      title: 'Payload Mounting',
+      description: 'Hands-on payload configuration training'
+    },
+    {
+      icon: 'MapPin',
+      title: 'Mission Planning',
+      description: 'Train on defense and industrial missions'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'August 20, 2025',
+      endDate: 'August 23, 2025',
+      location: 'Hyderabad',
+      seatsLeft: 5,
+      totalSeats: 10
+    },
+    {
+      startDate: 'September 10, 2025',
+      endDate: 'September 13, 2025',
+      location: 'Bangalore',
+      seatsLeft: 7,
+      totalSeats: 10
+    }
+  ],
+  instructor: {
+    name: 'Mr. Arvind Rao',
+    image: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Payload & Mission Specialist',
+    experience: '10+ Years in UAV Payload Engineering',
+    description: 'Expert in designing and executing mission-critical drone operations across defense, emergency response, and energy sectors.',
+    credentials: ['Payload Systems Engineer', 'Certified UAV Trainer', 'Thermal & LiDAR Specialist', 'Emergency Response Advisor']
+  },
+  faq: [
+    {
+      question: 'What are the prerequisites for this course?',
+      answer: 'Participants should have basic drone piloting skills and prior training or certification is recommended.'
+    },
+    {
+      question: 'Can I bring my own drone and payload?',
+      answer: 'Yes, participants can bring compatible drones for training after verification by our team.'
+    }
+  ],
+  highlights: [
+    'Live mission execution',
+    'Thermal and LiDAR training',
+    'Defense and rescue use-case focus',
+    'Payload specialist certification'
+  ]
+},
+'gis-analytics': {
+  id: 'gis-analytics',
+  title: 'Engineering GIS Analytics using Drone Data',
+  subtitle: 'Post-process Drone Data for Engineering Projects & GIS Applications',
+  description: 'Master drone data interpretation and processing for infrastructure planning, CAD integration, GIS modeling, and cross-section analysis. Ideal for engineers, surveyors, and GIS professionals.',
+  heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Engineering',
+  badgeColor: 'bg-green-600',
+  price: '₹30,000',
+  gst: '+ 18% GST',
+  duration: '5 Days',
+  mode: 'Software + Field Training',
+  certificate: 'Engineering GIS Specialist',
+  language: 'English / Hindi',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Intermediate to Advanced',
+  learningOutcomes: [
+    'Post-process drone data for civil engineering tasks',
+    'Generate TIN, contour maps, and cross-sections',
+    'Integrate drone data with CAD & GIS tools',
+    'Plan alignments for roads, canals, and infrastructure',
+    'Handle terrain modeling and volume analysis',
+    'Understand spatial referencing and accuracy',
+    'Use QGIS, Global Mapper, AutoCAD Civil 3D',
+    'Prepare data for DPR and engineering reports'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Monitor',
+      title: 'CAD + GIS Modeling',
+      description: 'Learn to process drone data into CAD-ready GIS layers'
+    },
+    {
+      icon: 'Target',
+      title: 'Cross-Section Analysis',
+      description: 'Generate cross-sections and profiles from terrain data'
+    },
+    {
+      icon: 'Users',
+      title: 'Industry Tools',
+      description: 'Training with QGIS, Global Mapper, and AutoCAD Civil 3D'
+    },
+    {
+      icon: 'Briefcase',
+      title: 'Project Ready',
+      description: 'Skills aligned with engineering DPR documentation'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'August 5, 2025',
+      endDate: 'August 9, 2025',
+      location: 'Hyderabad',
+      seatsLeft: 7,
+      totalSeats: 15
+    },
+    {
+      startDate: 'September 2, 2025',
+      endDate: 'September 6, 2025',
+      location: 'Bangalore',
+      seatsLeft: 10,
+      totalSeats: 15
+    }
+  ],
+  instructor: {
+    name: 'Er. Anil Deshmukh',
+    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'GIS & Civil Engineering Expert',
+    experience: '11+ Years in GIS & Infrastructure Design',
+    description: 'Anil specializes in integrating drone data into engineering workflows for smart planning and precision infrastructure mapping.',
+    credentials: ['Civil Engineer', 'GIS Consultant', 'Drone Mapping Specialist', 'QGIS & CAD Trainer']
+  },
+  faq: [
+    {
+      question: 'Do I need to know AutoCAD before joining?',
+      answer: 'Basic CAD knowledge is helpful but not mandatory. The course includes guided tutorials for beginners.'
+    },
+    {
+      question: 'Is this useful for road and irrigation DPRs?',
+      answer: 'Yes, the course covers alignment modeling, terrain extraction, and data preparation for DPR workflows.'
+    }
+  ],
+  highlights: [
+    'Engineering-grade drone data usage',
+    'QGIS + CAD integration',
+    'Terrain & alignment modeling',
+    'Project-based certification'
+  ]
+},
+'ultimate-pro': {
+  id: 'ultimate-pro',
+  title: 'Ultimate Pro Bundle',
+  subtitle: 'DGCA Medium + Cinematography + Mapping in One Career-Focused Package',
+  description: 'This 10-day intensive bundle combines DGCA medium category training with advanced cinematography and professional mapping skills. Ideal for those seeking a career in drone filmmaking, surveying, or commercial UAV services.',
+  heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Ultimate Package',
+  badgeColor: 'bg-gradient-to-r from-[#F15A24] to-[#26A65B]',
+  price: '₹115,000',
+  gst: '+ 18% GST',
+  duration: '10 Days',
+  mode: 'Intensive Field + Classroom',
+  certificate: 'Triple Certification (DGCA Medium, Cinematography, Mapping)',
+  language: 'English / Hindi / Telugu',
+  locations: ['Hyderabad', 'Bangalore', 'Mumbai'],
+  level: 'Comprehensive',
+  learningOutcomes: [
+    'DGCA medium category drone certification',
+    'Professional cinematography and aerial filming techniques',
+    'Drone-based mapping and surveying skills',
+    'End-to-end mission planning and execution',
+    'Payload handling and data capture',
+    'Cinematic camera control with drones',
+    'Data post-processing using GIS tools',
+    'Client project and portfolio preparation'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Award',
+      title: 'Triple Certification',
+      description: 'Get certified in DGCA Medium, Cinematography & Mapping'
+    },
+    {
+      icon: 'Camera',
+      title: 'Aerial Cinematography',
+      description: 'Capture professional-grade videos with drone cameras'
+    },
+    {
+      icon: 'Target',
+      title: 'Mapping & Surveying',
+      description: 'Training on photogrammetry, TIN, and terrain modeling'
+    },
+    {
+      icon: 'Briefcase',
+      title: 'Career Ready',
+      description: 'Designed for drone professionals and entrepreneurs'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'August 1, 2025',
+      endDate: 'August 10, 2025',
+      location: 'Hyderabad',
+      seatsLeft: 6,
+      totalSeats: 15
+    },
+    {
+      startDate: 'September 5, 2025',
+      endDate: 'September 14, 2025',
+      location: 'Bangalore',
+      seatsLeft: 8,
+      totalSeats: 15
+    }
+  ],
+  instructor: {
+    name: 'Ms. Rhea Mehta',
+    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Lead Drone Technology Instructor',
+    experience: '9+ Years in UAV Training & Production',
+    description: 'Rhea is a multi-domain drone expert with extensive experience in DGCA certification, aerial filming, and GIS mapping. She has mentored 500+ students in both technical and creative aspects of drone operations.',
+    credentials: ['DGCA Certified Instructor', 'Drone Cinematographer', 'GIS Trainer', 'UAV Program Director']
+  },
+  faq: [
+    {
+      question: 'Is DGCA license included?',
+      answer: 'Yes, DGCA Medium Category license training and certification is included in the bundle.'
+    },
+    {
+      question: 'Is prior drone experience required?',
+      answer: 'No, this course is suitable for motivated beginners and intermediate learners seeking a professional edge.'
+    }
+  ],
+  highlights: [
+    'Best all-in-one training package',
+    'Cinematography + Mapping + DGCA Certified',
+    'Strong career foundation',
+    'Hands-on learning and real projects'
+  ]
+},
+'dgca-mapping-bundle': {
+  id: 'dgca-mapping-bundle',
+  title: 'DGCA Medium + 3D Mapping',
+  subtitle: 'Medium Category DGCA Certification with 3D Mapping Specialization',
+  description: 'This bundle equips you with DGCA-certified medium drone operations training and advanced 3D mapping skills for professional surveying and infrastructure analysis. Perfect for aspiring drone surveyors and GIS technicians.',
+  heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Professional Bundle',
+  badgeColor: 'bg-blue-600',
+  price: '₹90,000',
+  gst: '+ 18% GST',
+  duration: '8 Days',
+  mode: 'Field + Software Training',
+  certificate: 'DGCA Medium + 3D Mapping Certification',
+  language: 'English / Hindi / Telugu',
+  locations: ['Hyderabad', 'Bangalore', 'Mumbai'],
+  level: 'Intermediate to Advanced',
+  learningOutcomes: [
+    'DGCA Medium Category License training',
+    'Drone-based terrain mapping and data acquisition',
+    '3D model creation (Point Cloud, Mesh)',
+    'Flight planning for large-scale surveys',
+    'Photogrammetry software skills (Pix4D, Agisoft)',
+    'Contours, TIN, and volume calculations',
+    'CAD & GIS data export workflows',
+    'Real-world project handling for infra & land records'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Target',
+      title: '3D Mapping',
+      description: 'Create high-resolution 3D terrain models and maps'
+    },
+    {
+      icon: 'Award',
+      title: 'DGCA Medium License',
+      description: 'Operate medium category drones for commercial use'
+    },
+    {
+      icon: 'Monitor',
+      title: 'Professional Tools',
+      description: 'Use leading software like Pix4D, Agisoft, and QGIS'
+    },
+    {
+      icon: 'Briefcase',
+      title: 'Industry Applications',
+      description: 'Real-world workflows for land, road, and irrigation projects'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'August 12, 2025',
+      endDate: 'August 19, 2025',
+      location: 'Hyderabad',
+      seatsLeft: 6,
+      totalSeats: 15
+    },
+    {
+      startDate: 'September 9, 2025',
+      endDate: 'September 16, 2025',
+      location: 'Bangalore',
+      seatsLeft: 9,
+      totalSeats: 15
+    }
+  ],
+  instructor: {
+    name: 'Mr. Sandeep Varma',
+    image: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'Lead Drone Survey Trainer',
+    experience: '10+ Years in Surveying & DGCA Training',
+    description: 'Specialist in drone-based land surveying, photogrammetry, and regulatory training with experience in public and private sector projects.',
+    credentials: ['DGCA Certified Instructor', 'Survey Engineer', 'Photogrammetry Expert', 'Mapping Project Consultant']
+  },
+  faq: [
+    {
+      question: 'Can I take this course without prior experience?',
+      answer: 'Yes. This course starts from DGCA Medium basics and progresses to advanced mapping, ideal for professionals and freshers.'
+    },
+    {
+      question: 'Will I get two certificates?',
+      answer: 'Yes. One for DGCA Medium Category training and one for 3D Mapping specialization.'
+    }
+  ],
+  highlights: [
+    '8-day dual-skill bundle',
+    'Survey-grade 3D mapping techniques',
+    'DGCA license included',
+    'Industry-ready certification'
+  ]
+},
+
+'aerial-cinematography': {
     id: 'aerial-cinematography',
     title: 'Aerial Cinematography',
     subtitle: 'Professional Drone Filming and Photography',
