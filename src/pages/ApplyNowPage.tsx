@@ -21,9 +21,28 @@ import {
   ChevronUp,
   HelpCircle
 } from 'lucide-react';
+interface FormData {
+  fullName: string;
+  phone: string;
+  email: string;
+  course: string;
+  location: string;
+  batchDate: string;
+  message: string;
+  category: string;
+  preferredCourses: string[];
+  city: string;
+  state: string;
+  pinCode: string;
+  isEmployed: string;
+  careerPurpose: string;
+  heardFrom: string;
+  groupDetails: string;
+  discountCode: string;
+}
 
 const ApplyNowPage: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     fullName: '', phone: '', email: '', course: '', location: '', batchDate: '', message: '',
     category: '', preferredCourses: [], city: '', state: '', pinCode: '',
     isEmployed: '', careerPurpose: '', heardFrom: '', groupDetails: '', discountCode: ''
@@ -124,62 +143,73 @@ const handleCheckboxChange = (courseLabel: string) => {
   });
 };
 
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
+ const validateForm = (): boolean => {
+  const newErrors: Partial<typeof formData> = {};
 
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required';
+  if (!formData.fullName.trim()) newErrors.fullName = "Full name is required.";
+  if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
+  if (!formData.email.trim()) newErrors.email = "Email address is required.";
+  if (!formData.course.trim()) newErrors.course = "Please select a preferred course.";
+  if (!formData.location.trim()) newErrors.location = "Location is required.";
+  if (!formData.category.trim()) newErrors.category = "Please select a category.";
+  if (formData.preferredCourses.length === 0) newErrors.preferredCourses = "Select at least one course.";
+  if (!formData.city.trim()) newErrors.city = "City is required.";
+  if (!formData.state.trim()) newErrors.state = "State is required.";
+  if (!formData.pinCode.trim()) newErrors.pinCode = "PIN Code is required.";
+  if (!formData.isEmployed.trim()) newErrors.isEmployed = "Please select employment status.";
+  if (!formData.careerPurpose.trim()) newErrors.careerPurpose = "Please select a career purpose.";
+  if (!formData.heardFrom.trim()) newErrors.heardFrom = "Please tell us how you heard about us.";
+
+  console.log("🛑 Validation Errors:", newErrors);
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault(); // Prevent default page reload
+
+  console.log("✅ Apply Now clicked");
+
+  const isValid = validateForm(); // Optional: if you have validation
+  if (!isValid) {
+    console.log("❌ Validation failed");
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch("https://ipivcp0xd5.execute-api.ap-south-1.amazonaws.com/PostApplyform", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    console.log("📡 Status Code:", response.status);
+
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(`❌ API Error: ${text}`);
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    } else if (!/^\+?[\d\s-()]{10,}$/.test(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number';
-    }
+    const result = await response.json();
+    console.log("✅ Success:", result);
+    setIsSubmitted(true);
+  } catch (error) {
+    console.error("❌ Submission error:", error);
+    alert("Something went wrong! Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
 
-    if (!formData.course) {
-      newErrors.course = 'Please select a course';
-    }
 
-    if (!formData.location) {
-      newErrors.location = 'Please select a preferred location';
-    }
 
-    if (!formData.batchDate) {
-      newErrors.batchDate = 'Please select a preferred batch date';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-    
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      console.log('Application submitted:', formData);
-      setIsSubmitted(true);
-    } catch (error) {
-      console.error('Submission error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
