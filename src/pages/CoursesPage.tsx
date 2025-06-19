@@ -357,8 +357,7 @@ const CoursesPage: React.FC = () => {
   features: ['Orbit & Oblique', 'Payload Drop', 'Thermal Imaging', 'Sensor Setup'],
   locations: ['Hyderabad', 'Bangalore']
 },
-
-    {
+{
   id: 21,
   title: 'Engineering GIS Analytics using Drone Data',
   category: 'Special Courses',
