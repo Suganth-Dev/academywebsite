@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { S3Client, PutObjectCommand, ObjectCannedACL } from "@aws-sdk/client-s3"
 import { 
   Play, 
   Star, 
@@ -30,20 +31,68 @@ import {
   Zap,
   X
 } from 'lucide-react';
+const dataURLtoFile = (dataUrl: string, filename: string): File => {
+  const arr = dataUrl.split(',');
+  const mimeMatch = arr[0].match(/:(.*?);/); // Match mime type
+
+  // Check if mimeMatch is null
+  if (!mimeMatch) {
+    throw new Error("Invalid data URL format");
+  }
+
+  const mime = mimeMatch[1]; // Now safely access mime type
+  const bstr = atob(arr[1]); // Decode the base64 string
+  let n = bstr.length;
+  const u8arr = new Uint8Array(n);
+
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n); // Create byte array from base64
+  }
+
+  return new File([u8arr], filename, { type: mime }); // Return the File object
+};
+
 
 const SuccessStoriesPage: React.FC = () => {
   const [currentVideoSlide, setCurrentVideoSlide] = useState(0);
   const [activeFilter, setActiveFilter] = useState('All');
-  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
+  const [showSubmissionForm, setShowSubmissionForm] = useState(true);
   const [visibleStories, setVisibleStories] = useState(9);
   const [currentSpotlight, setCurrentSpotlight] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     course: '',
-    testimonial: ''
+    testimonial: '',
+     image: ''
   });
+//s3
+ const s3Client = new S3Client({
+    region: 'ap-south-1',  // Replace with your AWS region
+    credentials: {
+      accessKeyId: 'AKIA2O2AW5KK227BRTXT',   // Add your AWS Access Key
+      secretAccessKey: 'Cq+Ykk44cWBIRzZl3UYNfH9Em2Vz+gqIuTV3AJAC', // Add your AWS Secret Key
+    },
+      logger: console
+  });
+const uploadImageToS3 = async (file: File) => {
+  try {
+    const params = {
+      Bucket: 'reviewsbucket',
+      Key: `uploaded-images/${file.name}`,
+      Body: file,  // File (or Blob) as Body
+      ContentType: file.type,  // The MIME type of the file
+      ACL: ObjectCannedACL.public_read,
+    };
+    
+    const command = new PutObjectCommand(params);
+    await s3Client.send(command);
 
+    console.log('File uploaded successfully!');
+  } catch (error) {
+    console.error('Error uploading file to S3:', error);
+  }
+};
   // Auto-rotate spotlight stories
   useEffect(() => {
     const interval = setInterval(() => {
@@ -324,23 +373,80 @@ const SuccessStoriesPage: React.FC = () => {
     setCurrentVideoSlide((prev) => (prev - 1 + videoTestimonials.length) % videoTestimonials.length);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Story submission:', formData);
-    setShowSubmissionForm(false);
-    setFormData({ name: '', email: '', course: '', testimonial: '' });
-  };
+const handleFormSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  // Check if the image is selected
+  if (!formData.image) {
+    alert("Please upload an image.");
+    return;
+  }
+
+  // Convert base64 image to File object
+  const imageFile = dataURLtoFile(formData.image, 'uploaded-image.jpg'); // Example filename
+
+  // Upload the image to S3 and get the URL
+  try {
+    const imageUrl = await uploadImageToS3(imageFile); // Upload image and get URL
+
+    // Prepare the data to send to the Lambda function via API Gateway
+    const reviewData = {
+      name: formData.name,
+      email: formData.email,
+      course: formData.course,
+      testimonial: formData.testimonial,
+      image: imageUrl, // The S3 URL of the uploaded image
+    };
+
+    // Send the review data to the API Gateway
+    const response = await fetch('https://5inb8fpkae.execute-api.ap-south-1.amazonaws.com/Postreview', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(reviewData),
+    });
+
+    const result = await response.json();
+    
+    if (response.ok) {
+      alert('Your review has been submitted successfully!');
+      setShowSubmissionForm(false); // Optionally, hide the form
+    } else {
+      alert('Error submitting the review. Please try again later.');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    alert('There was an issue with the submission. Please try again later.');
+  }
+};
+
+
+
 
   const loadMoreStories = () => {
     setVisibleStories(prev => prev + 6);
   };
+const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]; // Get the first file
+    if (file) {
+      const reader = new FileReader(); // FileReader to read the file
+      reader.onloadend = () => {
+        setFormData((prevState) => ({
+          ...prevState,
+          image: reader.result as string, // Store image as base64
+        }));
+      };
+      reader.readAsDataURL(file); // Read the file as base64 string
+    }
+  };
+
+  // Upload image to S3 directly
 
   return (
     <div className="min-h-screen bg-white">
@@ -957,16 +1063,34 @@ const SuccessStoriesPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Upload Your Photo
-                  </label>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#F15A24] transition-colors duration-200 cursor-pointer">
-                    <ImageIcon className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                    <p className="text-gray-600 mb-1">Click to upload or drag and drop</p>
-                    <p className="text-gray-500 text-sm">PNG, JPG up to 5MB</p>
-                  </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Upload Your Photo *</label>
+              <div
+                className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#F15A24] transition-colors duration-200 cursor-pointer"
+                onClick={() => document.getElementById("image-upload")?.click()} // Trigger file input on div click
+              >
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="image-upload"
+                  onChange={handleImageUpload}
+                  className="sr-only"
+                />
+                <p className="text-gray-600 mb-1">Click to upload or drag and drop</p>
+                <p className="text-gray-500 text-sm">PNG, JPG up to 5MB</p>
+              </div>
+              {formData.image && ( // Display uploaded image preview
+                <div className="mt-4">
+                  <img
+                    src={formData.image}
+                    alt="Uploaded Preview"
+                    className="w-32 h-32 object-cover rounded-md"
+                  />
                 </div>
+              )}
+            </div>
+
+
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
@@ -1022,3 +1146,4 @@ const SuccessStoriesPage: React.FC = () => {
 };
 
 export default SuccessStoriesPage;
+
