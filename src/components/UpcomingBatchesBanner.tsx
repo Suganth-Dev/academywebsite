@@ -16,7 +16,7 @@ const UpcomingBatchesBanner: React.FC = () => {
     },
     {
       course: 'Agriculture Training',
-      startDate: 'Every Monday',
+      startDate: 'Every Wednesday',
       location: 'Hyderabad',
       seatsLeft: 12,
       totalSeats: 15,
@@ -24,7 +24,7 @@ const UpcomingBatchesBanner: React.FC = () => {
     },
     {
       course: 'Women Program',
-      startDate: 'Every Monday',
+      startDate: 'Every Friday',
       location: 'Hyderabad',
       seatsLeft: 5,
       totalSeats: 15,

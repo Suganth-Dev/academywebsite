@@ -221,44 +221,61 @@ const [formData, setFormData] = useState<FormData>({
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate API cal
-    await new Promise(resolve => setTimeout(resolve, 2000));
+  try {
+    const response = await fetch("https://wga2b0zo70.execute-api.ap-south-1.amazonaws.com/postcollaborate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
 
-    console.log('Collaboration request submitted:', formData);
-    setIsSubmitted(true);
+    const result = await response.json();
+
+    if (response.ok) {
+      setIsSubmitted(true);
+      console.log("Submission successful:", result);
+    } else {
+      console.error("Submission failed:", result.error);
+      alert("Failed to submit: " + result.error);
+    }
+  } catch (error) {
+    console.error("Network error:", error);
+    alert("Something went wrong. Please try again later.");
+  } finally {
     setIsSubmitting(false);
+  }
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        institutionName: '',
-        contactPerson: '',
-        designation: '',
-        email: '',
-        phone: '',
-        city: '',
-        collaborationType: '',
-        message: '',
-        studentCount: '',
-        criteria: {
-          mou: '',
-          infrastructure: '',
-          transport: '',
-          studentBase: '',
-          mbaSupport: '',
-          promotion: '',
-          techInterest: '',
-          pastExposure: ''
-        }
-      });
+  // Optional reset after 3s
+  setTimeout(() => {
+    setIsSubmitted(false);
+    setFormData({
+      institutionName: '',
+      contactPerson: '',
+      designation: '',
+      email: '',
+      phone: '',
+      city: '',
+      collaborationType: '',
+      message: '',
+      studentCount: '',
+      criteria: {
+        mou: '',
+        infrastructure: '',
+        transport: '',
+        studentBase: '',
+        mbaSupport: '',
+        promotion: '',
+        techInterest: '',
+        pastExposure: ''
+      }
+    });
+  }, 3000);
+};
 
-
-    }, 3000);
-  };
   const handleRadioChange = (key: string, value: 'Yes' | 'No') => {
     setFormData(prev => ({
       ...prev,
