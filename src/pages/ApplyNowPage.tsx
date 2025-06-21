@@ -108,7 +108,7 @@ const allCourses = courses.map(c => c.label);
     },
     {
       question: 'What happens after I submit this application?',
-      answer: 'Our counselor will contact you within 24 hours to discuss your course selection, answer questions, and guide you through the enrollment process.'
+      answer: 'Our counselor will contact you soon to discuss your course selection, answer questions, and guide you through the enrollment process.'
     },
     {
       question: 'Can I pay the course fee in installments?',
@@ -199,6 +199,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const result = await response.json();
     console.log("✅ Success:", result);
     setIsSubmitted(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
   } catch (error) {
     console.error("❌ Submission error:", error);
     alert("Something went wrong! Please try again.");
@@ -216,73 +217,24 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
 
   if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-white">
-        <div className="h-20"></div>
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50 px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="w-20 h-20 bg-[#26A65B] rounded-full flex items-center justify-center mx-auto mb-8">
-              <CheckCircle className="w-12 h-12 text-white" />
-            </div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              Application Received Successfully!
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              Thank you for applying to India Drone Academy. Our counselor will contact you within 24 hours to discuss your course selection and next steps.
-            </p>
-            
-            <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">What Happens Next?</h3>
-              <div className="space-y-4 text-left">
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-[#F15A24] rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-white font-bold text-sm">1</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Counselor Call (Within 24 hours)</h4>
-                    <p className="text-gray-600">Our expert will call to understand your goals and recommend the best course.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-[#F15A24] rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-white font-bold text-sm">2</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Course Confirmation</h4>
-                    <p className="text-gray-600">Finalize your course, batch, and payment details.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-[#F15A24] rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-white font-bold text-sm">3</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Pre-Training Materials</h4>
-                    <p className="text-gray-600">Receive course materials and preparation guidelines.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/"
-                className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200"
-              >
-                Back to Home
-              </a>
-              <a
-                href="/courses"
-                className="bg-gray-200 text-gray-700 font-bold px-8 py-4 rounded-lg hover:bg-gray-300 transition-all duration-200"
-              >
-                View All Courses
-              </a>
-            </div>
-          </div>
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center bg-white px-4">
+      <div className="text-center">
+        <div className="w-16 h-16 bg-[#26A65B] rounded-full flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="w-10 h-10 text-white" />
         </div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          Application Received Successfully!
+        </h1>
+        <p className="text-base sm:text-lg text-gray-600">
+          Thank you for applying to India Drone Academy. Our counselor will contact you soon to discuss your course selection and next steps.
+        </p>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
 
   return (
     <div className="min-h-screen bg-white">
