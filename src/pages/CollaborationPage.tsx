@@ -41,50 +41,50 @@ import {
 } from 'lucide-react';
 
 const CollaborationPage: React.FC = () => {
- type CriteriaKeys =
-  | 'mou'
-  | 'infrastructure'
-  | 'transport'
-  | 'studentBase'
-  | 'mbaSupport'
-  | 'promotion'
-  | 'techInterest'
-  | 'pastExposure';
+  type CriteriaKeys =
+    | 'mou'
+    | 'infrastructure'
+    | 'transport'
+    | 'studentBase'
+    | 'mbaSupport'
+    | 'promotion'
+    | 'techInterest'
+    | 'pastExposure';
 
-type FormData = {
-  institutionName: string;
-  contactPerson: string;
-  designation: string;
-  email: string;
-  phone: string;
-  city: string;
-  collaborationType: string;
-  message: string;
-  studentCount: string;
-  criteria: Record<CriteriaKeys, string>; // ensures valid keys
-};
+  type FormData = {
+    institutionName: string;
+    contactPerson: string;
+    designation: string;
+    email: string;
+    phone: string;
+    city: string;
+    collaborationType: string;
+    message: string;
+    studentCount: string;
+    criteria: Record<CriteriaKeys, string>; // ensures valid keys
+  };
 
-const [formData, setFormData] = useState<FormData>({
-  institutionName: '',
-  contactPerson: '',
-  designation: '',
-  email: '',
-  phone: '',
-  city: '',
-  collaborationType: '',
-  message: '',
-  studentCount: '',
-  criteria: {
-    mou: '',
-    infrastructure: '',
-    transport: '',
-    studentBase: '',
-    mbaSupport: '',
-    promotion: '',
-    techInterest: '',
-    pastExposure: ''
-  }
-});
+  const [formData, setFormData] = useState<FormData>({
+    institutionName: '',
+    contactPerson: '',
+    designation: '',
+    email: '',
+    phone: '',
+    city: '',
+    collaborationType: '',
+    message: '',
+    studentCount: '',
+    criteria: {
+      mou: '',
+      infrastructure: '',
+      transport: '',
+      studentBase: '',
+      mbaSupport: '',
+      promotion: '',
+      techInterest: '',
+      pastExposure: ''
+    }
+  });
 
 
 
@@ -219,62 +219,45 @@ const [formData, setFormData] = useState<FormData>({
       [e.target.name]: e.target.value
     });
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  try {
-    const response = await fetch("https://wga2b0zo70.execute-api.ap-south-1.amazonaws.com/postcollaborate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
-    });
+    try {
+      const response = await fetch("https://wga2b0zo70.execute-api.ap-south-1.amazonaws.com/postcollaborate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (response.ok) {
-      setIsSubmitted(true);
-      console.log("Submission successful:", result);
-    } else {
-      console.error("Submission failed:", result.error);
-      alert("Failed to submit: " + result.error);
-    }
-  } catch (error) {
-    console.error("Network error:", error);
-    alert("Something went wrong. Please try again later.");
-  } finally {
-    setIsSubmitting(false);
-  }
+      if (response.ok) {
+        setIsSubmitted(true);
 
-  // Optional reset after 3s
-  setTimeout(() => {
-    setIsSubmitted(false);
-    setFormData({
-      institutionName: '',
-      contactPerson: '',
-      designation: '',
-      email: '',
-      phone: '',
-      city: '',
-      collaborationType: '',
-      message: '',
-      studentCount: '',
-      criteria: {
-        mou: '',
-        infrastructure: '',
-        transport: '',
-        studentBase: '',
-        mbaSupport: '',
-        promotion: '',
-        techInterest: '',
-        pastExposure: ''
+        // ✅ Delay scroll slightly to allow thank-you state to update
+        setTimeout(() => {
+          document.getElementById("collaboration-form")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }, 100);
+
+        console.log("Submission successful:", result);
+      } else {
+        console.error("Submission failed:", result.error);
+        alert("Failed to submit: " + result.error);
       }
-    });
-  }, 3000);
-};
+    } catch (error) {
+      console.error("Network error:", error);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
 
   const handleRadioChange = (key: string, value: 'Yes' | 'No') => {
     setFormData(prev => ({
@@ -558,255 +541,273 @@ const [formData, setFormData] = useState<FormData>({
       {/* Contact Form */}
       <section id="collaboration-form" className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Let's Build a Collaboration
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Fill this form and our team will reach out within 24 hours to discuss partnership opportunities.
-            </p>
-          </div>
-
+          
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
             {!isSubmitted ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="institutionName" className="block text-sm font-medium text-gray-700 mb-2">
-                      Institution Name *
-                    </label>
-                    <div className="relative">
-                      <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        id="institutionName"
-                        name="institutionName"
-                        value={formData.institutionName}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="Your institution name"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700 mb-2">
-                      Contact Person Name *
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        id="contactPerson"
-                        name="contactPerson"
-                        value={formData.contactPerson}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="Your full name"
-                      />
-                    </div>
-                  </div>
+              
+              <>
+              <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          Let's Build a Collaboration
+        </h2>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Fill this form and our team will reach out within 24 hours to discuss partnership opportunities.
+        </p>
+      </div>
+                {/* Title Section */}
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Let's Build a Collaboration
+                  </h2>
+                  <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Fill this form and our team will reach out within 24 hours to discuss partnership opportunities.
+                  </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="designation" className="block text-sm font-medium text-gray-700 mb-2">
-                      Designation *
-                    </label>
-                    <input
-                      type="text"
-                      id="designation"
-                      name="designation"
-                      value={formData.designation}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                      placeholder="Principal, Dean, Director, etc."
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-                      City/Location *
-                    </label>
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="City, State"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="your.email@institution.edu"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone Number *
-                    </label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="+91 98765 43210"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="collaborationType" className="block text-sm font-medium text-gray-700 mb-2">
-                      Collaboration Type *
-                    </label>
-                    <select
-                      id="collaborationType"
-                      name="collaborationType"
-                      value={formData.collaborationType}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select collaboration type</option>
-                      <option value="mou-campus">MoU-Based Training at Campus</option>
-                      <option value="joint-certificate">Joint Certificate Program</option>
-                      <option value="custom-bootcamp">Custom Bootcamps</option>
-                      <option value="other">Other (specify in message)</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="studentCount" className="block text-sm font-medium text-gray-700 mb-2">
-                      Expected Student Count
-                    </label>
-                    <input
-                      type="text"
-                      id="studentCount"
-                      name="studentCount"
-                      value={formData.studentCount}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                      placeholder="e.g., 50-100 students per batch"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-6">
-                    College Selection Criteria <span className="text-red-500">*</span>
-                  </label>
-
-                  <div className="space-y-6">
-                    {criteriaList.map((criterion, index) => (
-                      <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                        <p className="font-medium text-gray-800 mb-2">{criterion.label}</p>
-                        <div className="flex space-x-6">
-                          <label className="flex items-center space-x-2">
-                            <input
-                              type="radio"
-                              name={`criteria_${index}`}
-                              value="Yes"
-                              checked={formData.criteria[criterion.key] === 'Yes'}
-                              onChange={() => handleRadioChange(criterion.key, 'Yes')}
-                              className="text-[#26A65B]"
-                            />
-                            <span>Yes</span>
-                          </label>
-                          <label className="flex items-center space-x-2">
-                            <input
-                              type="radio"
-                              name={`criteria_${index}`}
-                              value="No"
-                              checked={formData.criteria[criterion.key] === 'No'}
-                              onChange={() => handleRadioChange(criterion.key, 'No')}
-                              className="text-red-500"
-                            />
-                            <span>No</span>
-                          </label>
-                        </div>
+                {/* Form Starts */}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Institution + Contact Person */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="institutionName" className="block text-sm font-medium text-gray-700 mb-2">
+                        Institution Name *
+                      </label>
+                      <div className="relative">
+                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <input
+                          type="text"
+                          id="institutionName"
+                          name="institutionName"
+                          value={formData.institutionName}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                          placeholder="Your institution name"
+                        />
                       </div>
-                    ))}
+                    </div>
+
+                    <div>
+                      <label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700 mb-2">
+                        Contact Person Name *
+                      </label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <input
+                          type="text"
+                          id="contactPerson"
+                          name="contactPerson"
+                          value={formData.contactPerson}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                          placeholder="Your full name"
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
 
+                  {/* Designation + City */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="designation" className="block text-sm font-medium text-gray-700 mb-2">
+                        Designation *
+                      </label>
+                      <input
+                        type="text"
+                        id="designation"
+                        name="designation"
+                        value={formData.designation}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                        placeholder="Principal, Dean, Director, etc."
+                      />
+                    </div>
 
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message / Proposal / Additional Details
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows={5}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                      placeholder="Tell us about your institution, student demographics, specific requirements, or any questions you have..."
-                    />
+                    <div>
+                      <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+                        City/Location *
+                      </label>
+                      <div className="relative">
+                        <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <input
+                          type="text"
+                          id="city"
+                          name="city"
+                          value={formData.city}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                          placeholder="City, State"
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#F15A24] text-white font-bold py-4 px-6 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                      Submitting Request...
-                    </>
-                  ) : (
-                    <>
-                      Submit Request
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </>
-                  )}
-                </button>
-              </form>
+                  {/* Email + Phone */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                        Email Address *
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                          placeholder="your.email@institution.edu"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number *
+                      </label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          required
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                          placeholder="+91 98765 43210"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Collaboration Type + Student Count */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="collaborationType" className="block text-sm font-medium text-gray-700 mb-2">
+                        Collaboration Type *
+                      </label>
+                      <select
+                        id="collaborationType"
+                        name="collaborationType"
+                        value={formData.collaborationType}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                      >
+                        <option value="">Select collaboration type</option>
+                        <option value="mou-campus">MoU-Based Training at Campus</option>
+                        <option value="joint-certificate">Joint Certificate Program</option>
+                        <option value="custom-bootcamp">Custom Bootcamps</option>
+                        <option value="other">Other (specify in message)</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="studentCount" className="block text-sm font-medium text-gray-700 mb-2">
+                        Expected Student Count
+                      </label>
+                      <input
+                        type="text"
+                        id="studentCount"
+                        name="studentCount"
+                        value={formData.studentCount}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                        placeholder="e.g., 50-100 students per batch"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Selection Criteria */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-6">
+                      College Selection Criteria <span className="text-red-500">*</span>
+                    </label>
+                    <div className="space-y-6">
+                      {criteriaList.map((criterion, index) => (
+                        <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                          <p className="font-medium text-gray-800 mb-2">{criterion.label}</p>
+                          <div className="flex space-x-6">
+                            <label className="flex items-center space-x-2">
+                              <input
+                                type="radio"
+                                name={`criteria_${index}`}
+                                value="Yes"
+                                checked={formData.criteria[criterion.key] === 'Yes'}
+                                onChange={() => handleRadioChange(criterion.key, 'Yes')}
+                                className="text-[#26A65B]"
+                              />
+                              <span>Yes</span>
+                            </label>
+                            <label className="flex items-center space-x-2">
+                              <input
+                                type="radio"
+                                name={`criteria_${index}`}
+                                value="No"
+                                checked={formData.criteria[criterion.key] === 'No'}
+                                onChange={() => handleRadioChange(criterion.key, 'No')}
+                                className="text-red-500"
+                              />
+                              <span>No</span>
+                            </label>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Message Field */}
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                      Message / Proposal / Additional Details
+                    </label>
+                    <div className="relative">
+                      <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        rows={5}
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                        placeholder="Tell us about your institution, specific requirements, or any questions..."
+                      />
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#F15A24] text-white font-bold py-4 px-6 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                        Submitting Request...
+                      </>
+                    ) : (
+                      <>
+                        Submit Request
+                        <ArrowRight className="w-5 h-5 ml-2" />
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
             ) : (
-              <div className="text-center py-8">
+              // ✅ Thank-you message shown ONLY after form is submitted
+              <div className="text-center py-12">
                 <div className="w-16 h-16 bg-[#26A65B] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-8 h-8 text-[#26A65B]" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Thank you for your interest!
-                </h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Thank you for your interest!</h3>
                 <p className="text-gray-600 mb-6">
                   Our team will connect with you shortly to discuss collaboration opportunities and next steps.
                 </p>
@@ -818,6 +819,7 @@ const [formData, setFormData] = useState<FormData>({
               </div>
             )}
           </div>
+
         </div>
       </section>
 

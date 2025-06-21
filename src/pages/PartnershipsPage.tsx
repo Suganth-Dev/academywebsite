@@ -194,50 +194,30 @@ const PartnershipsPage: React.FC = () => {
   };
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
-  if (formData.partnershipType.length === 0) {
-    alert('Please select at least one partnership type.');
-    return;
-  }
   setIsSubmitting(true);
-
   try {
-    // Send the data to the backend API
-    const response = await fetch('https://clxqhy12ik.execute-api.ap-south-1.amazonaws.com/postpartner', {
+    const response = await fetch('https://ipivcp0xd5.execute-api.ap-south-1.amazonaws.com/PostApplyform', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(formData)
     });
 
-    if (!response.ok) {
-      throw new Error('Error submitting partnership request');
-    }
+    if (!response.ok) throw new Error('Network response was not ok');
 
-    const data = await response.json();
-    console.log('Partnership request submitted:', data);
-    
-    // Set submission status
-    setIsSubmitted(true);
-  } catch (error) {
-    console.error('Submission failed:', error);
-    alert('There was an issue with your submission. Please try again.');
-  } finally {
     setIsSubmitting(false);
-
-    // Reset the form after a delay
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        companyName: '', contactPerson: '', designation: '', email: '', phone: '', city: '',
-        partnershipType: [], message: '', revenue: '', clients: '', website: '', experience: '',
-        teamSize: '', model: '', linkedin: '', gst: '', droneExperience: '', otherPartnership: '',
-      });
-    }, 3000);
+    setIsSubmitted(true); // 👈 Instantly replaces the form
+    // REMOVE THIS LINE 👇
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (error) {
+    setIsSubmitting(false);
+    console.error('Submission failed:', error);
   }
 };
+
 
 
   const partnershipOptions: { label: string; value: string }[] = [
@@ -583,7 +563,7 @@ const PartnershipsPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
+          <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 min-h-[600px]">
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
