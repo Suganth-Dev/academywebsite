@@ -7,6 +7,7 @@ import LeadMagnet from '../components/LeadMagnet';
 import UpcomingBatchesBanner from '../components/UpcomingBatchesBanner';
 import CollaborationsStrip from '../components/CollaborationsStrip';
 import FinalCTAFooter from '../components/FinalCTAFooter';
+import InstitutionalCurriculumSection from '../components/Circullam';
 
 const HomePage: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage: React.FC = () => {
       <CourseOverview />
       <WhyIDASection />
       <StudentSuccessSnapshot />
+      <InstitutionalCurriculumSection />
       <LeadMagnet />
       <UpcomingBatchesBanner />
       <CollaborationsStrip />
