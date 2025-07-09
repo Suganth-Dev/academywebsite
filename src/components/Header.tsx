@@ -77,7 +77,7 @@ const Header: React.FC = () => {
                 className="flex items-center"
               >
                 <img 
-                  src="/logo.png" 
+                  src="/IDA.png" 
                   alt="India Drone Academy Logo" 
                   className={`transition-all duration-300 ${
                     isScrolled ? 'h-14' : 'h-14'
