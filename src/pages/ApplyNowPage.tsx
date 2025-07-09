@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { 
-  Award, 
-  CheckCircle, 
-  Phone, 
-  Mail, 
-  User, 
-  MapPin, 
-  Calendar, 
+import {
+  Award,
+  CheckCircle,
+  Phone,
+  Mail,
+  User,
+  MapPin,
+  Calendar,
   MessageSquare,
   ArrowRight,
   Shield,
@@ -78,16 +78,16 @@ const ApplyNowPage: React.FC = () => {
     { value: 'online-theory', label: 'Online Theory Crash Course - ₹7,500 + GST' },
     { value: 'corporate', label: 'Corporate Training (Flexible) - ₹25,000 + GST' }
   ];
-const allCourses = courses.map(c => c.label);
+  const allCourses = courses.map(c => c.label);
 
   const locations = [
     'Hyderabad, Telangana',
     'Vijayawada, Andhra Pradesh',
-   'Gurugram, Haryana',
-  'Harsola, Madhya Pradesh',
-  'Meerut, Uttar Pradesh',
-  'Nagpur, Maharashtra',
-  'Belgaum, Karnataka'
+    'Gurugram, Haryana',
+    'Harsola, Madhya Pradesh',
+    'Meerut, Uttar Pradesh',
+    'Nagpur, Maharashtra',
+    'Belgaum, Karnataka'
   ];
 
   const batchDates = [
@@ -127,86 +127,86 @@ const allCourses = courses.map(c => c.label);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
-const handleCheckboxChange = (courseLabel: string) => {
-  setFormData(prev => {
-    const isChecked = prev.preferredCourses.includes(courseLabel);
-    const updatedCourses = isChecked
-      ? prev.preferredCourses.filter(c => c !== courseLabel)
-      : [...prev.preferredCourses, courseLabel];
-    return { ...prev, preferredCourses: updatedCourses };
-  });
-};
-
- const validateForm = (): boolean => {
-  const newErrors: Partial<typeof formData> = {};
-
-  if (!formData.fullName.trim()) newErrors.fullName = "Full name is required.";
-  if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
-  if (!formData.email.trim()) newErrors.email = "Email address is required.";
-  if (!formData.course.trim()) newErrors.course = "Please select a preferred course.";
-  if (!formData.location.trim()) newErrors.location = "Location is required.";
-  if (!formData.category.trim()) newErrors.category = "Please select a category.";
-  if (formData.preferredCourses.length === 0) newErrors.preferredCourses = "Select at least one course.";
-  if (!formData.city.trim()) newErrors.city = "City is required.";
-  if (!formData.state.trim()) newErrors.state = "State is required.";
-  if (!formData.pinCode.trim()) newErrors.pinCode = "PIN Code is required.";
-  if (!formData.isEmployed.trim()) newErrors.isEmployed = "Please select employment status.";
-  if (!formData.careerPurpose.trim()) newErrors.careerPurpose = "Please select a career purpose.";
-  if (!formData.heardFrom.trim()) newErrors.heardFrom = "Please tell us how you heard about us.";
-
-  console.log("🛑 Validation Errors:", newErrors);
-
-  setErrors(newErrors);
-  return Object.keys(newErrors).length === 0;
-};
-
-
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault(); // Prevent default page reload
-
-  console.log("✅ Apply Now clicked");
-
-  const isValid = validateForm(); // Optional: if you have validation
-  if (!isValid) {
-    console.log("❌ Validation failed");
-    return;
-  }
-
-  setIsSubmitting(true);
-
-  try {
-    const response = await fetch("https://ipivcp0xd5.execute-api.ap-south-1.amazonaws.com/PostApplyform", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
+  const handleCheckboxChange = (courseLabel: string) => {
+    setFormData(prev => {
+      const isChecked = prev.preferredCourses.includes(courseLabel);
+      const updatedCourses = isChecked
+        ? prev.preferredCourses.filter(c => c !== courseLabel)
+        : [...prev.preferredCourses, courseLabel];
+      return { ...prev, preferredCourses: updatedCourses };
     });
+  };
 
-    console.log("📡 Status Code:", response.status);
+  const validateForm = (): boolean => {
+    const newErrors: Record<string, string> = {};
 
-    if (!response.ok) {
-      const text = await response.text();
-      throw new Error(`❌ API Error: ${text}`);
+
+    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required.";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required.";
+    if (!formData.email.trim()) newErrors.email = "Email address is required.";
+
+    if (!formData.location.trim()) newErrors.location = "Location is required.";
+
+    if (!formData.city.trim()) newErrors.city = "City is required.";
+    if (!formData.state.trim()) newErrors.state = "State is required.";
+    if (!formData.pinCode.trim()) newErrors.pinCode = "PIN Code is required.";
+    if (!formData.isEmployed.trim()) newErrors.isEmployed = "Please select employment status.";
+    if (!formData.careerPurpose.trim()) newErrors.careerPurpose = "Please select a career purpose.";
+    if (!formData.heardFrom.trim()) newErrors.heardFrom = "Please tell us how you heard about us.";
+
+    console.log("🛑 Validation Errors:", newErrors);
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default page reload
+
+    console.log("✅ Apply Now clicked");
+
+    const isValid = validateForm(); // Optional: if you have validation
+    if (!isValid) {
+      console.log("❌ Validation failed");
+      return;
     }
 
-    const result = await response.json();
-    console.log("✅ Success:", result);
-    setIsSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' }); 
-  } catch (error) {
-    console.error("❌ Submission error:", error);
-    alert("Something went wrong! Please try again.");
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://ipivcp0xd5.execute-api.ap-south-1.amazonaws.com/PostApplyform", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      console.log("📡 Status Code:", response.status);
+
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(`❌ API Error: ${text}`);
+      }
+
+      const result = await response.json();
+      console.log("✅ Success:", result);
+      setIsSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      console.error("❌ Submission error:", error);
+      alert("Something went wrong! Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
 
 
@@ -216,20 +216,48 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  if (isSubmitted) {
+ if (isSubmitted) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   return (
-    <div className="min-h-[60vh] flex items-center justify-center bg-white px-4">
-      <div className="text-center">
-        <div className="w-16 h-16 bg-[#26A65B] rounded-full flex items-center justify-center mx-auto mb-4">
+    <div className="flex flex-col items-center justify-center bg-white px-2 pt-0 mt-[-20px] min-h-screen">
+
+      <div className="text-center max-w-2xl">
+        <div className="w-20 h-20 bg-[#26A65B] rounded-full flex items-center justify-center mx-auto mb-5">
           <CheckCircle className="w-10 h-10 text-white" />
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
           Application Received Successfully!
         </h1>
-        <p className="text-base sm:text-lg text-gray-600">
-          Thank you for applying to India Drone Academy. Our counselor will contact you soon to discuss your course selection and next steps.
+
+        <p className="text-lg text-gray-700 mb-6">
+          Thank you for applying to <strong>India Drone Academy</strong>. Our counselor will contact you soon to discuss your course selection and next steps.
         </p>
+
+        <div className="bg-gray-100 rounded-xl p-6 text-left text-base mb-6 shadow-sm">
+          <h3 className="font-semibold text-gray-800 mb-2">What happens next?</h3>
+          <ul className="list-disc list-inside text-gray-700 space-y-1">
+            <li>Your details are securely submitted to our counselor team.</li>
+            <li>You will receive a WhatsApp message and/or a call shortly.</li>
+            <li>Our team will explain your chosen course(s), batch dates, and payment options.</li>
+            
+          </ul>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/"
+            className="bg-[#26A65B] text-white px-6 py-3 rounded-md font-semibold text-base hover:bg-[#1e8c4c] transition"
+          >
+            Back to Home
+          </a>
+          <a
+            href="/courses"
+            className="bg-[#F15A24] text-white px-6 py-3 rounded-md font-semibold text-base hover:bg-[#d94e1a] transition"
+          >
+            View All Courses
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -239,7 +267,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-     
+
 
       {/* Header Section */}
       <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -308,9 +336,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                           name="fullName"
                           value={formData.fullName}
                           onChange={handleInputChange}
-                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 ${
-                            errors.fullName ? 'border-red-500' : 'border-gray-300'
-                          }`}
+                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 ${errors.fullName ? 'border-red-500' : 'border-gray-300'
+                            }`}
                           placeholder="Enter your full name"
                         />
                       </div>
@@ -334,9 +361,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 ${
-                            errors.phone ? 'border-red-500' : 'border-gray-300'
-                          }`}
+                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                            }`}
                           placeholder="+91 98765 43210"
                         />
                       </div>
@@ -361,9 +387,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 ${
-                          errors.email ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 ${errors.email ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="your.email@example.com"
                       />
                     </div>
@@ -375,223 +400,169 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                     )}
                   </div>
                   <div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">Category *</label>
-  <div className="flex gap-4">
-    <label className="flex items-center space-x-2">
-      <input
-        type="checkbox"
-        name="category"
-        value="Small"
-        checked={formData.category === 'Small'}
-        onChange={() => setFormData(prev => ({ ...prev, category: 'Small' }))}
-      />
-      <span>Small Category</span>
-    </label>
-    <label className="flex items-center space-x-2">
-      <input
-        type="checkbox"
-        name="category"
-        value="Medium"
-        checked={formData.category === 'Medium'}
-        onChange={() => setFormData(prev => ({ ...prev, category: 'Medium' }))}
-      />
-      <span>Medium Category</span>
-    </label>
-  </div>
-</div>
-<div className="mb-8">
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Drone Pilot Training Course(s) Interested In *
-  </label>
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-    {allCourses.map((course, index) => (
-      <label
-        key={index}
-        className={`flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
-          formData.preferredCourses.includes(course)
-            ? 'bg-[#F15A24]/10 border-[#F15A24]'
-            : 'bg-white border-gray-300 hover:shadow-sm hover:border-[#F15A24]/50'
-        }`}
-      >
-        <input
-          type="checkbox"
-          checked={formData.preferredCourses.includes(course)}
-          onChange={() => handleCheckboxChange(course)}
-          className="mt-1 accent-[#F15A24] w-5 h-5"
-        />
-        <span className="text-sm text-gray-800 leading-snug">{course}</span>
-      </label>
-    ))}
-  </div>
-  {errors.preferredCourses && (
-    <p className="mt-1 text-sm text-red-600 flex items-center">
-      <AlertCircle className="w-4 h-4 mr-1" />
-      {errors.preferredCourses}
-    </p>
-  )}
-</div>
 
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-  <div>
-    <label className="block text-sm font-medium text-gray-700 mb-2">City *</label>
-    <input
-      type="text"
-      name="city"
-      value={formData.city}
-      onChange={handleInputChange}
-      className="w-full px-4 py-2 border rounded"
-      placeholder="City"
-    />
-  </div>
-  <div>
-    <label className="block text-sm font-medium text-gray-700 mb-2">State *</label>
-    <input
-      type="text"
-      name="state"
-      value={formData.state}
-      onChange={handleInputChange}
-      className="w-full px-4 py-2 border rounded"
-      placeholder="State"
-    />
-  </div>
-  <div>
-    <label className="block text-sm font-medium text-gray-700 mb-2">City Pin Code *</label>
-    <input
-      type="text"
-      name="pinCode"
-      value={formData.pinCode}
-      onChange={handleInputChange}
-      className="w-full px-4 py-2 border rounded"
-      placeholder="PIN Code"
-    />
-  </div>
-</div>
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
- 
-  
-  
-</div>
-<div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">Are you currently employed? *</label>
-  <div className="flex gap-6">
-    <label className="flex items-center">
-      <input
-        type="radio"
-        name="isEmployed"
-        value="Yes"
-        checked={formData.isEmployed === 'Yes'}
-        onChange={handleInputChange}
-      />
-      <span className="ml-2">Yes</span>
-    </label>
-    <label className="flex items-center">
-      <input
-        type="radio"
-        name="isEmployed"
-        value="No"
-        checked={formData.isEmployed === 'No'}
-        onChange={handleInputChange}
-      />
-      <span className="ml-2">No</span>
-    </label>
-  </div>
-</div>
-<div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    Are you looking DGCA Pilot Certificate for? *
-  </label>
-  <select
-    name="careerPurpose"
-    value={formData.careerPurpose}
-    onChange={handleInputChange}
-    className="w-full px-4 py-2 border rounded"
-  >
-    <option value="">-- Select an option --</option>
-    <option value="Employment">Employment</option>
-    <option value="Own Business">Own Business</option>
-    <option value="Career Change">Want to Change Career / Learn New Tech</option>
-    <option value="Aerial Photography">Aerial Photography and Videography</option>
-    <option value="Agri Spraying">Agriculture Spraying</option>
-    <option value="Other">Other</option>
-  </select>
-</div>
-<div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    How do you know about us? *
-  </label>
-  <select
-    name="heardFrom"
-    value={formData.heardFrom}
-    onChange={handleInputChange}
-    className="w-full px-4 py-2 border rounded"
-  >
-    <option value="">-- Select an option --</option>
-    <option value="Google">Google Search</option>
-    <option value="YouTube">YouTube</option>
-    <option value="Facebook">Facebook</option>
-    <option value="Instagram">Instagram</option>
-    <option value="Other">Other</option>
-  </select>
-</div>
-<div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    For Group Discount, Please Enter Number of Members, Names who want to join
-  </label>
-  <textarea
-    name="groupDetails"
-    value={formData.groupDetails}
-    onChange={handleInputChange}
-    className="w-full px-4 py-2 border rounded"
-    placeholder="e.g., 3 Members - Rahul, Priya, Arjun"
-  />
-</div>
-<div>
-  <label className="block text-sm font-medium text-gray-700 mb-2">
-    If you have Discount Code, Please Enter
-  </label>
-  <input
-    type="text"
-    name="discountCode"
-    value={formData.discountCode}
-    onChange={handleInputChange}
-    className="w-full px-4 py-2 border rounded"
-    placeholder="e.g., DRONE20"
-  />
-</div>
-
-
-                  {/* Course Selection */}
-                  <div>
-                    <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-2">
-                      Preferred Course *
+                  </div>
+                  <div className="mb-8">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Drone Pilot Training Course(s) Interested In *
                     </label>
-                    <div className="relative">
-                      <Award className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <select
-                        id="course"
-                        name="course"
-                        value={formData.course}
-                        onChange={handleInputChange}
-                        className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 appearance-none ${
-                          errors.course ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      >
-                        <option value="">Select your preferred course</option>
-                        {courses.map((course) => (
-                          <option key={course.value} value={course.value}>
-                            {course.label}
-                          </option>
-                        ))}
-                      </select>
-                      <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {allCourses.map((course, index) => (
+                        <label
+                          key={index}
+                          className={`flex items-start gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${formData.preferredCourses.includes(course)
+                              ? 'bg-[#F15A24]/10 border-[#F15A24]'
+                              : 'bg-white border-gray-300 hover:shadow-sm hover:border-[#F15A24]/50'
+                            }`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={formData.preferredCourses.includes(course)}
+                            onChange={() => handleCheckboxChange(course)}
+                            className="mt-1 accent-[#F15A24] w-5 h-5"
+                          />
+                          <span className="text-sm text-gray-800 leading-snug">{course}</span>
+                        </label>
+                      ))}
                     </div>
-                    {errors.course && (
+                    {errors.preferredCourses && (
                       <p className="mt-1 text-sm text-red-600 flex items-center">
                         <AlertCircle className="w-4 h-4 mr-1" />
-                        {errors.course}
+                        {errors.preferredCourses}
                       </p>
                     )}
                   </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">City *</label>
+                      <input
+                        type="text"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-2 border rounded"
+                        placeholder="City"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">State *</label>
+                      <input
+                        type="text"
+                        name="state"
+                        value={formData.state}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-2 border rounded"
+                        placeholder="State"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">City Pin Code *</label>
+                      <input
+                        type="text"
+                        name="pinCode"
+                        value={formData.pinCode}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-2 border rounded"
+                        placeholder="PIN Code"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+
+
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Are you currently employed? *</label>
+                    <div className="flex gap-6">
+                      <label className="flex items-center">
+                        <input
+                          type="radio"
+                          name="isEmployed"
+                          value="Yes"
+                          checked={formData.isEmployed === 'Yes'}
+                          onChange={handleInputChange}
+                        />
+                        <span className="ml-2">Yes</span>
+                      </label>
+                      <label className="flex items-center">
+                        <input
+                          type="radio"
+                          name="isEmployed"
+                          value="No"
+                          checked={formData.isEmployed === 'No'}
+                          onChange={handleInputChange}
+                        />
+                        <span className="ml-2">No</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Are you looking DGCA Pilot Certificate for? *
+                    </label>
+                    <select
+                      name="careerPurpose"
+                      value={formData.careerPurpose}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 border rounded"
+                    >
+                      <option value="">-- Select an option --</option>
+                      <option value="Employment">Employment</option>
+                      <option value="Own Business">Own Business</option>
+                      <option value="Career Change">Want to Change Career / Learn New Tech</option>
+                      <option value="Aerial Photography">Aerial Photography and Videography</option>
+                      <option value="Agri Spraying">Agriculture Spraying</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      How do you know about us? *
+                    </label>
+                    <select
+                      name="heardFrom"
+                      value={formData.heardFrom}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 border rounded"
+                    >
+                      <option value="">-- Select an option --</option>
+                      <option value="Google">Google Search</option>
+                      <option value="YouTube">YouTube</option>
+                      <option value="Facebook">Facebook</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      For Group Discount, Please Enter Number of Members, Names who want to join
+                    </label>
+                    <textarea
+                      name="groupDetails"
+                      value={formData.groupDetails}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 border rounded"
+                      placeholder="e.g., 3 Members - Rahul, Priya, Arjun"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      If you have Discount Code, Please Enter
+                    </label>
+                    <input
+                      type="text"
+                      name="discountCode"
+                      value={formData.discountCode}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 border rounded"
+                      placeholder="e.g., DRONE20"
+                    />
+                  </div>
+
+
+
 
                   {/* Location and Batch */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -606,9 +577,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                           name="location"
                           value={formData.location}
                           onChange={handleInputChange}
-                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 appearance-none ${
-                            errors.location ? 'border-red-500' : 'border-gray-300'
-                          }`}
+                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 appearance-none ${errors.location ? 'border-red-500' : 'border-gray-300'
+                            }`}
                         >
                           <option value="">Select location</option>
                           {locations.map((location) => (
@@ -627,7 +597,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                       )}
                     </div>
 
-                    
+
                   </div>
 
                   {/* Optional Message */}

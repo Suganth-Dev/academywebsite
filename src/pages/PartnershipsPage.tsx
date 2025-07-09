@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Rocket,
   Users,
   Building,
   CheckCircle,
   Star,
+  Briefcase,
   ArrowRight,
   Quote,
   Calendar,
@@ -66,63 +66,61 @@ const PartnershipsPage: React.FC = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const thankYouRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (isSubmitted && thankYouRef.current) {
+      const offset = thankYouRef.current.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+
+    }
+  }, [isSubmitted]);
 
   const partnershipTypes = [
     {
-      icon: Cpu,
-      title: 'Drone Technology Partnerships',
-      description: 'Work with us to test, demo, or co-brand hardware/software solutions',
-      examples: ['Hardware integration', 'Software development', 'Co-branding opportunities', 'Product testing'],
+      icon: Building,
+      title: 'Drone Manufacturers',
+      description: 'Collaborate with us to integrate your UAV hardware and support AI/GIS-enabled field deployments.',
+      examples: [
+        'AI-ready drone kit supply',
+        'Custom payload integration',
+        'GIS-mapped field deployment',
+        'Demo support for expos & institutes'
+      ],
+      color: 'text-yellow-600',
+      bgColor: 'bg-yellow-50',
+      gradient: 'from-yellow-500 to-yellow-600'
+    },
+    {
+      icon: Briefcase,
+      title: 'Drone Service Providers',
+      description: 'Access certified pilots and partner on AI-powered surveys, inspections, and GIS projects.',
+      examples: [
+        'Certified pilot access',
+        'AI-based inspection & reporting',
+        'GIS-mapped drone surveys',
+        'Joint operations & internships'
+      ],
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
       gradient: 'from-blue-500 to-blue-600'
     },
     {
-      icon: Settings,
-      title: 'Simulator & Hardware Vendors',
-      description: 'Integrate your training tools with our state-of-the-art facilities',
-      examples: ['Training simulators', 'Equipment supply', 'Technology integration', 'Maintenance support'],
+      icon: Cpu,
+      title: 'Software & AI Developers',
+      description: 'Build AI & GIS tools for simulation, analytics, and mission automation in drone training.',
+      examples: [
+        'Flight simulator integration',
+        'AI object detection models',
+        'GIS-based mapping tools',
+        'Drone data dashboards'
+      ],
       color: 'text-purple-600',
       bgColor: 'bg-purple-50',
       gradient: 'from-purple-500 to-purple-600'
-    },
-    {
-      icon: Building2,
-      title: 'Corporate Training Tie-Ups',
-      description: 'Upskill your workforce in drone usage across various industries',
-      examples: ['Employee training', 'Custom programs', 'Industry-specific courses', 'Certification support'],
-      color: 'text-green-600',
-      bgColor: 'bg-green-50',
-      gradient: 'from-green-500 to-green-600'
-    },
-    {
-      icon: Users,
-      title: 'Placement & Recruitment Partners',
-      description: 'Hire IDA-certified pilots directly from our talent pool',
-      examples: ['Direct recruitment', 'Talent pipeline', 'Skill assessment', 'Ongoing support'],
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
-      gradient: 'from-orange-500 to-orange-600'
-    },
-    {
-      icon: Rocket,
-      title: 'Startup Incubation Partners',
-      description: 'Co-develop drone startups with our alumni and resources',
-      examples: ['Incubation programs', 'Mentorship', 'Funding support', 'Market access'],
-      color: 'text-red-600',
-      bgColor: 'bg-red-50',
-      gradient: 'from-red-500 to-red-600'
-    },
-    {
-      icon: Megaphone,
-      title: 'Media & Outreach Collaborators',
-      description: 'Work with our media partners to amplify drone impact stories',
-      examples: ['Content creation', 'Event coverage', 'Brand promotion', 'Industry advocacy'],
-      color: 'text-pink-600',
-      bgColor: 'bg-pink-50',
-      gradient: 'from-pink-500 to-pink-600'
     }
   ];
+
 
   const existingPartners = [
     { name: 'Corteva Agriscience', logo: 'https://images.pexels.com/photos/1595108/pexels-photo-1595108.jpeg?auto=compress&cs=tinysrgb&w=200', type: 'Agriculture Technology' },
@@ -194,29 +192,29 @@ const PartnershipsPage: React.FC = () => {
   };
 
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  try {
-    const response = await fetch('https://ipivcp0xd5.execute-api.ap-south-1.amazonaws.com/PostApplyform', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://clxqhy12ik.execute-api.ap-south-1.amazonaws.com/postpartner', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-    if (!response.ok) throw new Error('Network response was not ok');
+      if (!response.ok) throw new Error('Network response was not ok');
 
-    setIsSubmitting(false);
-    setIsSubmitted(true); // 👈 Instantly replaces the form
-    // REMOVE THIS LINE 👇
-    // window.scrollTo({ top: 0, behavior: 'smooth' });
-  } catch (error) {
-    setIsSubmitting(false);
-    console.error('Submission failed:', error);
-  }
-};
+      setIsSubmitting(false);
+      setIsSubmitted(true); // 👈 Instantly replaces the form
+      // REMOVE THIS LINE 👇
+      // window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      setIsSubmitting(false);
+      console.error('Submission failed:', error);
+    }
+  };
 
 
 
@@ -229,6 +227,12 @@ const handleSubmit = async (e: React.FormEvent) => {
     { label: 'Media & Outreach Collaborator', value: 'media' },
     { label: 'Other (specify in message)', value: 'other' }
   ];
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -319,7 +323,8 @@ const handleSubmit = async (e: React.FormEvent) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+
             {partnershipTypes.map((type, index) => {
               const IconComponent = type.icon;
               return (
@@ -400,53 +405,61 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
 
           {/* Featured In Section */}
-          <div className="text-center">
-            <p className="text-gray-600 mb-8 text-xl font-semibold"></p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 justify-center">
-              {[
-                {
-                  name: 'The Hindu',
-                  img: '/5.jpg',
-                  info: 'National Daily Coverage'
-                },
-                {
-                  name: 'Eenadu',
-                  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eenadu_logo.svg/512px-Eenadu_logo.svg.png',
-                  info: 'Regional Telugu Feature'
-                },
-                {
-                  name: 'Times of India',
-                  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Times_of_India_logo.svg/512px-The_Times_of_India_logo.svg.png',
-                  info: 'Tech & Education Column'
-                },
-                {
-                  name: 'Business Standard',
-                  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Business_Standard_logo.svg/512px-Business_Standard_logo.svg.png',
-                  info: 'Business Feature'
-                },
-                {
-                  name: 'Economic Times',
-                  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/The_Economic_Times_logo.svg/512px-The_Economic_Times_logo.svg.png',
-                  info: 'Start-up Highlights'
-                }
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white shadow-xl rounded-2xl p-8 min-h-[220px] flex flex-col items-center text-center"
-                >
-                  <img 
-  src={item.img} 
-  alt={item.name} 
-  className="w-44 h-44 rounded-full object-cover mb-5 border border-gray-200 shadow-sm"
-/>
+          <section className="py-16 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">
+                Featured In
+              </h2>
+              <div className="text-center">
+                <p className="text-gray-600 mb-8 text-xl font-semibold"></p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 place-items-center">
 
-                  <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
-                  <p className="text-sm text-gray-500">{item.info}</p>
+                  {[
+                    {
+                      name: 'The Hindu',
+                      img: '/5.jpg',
+                      info: 'National Daily Coverage'
+                    },
+                    {
+                      name: 'Eenadu',
+                      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eenadu_logo.svg/512px-Eenadu_logo.svg.png',
+                      info: 'Regional Telugu Feature'
+                    },
+                    {
+                      name: 'Times of India',
+                      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Times_of_India_logo.svg/512px-The_Times_of_India_logo.svg.png',
+                      info: 'Tech & Education Column'
+                    },
+                    {
+                      name: 'Business Standard',
+                      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Business_Standard_logo.svg/512px-Business_Standard_logo.svg.png',
+                      info: 'Business Feature'
+                    },
+                    {
+                      name: 'Economic Times',
+                      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/The_Economic_Times_logo.svg/512px-The_Economic_Times_logo.svg.png',
+                      info: 'Start-up Highlights'
+                    }
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white shadow-xl rounded-2xl p-8 min-h-[220px] flex flex-col items-center text-center"
+                    >
+                      <img
+                        src={item.img}
+                        alt={item.name}
+                        className="w-32 h-32 rounded-xl object-contain bg-white mb-5 border border-gray-200 shadow-sm"
+                      />
+
+                      <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
+                      <p className="text-sm text-gray-500">{item.info}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
+            </div>
+          </section>
         </div>
       </section>
 
@@ -552,7 +565,8 @@ const handleSubmit = async (e: React.FormEvent) => {
       </section>
 
       {/* Partnership Form */}
-      <section id="partnership-form" className="py-16 lg:py-24 bg-white">
+      <section id="partnership-form" className="pt-16 pb-0 bg-white">
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -563,7 +577,8 @@ const handleSubmit = async (e: React.FormEvent) => {
             </p>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 min-h-[600px]">
+          <div className="bg-gray-50 rounded-2xl p-8 lg:pt-12 lg:pb-6">
+
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -719,7 +734,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="revenue" className="block text-sm font-medium text-gray-700 mb-2">Revenue Bracket *</label>
+                    <label htmlFor="revenue" className="block text-sm font-medium text-gray-700 mb-2">Last Year Turnover *</label>
                     <select id="revenue" name="revenue" value={formData.revenue} onChange={handleInputChange} required className="w-full px-4 py-3 border border-gray-300 rounded-lg">
                       <option value="">Select</option>
                       <option value="<10L">Less than ₹10 Lakh</option>
@@ -737,13 +752,33 @@ const handleSubmit = async (e: React.FormEvent) => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">Years of Experience</label>
+                    <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">Company Tenure</label>
                     <input type="number" id="experience" name="experience" value={formData.experience} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
                   </div>
-                  <div>
-                    <label htmlFor="teamSize" className="block text-sm font-medium text-gray-700 mb-2">Team Size</label>
-                    <input type="number" id="teamSize" name="teamSize" value={formData.teamSize} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+                  <div className="mb-4 w-full">
+                    <label htmlFor="teamSize" className="block text-sm font-medium text-gray-700 mb-1">
+                      Team Size
+                    </label>
+                    <select
+                      id="teamSize"
+                      name="teamSize"
+                      value={formData.teamSize}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
+                    >
+
+                      <option value="">Select Team Size</option>
+                      <option value="1–5">1–5</option>
+                      <option value="6–10">6–10</option>
+                      <option value="11–15">11–15</option>
+                      <option value="16–25">16–25</option>
+                      <option value="26–50">26–50</option>
+                      <option value="51–100">51–100</option>
+                      <option value="101+">101+</option>
+                    </select>
+
                   </div>
+
                 </div>
 
                 <div>
@@ -807,7 +842,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </button>
               </form>
             ) : (
-              <div className="text-center py-8">
+              <div ref={thankYouRef} className="text-center py-8">
                 <div className="w-16 h-16 bg-[#26A65B] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-8 h-8 text-[#26A65B]" />
                 </div>
@@ -815,7 +850,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   Partnership Request Received!
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Thank you for your interest in partnering with India Drone Academy. Our business development team will review your proposal and get back to you within 48 hours.
+                  Thank you for your interest in partnering with India Drone Academy. Our business development team will review your proposal and get back to you soon.
                 </p>
                 <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4">
                   <p className="text-[#26A65B] font-medium">

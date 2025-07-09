@@ -190,20 +190,34 @@ const CollaborationPage: React.FC = () => {
   ];
 
   const collaborationModels = [
+   {
+  title: 'MoU-Based Training at Your Campus',
+  description: 'We bring certified instructors and drone equipment to your campus.',
+  features: [
+    'On-campus delivery',
+    'Drone equipment included',
+    'Certified trainer support',
+    'Flexible scheduling'
+  ],
+  icon: Building2,
+  color: 'from-blue-500 to-blue-600'
+},
+
     {
-      title: 'MoU-Based Training at Your Campus',
-      description: 'Complete training setup at your institution with our certified instructors and equipment.',
-      features: ['On-campus training', 'Equipment provided', 'Certified instructors', 'Flexible scheduling'],
-      icon: Building2,
-      color: 'from-blue-500 to-blue-600'
-    },
-    {
-      title: 'Joint Certificate Program with Revenue Share',
-      description: 'Collaborative program where both institutions benefit from student enrollments.',
-      features: ['Revenue sharing model', 'Joint certification', 'Marketing support', 'Ongoing partnership'],
-      icon: Handshake,
-      color: 'from-green-500 to-green-600'
-    },
+  title: 'Joint Certificate Program with Revenue Share',
+  description: 'Collaborative program where both institutions benefit from student enrollments.',
+  features: [
+    'Revenue sharing with joint certification',
+    'Marketing & partnership support',
+    'If Drone Lab is provided:',
+    '■ Joint certification program',
+    '■ Location branding (boards & banners)',
+    '■ 1+ annual hosted event'
+  ],
+  icon: Handshake,
+  color: 'from-green-500 to-green-600'
+},
+
     {
       title: 'Custom Bootcamps for Final-Year Students',
       description: 'Intensive training programs designed specifically for graduating students.',
@@ -269,6 +283,7 @@ const CollaborationPage: React.FC = () => {
     }));
   };
 
+  const [visibleCount, setVisibleCount] = useState(3); // show 1 row (assuming 4 per row)
 
 
   return (
@@ -399,8 +414,10 @@ const CollaborationPage: React.FC = () => {
           </div>
 
           {/* Partners Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-            {existingPartners.map((partner, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {existingPartners.slice(0, visibleCount).map((partner, index) => (
+
+
               <div
                 key={index}
                 className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
@@ -421,6 +438,17 @@ const CollaborationPage: React.FC = () => {
               </div>
             ))}
           </div>
+{visibleCount < existingPartners.length && (
+  <div className="flex justify-center mt-8 mb-12">
+    <button
+      onClick={() => setVisibleCount(prev => prev + 3)}
+      className="px-6 py-3 border-2 border-[#F15A24] text-[#F15A24] font-semibold rounded-full hover:bg-[#F15A24] hover:text-white transition-all duration-200 shadow-sm"
+    >
+      Show More Colleges
+    </button>
+  </div>
+)}
+
 
           {/* Featured Partnerships */}
           <div className="bg-white rounded-2xl p-8 shadow-lg">
@@ -450,6 +478,8 @@ const CollaborationPage: React.FC = () => {
                 <p className="text-gray-600 text-sm">University-wide drone curriculum integration across multiple engineering branches</p>
               </div>
             </div>
+            
+
           </div>
 
           {/* Caption */}
@@ -473,8 +503,10 @@ const CollaborationPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {collaborationModels.map((model, index) => {
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            {collaborationModels.slice(0, 2).map((model, index) => {
+
               const IconComponent = model.icon;
               return (
                 <div
@@ -482,20 +514,23 @@ const CollaborationPage: React.FC = () => {
                   className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group"
                 >
                   {/* Header */}
-                  <div className={`bg-gradient-to-r ${model.color} p-6 text-white`}>
+                  <div className={`bg-gradient-to-r ${model.color} p-4 text-white`}>
+
                     <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{model.title}</h3>
+                    <h3 className="text-lg font-semibold mb-1">
+{model.title}</h3>
                     <p className="text-white text-opacity-90">{model.description}</p>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="p-4">
                     <ul className="space-y-3 mb-6">
                       {model.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center">
-                          <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
+                          <CheckCircle className="w-3 h-3 text-[#26A65B] mr-2" />
+
                           <span className="text-gray-700">{feature}</span>
                         </li>
                       ))}
@@ -541,26 +576,26 @@ const CollaborationPage: React.FC = () => {
       {/* Contact Form */}
       <section id="collaboration-form" className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
             {!isSubmitted ? (
-              
+
               <>
-              <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-          Let's Build a Collaboration
-        </h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Fill this form and our team will reach out within 24 hours to discuss partnership opportunities.
-        </p>
-      </div>
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Let's Build a Collaboration
+                  </h2>
+                  <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Fill this form and our team will reach out you soon to discuss partnership opportunities.
+                  </p>
+                </div>
                 {/* Title Section */}
                 <div className="text-center mb-12">
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                     Let's Build a Collaboration
                   </h2>
                   <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Fill this form and our team will reach out within 24 hours to discuss partnership opportunities.
+                    Fill this form and our team will reach out you soon to discuss partnership opportunities.
                   </p>
                 </div>
 

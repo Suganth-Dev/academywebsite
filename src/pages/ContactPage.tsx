@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  MessageSquare, 
-  Send, 
-  Clock, 
-  Users, 
+import React, { useState, useRef } from 'react';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Send,
+  Clock,
+  Users,
   Award,
   Instagram,
   Youtube,
@@ -33,12 +33,13 @@ const ContactPage: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-   courseOfInterest: [] as string[],
+    courseOfInterest: [] as string[],
 
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const successRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -46,7 +47,7 @@ const ContactPage: React.FC = () => {
       [e.target.name]: e.target.value
     });
   };
-const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setIsSubmitting(true);
 
@@ -70,11 +71,15 @@ const handleSubmit = async (e: React.FormEvent) => {
     });
 
     const result = await response.json();
-
     if (response.ok) {
       console.log("API Success:", result);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', courseOfInterest: [], message: '' });
+
+      // Scroll to the success message
+      setTimeout(() => {
+        successRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
     } else {
       console.error("API Error:", result);
       alert("Something went wrong: " + (result.error || "Please try again."));
@@ -144,37 +149,37 @@ const handleSubmit = async (e: React.FormEvent) => {
   ];
 
   const socialLinks = [
-    { 
-      icon: Instagram, 
-      name: 'Instagram', 
+    {
+      icon: Instagram,
+      name: 'Instagram',
       handle: '@indiadroneacademy',
       followers: '15K+',
       url: 'https://instagram.com/indiadroneacademy',
       color: 'text-pink-600',
       bgColor: 'bg-pink-50'
     },
-//hitye
-    { 
-      icon: Youtube, 
-      name: 'YouTube', 
+    //hitye
+    {
+      icon: Youtube,
+      name: 'YouTube',
       handle: 'India Drone Academy',
       followers: '25K+',
       url: 'https://youtube.com/@indiadroneacademy',
       color: 'text-red-600',
       bgColor: 'bg-red-50'
     },
-    { 
-      icon: Linkedin, 
-      name: 'LinkedIn', 
+    {
+      icon: Linkedin,
+      name: 'LinkedIn',
       handle: 'India Drone Academy',
       followers: '10K+',
       url: 'https://linkedin.com/company/indiadroneacademy',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     },
-    { 
-      icon: Facebook, 
-      name: 'Facebook', 
+    {
+      icon: Facebook,
+      name: 'Facebook',
       handle: 'India Drone Academy',
       followers: '20K+',
       url: 'https://facebook.com/indiadroneacademy',
@@ -192,20 +197,23 @@ const handleSubmit = async (e: React.FormEvent) => {
     'Corporate Training',
     'Not Sure - Need Guidance'
   ];
-const handleCheckboxChange = (course: string) => {
-  setFormData(prev => {
-    const isSelected = prev.courseOfInterest.includes(course);
-    const updated = isSelected
-      ? prev.courseOfInterest.filter(c => c !== course)
-      : [...prev.courseOfInterest, course];
-    return { ...prev, courseOfInterest: updated };
-  });
-};
+  const handleCheckboxChange = (course: string) => {
+    setFormData(prev => {
+      const isSelected = prev.courseOfInterest.includes(course);
+      const updated = isSelected
+        ? prev.courseOfInterest.filter(c => c !== course)
+        : [...prev.courseOfInterest, course];
+      return { ...prev, courseOfInterest: updated };
+    });
+  };
 
-  return (
-    <div className="min-h-screen bg-white">
+return (
+  <div className={`${isSubmitted ? 'py-8' : 'min-h-screen'} bg-white`}>
+    {!isSubmitted ? (
+      <>
+
       {/* Header Spacer */}
-      
+
 
       {/* Hero Section */}
       <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -222,10 +230,10 @@ const handleCheckboxChange = (course: string) => {
               <span className="text-[#F15A24]">Premier Drone Academy</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed">
-              We're here to answer your questions, guide you through the application process, 
+              We're here to answer your questions, guide you through the application process,
               and help you start your drone career journey.
             </p>
-            
+
             {/* Quick WhatsApp CTA */}
             <a
               href="https://wa.me/919188883344?text=Hi, I need information about drone courses"
@@ -266,19 +274,19 @@ const handleCheckboxChange = (course: string) => {
                   <div className={`w-16 h-16 ${method.bgColor} rounded-2xl flex items-center justify-center mb-6`}>
                     <IconComponent className={`w-8 h-8 ${method.color}`} />
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {method.title}
                   </h3>
-                  
+
                   <p className="text-lg font-medium text-gray-900 mb-2">
                     {method.primary}
                   </p>
-                  
+
                   <p className="text-gray-600 mb-6">
                     {method.secondary}
                   </p>
-                  
+
                   <a
                     href={method.action}
                     target={method.action.startsWith('http') ? '_blank' : undefined}
@@ -311,9 +319,8 @@ const handleCheckboxChange = (course: string) => {
             {officeLocations.map((location, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-2xl p-8 shadow-lg ${
-                  location.isMain ? 'ring-2 ring-[#F15A24] ring-opacity-50' : ''
-                }`}
+                className={`bg-white rounded-2xl p-8 shadow-lg ${location.isMain ? 'ring-2 ring-[#F15A24] ring-opacity-50' : ''
+                  }`}
               >
                 {location.isMain && (
                   <div className="inline-flex items-center bg-[#F15A24] text-white px-4 py-2 rounded-full text-sm font-bold mb-6">
@@ -321,81 +328,81 @@ const handleCheckboxChange = (course: string) => {
                     Main Campus
                   </div>
                 )}
-                
+
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   {location.city}
                 </h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <MapPin className="w-5 h-5 text-[#F15A24] mr-3 mt-0.5" />
                     <p className="text-gray-700">{location.address}</p>
                   </div>
-                  
+
                   <div className="flex items-center">
                     <Phone className="w-5 h-5 text-[#F15A24] mr-3" />
                     <a href={`tel:${location.phone}`} className="text-gray-700 hover:text-[#F15A24]">
                       {location.phone}
                     </a>
                   </div>
-                  
+
                   <div className="flex items-center">
                     <Mail className="w-5 h-5 text-[#F15A24] mr-3" />
                     <a href={`mailto:${location.email}`} className="text-gray-700 hover:text-[#F15A24]">
                       {location.email}
                     </a>
                   </div>
-                  
+
                   <div className="flex items-center">
                     <Clock className="w-5 h-5 text-[#F15A24] mr-3" />
                     <p className="text-gray-700">{location.hours}</p>
                   </div>
                 </div>
-                
-               <div className="flex gap-3 mt-6">
-  {/* Get Directions Button */}
-  <a
-    href="https://maps.app.goo.gl/dM67EeLA4LxQXND86"  
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex-1 bg-[#F15A24] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200 flex items-center justify-center"
-  >
-    <Navigation className="w-4 h-4 mr-2" />
-    Get Directions
-  </a>
 
-  {/* Call Button */}
-  <a
-    href={`tel:${location.phone}`}  
-    className="flex-1 bg-gray-100 text-gray-700 font-bold py-3 px-4 rounded-lg hover:bg-gray-200 transition-all duration-200 flex items-center justify-center"
-  >
-    <Phone className="w-4 h-4 mr-2" />
-    Call
-  </a>
-</div>
+                <div className="flex gap-3 mt-6">
+                  {/* Get Directions Button */}
+                  <a
+                    href="https://maps.app.goo.gl/dM67EeLA4LxQXND86"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-[#F15A24] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200 flex items-center justify-center"
+                  >
+                    <Navigation className="w-4 h-4 mr-2" />
+                    Get Directions
+                  </a>
+
+                  {/* Call Button */}
+                  <a
+                    href={`tel:${location.phone}`}
+                    className="flex-1 bg-gray-100 text-gray-700 font-bold py-3 px-4 rounded-lg hover:bg-gray-200 transition-all duration-200 flex items-center justify-center"
+                  >
+                    <Phone className="w-4 h-4 mr-2" />
+                    Call
+                  </a>
+                </div>
 
               </div>
             ))}
           </div>
 
           {/* Embedded Map */}
-<div className="bg-white rounded-2xl p-8 shadow-lg">
-  <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-    Find Our Hyderabad Campus
-  </h3>
-  <div className="relative h-96 rounded-xl overflow-hidden">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.893470680235!2d78.38136607377082!3d17.416899301957038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb956e0635a7fb%3A0x730c0d9fd9fa88d1!2sIndia%20Drone%20Academy!5e0!3m2!1sen!2sin!4v1750334582121!5m2!1sen!2sin"
-      width="100%"
-      height="100%"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      title="India Drone Academy Hyderabad Location"
-    ></iframe>
-  </div>
-</div>
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              Find Our Hyderabad Campus
+            </h3>
+            <div className="relative h-96 rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.893470680235!2d78.38136607377082!3d17.416899301957038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb956e0635a7fb%3A0x730c0d9fd9fa88d1!2sIndia%20Drone%20Academy!5e0!3m2!1sen!2sin!4v1750334582121!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="India Drone Academy Hyderabad Location"
+              ></iframe>
+            </div>
+          </div>
 
         </div>
       </section>
@@ -408,7 +415,7 @@ const handleCheckboxChange = (course: string) => {
               Send Us a Message
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Have a specific question? Fill out the form below and we'll get back to you within 24 hours.
+              Have a specific question? Fill out the form below and we'll get back to you soon.
             </p>
           </div>
 
@@ -479,21 +486,21 @@ const handleCheckboxChange = (course: string) => {
                     Course of Interest
                   </label>
                   <div className="relative">
-                    
-                   <div className="space-y-3">
-  {courseOptions.map((course) => (
-    <label key={course} className="flex items-center space-x-3">
-      <input
-        type="checkbox"
-        value={course}
-        checked={formData.courseOfInterest.includes(course)}
-        onChange={() => handleCheckboxChange(course)}
-        className="text-[#F15A24] focus:ring-[#F15A24]"
-      />
-      <span className="text-gray-700">{course}</span>
-    </label>
-  ))}
-</div>
+
+                    <div className="space-y-3">
+                      {courseOptions.map((course) => (
+                        <label key={course} className="flex items-center space-x-3">
+                          <input
+                            type="checkbox"
+                            value={course}
+                            checked={formData.courseOfInterest.includes(course)}
+                            onChange={() => handleCheckboxChange(course)}
+                            className="text-[#F15A24] focus:ring-[#F15A24]"
+                          />
+                          <span className="text-gray-700">{course}</span>
+                        </label>
+                      ))}
+                    </div>
 
                   </div>
                 </div>
@@ -533,7 +540,7 @@ const handleCheckboxChange = (course: string) => {
                 </button>
               </form>
             ) : (
-              <div className="text-center py-8">
+              <div ref={successRef} className="text-center py-8">
                 <div className="w-16 h-16 bg-[#26A65B] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="w-8 h-8 text-[#26A65B]" />
                 </div>
@@ -541,7 +548,7 @@ const handleCheckboxChange = (course: string) => {
                   Message Sent Successfully!
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Thank you for reaching out. Our team will get back to you within 24 hours.
+                  Thank you for reaching out. Our team will get back to you soon.
                 </p>
                 <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4">
                   <p className="text-[#26A65B] font-medium">
@@ -580,19 +587,19 @@ const handleCheckboxChange = (course: string) => {
                   <div className={`w-16 h-16 ${social.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent className={`w-8 h-8 ${social.color}`} />
                   </div>
-                  
+
                   <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {social.name}
                   </h3>
-                  
+
                   <p className="text-gray-600 mb-2">
                     {social.handle}
                   </p>
-                  
+
                   <p className="text-sm text-gray-500 mb-4">
                     {social.followers} followers
                   </p>
-                  
+
                   <div className="flex items-center justify-center text-[#F15A24] font-medium group-hover:text-[#D64A1A]">
                     Follow Us
                     <ExternalLink className="w-4 h-4 ml-2" />
@@ -611,10 +618,10 @@ const handleCheckboxChange = (course: string) => {
             Need an Urgent Response?
           </h2>
           <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            For immediate assistance, call us directly or start a WhatsApp conversation. 
+            For immediate assistance, call us directly or start a WhatsApp conversation.
             We're here to help you take the next step in your drone career.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+91 9188883344"
@@ -642,8 +649,39 @@ const handleCheckboxChange = (course: string) => {
           </div>
         </div>
       </section>
-    </div>
-  );
+
+          </>
+    ) : (
+      <div className="flex items-center justify-center py-16 bg-white px-4">
+        <div
+          ref={successRef}
+          className="max-w-xl w-full p-8 bg-green-50 rounded-xl text-center border border-green-200 shadow"
+        >
+          <div className="flex items-center justify-center mb-4">
+            <CheckCircle className="w-10 h-10 text-[#26A65B]" />
+          </div>
+          <h3 className="text-2xl font-bold text-[#26A65B] mb-2">
+            Message Sent Successfully!
+          </h3>
+          <p className="text-gray-700 mb-4">
+            Thank you for reaching out. Our team will get back to you soon.
+          </p>
+          <p className="text-sm text-green-600 font-medium">
+            📱 For urgent queries, WhatsApp us at{' '}
+            <a
+              href="https://wa.me/919188883344"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              +91 9188883344
+            </a>
+          </p>
+        </div>
+      </div>
+    )}
+  </div>
+);
 };
 
 export default ContactPage;

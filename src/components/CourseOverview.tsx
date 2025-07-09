@@ -199,7 +199,7 @@ const CourseOverview: React.FC = () => {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 4000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, totalSlides]);

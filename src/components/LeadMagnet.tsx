@@ -158,7 +158,7 @@ const LeadMagnet: React.FC = () => {
                 </p>
                 <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4">
                   <p className="text-[#26A65B] font-medium">
-                    📱 Our counselor will contact you within 24 hours to discuss your career goals.
+                    📱 Our counselor will contact you soon  to discuss your career goals.
                   </p>
                 </div>
               </div>

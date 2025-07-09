@@ -24,7 +24,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/dgca-small',
       features: ['DGCA Certification', 'Theory & Practical', 'Job Assistance', 'Small Drone Operations'],
-     
+
     },
     {
       id: 2,
@@ -78,165 +78,165 @@ const CoursesPage: React.FC = () => {
       locations: ['Hyderabad', 'Bangalore', 'Mumbai']
     },
     {
-  id: 5,
-  title: 'Site Asset Mapping & Inspection',
-  category: 'Special Courses',
-  badge: 'Infrastructure',
-  badgeColor: 'bg-blue-600',
-  description: 'Inspection and mapping of roads, railways, telecom, and industrial infrastructure using drones.',
-  duration: '5 Days',
-  price: '₹35,000',
-  gst: '+ 18% GST',
-  level: 'Intermediate',
-  icon: Target,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/site-asset-inspection',
-  features: ['Infrastructure Mapping', 'Utilities Inspection', 'Survey Tools', 'Road & Rail Monitoring'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 5,
+      title: 'Site Asset Mapping & Inspection',
+      category: 'Special Courses',
+      badge: 'Infrastructure',
+      badgeColor: 'bg-blue-600',
+      description: 'Inspection and mapping of roads, railways, telecom, and industrial infrastructure using drones.',
+      duration: '5 Days',
+      price: '₹35,000',
+      gst: '+ 18% GST',
+      level: 'Intermediate',
+      icon: Target,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/site-asset-inspection',
+      features: ['Infrastructure Mapping', 'Utilities Inspection', 'Survey Tools', 'Road & Rail Monitoring'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
 
     {
-  id: 6,
-  title: 'Mining Excavation Volumetric Analysis',
-  category: 'Special Courses',
-  badge: 'Mining',
-  badgeColor: 'bg-gray-700',
-  description: 'Analyze and calculate volumes for mining excavation projects using aerial survey techniques.',
-  duration: '5 Days',
-  price: '₹35,000',
-  gst: '+ 18% GST',
-  level: 'Advanced',
-  icon: Target,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/mining-excavation',
-  features: ['Volumetric Analysis', 'Mining Monitoring', '3D Modeling', 'Drone Mapping'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 6,
+      title: 'Mining Excavation Volumetric Analysis',
+      category: 'Special Courses',
+      badge: 'Mining',
+      badgeColor: 'bg-gray-700',
+      description: 'Analyze and calculate volumes for mining excavation projects using aerial survey techniques.',
+      duration: '5 Days',
+      price: '₹35,000',
+      gst: '+ 18% GST',
+      level: 'Advanced',
+      icon: Target,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/mining-excavation',
+      features: ['Volumetric Analysis', 'Mining Monitoring', '3D Modeling', 'Drone Mapping'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
 
     {
-  id: 7,
-  title: 'Agriculture Spraying & Precision Farming',
-  category: 'Special Courses',
-  badge: 'For Farmers',
-  badgeColor: 'bg-green-600',
-  description: 'Precision spraying techniques for crop protection and optimized agriculture operations.',
-  duration: '3 Days',
-  price: '₹25,000',
-  gst: '+ 18% GST',
-  level: 'Beginner Friendly',
-  icon: Wheat,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/agriculture-precision',
-  features: ['Spraying Techniques', 'Crop Monitoring', 'Agri Mapping', 'Flight Demos'],
-  locations: ['Hyderabad', 'Bangalore']
-},
-
-   {
-  id: 8,
-  title: 'Aerial Cinematography',
-  category: 'Special Courses',
-  badge: 'Creative',
-  badgeColor: 'bg-purple-600',
-  description: 'Learn professional aerial photography and cinematic drone shots for media projects.',
-  duration: '3 Days',
-  price: '₹25,000',
-  gst: '+ 18% GST',
-  level: 'Intermediate',
-  icon: Camera,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/aerial-cinematography',
-  features: ['Cinematic Shots', 'Camera Gimbal Use', 'Creative Angles', 'Footage Editing'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 7,
+      title: 'Agriculture Spraying & Precision Farming',
+      category: 'Special Courses',
+      badge: 'For Farmers',
+      badgeColor: 'bg-green-600',
+      description: 'Precision spraying techniques for crop protection and optimized agriculture operations.',
+      duration: '3 Days',
+      price: '₹25,000',
+      gst: '+ 18% GST',
+      level: 'Beginner Friendly',
+      icon: Wheat,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/agriculture-precision',
+      features: ['Spraying Techniques', 'Crop Monitoring', 'Agri Mapping', 'Flight Demos'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
 
     {
-  id: 9,
-  title: 'Drone Survey & Data Processing',
-  category: 'Special Courses',
-  badge: 'Technical',
-  badgeColor: 'bg-indigo-600',
-  description: 'Post-processing and analytics of drone survey data for agriculture and mapping use cases.',
-  duration: '3 Days',
-  price: '₹25,000',
-  gst: '+ 18% GST',
-  level: 'Intermediate',
-  icon: Monitor,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/data-processing',
-  features: ['Orthomosaics', 'DEM/DSM', '3D Models', 'QGIS Export'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 8,
+      title: 'Aerial Cinematography',
+      category: 'Special Courses',
+      badge: 'Creative',
+      badgeColor: 'bg-purple-600',
+      description: 'Learn professional aerial photography and cinematic drone shots for media projects.',
+      duration: '3 Days',
+      price: '₹25,000',
+      gst: '+ 18% GST',
+      level: 'Intermediate',
+      icon: Camera,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/aerial-cinematography',
+      features: ['Cinematic Shots', 'Camera Gimbal Use', 'Creative Angles', 'Footage Editing'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
 
     {
-  id: 10,
-  title: 'Drone Assembly & Repair (Advanced)',
-  category: 'Special Courses',
-  badge: 'Advanced Repair',
-  badgeColor: 'bg-red-600',
-  description: 'Master advanced repairs, calibration, soldering and maintenance for drone fleets.',
-  duration: '5 Days',
-  price: '₹45,000',
-  gst: '+ 18% GST',
-  level: 'Advanced',
-  icon: Wrench,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/assembly-advanced',
-  features: ['Advanced Soldering', 'ESC Tuning', 'IMU Calibration', 'Motor Testing'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 9,
+      title: 'Drone Survey & Data Processing',
+      category: 'Special Courses',
+      badge: 'Technical',
+      badgeColor: 'bg-indigo-600',
+      description: 'Post-processing and analytics of drone survey data for agriculture and mapping use cases.',
+      duration: '3 Days',
+      price: '₹25,000',
+      gst: '+ 18% GST',
+      level: 'Intermediate',
+      icon: Monitor,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/data-processing',
+      features: ['Orthomosaics', 'DEM/DSM', '3D Models', 'QGIS Export'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
 
     {
-  id: 11,
-  title: 'Custom Training / Workshop for Institutes',
-  category: 'Special Courses',
-  badge: 'Institutional',
-  badgeColor: 'bg-orange-500',
-  description: 'Tailored drone workshops for universities and government agencies.',
-  duration: '3 Days',
-  price: '₹25,000',
-  gst: '+ 18% GST',
-  level: 'Customized',
-  icon: Building,
-  image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/custom-training',
-  features: ['Curriculum Design', 'Field Training', 'Certification', 'Project Work'],
-  locations: ['Hyderabad', 'Bangalore']
-},
-    {
-  id: 12,
-  title: 'FPV Drone Training (Basic)',
-  category: 'Special Courses',
-  badge: 'Racing',
-  badgeColor: 'bg-pink-600',
-  description: 'FPV drone flight training for beginners focusing on racing and freestyle maneuvers.',
-  duration: '3 Days',
-  price: '₹25,000',
-  gst: '+ 18% GST',
-  level: 'Beginner',
-  icon: Zap,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/fpv-basic',
-  features: ['Line of Sight', 'Simulator Flying', 'Basic FPV Kit', 'Safety Protocols'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 10,
+      title: 'Drone Assembly & Repair (Advanced)',
+      category: 'Special Courses',
+      badge: 'Advanced Repair',
+      badgeColor: 'bg-red-600',
+      description: 'Master advanced repairs, calibration, soldering and maintenance for drone fleets.',
+      duration: '5 Days',
+      price: '₹45,000',
+      gst: '+ 18% GST',
+      level: 'Advanced',
+      icon: Wrench,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/assembly-advanced',
+      features: ['Advanced Soldering', 'ESC Tuning', 'IMU Calibration', 'Motor Testing'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
 
     {
-  id: 13,
-  title: 'FPV Drone Training (Advanced)',
-  category: 'Special Courses',
-  badge: 'Professional Racing',
-  badgeColor: 'bg-red-600',
-  description: 'Advanced FPV racing techniques and competition preparation.',
-  duration: '5 Days',
-  price: '₹45,000',
-  gst: '+ 18% GST',
-  level: 'Advanced',
-  icon: Zap,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/fpv-advanced',
-  features: ['Advanced Racing', 'Competition Prep', 'Professional Techniques', 'Performance Tuning'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 11,
+      title: 'Custom Training / Workshop for Institutes',
+      category: 'Special Courses',
+      badge: 'Institutional',
+      badgeColor: 'bg-orange-500',
+      description: 'Tailored drone workshops for universities and government agencies.',
+      duration: '3 Days',
+      price: '₹25,000',
+      gst: '+ 18% GST',
+      level: 'Customized',
+      icon: Building,
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/custom-training',
+      features: ['Curriculum Design', 'Field Training', 'Certification', 'Project Work'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
+    {
+      id: 12,
+      title: 'FPV Drone Training (Basic)',
+      category: 'Special Courses',
+      badge: 'Racing',
+      badgeColor: 'bg-pink-600',
+      description: 'FPV drone flight training for beginners focusing on racing and freestyle maneuvers.',
+      duration: '3 Days',
+      price: '₹25,000',
+      gst: '+ 18% GST',
+      level: 'Beginner',
+      icon: Zap,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/fpv-basic',
+      features: ['Line of Sight', 'Simulator Flying', 'Basic FPV Kit', 'Safety Protocols'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
+
+    {
+      id: 13,
+      title: 'FPV Drone Training (Advanced)',
+      category: 'Special Courses',
+      badge: 'Professional Racing',
+      badgeColor: 'bg-red-600',
+      description: 'Advanced FPV racing techniques and competition preparation.',
+      duration: '5 Days',
+      price: '₹45,000',
+      gst: '+ 18% GST',
+      level: 'Advanced',
+      icon: Zap,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/fpv-advanced',
+      features: ['Advanced Racing', 'Competition Prep', 'Professional Techniques', 'Performance Tuning'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
 
     {
       id: 14,
@@ -324,56 +324,56 @@ const CoursesPage: React.FC = () => {
       locations: ['Hyderabad', 'Bangalore', 'Mumbai']
     },
     {
-  id: 19,
-  title: 'Master Drone Technology (Training + Internship)',
-  category: 'Special Courses',
-  badge: 'Job Ready',
-  badgeColor: 'bg-gradient-to-r from-blue-500 to-green-500',
-  description: '12-week training and internship on drone tech, data, GIS and engineering applications.',
-  duration: '3 Months',
-  price: '₹65,000',
-  gst: '+ 18% GST',
-  level: 'Advanced',
-  icon: Award,
-  image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/master-drone-tech',
-  features: ['DGCA License', 'Photogrammetry', 'LiDAR & CAD', 'Internship Projects'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 19,
+      title: 'Master Drone Technology (Training + Internship)',
+      category: 'Special Courses',
+      badge: 'Job Ready',
+      badgeColor: 'bg-gradient-to-r from-blue-500 to-green-500',
+      description: '12-week training and internship on drone tech, data, GIS and engineering applications.',
+      duration: '3 Months',
+      price: '₹65,000',
+      gst: '+ 18% GST',
+      level: 'Advanced',
+      icon: Award,
+      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/master-drone-tech',
+      features: ['DGCA License', 'Photogrammetry', 'LiDAR & CAD', 'Internship Projects'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
     {
-  id: 20,
-  title: 'Advanced Drone Missions & Payload Handling',
-  category: 'Special Courses',
-  badge: 'Industrial',
-  badgeColor: 'bg-blue-700',
-  description: 'Train on dynamic payloads and advanced flight missions including thermal and LiDAR.',
-  duration: '4 Days',
-  price: '₹30,000',
-  gst: '+ 18% GST',
-  level: 'Advanced',
-  icon: Plane,
-  image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/advanced-missions',
-  features: ['Orbit & Oblique', 'Payload Drop', 'Thermal Imaging', 'Sensor Setup'],
-  locations: ['Hyderabad', 'Bangalore']
-},
-{
-  id: 21,
-  title: 'Engineering GIS Analytics using Drone Data',
-  category: 'Special Courses',
-  badge: 'Engineering',
-  badgeColor: 'bg-green-600',
-  description: 'Post-process drone data for engineering analytics, GIS modeling and infrastructure monitoring.',
-  duration: '5 Days',
-  price: '₹30,000',
-  gst: '+ 18% GST',
-  level: 'Intermediate to Advanced',
-  icon: Monitor,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-  link: '/courses/gis-analytics',
-  features: ['CAD+GIS', 'Contours/TIN', 'X-Section Analysis', 'Alignment Modeling'],
-  locations: ['Hyderabad', 'Bangalore']
-},
+      id: 20,
+      title: 'Advanced Drone Missions & Payload Handling',
+      category: 'Special Courses',
+      badge: 'Industrial',
+      badgeColor: 'bg-blue-700',
+      description: 'Train on dynamic payloads and advanced flight missions including thermal and LiDAR.',
+      duration: '4 Days',
+      price: '₹30,000',
+      gst: '+ 18% GST',
+      level: 'Advanced',
+      icon: Plane,
+      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/advanced-missions',
+      features: ['Orbit & Oblique', 'Payload Drop', 'Thermal Imaging', 'Sensor Setup'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
+    {
+      id: 21,
+      title: 'Engineering GIS Analytics using Drone Data',
+      category: 'Special Courses',
+      badge: 'Engineering',
+      badgeColor: 'bg-green-600',
+      description: 'Post-process drone data for engineering analytics, GIS modeling and infrastructure monitoring.',
+      duration: '5 Days',
+      price: '₹30,000',
+      gst: '+ 18% GST',
+      level: 'Intermediate to Advanced',
+      icon: Monitor,
+      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      link: '/courses/gis-analytics',
+      features: ['CAD+GIS', 'Contours/TIN', 'X-Section Analysis', 'Alignment Modeling'],
+      locations: ['Hyderabad', 'Bangalore']
+    },
     {
       id: 22,
       title: 'Simulator Refresher',
@@ -427,8 +427,8 @@ const CoursesPage: React.FC = () => {
     }
   ];
 
-  const filteredCourses = activeFilter === 'All' 
-    ? courses 
+  const filteredCourses = activeFilter === 'All'
+    ? courses
     : courses.filter(course => course.category === activeFilter);
 
   const handleCourseClick = (link: string) => {
@@ -451,7 +451,7 @@ const CoursesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-      
+
 
       {/* Page Header */}
       <section className="pt-6 pb-16 bg-gradient-to-br from-gray-50 to-white">
@@ -462,10 +462,10 @@ const CoursesPage: React.FC = () => {
               Comprehensive Drone Training Programs
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              From DGCA certification to specialized skills, explore our complete range of drone training programs. 
+              From DGCA certification to specialized skills, explore our complete range of drone training programs.
               Choose from basic courses to advanced bundles designed for every career path and skill level.
             </p>
-            
+
             {/* Quick Stats */}
             <div className="flex flex-wrap justify-center gap-8 mt-8 text-sm">
               <div className="flex items-center text-gray-600">
@@ -488,30 +488,40 @@ const CoursesPage: React.FC = () => {
       {/* Filters */}
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between">
-            <div className="flex items-center mb-4 sm:mb-0">
-              <Filter className="w-5 h-5 mr-2 text-gray-600" />
-              <span className="text-gray-700 font-medium">Filter by Category:</span>
-            </div>
-            
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap gap-2">
-              {filters.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                    activeFilter === filter
-                      ? 'bg-[#F15A24] text-white shadow-md'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
-          </div>
-          
+          <div className="flex flex-wrap items-center gap-4">
+  <div className="flex items-center">
+    <Filter className="w-5 h-5 mr-2 text-gray-600" />
+    <span className="text-gray-700 font-medium">Filter by Category:</span>
+  </div>
+
+  {/* Filter Buttons */}
+  <div className="flex flex-wrap gap-2">
+    {filters.map((filter) => (
+      <button
+        key={filter}
+        onClick={() => setActiveFilter(filter)}
+        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+          activeFilter === filter
+            ? 'bg-[#F15A24] text-white shadow-md'
+            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+        }`}
+      >
+        {filter}
+      </button>
+    ))}
+
+    {/* ✅ Curriculum Page Button */}
+    <button
+      onClick={() => navigate('/curriculum')}
+      className="px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-[#26A65B] text-white hover:bg-[#1e894b]"
+    >
+      Drone in Curriculum
+    </button>
+  </div>
+</div>
+
+
+
           {/* Results Count */}
           <div className="mt-4 text-gray-600">
             Showing {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''}
@@ -542,17 +552,17 @@ const CoursesPage: React.FC = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    
+
                     {/* Badge */}
                     <div className={`absolute top-4 left-4 ${course.badgeColor} text-white px-3 py-1 rounded-full text-sm font-medium`}>
                       {course.badge}
                     </div>
-                    
+
                     {/* Icon */}
                     <div className="absolute top-4 right-4 bg-white bg-opacity-90 p-2 rounded-full">
                       <IconComponent className="w-5 h-5 text-[#26A65B]" />
                     </div>
-                    
+
                     {/* Price */}
                     <div className="absolute bottom-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full">
                       <div className="text-[#F15A24] font-bold text-sm">{course.price}</div>
@@ -602,7 +612,7 @@ const CoursesPage: React.FC = () => {
                     </div>
 
                     {/* Locations */}
-                    
+
 
                     {/* CTA Buttons */}
                     <div className="flex gap-2">

@@ -63,9 +63,9 @@ const Footer: React.FC = () => {
                 className="flex items-center"
               >
                 <img 
-                  src="/logo.png" 
+                  src="/logo1.png" 
                   alt="India Drone Academy Logo" 
-                  className="h-12 mb-4"
+                  className="h-14 mb-4"
                 />
               </button>
               <h3 className="text-xl font-bold mb-2">India Drone Academy</h3>
