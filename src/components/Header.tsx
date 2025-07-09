@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                   src="/logo.png" 
                   alt="India Drone Academy Logo" 
                   className={`transition-all duration-300 ${
-                    isScrolled ? 'h-8' : 'h-10'
+                    isScrolled ? 'h-14' : 'h-14'
                   }`}
                 />
               </button>

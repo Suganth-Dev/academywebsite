@@ -17,6 +17,7 @@ import TermsPage from './pages/TermsPage';
 import SitemapPage from './pages/SitemapPage';
 import CollaborationPage from './pages/CollaborationPage';
 import PartnershipsPage from './pages/PartnershipsPage';
+import CurriculumPage from './pages/CurriculumPage';
 //added
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/collaborate" element={<CollaborationPage />} />
           <Route path="/partnerships" element={<PartnershipsPage />} />
+            <Route path="/curriculum" element={<CurriculumPage />} />
         </Routes>
         <Footer />
       </div>
