@@ -43,24 +43,25 @@ const VideoHeroSection: React.FC = () => {
 
 
         {/* Background Video */}
-        <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-            poster="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          >
-            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
-            {/* Fallback image if video fails to load */}
-            <img 
-              src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1920" 
-              alt="Drone training background"
-              className="w-full h-full object-cover"
-            />
-          </video>
-        </div>
+       <div className="absolute inset-0 w-full h-full">
+  <div className="w-full h-full relative overflow-hidden">
+    <iframe
+      className="absolute top-0 left-0 w-[100vw] h-[100vh]"
+      src="https://www.youtube.com/embed/qp8as0_j5zE?autoplay=1&mute=1&controls=0&loop=1&playlist=qp8as0_j5zE"
+      title="Drone Background Video"
+      frameBorder="0"
+      allow="autoplay; encrypted-media"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
+
+
+
+
+
+
+
 
         {/* Dark Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
@@ -86,7 +87,7 @@ const VideoHeroSection: React.FC = () => {
               {/* Powerful Career-Focused Tagline */}
               <div className="mb-6 md:mb-8">
                 <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#26A65B] mb-2 leading-tight">
-                  Building Careers That 
+                  Building Careers That
                 </p>
                 <p className="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed">
                   Transform your future with cutting-edge drone technology training
@@ -139,7 +140,7 @@ const VideoHeroSection: React.FC = () => {
             >
               ×
             </button>
-            
+
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Download className="w-8 h-8 text-[#F15A24]" />
@@ -187,7 +188,7 @@ const VideoHeroSection: React.FC = () => {
                 Download Now
               </button>
             </form>
-            
+
             <p className="text-xs text-gray-500 text-center mt-4">
               We respect your privacy. No spam, unsubscribe anytime.
             </p>
