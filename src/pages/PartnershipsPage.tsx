@@ -78,48 +78,129 @@ const PartnershipsPage: React.FC = () => {
 
   const partnershipTypes = [
     {
-      icon: Building,
-      title: 'Drone Manufacturers',
-      description: 'Collaborate with us to integrate your UAV hardware and support AI/GIS-enabled field deployments.',
+      icon: User,
+      title: 'Drone Pilots',
+      description: 'Join India’s fastest-growing pilot network and unlock jobs, missions, and rewards.',
       examples: [
-        'AI-ready drone kit supply',
-        'Custom payload integration',
-        'GIS-mapped field deployment',
-        'Demo support for expos & institutes'
+        'DGCA & advanced drone training',
+        'National job opportunities',
+        'Paid flight missions & simulator credits',
+        'Freelance onboarding via IDA',
+        'Referral & earn programs'
       ],
-      color: 'text-yellow-600',
-      bgColor: 'bg-yellow-50',
-      gradient: 'from-yellow-500 to-yellow-600'
+      gradient: 'from-orange-500 to-orange-600'
     },
     {
-      icon: Briefcase,
-      title: 'Drone Service Providers',
-      description: 'Access certified pilots and partner on AI-powered surveys, inspections, and GIS projects.',
+      icon: Building,
+      title: 'Colleges & Universities',
+      description: 'Empower students through drone and GIS-integrated curriculum and labs.',
       examples: [
-        'Certified pilot access',
-        'AI-based inspection & reporting',
-        'GIS-mapped drone surveys',
-        'Joint operations & internships'
+        'Curriculum for CSE/ECE/EEE & civil',
+        'Drone & GIS lab setup',
+        'Workshops & internships',
+        'Faculty certifications & MoUs',
+        'Placement and project collaboration'
       ],
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
       gradient: 'from-blue-500 to-blue-600'
+    },
+    {
+      icon: Rocket,
+      title: 'Drone Manufacturers',
+      description: 'Deploy drones with certified training, testing, and exposure.',
+      examples: [
+        'AI-ready drone kits for training',
+        'Payload customization support',
+        'GIS-enabled deployment testing',
+        'Showcase at IDA expos'
+      ],
+      gradient: 'from-yellow-500 to-yellow-600'
     },
     {
       icon: Cpu,
       title: 'Software & AI Developers',
-      description: 'Build AI & GIS tools for simulation, analytics, and mission automation in drone training.',
+      description: 'Build drone automation and intelligence systems with us.',
       examples: [
         'Flight simulator integration',
-        'AI object detection models',
-        'GIS-based mapping tools',
-        'Drone data dashboards'
+        'Object detection & computer vision',
+        'GIS mapping & analytics tools',
+        'Real-time automation systems'
       ],
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
       gradient: 'from-purple-500 to-purple-600'
+    },
+    {
+      icon: Briefcase,
+      title: 'Drone Service Providers',
+      description: 'Partner on inspections, surveys, and data delivery with skilled pilots.',
+      examples: [
+        'Access to certified drone pilots',
+        'Project execution support',
+        'Joint bidding & data services',
+        'Visualization & reporting tools'
+      ],
+      gradient: 'from-indigo-500 to-indigo-600'
+    },
+    {
+      icon: MapPin,
+      title: 'Agritech & Farmer Groups',
+      description: 'Bring precision agri solutions to the grassroots with drone tech.',
+      examples: [
+        'Aerial spraying & seeding',
+        'NDVI crop health monitoring',
+        'Kisan Drone & Drone Didi programs',
+        'Land mapping & chakbandi'
+      ],
+      gradient: 'from-green-500 to-green-600'
+    },
+    {
+      icon: Settings,
+      title: 'RPTOs & Training Institutes',
+      description: 'Enhance your RPTO capabilities with IDA tools and support.',
+      examples: [
+        'Simulator integration & upgrades',
+        'Access to e-learning resources',
+        'Joint certifications',
+        'Tech support & licensing aid'
+      ],
+      gradient: 'from-red-500 to-red-600'
+    },
+    {
+      icon: Megaphone,
+      title: 'Media & Event Agencies',
+      description: 'Create impactful drone stories, events, and media content.',
+      examples: [
+        'Aerial photography & video training',
+        'Drone TV coverage & interviews',
+        'Live drone shows & reels',
+        'Media student internships'
+      ],
+      gradient: 'from-pink-500 to-pink-600'
+    },
+    {
+      icon: Award,
+      title: 'Government & NGOs',
+      description: 'Deploy drone training for skill development and public welfare.',
+      examples: [
+        'Skill India & PMKVY tie-ups',
+        'Women skilling via Drone Didi',
+        'Smart city & rural surveys',
+        'Post-disaster drone response'
+      ],
+      gradient: 'from-teal-500 to-teal-600'
+    },
+    {
+      icon: MapPin,
+      title: 'GIS Experts & Organizations',
+      description: 'Partner on drone-powered spatial intelligence projects.',
+      examples: [
+        'GIS data capture via drones',
+        'Land use & environmental mapping',
+        'AI-powered GIS dashboards',
+        'Training & Web GIS collaboration'
+      ],
+      gradient: 'from-cyan-500 to-cyan-600'
     }
   ];
+
 
 
   const existingPartners = [
@@ -312,60 +393,91 @@ const PartnershipsPage: React.FC = () => {
       </section>
 
       {/* Partnership Types */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Explore Our Partnership Opportunities
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From technology integration to talent acquisition, we offer diverse partnership models to drive mutual growth and innovation.
-            </p>
-          </div>
+     <section className="py-10 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div className="text-center mb-10">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Explore Our Partnership Opportunities
+      </h2>
+      <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+        From technology integration to talent acquisition, we offer diverse partnership models to drive mutual growth and innovation.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+    {/* Scrollable Container */}
+    <div className="relative">
+      {/* Left Button */}
+      <button
+        onClick={() => document.getElementById('partner-scroll')?.scrollBy({ left: -900, behavior: 'smooth' })}
+        className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white border shadow-md rounded-full w-10 h-10 flex items-center justify-center"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
 
-            {partnershipTypes.map((type, index) => {
-              const IconComponent = type.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group"
-                >
-                  {/* Header */}
-                  <div className={`bg-gradient-to-r ${type.gradient} p-6 text-white`}>
-                    <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2">{type.title}</h3>
-                    <p className="text-white text-opacity-90">{type.description}</p>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h4 className="font-bold text-gray-900 mb-3">Key Areas:</h4>
-                    <ul className="space-y-2 mb-6">
-                      {type.examples.map((example, exampleIndex) => (
-                        <li key={exampleIndex} className="flex items-center text-sm">
-                          <CheckCircle className="w-4 h-4 text-[#26A65B] mr-2" />
-                          <span className="text-gray-700">{example}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <button
-                      onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="w-full bg-[#F15A24] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200"
-                    >
-                      Explore Partnership
-                    </button>
-                  </div>
+      {/* Cards Scroll Area - Show 3 at a time */}
+      <div
+        id="partner-scroll"
+        className="overflow-x-auto flex gap-6 px-12 snap-x snap-mandatory scroll-smooth scrollbar-hide"
+        style={{ scrollSnapType: 'x mandatory' }}
+      >
+        {partnershipTypes.map((type, index) => {
+          const IconComponent = type.icon;
+          return (
+            <div
+              key={index}
+              className="min-w-[300px] max-w-[300px] snap-start flex-shrink-0 flex flex-col bg-white shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 border rounded-2xl"
+            >
+              {/* Header */}
+              <div className={`bg-gradient-to-r ${type.gradient} p-4 text-white rounded-t-2xl`}>
+                <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex items-center justify-center mb-3">
+                  <IconComponent className="w-5 h-5 text-white" />
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                <h3 className="text-lg font-semibold mb-1">{type.title}</h3>
+                <p className="text-sm text-white/90">{type.description}</p>
+              </div>
+
+              {/* Content */}
+              <div className="p-4 flex-1 flex flex-col justify-between rounded-b-2xl">
+                <div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-2">Key Areas:</h4>
+                  <ul className="space-y-1 text-xs mb-4">
+                    {type.examples.map((example, exampleIndex) => (
+                      <li key={exampleIndex} className="flex items-start">
+                        <CheckCircle className="w-3.5 h-3.5 text-[#26A65B] mr-2 mt-0.5" />
+                        <span className="text-gray-700 leading-snug">{example}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="mt-auto bg-[#F15A24] text-white text-xs font-bold py-2 px-3 rounded-md hover:bg-[#D64A1A] transition"
+                >
+                  Explore Partnership
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Right Button */}
+      <button
+        onClick={() => document.getElementById('partner-scroll')?.scrollBy({ left: 900, behavior: 'smooth' })}
+        className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white border shadow-md rounded-full w-10 h-10 flex items-center justify-center"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Existing Partners */}
       <section className="py-16 lg:py-24 bg-gray-50">
