@@ -105,16 +105,7 @@ const ContactPage: React.FC = () => {
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     },
-    {
-      icon: Mail,
-      title: 'Email Us',
-      primary: 'training@indiadroneacademy.com',
-      secondary: 'We reply within 24 hours',
-      action: 'mailto:bd@indiadroneacademy.com',
-      actionText: 'Send Email',
-      color: 'text-green-600',
-      bgColor: 'bg-green-50'
-    },
+   
     {
       icon: MessageSquare,
       title: 'WhatsApp',
@@ -132,7 +123,7 @@ const ContactPage: React.FC = () => {
       city: 'Hyderabad (Main Campus)',
       address: 'White Waters, 5A/6B, Lane beside KIMS Hospital, Timber Lake Colony, Shaikpet, Hyderabad, Telangana 500008',
       phone: '+91 9188883344',
-      email: 'training@indiadroneacademy.com',
+    
       hours: 'Mon-Sat: 9:00 AM - 6:00 PM',
       mapLink: 'https://maps.google.com/?q=White+Waters+Shaikpet+Hyderabad',
       isMain: true
@@ -141,7 +132,7 @@ const ContactPage: React.FC = () => {
       city: 'Vijayawada',
       address: 'Vijayawada, Andhra Pradesh',
       phone: '+91 9188883344',
-      email: 'training@indiadroneacademy.com',
+    
       hours: 'Mon-Sat: 9:00 AM - 6:00 PM',
       mapLink: 'https://maps.google.com/?q=Vijayawada+Andhra+Pradesh',
       isMain: false
@@ -346,12 +337,7 @@ return (
                     </a>
                   </div>
 
-                  <div className="flex items-center">
-                    <Mail className="w-5 h-5 text-[#F15A24] mr-3" />
-                    <a href={`mailto:${location.email}`} className="text-gray-700 hover:text-[#F15A24]">
-                      {location.email}
-                    </a>
-                  </div>
+                 
 
                   <div className="flex items-center">
                     <Clock className="w-5 h-5 text-[#F15A24] mr-3" />
