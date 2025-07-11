@@ -17,134 +17,132 @@ const CollaborationsStrip: React.FC = () => {
   const scrollingLogos = [...collaborators, ...collaborators];
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Our Trusted Collaborators
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Recognized by government bodies, trusted by industry leaders, and partnered with top organizations.
-          </p>
-        </div>
+    <section className="py-10 lg:py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Auto-scrolling Strip */}
-        <div className="relative overflow-hidden">
-          {/* Gradient overlays for smooth edges */}
-          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
-          
-          <div className="flex animate-scroll space-x-12 py-8 justify-center">
-            {scrollingLogos.map((collaborator, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 min-w-[200px] text-center group"
-              >
-                <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-lg mx-auto mb-4 flex items-center justify-center group-hover:bg-[#F15A24] group-hover:bg-opacity-20 transition-colors duration-300">
-                  <Award className="w-8 h-8 text-[#F15A24]" />
+    {/* Section Header */}
+    <div className="text-center mb-10">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+        Our Trusted Collaborators
+      </h2>
+      <p className="text-sm text-gray-600 max-w-2xl mx-auto">
+        Recognized by government bodies, trusted by industry leaders, and partnered with top organizations.
+      </p>
+    </div>
+
+    {/* Auto-scrolling Strip */}
+    <div className="relative overflow-hidden">
+      <div className="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+      <div className="absolute right-0 top-0 w-16 h-full bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+      
+      <div className="flex animate-scroll space-x-6 py-4 justify-center">
+        {scrollingLogos.map((collaborator, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition duration-200 min-w-[160px] text-center group"
+          >
+            <div className="w-12 h-12 bg-[#F15A24] bg-opacity-10 rounded-md mx-auto mb-3 flex items-center justify-center group-hover:bg-opacity-20 transition">
+              <Award className="w-6 h-6 text-[#F15A24]" />
+            </div>
+            <h3 className="font-semibold text-gray-900 text-xs mb-0.5">{collaborator.name}</h3>
+            <p className="text-[10px] text-gray-600">{collaborator.type}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Trust Indicators */}
+    <div className="mt-12 bg-white rounded-xl p-6 lg:p-8 shadow-md">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+        {/* Left Info */}
+        <div>
+          <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
+            Government Recognition & Industry Trust
+          </h3>
+          <div className="space-y-3 text-sm">
+            {[
+              {
+                title: 'DGCA Approved Training Center',
+                desc: 'Official certification recognized across India'
+              },
+              {
+                title: 'Industry Partnerships',
+                desc: 'Direct placement opportunities with leading companies'
+              },
+              {
+                title: 'Academic Collaborations',
+                desc: 'Research partnerships with top universities'
+              },
+              {
+                title: 'Technology Integration',
+                desc: 'Latest drone technology and equipment'
+              }
+            ].map((item, idx) => (
+              <div className="flex items-start" key={idx}>
+                <div className="w-2 h-2 bg-[#26A65B] rounded-full mt-1.5 mr-3"></div>
+                <div>
+                  <h4 className="font-semibold text-gray-900">{item.title}</h4>
+                  <p className="text-gray-600 text-xs">{item.desc}</p>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-1 text-sm">
-                  {collaborator.name}
-                </h3>
-                <p className="text-xs text-gray-600">
-                  {collaborator.type}
-                </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-16 bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                Government Recognition & Industry Trust
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-[#26A65B] rounded-full mt-2 mr-4"></div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">DGCA Approved Training Center</h4>
-                    <p className="text-gray-600">Official certification recognized across India</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-[#26A65B] rounded-full mt-2 mr-4"></div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Industry Partnerships</h4>
-                    <p className="text-gray-600">Direct placement opportunities with leading companies</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-[#26A65B] rounded-full mt-2 mr-4"></div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Academic Collaborations</h4>
-                    <p className="text-gray-600">Research partnerships with top universities</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-[#26A65B] rounded-full mt-2 mr-4"></div>
-                  <div>
-                    <h4 className="font-bold text-gray-900">Technology Integration</h4>
-                    <p className="text-gray-600">Latest drone technology and equipment</p>
-                  </div>
-                </div>
+        {/* Right Stats */}
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { color: '#F15A24', value: '500+', label: 'Hiring Partners' },
+            { color: '#26A65B', value: '50+', label: 'Training Centers' },
+            { color: '#3B82F6', value: '15+', label: 'States Covered' },
+            { color: '#8B5CF6', value: '100%', label: 'Job Assistance' }
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="text-center rounded-lg p-4"
+              style={{ backgroundColor: `${item.color}1A` }}
+            >
+              <div className="text-2xl font-bold mb-1" style={{ color: item.color }}>
+                {item.value}
               </div>
+              <div className="text-xs text-gray-700 font-medium">{item.label}</div>
             </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center bg-[#F15A24] bg-opacity-10 rounded-xl p-6">
-                <div className="text-3xl font-bold text-[#F15A24] mb-2">500+</div>
-                <div className="text-gray-700 font-medium">Hiring Partners</div>
-              </div>
-              <div className="text-center bg-[#26A65B] bg-opacity-10 rounded-xl p-6">
-                <div className="text-3xl font-bold text-[#26A65B] mb-2">50+</div>
-                <div className="text-gray-700 font-medium">Training Centers</div>
-              </div>
-              <div className="text-center bg-blue-50 rounded-xl p-6">
-                <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
-                <div className="text-gray-700 font-medium">States Covered</div>
-              </div>
-              <div className="text-center bg-purple-50 rounded-xl p-6">
-                <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
-                <div className="text-gray-700 font-medium">Job Assistance</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Featured Badge */}
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-6 py-3 rounded-full font-bold">
-            <Star className="w-5 h-5 mr-2" />
-            As Featured In Leading Industry Publications
-          </div>
+          ))}
         </div>
       </div>
+    </div>
 
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-        
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-    </section>
+    {/* Featured Badge */}
+    <div className="text-center mt-10">
+      <div className="inline-flex items-center bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-5 py-2 rounded-full font-semibold text-sm">
+        <Star className="w-4 h-4 mr-2" />
+        As Featured In Leading Industry Publications
+      </div>
+    </div>
+  </div>
+
+  {/* Animation Keyframes */}
+  <style jsx>{`
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-scroll {
+      animation: scroll 30s linear infinite;
+    }
+
+    .animate-scroll:hover {
+      animation-play-state: paused;
+    }
+  `}</style>
+</section>
+
   );
 };
 

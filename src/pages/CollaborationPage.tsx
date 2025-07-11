@@ -409,7 +409,7 @@ const CollaborationPage: React.FC = () => {
               Trusted by Top Engineering Colleges
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join our prestigious network of premier engineering colleges and universities across Telangana and Andhra Pradesh.
+              Join our prestigious network of premier engineering colleges and universities across India.
             </p>
           </div>
 
@@ -876,13 +876,7 @@ const CollaborationPage: React.FC = () => {
               <Phone className="w-5 h-5 mr-2" />
               Call +91 8804349999/ +91 9188883344
             </a>
-            <a
-              href="mailto:bd@indiadroneacademy.com"
-              className="bg-gray-100 text-gray-700 font-bold px-8 py-4 rounded-lg hover:bg-gray-200 transition-all duration-200 flex items-center justify-center"
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              Email training@indiadroneacademy.com
-            </a>
+         
             <a
               href="https://wa.me/919188883344?text=Hi, I'm interested in institutional collaboration with IDA"
               target="_blank"

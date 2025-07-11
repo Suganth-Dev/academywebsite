@@ -53,7 +53,7 @@ const PartnershipsPage: React.FC = () => {
     city: '',
     partnershipType: [],
     message: '',
-    otherPartnership: '', // 
+    otherPartnership: '',
     revenue: '',
     clients: '',
     website: '',
@@ -64,15 +64,76 @@ const PartnershipsPage: React.FC = () => {
     gst: '',
     droneExperience: ''
   });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const thankYouRef = useRef<HTMLDivElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const autoScrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isAutoScrolling) {
+      autoScrollIntervalRef.current = setInterval(() => {
+        setCurrentIndex(prevIndex => {
+          const nextIndex = (prevIndex + 1) % partnershipTypes.length;
+          return nextIndex;
+        });
+      }, 3000); // Change card every 3 seconds
+    }
+
+    return () => {
+      if (autoScrollIntervalRef.current) {
+        clearInterval(autoScrollIntervalRef.current);
+      }
+    };
+  }, [isAutoScrolling]);
+
+  // Update scroll position when currentIndex changes
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const cardWidth = 320; // 300px width + 20px gap
+      const scrollPosition = currentIndex * cardWidth;
+      scrollContainerRef.current.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [currentIndex]);
+
+  // Handle manual scroll
+  const handleManualScroll = (direction: 'left' | 'right') => {
+    setIsAutoScrolling(false);
+
+    if (direction === 'left') {
+      setCurrentIndex(prevIndex =>
+        prevIndex === 0 ? partnershipTypes.length - 1 : prevIndex - 1
+      );
+    } else {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % partnershipTypes.length);
+    }
+
+    // Resume auto-scrolling after 5 seconds
+    setTimeout(() => setIsAutoScrolling(true), 5000);
+  };
+
+  // Pause auto-scroll on hover
+  const handleMouseEnter = () => {
+    setIsAutoScrolling(false);
+  };
+
+  // Resume auto-scroll on mouse leave
+  const handleMouseLeave = () => {
+    setIsAutoScrolling(true);
+  };
 
   useEffect(() => {
     if (isSubmitted && thankYouRef.current) {
       const offset = thankYouRef.current.getBoundingClientRect().top + window.scrollY - 100;
       window.scrollTo({ top: offset, behavior: 'smooth' });
-
     }
   }, [isSubmitted]);
 
@@ -80,7 +141,7 @@ const PartnershipsPage: React.FC = () => {
     {
       icon: User,
       title: 'Drone Pilots',
-      description: 'Join India’s fastest-growing pilot network and unlock jobs, missions, and rewards.',
+      description: 'Join India\'s fastest-growing pilot network and unlock jobs, missions, and rewards.',
       examples: [
         'DGCA & advanced drone training',
         'National job opportunities',
@@ -201,8 +262,6 @@ const PartnershipsPage: React.FC = () => {
     }
   ];
 
-
-
   const existingPartners = [
     { name: 'Corteva Agriscience', logo: 'https://images.pexels.com/photos/1595108/pexels-photo-1595108.jpeg?auto=compress&cs=tinysrgb&w=200', type: 'Agriculture Technology' },
     { name: 'Drone TV', logo: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=200', type: 'Media Partner' },
@@ -272,7 +331,6 @@ const PartnershipsPage: React.FC = () => {
     }
   };
 
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -288,16 +346,12 @@ const PartnershipsPage: React.FC = () => {
       if (!response.ok) throw new Error('Network response was not ok');
 
       setIsSubmitting(false);
-      setIsSubmitted(true); // 👈 Instantly replaces the form
-      // REMOVE THIS LINE 👇
-      // window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsSubmitted(true);
     } catch (error) {
       setIsSubmitting(false);
       console.error('Submission failed:', error);
     }
   };
-
-
 
   const partnershipOptions: { label: string; value: string }[] = [
     { label: 'Drone Technology Partnership', value: 'technology' },
@@ -308,6 +362,7 @@ const PartnershipsPage: React.FC = () => {
     { label: 'Media & Outreach Collaborator', value: 'media' },
     { label: 'Other (specify in message)', value: 'other' }
   ];
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -318,7 +373,6 @@ const PartnershipsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-
 
       {/* Hero Section */}
       <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -393,91 +447,111 @@ const PartnershipsPage: React.FC = () => {
       </section>
 
       {/* Partnership Types */}
-     <section className="py-10 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-    <div className="text-center mb-10">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-        Explore Our Partnership Opportunities
-      </h2>
-      <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-        From technology integration to talent acquisition, we offer diverse partnership models to drive mutual growth and innovation.
-      </p>
-    </div>
+      <section className="py-10 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">
+              Explore Our Partnership Opportunities
+            </h2>
+          <div className="w-full overflow-x-auto">
+  <p className="text-sm text-gray-600 whitespace-nowrap">
+    From technology integration to talent acquisition, we offer diverse partnership models to drive mutual growth and innovation.
+  </p>
+</div>
 
-    {/* Scrollable Container */}
-    <div className="relative">
-      {/* Left Button */}
-      <button
-        onClick={() => document.getElementById('partner-scroll')?.scrollBy({ left: -900, behavior: 'smooth' })}
-        className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white border shadow-md rounded-full w-10 h-10 flex items-center justify-center"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
 
-      {/* Cards Scroll Area - Show 3 at a time */}
-      <div
-        id="partner-scroll"
-        className="overflow-x-auto flex gap-6 px-12 snap-x snap-mandatory scroll-smooth scrollbar-hide"
-        style={{ scrollSnapType: 'x mandatory' }}
-      >
-        {partnershipTypes.map((type, index) => {
-          const IconComponent = type.icon;
-          return (
-            <div
-              key={index}
-              className="min-w-[300px] max-w-[300px] snap-start flex-shrink-0 flex flex-col bg-white shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 border rounded-2xl"
+          </div>
+
+          {/* Auto-scrolling Container */}
+          <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            {/* Left Button */}
+            <button
+              onClick={() => handleManualScroll('left')}
+              className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white border shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
-              {/* Header */}
-              <div className={`bg-gradient-to-r ${type.gradient} p-4 text-white rounded-t-2xl`}>
-                <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex items-center justify-center mb-3">
-                  <IconComponent className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold mb-1">{type.title}</h3>
-                <p className="text-sm text-white/90">{type.description}</p>
-              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-              {/* Content */}
-              <div className="p-4 flex-1 flex flex-col justify-between rounded-b-2xl">
-                <div>
-                  <h4 className="font-semibold text-gray-900 text-sm mb-2">Key Areas:</h4>
-                  <ul className="space-y-1 text-xs mb-4">
-                    {type.examples.map((example, exampleIndex) => (
-                      <li key={exampleIndex} className="flex items-start">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#26A65B] mr-2 mt-0.5" />
-                        <span className="text-gray-700 leading-snug">{example}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            {/* Cards Container - Shows exactly 3 cards */}
+            <div className="overflow-hidden">
+              <div
+                ref={scrollContainerRef}
+                className="flex gap-5 transition-transform duration-500 ease-in-out"
+                style={{
+                  width: `${partnershipTypes.length * 320}px`,
+                  transform: `translateX(-${currentIndex * 320}px)`
+                }}
+              >
+                {partnershipTypes.map((type, index) => {
+                  const IconComponent = type.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="w-[300px] flex-shrink-0 flex flex-col bg-white shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 border rounded-2xl"
+                    >
+                      {/* Header */}
+                     <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-4 text-white rounded-t-2xl">
 
-                <button
-                  onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="mt-auto bg-[#F15A24] text-white text-xs font-bold py-2 px-3 rounded-md hover:bg-[#D64A1A] transition"
-                >
-                  Explore Partnership
-                </button>
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex items-center justify-center">
+                            <IconComponent className="w-5 h-5 text-white" />
+                          </div>
+                          <h3 className="text-lg font-semibold">{type.title}</h3>
+                        </div>
+                        <p className="text-sm text-white/90">{type.description}</p>
+
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-4 flex-1 flex flex-col justify-between rounded-b-2xl">
+                        <div>
+                          <h4 className="font-semibold text-gray-900 text-sm mb-2">Key Areas:</h4>
+                          <ul className="space-y-1 text-xs mb-4">
+                            {type.examples.map((example, exampleIndex) => (
+                              <li key={exampleIndex} className="flex items-start">
+                                <CheckCircle className="w-3.5 h-3.5 text-[#26A65B] mr-2 mt-0.5" />
+                                <span className="text-gray-700 leading-snug">{example}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <button
+                          onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
+                          className="mt-auto bg-[#F15A24] text-white text-xs font-bold py-2 px-3 rounded-md hover:bg-[#D64A1A] transition"
+                        >
+                          Explore Partnership
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-          );
-        })}
-      </div>
 
-      {/* Right Button */}
-      <button
-        onClick={() => document.getElementById('partner-scroll')?.scrollBy({ left: 900, behavior: 'smooth' })}
-        className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white border shadow-md rounded-full w-10 h-10 flex items-center justify-center"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-  </div>
-</section>
+            {/* Right Button */}
+            <button
+              onClick={() => handleManualScroll('right')}
+              className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white border shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
 
+            {/* Dots Indicator */}
+        
 
+            {/* Auto-scroll indicator */}
+            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 flex items-center text-xs text-gray-500">
+              <div className={`w-2 h-2 rounded-full mr-2 ${isAutoScrolling ? 'bg-[#F15A24] animate-pulse' : 'bg-gray-300'}`}></div>
+              <span>{isAutoScrolling ? 'Auto-scrolling' : 'Hover to pause'}</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Existing Partners */}
       <section className="py-16 lg:py-24 bg-gray-50">
@@ -525,7 +599,6 @@ const PartnershipsPage: React.FC = () => {
               <div className="text-center">
                 <p className="text-gray-600 mb-8 text-xl font-semibold"></p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 place-items-center">
-
                   {[
                     {
                       name: 'The Hindu',
@@ -562,14 +635,12 @@ const PartnershipsPage: React.FC = () => {
                         alt={item.name}
                         className="w-32 h-32 rounded-xl object-contain bg-white mb-5 border border-gray-200 shadow-sm"
                       />
-
                       <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
                       <p className="text-sm text-gray-500">{item.info}</p>
                     </div>
                   ))}
                 </div>
               </div>
-
             </div>
           </section>
         </div>
@@ -678,7 +749,6 @@ const PartnershipsPage: React.FC = () => {
 
       {/* Partnership Form */}
       <section id="partnership-form" className="pt-16 pb-0 bg-white">
-
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -690,7 +760,6 @@ const PartnershipsPage: React.FC = () => {
           </div>
 
           <div className="bg-gray-50 rounded-2xl p-8 lg:pt-12 lg:pb-6">
-
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -809,6 +878,7 @@ const PartnershipsPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Type of Partnership *
@@ -844,6 +914,7 @@ const PartnershipsPage: React.FC = () => {
                     </div>
                   )}
                 </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="revenue" className="block text-sm font-medium text-gray-700 mb-2">Last Year Turnover *</label>
@@ -878,7 +949,6 @@ const PartnershipsPage: React.FC = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
                     >
-
                       <option value="">Select Team Size</option>
                       <option value="1–5">1–5</option>
                       <option value="6–10">6–10</option>
@@ -888,9 +958,7 @@ const PartnershipsPage: React.FC = () => {
                       <option value="51–100">51–100</option>
                       <option value="101+">101+</option>
                     </select>
-
                   </div>
-
                 </div>
 
                 <div>
@@ -899,7 +967,6 @@ const PartnershipsPage: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
                   <div>
                     <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-2">LinkedIn Profile</label>
                     <input type="url" id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="https://linkedin.com/in/yourprofile" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
@@ -916,6 +983,7 @@ const PartnershipsPage: React.FC = () => {
                     <input type="text" id="droneExperience" name="droneExperience" value={formData.droneExperience} onChange={handleInputChange} placeholder="Yes / No. If yes, describe briefly." className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
                   </div>
                 </div>
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message / Proposal *

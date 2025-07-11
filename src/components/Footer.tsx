@@ -76,12 +76,7 @@ const Footer: React.FC = () => {
 
             {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center">
-                <Mail className="w-5 h-5 mr-3 text-[#F15A24]" />
-                <a href="mailto:info@indiadroneacademy.com" className="text-gray-400 hover:text-[#F15A24] transition-colors duration-200">
-                  info@indiadroneacademy.com
-                </a>
-              </div>
+              
               <div className="flex items-center">
                 <Phone className="w-5 h-5 mr-3 text-[#F15A24]" />
                 <a href="tel:+919876543210" className="text-gray-400 hover:text-[#F15A24] transition-colors duration-200">

@@ -39,96 +39,77 @@ const VideoHeroSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative h-[87vh] flex items-center justify-center overflow-hidden">
-
-
-        {/* Background Video */}
-       <div className="absolute inset-0 w-full h-full">
-  <div className="w-full h-full relative overflow-hidden">
+<section className="relative h-[87vh] w-full overflow-hidden">
+  {/* Background Video - covers full screen */}
+  <div className="absolute inset-0 z-0 overflow-hidden">
     <iframe
-      className="absolute top-0 left-0 w-[100vw] h-[100vh]"
-      src="https://www.youtube.com/embed/qp8as0_j5zE?autoplay=1&mute=1&controls=0&loop=1&playlist=qp8as0_j5zE"
+    src="https://www.youtube.com/embed/eud60W_tjOQ?autoplay=1&mute=1&controls=0&loop=1&playlist=eud60W_tjOQ"
+
+      className="w-[130vw] h-full object-cover transform -translate-x-1/6"
       title="Drone Background Video"
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen
     ></iframe>
+
+    {/* Gradient from left to right */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
   </div>
-</div>
 
+  {/* Foreground Content */}
+  <div className="relative z-10 max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-end pb-[6vh]">
+    <div className="max-w-2xl text-white">
+      {/* Badge */}
+      <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-3 py-1.5 rounded-full text-xs font-medium mb-8">
+        <Award className="w-4 h-4 mr-2" />
+        India’s Premier Drone Training Institute
+      </div>
 
+      {/* Heading */}
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-snug">
+        India's Leading<br />
+        <span className="text-[#F15A24]">DGCA-<br />Certified</span><br />
+        Drone Academy
+      </h1>
 
-
-
-
-
-
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
-
-        {/* Content - Left aligned */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="flex items-center min-h-[80vh]">
-            {/* Content - Left aligned */}
-            <div className="text-left max-w-4xl">
-              {/* DGCA Badge */}
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Award className="w-4 h-4 mr-2" />
-                DGCA Certified Training Institute
-              </div>
-
-              {/* Main Headline - Updated SEO title */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 text-left">
-                India's Leading{' '}
-                <span className="text-[#F15A24]">DGCA-Certified</span>{' '}
-                Drone Academy
-              </h1>
-
-              {/* Powerful Career-Focused Tagline */}
-              <div className="mb-6 md:mb-8">
-                <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#26A65B] mb-2 leading-tight">
-                  Building Careers That
-                </p>
-                <p className="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed">
-                  Transform your future with cutting-edge drone technology training
-                </p>
-              </div>
-
-              {/* Trust Indicators - Left aligned */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-8 md:mb-12">
-                <div className="flex items-center text-gray-300">
-                  <Users className="w-5 h-5 mr-2 text-[#26A65B]" />
-                  <span className="font-medium text-sm sm:text-base">2500+ Careers Launched</span>
-                </div>
-                <div className="flex items-center text-gray-300">
-                  <CheckCircle className="w-5 h-5 mr-2 text-[#26A65B]" />
-                  <span className="font-medium text-sm sm:text-base">100% Success Rate</span>
-                </div>
-                <div className="flex items-center text-gray-300">
-                  <Award className="w-5 h-5 mr-2 text-[#26A65B]" />
-                  <span className="font-medium text-sm sm:text-base">DGCA Approved</span>
-                </div>
-              </div>
-
-              {/* CTA Buttons - Updated button text */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-lg">
-                <button
-                  onClick={handleApplyNow}
-                  className="bg-[#F15A24] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 text-center text-sm sm:text-base"
-                >
-                  Apply Now
-                </button>
-                <button
-                  onClick={handleWatchDemo}
-                  className="bg-white text-[#F15A24] font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg border-2 border-white hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 text-center text-sm sm:text-base"
-                >
-                  Watch Demo
-                </button>
-              </div>
-            </div>
-          </div>
+      {/* Trust Indicators */}
+      <div className="flex flex-wrap gap-x-6 gap-y-4 text-sm text-gray-300 mb-8">
+        <div className="flex items-center">
+          <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
+          2500+ Careers Launched
         </div>
-      </section>
+        <div className="flex items-center">
+          <CheckCircle className="w-4 h-4 mr-2 text-[#26A65B]" />
+          100% Success Rate
+        </div>
+        <div className="w-full flex items-center">
+          <Award className="w-4 h-4 mr-2 text-[#26A65B]" />
+          Hands-on Drone Training
+        </div>
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="flex gap-4 mt-4">
+        <button
+          onClick={handleApplyNow}
+          className="bg-[#F15A24] text-white text-sm font-semibold px-5 py-2 rounded-md hover:bg-[#D64A1A] transition"
+        >
+          Apply Now
+        </button>
+        <button
+          onClick={handleWatchDemo}
+          className="bg-white text-[#F15A24] text-sm font-semibold px-5 py-2 rounded-md hover:bg-gray-100 transition"
+        >
+          Watch Demo
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
 
       {/* Brochure Modal */}
       {showBrochureModal && (

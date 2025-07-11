@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
+  const { i18n } = useTranslation();
+const { t } = useTranslation();
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -18,14 +20,11 @@ const Header: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Prevent body scroll when menu is open
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -44,16 +43,19 @@ const Header: React.FC = () => {
     closeMenu();
   };
 
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/courses', label: 'Courses' },
-    { href: '/why-ida', label: 'Why IDA?' },
-    { href: '/success-stories', label: 'Success Stories' },
-    { href: '/partnerships', label: 'Partnerships' },
-    { href: '/collaborate', label: 'Collaborations' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/contact', label: 'Contact' },
-  ];
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    i18n.changeLanguage(e.target.value);
+  };
+const navLinks = [
+  { href: '/', label: t('nav.home') },
+  { href: '/courses', label: t('nav.courses') },
+  { href: '/why-ida', label: t('nav.whyIda') },
+  { href: '/success-stories', label: t('nav.successStories') },
+  { href: '/partnerships', label: t('nav.partnerships') },
+  { href: '/collaborate', label: t('nav.collaborations') },
+  { href: '/blog', label: t('nav.blog') },
+  { href: '/contact', label: t('nav.contact') }
+];
 
   const isActiveLink = (href: string) => {
     if (href === '/' && location.pathname === '/') return true;
@@ -70,7 +72,6 @@ const Header: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
             <div className="flex-shrink-0">
               <button 
                 onClick={() => handleNavigation('/')}
@@ -86,7 +87,6 @@ const Header: React.FC = () => {
               </button>
             </div>
 
-            {/* Desktop Navigation */}
             <nav className="hidden lg:flex" aria-label="Main Navigation">
               <ul className="flex items-center space-x-8">
                 {navLinks.map((link) => (
@@ -107,17 +107,23 @@ const Header: React.FC = () => {
               </ul>
             </nav>
 
-            {/* Desktop CTA Button */}
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex items-center space-x-4">
+              <select
+                onChange={handleLanguageChange}
+                value={i18n.language}
+                className="border border-gray-300 rounded px-2 py-1 text-sm"
+              >
+                <option value="en">EN</option>
+                <option value="te">TE</option>
+              </select>
               <button
                 onClick={() => handleNavigation('/apply')}
                 className="bg-[#F15A24] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 text-sm"
               >
-                Apply Now
+                {t('applyNow')}
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors duration-200 relative z-60"
               onClick={toggleMenu}
@@ -134,7 +140,6 @@ const Header: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
       <div 
         className={`fixed inset-0 bg-black transition-opacity duration-300 z-40 lg:hidden ${
           isMenuOpen ? 'opacity-50 visible' : 'opacity-0 invisible'
@@ -142,12 +147,10 @@ const Header: React.FC = () => {
         onClick={closeMenu}
       />
 
-      {/* Mobile Menu Drawer */}
       <div className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${
         isMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
-          {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
             <img 
               src="/logo.png" 
@@ -163,7 +166,6 @@ const Header: React.FC = () => {
             </button>
           </div>
 
-          {/* Navigation Links */}
           <nav className="flex-1 px-6 py-8 overflow-y-auto" aria-label="Mobile Navigation">
             <ul className="space-y-2">
               {navLinks.map((link) => (
@@ -183,7 +185,6 @@ const Header: React.FC = () => {
             </ul>
           </nav>
 
-          {/* Mobile CTA Button */}
           <div className="p-6 border-t border-gray-200 bg-gray-50">
             <button
               onClick={() => handleNavigation('/apply')}
@@ -195,7 +196,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Spacer to prevent content overlap */}
       <div className={`${isScrolled ? 'h-16' : 'h-20'} transition-all duration-300`}></div>
     </>
   );
