@@ -454,30 +454,29 @@ const CoursesPage: React.FC = () => {
 
 
       {/* Page Header */}
-      <section className="pt-6 pb-16 bg-gradient-to-br from-gray-50 to-white">
-
+      <section className="pt-10 pb-10 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Comprehensive Drone Training Programs
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
               From DGCA certification to specialized skills, explore our complete range of drone training programs.
               Choose from basic courses to advanced bundles designed for every career path and skill level.
             </p>
 
             {/* Quick Stats */}
-            <div className="flex flex-wrap justify-center gap-8 mt-8 text-sm">
+            <div className="flex flex-wrap justify-center gap-6 mt-6 text-sm">
               <div className="flex items-center text-gray-600">
-                <Award className="w-5 h-5 mr-2 text-[#26A65B]" />
+                <Award className="w-5 h-5 mr-1 text-[#26A65B]" />
                 <span>DGCA Approved</span>
               </div>
               <div className="flex items-center text-gray-600">
-                <Users className="w-5 h-5 mr-2 text-[#26A65B]" />
+                <Users className="w-5 h-5 mr-1 text-[#26A65B]" />
                 <span>24+ Course Options</span>
               </div>
               <div className="flex items-center text-gray-600">
-                <MapPin className="w-5 h-5 mr-2 text-[#26A65B]" />
+                <MapPin className="w-5 h-5 mr-1 text-[#26A65B]" />
                 <span>Multiple Locations</span>
               </div>
             </div>
@@ -485,176 +484,147 @@ const CoursesPage: React.FC = () => {
         </div>
       </section>
 
+
       {/* Filters */}
-      <section className="py-8 bg-white border-b border-gray-200">
+      <section className="py-6 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-4">
-  <div className="flex items-center">
-    <Filter className="w-5 h-5 mr-2 text-gray-600" />
-    <span className="text-gray-700 font-medium">Filter by Category:</span>
-  </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center">
+              <Filter className="w-5 h-5 mr-2 text-gray-600" />
+              <span className="text-gray-700 font-medium">Filter by Category:</span>
+            </div>
 
-  {/* Filter Buttons */}
-  <div className="flex flex-wrap gap-2">
-    {filters.map((filter) => (
-      <button
-        key={filter}
-        onClick={() => setActiveFilter(filter)}
-        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-          activeFilter === filter
-            ? 'bg-[#F15A24] text-white shadow-md'
-            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-        }`}
-      >
-        {filter}
-      </button>
-    ))}
+            {/* Filter Buttons */}
+            <div className="flex gap-2 flex-wrap">
+              {filters.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`px-3 py-2 rounded-lg font-medium transition-all duration-200 ${activeFilter === filter
+                    ? 'bg-[#F15A24] text-white shadow-md'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                >
+                  {filter}
+                </button>
+              ))}
 
-    {/* ✅ Curriculum Page Button */}
-    <button
-      onClick={() => navigate('/curriculum')}
-      className="px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-[#26A65B] text-white hover:bg-[#1e894b]"
-    >
-      Drone in Curriculum
-    </button>
-  </div>
-</div>
-
-
+              {/* ✅ Curriculum Page Button */}
+              <button
+                onClick={() => navigate('/curriculum')}
+                className="px-3 py-2 rounded-lg font-medium transition-all duration-200 bg-[#26A65B] text-white hover:bg-[#1e894b]"
+              >
+                Drone in Curriculum
+              </button>
+            </div>
+          </div>
 
           {/* Results Count */}
-          <div className="mt-4 text-gray-600">
+          <div className="mt-2 text-gray-600">
             Showing {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''}
             {activeFilter !== 'All' && ` in ${activeFilter}`}
           </div>
         </div>
       </section>
 
+
       {/* Courses Grid */}
-      <section className="py-16">
+      <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCourses.map((course, index) => {
-              const IconComponent = course.icon;
-              return (
-                <div
-                  key={course.id}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group cursor-pointer"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                  onClick={() => handleCourseClick(course.link)}
-                >
-                  {/* Course Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={course.image}
-                      alt={course.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredCourses.map((course, index) => (
+              <div
+                key={course.id}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group cursor-pointer flex flex-col"
+                style={{ animationDelay: `${index * 100}ms` }}
+                onClick={() => handleCourseClick(course.link)}
+              >
+                {/* Course Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className={`absolute top-4 left-4 ${course.badgeColor} text-white px-2 py-1 rounded-full text-sm font-medium`}>
+                    {course.badge}
+                  </div>
+                  <div className="absolute top-4 right-4 bg-white bg-opacity-90 p-2 rounded-full">
+                    <course.icon className="w-5 h-5 text-[#26A65B]" />
+                  </div>
+                  <div className="absolute bottom-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full">
+                    <div className="text-[#F15A24] font-bold text-xs">{course.price}</div>
+                    <div className="text-gray-600 text-xs">{course.gst}</div>
+                  </div>
+                </div>
 
-                    {/* Badge */}
-                    <div className={`absolute top-4 left-4 ${course.badgeColor} text-white px-3 py-1 rounded-full text-sm font-medium`}>
-                      {course.badge}
+                {/* Course Content */}
+                <div className="p-4 flex-1">
+                  <div className="text-xs text-[#F15A24] font-bold mb-2">{course.category}</div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{course.title}</h3>
+                  <p className="text-gray-600 mb-4 line-clamp-2">{course.description}</p>
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <div className="flex items-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      <span>{course.duration}</span>
                     </div>
-
-                    {/* Icon */}
-                    <div className="absolute top-4 right-4 bg-white bg-opacity-90 p-2 rounded-full">
-                      <IconComponent className="w-5 h-5 text-[#26A65B]" />
-                    </div>
-
-                    {/* Price */}
-                    <div className="absolute bottom-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full">
-                      <div className="text-[#F15A24] font-bold text-sm">{course.price}</div>
-                      <div className="text-gray-600 text-xs">{course.gst}</div>
+                    <div className="flex items-center">
+                      <Award className="w-4 h-4 mr-1" />
+                      <span>{course.level}</span>
                     </div>
                   </div>
-
-                  {/* Course Content */}
-                  <div className="p-6">
-                    <div className="text-xs text-[#F15A24] font-bold mb-2">{course.category}</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {course.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">
-                      {course.description}
-                    </p>
-
-                    {/* Course Details */}
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                      <div className="flex items-center">
-                        <Clock className="w-4 h-4 mr-1" />
-                        <span>{course.duration}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Award className="w-4 h-4 mr-1" />
-                        <span>{course.level}</span>
-                      </div>
-                    </div>
-
-                    {/* Features */}
-                    <div className="mb-6">
-                      <div className="flex flex-wrap gap-2">
-                        {course.features.slice(0, 3).map((feature, index) => (
-                          <span
-                            key={index}
-                            className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                        {course.features.length > 3 && (
-                          <span className="text-gray-500 text-xs">
-                            +{course.features.length - 3} more
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Locations */}
-
-
-                    {/* CTA Buttons */}
-                    <div className="flex gap-2">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleCourseClick(course.link);
-                        }}
-                        className="flex-1 bg-[#F15A24] hover:bg-[#D64A1A] text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center group"
-                      >
-                        View Details
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                      </button>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleDownloadBrochure();
-                        }}
-                        className="flex-1 bg-white border border-[#F15A24] text-[#F15A24] hover:bg-[#F15A24] hover:text-white font-bold py-3 px-4 rounded-lg transition-all duration-200 flex items-center justify-center"
-                      >
-                        <Download className="w-4 h-4 mr-2" />
-                        Brochure
-                      </button>
+                  <div className="mb-4">
+                    <div className="flex gap-2 flex-wrap">
+                      {course.features.slice(0, 3).map((feature, index) => (
+                        <span key={index} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                          {feature}
+                        </span>
+                      ))}
+                      {course.features.length > 3 && (
+                        <span className="text-gray-500 text-xs">+{course.features.length - 3} more</span>
+                      )}
                     </div>
                   </div>
                 </div>
-              );
-            })}
+
+                {/* CTA Buttons */}
+                <div className="flex gap-2 p-4">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCourseClick(course.link);
+                    }}
+                    className="flex-1 bg-[#F15A24] hover:bg-[#D64A1A] text-white font-bold py-2 px-4 rounded-lg transition-all duration-200 flex items-center justify-center group"
+                  >
+                    View Details
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDownloadBrochure();
+                    }}
+                    className="flex-1 bg-white border border-[#F15A24] text-[#F15A24] hover:bg-[#F15A24] hover:text-white font-bold py-2 px-4 rounded-lg transition-all duration-200 flex items-center justify-center"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Brochure
+                  </button>
+                </div>
+              </div>
+            ))}
+
           </div>
 
           {/* No Results */}
           {filteredCourses.length === 0 && (
-            <div className="text-center py-16">
+            <div className="text-center py-12">
               <div className="text-gray-400 mb-4">
                 <Filter className="w-16 h-16 mx-auto" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                No courses found
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Try adjusting your filter or browse all courses.
-              </p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">No courses found</h3>
+              <p className="text-gray-600 mb-6">Try adjusting your filter or browse all courses.</p>
               <button
                 onClick={() => setActiveFilter('All')}
                 className="bg-[#F15A24] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#D64A1A] transition-colors duration-200"
@@ -666,31 +636,34 @@ const CoursesPage: React.FC = () => {
         </div>
       </section>
 
+
+
+
       {/* Bottom CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#F15A24] to-[#D64A1A] text-white">
+      <section className="py-8 bg-gradient-to-r from-[#F15A24] to-[#D64A1A] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Start Your Drone Career?
-          </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold mb-3">Ready to Start Your Drone Career?</h2>
+          <p className="text-lg sm:text-xl text-orange-100 mb-4 max-w-2xl mx-auto">
             Join thousands of successful pilots who started their journey with India Drone Academy.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-2 justify-center">
             <button
               onClick={handleApplyClick}
-              className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+              className="bg-white text-[#F15A24] font-bold px-4 py-2 rounded-lg hover:bg-gray-100 hover:shadow-lg transition-all duration-200"
             >
               Apply Now
             </button>
             <button
               onClick={handleContactClick}
-              className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200"
+              className="bg-transparent border-2 border-white text-white font-bold px-4 py-2 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200"
             >
               Talk to Counselor
             </button>
           </div>
         </div>
       </section>
+
+
     </div>
   );
 };

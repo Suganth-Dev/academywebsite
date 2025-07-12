@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { S3Client, PutObjectCommand, ObjectCannedACL } from "@aws-sdk/client-s3"
 import { 
   Play, 
   Star, 
@@ -31,68 +30,20 @@ import {
   Zap,
   X
 } from 'lucide-react';
-const dataURLtoFile = (dataUrl: string, filename: string): File => {
-  const arr = dataUrl.split(',');
-  const mimeMatch = arr[0].match(/:(.*?);/); // Match mime type
-
-  // Check if mimeMatch is null
-  if (!mimeMatch) {
-    throw new Error("Invalid data URL format");
-  }
-
-  const mime = mimeMatch[1]; // Now safely access mime type
-  const bstr = atob(arr[1]); // Decode the base64 string
-  let n = bstr.length;
-  const u8arr = new Uint8Array(n);
-
-  while (n--) {
-    u8arr[n] = bstr.charCodeAt(n); // Create byte array from base64
-  }
-
-  return new File([u8arr], filename, { type: mime }); // Return the File object
-};
-
 
 const SuccessStoriesPage: React.FC = () => {
   const [currentVideoSlide, setCurrentVideoSlide] = useState(0);
   const [activeFilter, setActiveFilter] = useState('All');
-  const [showSubmissionForm, setShowSubmissionForm] = useState(true);
-  const [visibleStories, setVisibleStories] = useState(9);
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
+  const [visibleStories, setVisibleStories] = useState(6);
   const [currentSpotlight, setCurrentSpotlight] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     course: '',
-    testimonial: '',
-     image: ''
+    testimonial: ''
   });
-//s3
- const s3Client = new S3Client({
-    region: 'ap-south-1',  // Replace with your AWS region
-    credentials: {
-      accessKeyId: 'AKIA2O2AW5KK227BRTXT',   // Add your AWS Access Key
-      secretAccessKey: 'Cq+Ykk44cWBIRzZl3UYNfH9Em2Vz+gqIuTV3AJAC', // Add your AWS Secret Key
-    },
-      logger: console
-  });
-const uploadImageToS3 = async (file: File) => {
-  try {
-    const params = {
-      Bucket: 'reviewsbucket',
-      Key: `uploaded-images/${file.name}`,
-      Body: file,  // File (or Blob) as Body
-      ContentType: file.type,  // The MIME type of the file
-      ACL: ObjectCannedACL.public_read,
-    };//heee
-    
-    const command = new PutObjectCommand(params);
-    await s3Client.send(command);
 
-    console.log('File uploaded successfully!');
-  } catch (error) {
-    console.error('Error uploading file to S3:', error);
-  }
-};
   // Auto-rotate spotlight stories
   useEffect(() => {
     const interval = setInterval(() => {
@@ -152,26 +103,13 @@ const uploadImageToS3 = async (file: File) => {
       location: 'Hyderabad',
       batch: 'March 2023',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
-      quote: 'IDA didn\'t just teach me to fly drones—they gave me wings to soar in my career. From a software engineer to leading drone operations for a Fortune 500 company, this journey has been incredible. The practical training, industry connections, and ongoing support made all the difference.',
+      quote: 'IDA didn\'t just teach me to fly drones—they gave me wings to soar in my career. From a software engineer to leading drone operations for a Fortune 500 company.',
       currentStatus: 'Leading a team of 15 drone pilots across India',
       achievement: 'Promoted to Chief Pilot in 8 months',
       salaryIncrease: '300%',
       testimonialVideo: true
     },
-    {
-      id: 2,
-      name: 'Kiran Singh',
-      role: 'Founder, AgroSky Drones',
-      course: 'Agriculture Drone Training',
-      location: 'Punjab',
-      batch: 'January 2023',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600',
-      quote: 'Being a farmer\'s son, I understood the challenges. IDA\'s agriculture program gave me the technical skills to revolutionize farming in my region. Today, my drone service helps 500+ farmers increase their yield by 35% while reducing costs by 40%.',
-      currentStatus: 'Serving 500+ farmers across Punjab and Haryana',
-      achievement: 'Built ₹2Cr revenue company in 18 months',
-      salaryIncrease: '1000%',
-      testimonialVideo: true
-    },
+   
     {
       id: 3,
       name: 'Sneha Joshi',
@@ -180,7 +118,7 @@ const uploadImageToS3 = async (file: File) => {
       location: 'Mumbai',
       batch: 'February 2023',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
-      quote: 'From shooting local events to capturing Bollywood films and celebrity weddings, IDA opened doors I never imagined. The confidence I gained during training and the network I built through IDA alumni has been invaluable for my creative journey.',
+      quote: 'From shooting local events to capturing Bollywood films and celebrity weddings, IDA opened doors I never imagined.',
       currentStatus: 'Working with top Bollywood productions and celebrity events',
       achievement: 'Shot for 3 major Bollywood films',
       salaryIncrease: '500%',
@@ -197,7 +135,7 @@ const uploadImageToS3 = async (file: File) => {
       batch: 'March 2024',
       location: 'Mumbai',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'From mechanical engineer to commercial pilot - best decision ever! IDA\'s practical approach and job support helped me transition smoothly.',
+      quote: 'From mechanical engineer to commercial pilot - best decision ever!',
       achievement: 'Now earning ₹8L+ annually',
       category: 'Career Switch',
       rating: 5
@@ -210,7 +148,7 @@ const uploadImageToS3 = async (file: File) => {
       batch: 'February 2024',
       location: 'Pune',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Started my own agri-drone service. Now helping 200+ farmers increase their yield and reduce costs significantly.',
+      quote: 'Started my own agri-drone service. Now helping 200+ farmers.',
       achievement: 'Started own drone service company',
       category: 'Entrepreneurship',
       rating: 5
@@ -223,7 +161,7 @@ const uploadImageToS3 = async (file: File) => {
       batch: 'January 2024',
       location: 'Bangalore',
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Got 3 job offers within 2 weeks of certification! The industry connections at IDA are unmatched.',
+      quote: 'Got 3 job offers within 2 weeks of certification!',
       achievement: 'Placed in 2 weeks after certification',
       category: 'Quick Placement',
       rating: 5
@@ -236,7 +174,7 @@ const uploadImageToS3 = async (file: File) => {
       batch: 'December 2023',
       location: 'Hyderabad',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'From housewife to professional drone photographer in 6 months. The women-focused program gave me confidence.',
+      quote: 'From housewife to professional drone photographer in 6 months.',
       achievement: 'Built successful photography business',
       category: 'Women Empowerment',
       rating: 5
@@ -249,7 +187,7 @@ const uploadImageToS3 = async (file: File) => {
       batch: 'November 2023',
       location: 'Punjab',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Helping fellow farmers increase yield by 30% using drone technology. IDA made this dream possible.',
+      quote: 'Helping fellow farmers increase yield by 30% using drone technology.',
       achievement: 'Serving 500+ farmers',
       category: 'Agriculture',
       rating: 5
@@ -262,48 +200,9 @@ const uploadImageToS3 = async (file: File) => {
       batch: 'October 2023',
       location: 'Delhi',
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Student to instructor - now training the next generation of pilots. IDA\'s support never ends.',
+      quote: 'Student to instructor - now training the next generation of pilots.',
       achievement: 'Became certified instructor',
       category: 'Career Growth',
-      rating: 5
-    },
-    {
-      id: 7,
-      name: 'Sneha Joshi',
-      role: 'Real Estate Photographer',
-      course: 'DGCA Pilot Training',
-      batch: 'September 2023',
-      location: 'Mumbai',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Real estate photography business booming with drone skills! Clients love the aerial perspectives.',
-      achievement: '300% business growth',
-      category: 'Specialization',
-      rating: 5
-    },
-    {
-      id: 8,
-      name: 'Ravi Kumar',
-      role: 'Security Operations Specialist',
-      course: 'DGCA Pilot Training',
-      batch: 'August 2023',
-      location: 'Chennai',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Ex-military to civilian drone ops - seamless transition! IDA understood my background perfectly.',
-      achievement: 'Leading security drone operations',
-      category: 'Career Switch',
-      rating: 5
-    },
-    {
-      id: 9,
-      name: 'Anita Gupta',
-      role: 'Tech Innovation Lead',
-      course: 'Women Drone Program',
-      batch: 'July 2023',
-      location: 'Bangalore',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Leading drone innovation at a major tech company now! The technical depth at IDA was impressive.',
-      achievement: 'Promoted to innovation lead',
-      category: 'Women Empowerment',
       rating: 5
     }
   ];
@@ -373,89 +272,31 @@ const uploadImageToS3 = async (file: File) => {
     setCurrentVideoSlide((prev) => (prev - 1 + videoTestimonials.length) % videoTestimonials.length);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
-const handleFormSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  // Check if the image is selected
-  if (!formData.image) {
-    alert("Please upload an image.");
-    return;
-  }
-
-  // Convert base64 image to File object
-  const imageFile = dataURLtoFile(formData.image, 'uploaded-image.jpg'); // Example filename
-
-  // Upload the image to S3 and get the URL
-  try {
-    const imageUrl = await uploadImageToS3(imageFile); // Upload image and get URL
-
-    // Prepare the data to send to the Lambda function via API Gateway
-    const reviewData = {
-      name: formData.name,
-      email: formData.email,
-      course: formData.course,
-      testimonial: formData.testimonial,
-      image: imageUrl, // The S3 URL of the uploaded image
-    };
-
-    // Send the review data to the API Gateway
-    const response = await fetch('https://5inb8fpkae.execute-api.ap-south-1.amazonaws.com/Postreview', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(reviewData),
-    });
-
-    const result = await response.json();
-    
-    if (response.ok) {
-      alert('Your review has been submitted successfully!');
-      setShowSubmissionForm(false); // Optionally, hide the form
-    } else {
-      alert('Error submitting the review. Please try again later.');
-    }
-  } catch (error) {
-    console.error('Error submitting form:', error);
-    alert('There was an issue with the submission. Please try again later.');
-  }
-};
-
-
-
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Story submission:', formData);
+    setShowSubmissionForm(false);
+    setFormData({ name: '', email: '', course: '', testimonial: '' });
+  };
 
   const loadMoreStories = () => {
-    setVisibleStories(prev => prev + 6);
+    setVisibleStories(prev => prev + 3);
   };
-const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]; // Get the first file
-    if (file) {
-      const reader = new FileReader(); // FileReader to read the file
-      reader.onloadend = () => {
-        setFormData((prevState) => ({
-          ...prevState,
-          image: reader.result as string, // Store image as base64
-        }));
-      };
-      reader.readAsDataURL(file); // Read the file as base64 string
-    }
-  };
-
-  // Upload image to S3 directly
 
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
       
 
-      {/* Professional Hero Section */}
-      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-        {/* Background Pattern */}
+      {/* Hero Section - Compressed */}
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#26A65B] rounded-full blur-3xl"></div>
@@ -463,26 +304,25 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               Pilot Journeys That{' '}
               <span className="text-[#F15A24]">Inspire</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-              See how students from all walks of life became certified drone pilots and launched successful careers. 
-              Real stories, real achievements, real transformations.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+              Real stories, real achievements, real transformations from certified drone pilots.
             </p>
             
-            {/* Key Stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {/* Key Stats - Compressed */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
-                { number: '2500+', label: 'Success Stories' },
-                { number: '100%', label: 'Career Growth' },
+                { number: '10,000+', label: 'Success Stories' },
+                { number: '95%', label: 'Career Growth' },
                 { number: '₹8L+', label: 'Average Salary' },
                 { number: '500+', label: 'Companies Hiring' }
               ].map((stat, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="text-3xl font-bold text-[#F15A24] mb-2">{stat.number}</div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div key={index} className="bg-white rounded-lg p-4 shadow-md">
+                  <div className="text-2xl font-bold text-[#F15A24] mb-1">{stat.number}</div>
+                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -490,52 +330,52 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
       </section>
 
-      {/* Featured Video Testimonials */}
-      <section className="py-16 lg:py-24 bg-white">
+      {/* Video Testimonials - Compressed */}
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Voices from Our Pilots
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Watch authentic video testimonials from graduates who transformed their careers with India Drone Academy.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Watch authentic video testimonials from graduates who transformed their careers.
             </p>
           </div>
 
-          {/* Video Carousel */}
-          <div className="relative max-w-5xl mx-auto">
-            <div className="overflow-hidden rounded-2xl">
+          {/* Video Carousel - Compressed */}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="overflow-hidden rounded-xl">
               <div 
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentVideoSlide * 100}%)` }}
               >
                 {videoTestimonials.map((video) => (
                   <div key={video.id} className="w-full flex-shrink-0">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gray-50 p-8 lg:p-12 rounded-2xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-gray-50 p-6 rounded-xl">
                       {/* Video Thumbnail */}
                       <div className="relative">
-                        <div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
                           <img
                             src={video.thumbnail}
                             alt={`${video.name} testimonial`}
-                            className="w-full h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                             loading="lazy"
                           />
                           <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                           
                           {/* Play Button */}
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 shadow-lg transform group-hover:scale-110 transition-all duration-200">
-                              <Play className="w-8 h-8 text-[#F15A24] ml-1" />
+                            <div className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-4 shadow-lg transform group-hover:scale-110 transition-all duration-200">
+                              <Play className="w-6 h-6 text-[#F15A24] ml-1" />
                             </div>
                           </div>
                           
                           {/* Video Stats */}
-                          <div className="absolute top-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm flex items-center">
+                          <div className="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs flex items-center">
                             <Eye className="w-3 h-3 mr-1" />
                             {video.views}
                           </div>
-                          <div className="absolute top-4 right-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm flex items-center">
+                          <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs flex items-center">
                             <Clock className="w-3 h-3 mr-1" />
                             {video.duration}
                           </div>
@@ -544,18 +384,18 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
 
                       {/* Video Info */}
                       <div className="flex flex-col justify-center">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">{video.name}</h3>
-                        <p className="text-[#F15A24] font-bold text-lg mb-1">{video.role}</p>
-                        <p className="text-gray-600 mb-2">{video.course}</p>
-                        <p className="text-gray-500 mb-6">{video.location}</p>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2">{video.name}</h3>
+                        <p className="text-[#F15A24] font-bold mb-1">{video.role}</p>
+                        <p className="text-gray-600 text-sm mb-1">{video.course}</p>
+                        <p className="text-gray-500 text-sm mb-4">{video.location}</p>
                         
-                        <blockquote className="text-lg text-gray-700 italic mb-6 leading-relaxed">
+                        <blockquote className="text-gray-700 italic mb-4">
                           "{video.caption}"
                         </blockquote>
                         
                         {/* Achievement */}
-                        <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4">
-                          <p className="text-[#26A65B] font-bold">
+                        <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3">
+                          <p className="text-[#26A65B] font-bold text-sm">
                             🎉 {video.achievement}
                           </p>
                         </div>
@@ -569,24 +409,24 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
             {/* Navigation */}
             <button
               onClick={prevVideoSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200 z-10"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors duration-200 z-10"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-600" />
+              <ChevronLeft className="w-5 h-5 text-gray-600" />
             </button>
             <button
               onClick={nextVideoSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors duration-200 z-10"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors duration-200 z-10"
             >
-              <ChevronRight className="w-6 h-6 text-gray-600" />
+              <ChevronRight className="w-5 h-5 text-gray-600" />
             </button>
 
             {/* Dots */}
-            <div className="flex justify-center mt-8 space-x-2">
+            <div className="flex justify-center mt-6 space-x-2">
               {videoTestimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentVideoSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
                     index === currentVideoSlide ? 'bg-[#F15A24]' : 'bg-gray-300'
                   }`}
                 />
@@ -596,29 +436,29 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
       </section>
 
-      {/* Success Stories Grid */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      {/* Success Stories Grid - Compressed */}
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Certified & Soaring
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet our graduates who've transformed their careers and are now leading in their respective fields.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Meet our graduates who've transformed their careers and are now leading in their fields.
             </p>
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <div className="flex items-center mr-4 mb-2">
-              <Filter className="w-5 h-5 mr-2 text-gray-600" />
-              <span className="text-gray-700 font-medium">Filter by:</span>
+          {/* Filters - Compressed */}
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <div className="flex items-center mr-3 mb-2">
+              <Filter className="w-4 h-4 mr-2 text-gray-600" />
+              <span className="text-sm text-gray-700 font-medium">Filter:</span>
             </div>
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeFilter === filter
                     ? 'bg-[#F15A24] text-white shadow-md'
                     : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
@@ -629,16 +469,15 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
             ))}
           </div>
 
-          {/* Stories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Stories Grid - Compressed */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredStories.slice(0, visibleStories).map((story, index) => (
               <div
                 key={story.id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
               >
                 {/* Story Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <img
                     src={story.image}
                     alt={story.name}
@@ -648,40 +487,40 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4 bg-[#F15A24] text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute top-3 left-3 bg-[#F15A24] text-white px-2 py-1 rounded-full text-xs font-medium">
                     {story.category}
                   </div>
                   
                   {/* Name Overlay */}
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-bold">{story.name}</h3>
-                    <p className="text-orange-200">{story.role}</p>
+                  <div className="absolute bottom-3 left-3 text-white">
+                    <h3 className="text-lg font-bold">{story.name}</h3>
+                    <p className="text-orange-200 text-sm">{story.role}</p>
                   </div>
                 </div>
 
                 {/* Story Content */}
-                <div className="p-6">
+                <div className="p-4">
                   {/* Rating */}
-                  <div className="flex items-center mb-4">
+                  <div className="flex items-center mb-3">
                     {[...Array(story.rating)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                     ))}
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-gray-700 mb-4 leading-relaxed">
+                  <blockquote className="text-gray-700 mb-3 text-sm leading-relaxed">
                     "{story.quote}"
                   </blockquote>
 
                   {/* Course Info */}
-                  <div className="text-sm text-gray-600 mb-4">
+                  <div className="text-xs text-gray-600 mb-3">
                     <p className="font-medium">{story.course}</p>
                     <p>{story.batch} • {story.location}</p>
                   </div>
 
                   {/* Achievement */}
-                  <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3">
-                    <p className="text-[#26A65B] font-bold text-sm">
+                  <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-2">
+                    <p className="text-[#26A65B] font-bold text-xs">
                       🏆 {story.achievement}
                     </p>
                   </div>
@@ -692,10 +531,10 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
 
           {/* Load More */}
           {visibleStories < filteredStories.length && (
-            <div className="text-center mt-12">
+            <div className="text-center mt-6">
               <button
                 onClick={loadMoreStories}
-                className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+                className="bg-[#F15A24] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
               >
                 View More Stories
               </button>
@@ -704,42 +543,42 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
       </section>
 
-      {/* Spotlight Story Slider */}
-      <section className="py-16 lg:py-24 bg-white">
+      {/* Spotlight Story Slider - Compressed */}
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               IDA Graduate Spotlights
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               In-depth stories of transformation, featuring our most inspiring graduates.
             </p>
           </div>
 
           {/* Spotlight Slider */}
           <div className="relative">
-            <div className="overflow-hidden rounded-2xl">
+            <div className="overflow-hidden rounded-xl">
               <div 
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentSpotlight * 100}%)` }}
               >
                 {spotlightStories.map((story) => (
                   <div key={story.id} className="w-full flex-shrink-0">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-gray-50 p-8 lg:p-16 rounded-2xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gray-50 p-8 rounded-xl">
                       {/* Story Image */}
                       <div className="relative">
-                        <div className="relative rounded-xl overflow-hidden shadow-lg">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg">
                           <img
                             src={story.image}
                             alt={story.name}
-                            className="w-full h-96 lg:h-full object-cover"
+                            className="w-full h-64 lg:h-full object-cover"
                             loading="lazy"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                           
                           {/* Video Badge */}
                           {story.testimonialVideo && (
-                            <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center">
+                            <div className="absolute top-3 right-3 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center">
                               <Youtube className="w-3 h-3 mr-1" />
                               Video
                             </div>
@@ -747,37 +586,37 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
                         </div>
 
                         {/* Floating Stats */}
-                        <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4">
-                          <div className="text-2xl font-bold text-[#26A65B]">+{story.salaryIncrease}</div>
-                          <div className="text-sm text-gray-600">Salary Increase</div>
+                        <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-3">
+                          <div className="text-xl font-bold text-[#26A65B]">+{story.salaryIncrease}</div>
+                          <div className="text-xs text-gray-600">Salary Increase</div>
                         </div>
                       </div>
 
                       {/* Story Content */}
                       <div className="flex flex-col justify-center">
-                        <Quote className="w-12 h-12 text-[#F15A24] mb-6" />
+                        <Quote className="w-10 h-10 text-[#F15A24] mb-4" />
                         
-                        <blockquote className="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8 font-medium">
+                        <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 font-medium">
                           "{story.quote}"
                         </blockquote>
 
                         {/* Author Info */}
-                        <div className="mb-6">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-2">{story.name}</h3>
-                          <p className="text-[#F15A24] font-bold text-lg mb-1">{story.role}</p>
-                          <p className="text-gray-600">{story.course} • {story.batch}</p>
-                          <p className="text-gray-500">{story.location}</p>
+                        <div className="mb-4">
+                          <h3 className="text-xl font-bold text-gray-900 mb-1">{story.name}</h3>
+                          <p className="text-[#F15A24] font-bold mb-1">{story.role}</p>
+                          <p className="text-gray-600 text-sm">{story.course} • {story.batch}</p>
+                          <p className="text-gray-500 text-sm">{story.location}</p>
                         </div>
 
                         {/* Current Status */}
-                        <div className="bg-white rounded-xl p-6 shadow-md mb-6">
-                          <h4 className="font-bold text-gray-900 mb-2">Current Status:</h4>
-                          <p className="text-gray-700">{story.currentStatus}</p>
+                        <div className="bg-white rounded-lg p-4 shadow-md mb-4">
+                          <h4 className="font-bold text-gray-900 mb-1 text-sm">Current Status:</h4>
+                          <p className="text-gray-700 text-sm">{story.currentStatus}</p>
                         </div>
 
                         {/* Achievement Highlight */}
-                        <div className="bg-[#26A65B] bg-opacity-10 rounded-xl p-4">
-                          <p className="text-[#26A65B] font-bold">
+                        <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3">
+                          <p className="text-[#26A65B] font-bold text-sm">
                             🏆 {story.achievement}
                           </p>
                         </div>
@@ -789,12 +628,12 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
             </div>
 
             {/* Navigation */}
-            <div className="flex justify-center mt-8 space-x-2">
+            <div className="flex justify-center mt-6 space-x-2">
               {spotlightStories.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSpotlight(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     index === currentSpotlight 
                       ? 'bg-[#F15A24] scale-125' 
                       : 'bg-gray-300 hover:bg-gray-400'
@@ -806,33 +645,33 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
       </section>
 
-      {/* Metrics & Stats */}
-      <section className="py-16 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
+      {/* Metrics & Stats - Compressed */}
+      <section className="py-12 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Success by the Numbers
             </h2>
-            <p className="text-xl text-orange-100">
+            <p className="text-lg text-orange-100">
               Real metrics from our graduate community
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { number: '2500+', label: 'Pilots Trained', icon: Users },
-              { number: '100%', label: 'Course Satisfaction', icon: Star },
+              { number: '10,000+', label: 'Pilots Trained', icon: Users },
+              { number: '95%', label: 'Course Satisfaction', icon: Star },
               { number: '15+', label: 'States Covered', icon: MapPin },
               { number: '500+', label: 'Partner Companies', icon: Briefcase }
             ].map((stat, index) => {
               const IconComponent = stat.icon;
               return (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <IconComponent className="w-6 h-6 text-white" />
                   </div>
-                  <div className="text-3xl lg:text-4xl font-bold mb-2">{stat.number}</div>
-                  <div className="text-orange-100 font-medium">{stat.label}</div>
+                  <div className="text-2xl lg:text-3xl font-bold mb-1">{stat.number}</div>
+                  <div className="text-orange-100 font-medium text-sm">{stat.label}</div>
                 </div>
               );
             })}
@@ -840,40 +679,40 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
       </section>
 
-      {/* Review Wall */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      {/* Review Wall - Compressed */}
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               What They're Saying
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Authentic reviews from across social media platforms and review sites.
             </p>
           </div>
 
           {/* Review Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviewWall.map((review) => (
               <div
                 key={review.id}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
               >
                 {/* Platform Badge */}
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center">
                     {review.platform === 'Google' && (
-                      <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-white font-bold text-sm">G</span>
+                      <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center mr-2">
+                        <span className="text-white font-bold text-xs">G</span>
                       </div>
                     )}
                     {review.platform === 'Instagram' && (
-                      <Instagram className="w-8 h-8 text-pink-500 mr-3" />
+                      <Instagram className="w-6 h-6 text-pink-500 mr-2" />
                     )}
                     {review.platform === 'LinkedIn' && (
-                      <Linkedin className="w-8 h-8 text-blue-600 mr-3" />
+                      <Linkedin className="w-6 h-6 text-blue-600 mr-2" />
                     )}
-                    <span className="font-bold text-gray-900">{review.platform}</span>
+                    <span className="font-bold text-gray-900 text-sm">{review.platform}</span>
                   </div>
                   {review.verified && (
                     <div className="bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-2 py-1 rounded-full text-xs font-bold">
@@ -883,267 +722,146 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
                 </div>
 
                 {/* Rating */}
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-3">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                   ))}
                 </div>
 
                 {/* Comment */}
-                <p className="text-gray-700 leading-relaxed mb-4">"{review.comment}"</p>
+                <p className="text-gray-700 leading-relaxed mb-3 text-sm">"{review.comment}"</p>
 
                 {/* Author */}
-                <p className="text-gray-500 font-medium">- {review.name}</p>
+                <p className="text-gray-500 font-medium text-sm">- {review.name}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Share Your Story */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Are You a Proud IDA Graduate?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Share your transformation journey and inspire future students to pursue their drone career dreams.
-            </p>
-          </div>
+      {/* Share Your Story - Compressed */}
+<section className="py-12 bg-white">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-8">
+      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Are You a Proud IDA Graduate?</h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto">Share your transformation journey and inspire future students to pursue their drone career dreams.</p>
+    </div>
 
-          {!showSubmissionForm ? (
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 text-center">
-              <div className="w-20 h-20 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-8">
-                <Heart className="w-10 h-10 text-[#F15A24]" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Submit Your Photo and Feedback to Be Featured
-              </h3>
-              <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-                Join our success story showcase and help inspire the next generation of drone pilots. 
-                Your experience could be the motivation someone needs to start their career.
-              </p>
-              
-              <button
-                onClick={() => setShowSubmissionForm(true)}
-                className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
-              >
-                <Upload className="w-5 h-5 mr-2" />
-                Submit My Story
-              </button>
-            </div>
-          ) : (
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Share Your Success Story
-                </h3>
-                <button
-                  onClick={() => setShowSubmissionForm(false)}
-                  className="text-gray-500 hover:text-gray-700 p-2"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
+    {!showSubmissionForm ? (
+      <div className="bg-gray-50 rounded-xl p-8 text-center">
+        <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Heart className="w-8 h-8 text-[#F15A24]" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-900 mb-4">Submit Your Photo and Feedback to Be Featured</h3>
+        <p className="text-gray-600 mb-6 max-w-xl mx-auto">Join our success story showcase and help inspire the next generation of drone pilots.</p>
+        <button onClick={() => setShowSubmissionForm(true)} className="bg-[#F15A24] text-white font-bold px-4 py-2 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center text-sm">
+          <Upload className="w-4 h-4 mr-2" />
+          Submit My Story
+        </button>
+      </div>
+    ) : (
+      <div className="bg-gray-50 rounded-xl p-8">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-xl font-bold text-gray-900">Share Your Success Story</h3>
+          <button onClick={() => setShowSubmissionForm(false)} className="text-gray-500 hover:text-gray-700 p-2">
+            <X className="w-5 h-5" />
+          </button>
+        </div>
 
-              <form onSubmit={handleFormSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name *
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="Your full name"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-  Courses Completed *
-</label>
-<div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-  {[
-    "DGCA Small Category",
-    "DGCA Medium Category",
-    "Medium Upgrade",
-    "Small + Medium Combined",
-    "Agriculture Spraying",
-    "Site Asset Mapping",
-    "Mining Excavation Analysis",
-    "Aerial Cinematography",
-    "Data Processing",
-    "Drone Assembly Basic",
-    "Drone Assembly Advanced",
-    "FPV Training Basic",
-    "FPV Training Advanced",
-    "Women Drone Pilot Bootcamp",
-    "Drone-Didi Agri Program",
-    "DGCA Small + Cinematography",
-    "DGCA Medium + 3D Mapping",
-    "Ultimate Pro Bundle",
-    "Thermal Inspection & LiDAR",
-    "BVLOS Training",
-    "Drone Safety & Incident Response",
-    "Simulator Refresher",
-    "Corporate Training",
-    "Online Theory Crash Course"
-  ].map((course, index) => (
-    <label key={index} className="flex items-center space-x-2">
-      <input
-        type="checkbox"
-        name="course"
-        value={course}
-        onChange={(e) => {
-          const selected = [...formData.course.split(',')];
-          if (e.target.checked) {
-            selected.push(e.target.value);
-          } else {
-            const i = selected.indexOf(e.target.value);
-            if (i > -1) selected.splice(i, 1);
-          }
-          setFormData({ ...formData, course: selected.join(',') });
-        }}
-        className="w-4 h-4 text-[#F15A24] border-gray-300 rounded"
-      />
-      <span className="text-gray-700">{course}</span>
-    </label>
-  ))}
-</div>
-
-                </div>
-
-                <div>
-                  <label htmlFor="testimonial" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Success Story *
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                    <textarea
-                      id="testimonial"
-                      name="testimonial"
-                      value={formData.testimonial}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                      placeholder="Share your transformation journey, career achievements, and how IDA helped you succeed..."
-                    />
-                  </div>
-                </div>
-
+        <form onSubmit={handleFormSubmit} className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Upload Your Photo *</label>
-              <div
-                className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-[#F15A24] transition-colors duration-200 cursor-pointer"
-                onClick={() => document.getElementById("image-upload")?.click()} // Trigger file input on div click
-              >
-                <input
-                  type="file"
-                  accept="image/*"
-                  id="image-upload"
-                  onChange={handleImageUpload}
-                  className="sr-only"
-                />
-                <p className="text-gray-600 mb-1">Click to upload or drag and drop</p>
-                <p className="text-gray-500 text-sm">PNG, JPG up to 5MB</p>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="Your full name" />
               </div>
-              {formData.image && ( // Display uploaded image preview
-                <div className="mt-4">
-                  <img
-                    src={formData.image}
-                    alt="Uploaded Preview"
-                    className="w-32 h-32 object-cover rounded-md"
-                  />
-                </div>
-              )}
             </div>
-
-
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    type="submit"
-                    className="flex-1 bg-[#F15A24] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
-                  >
-                    <Upload className="w-5 h-5 mr-2" />
-                    Submit My Story
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setShowSubmissionForm(false)}
-                    className="flex-1 bg-gray-200 text-gray-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-all duration-200"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </form>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="your.email@example.com" />
+              </div>
             </div>
-          )}
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Start Your Drone Career?
-          </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of successful pilots who chose IDA. Your success story could be next.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/apply"
-              className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
-            >
-              Apply Now
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </a>
-            <a
-              href="/courses"
-              className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200"
-            >
-              View Upcoming Courses
-            </a>
           </div>
-        </div>
-      </section>
+
+          <div>
+            <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-1">Course Completed *</label>
+            <div className="relative">
+              <Award className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <select id="course" name="course" value={formData.course} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200">
+                <option value="">Select your course</option>
+                <option value="DGCA Pilot Training">DGCA Pilot Training</option>
+                <option value="Agriculture Drone Training">Agriculture Drone Training</option>
+                <option value="Women Drone Program">Women Drone Program</option>
+                <option value="1-Day Special Course">1-Day Special Course</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="testimonial" className="block text-sm font-medium text-gray-700 mb-1">Your Success Story *</label>
+            <div className="relative">
+              <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
+              <textarea id="testimonial" name="testimonial" value={formData.testimonial} onChange={handleInputChange} required rows={4} className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="Share your transformation journey, career achievements, and how IDA helped you succeed..." />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Upload Your Photo</label>
+            <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-[#F15A24] transition-colors duration-200 cursor-pointer">
+              <ImageIcon className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+              <p className="text-gray-600 text-sm mb-1">Click to upload or drag and drop</p>
+              <p className="text-gray-500 text-xs">PNG, JPG up to 5MB</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <button type="submit" className="flex-1 bg-[#F15A24] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center text-sm">
+              <Upload className="w-4 h-4 mr-2" />
+              Submit My Story
+            </button>
+            <button type="button" onClick={() => setShowSubmissionForm(false)} className="flex-1 bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-300 transition-all duration-200 text-sm">Cancel</button>
+          </div>
+        </form>
+      </div>
+    )}
+  </div>
+</section>
+
+
+
+      {/* Final CTA - Compressed */}
+   <section className="py-12 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+      Ready to Start Your Drone Career?
+    </h2>
+    <p className="text-lg text-orange-100 mb-6 max-w-2xl mx-auto">
+      Join thousands of successful pilots who chose IDA. Your success story could be next.
+    </p>
+    
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/apply"
+        className="bg-white text-[#F15A24] font-bold px-4 py-2 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center text-sm"
+      >
+        Apply Now
+        <ArrowRight className="w-5 h-5 ml-2" />
+      </a>
+      <a
+        href="/courses"
+        className="bg-transparent border-2 border-white text-white font-bold px-4 py-2 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 text-sm"
+      >
+        View Upcoming Courses
+      </a>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };
 
 export default SuccessStoriesPage;
-

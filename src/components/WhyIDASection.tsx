@@ -60,7 +60,10 @@ const WhyIDASection: React.FC = () => {
   };
 
   return (
-<section className="pt-6 pb-12 lg:pt-8 lg:pb-16 bg-white">
+<section className="pt-0 pb-6 lg:pt-0 lg:pb-8 bg-white">
+
+
+
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Section Header */}
     <div className="text-center mb-12">

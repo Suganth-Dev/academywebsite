@@ -375,92 +375,93 @@ const PartnershipsPage: React.FC = () => {
       {/* Header Spacer */}
 
       {/* Hero Section */}
-      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#26A65B] rounded-full blur-3xl"></div>
-        </div>
+     <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 relative overflow-hidden mt-8">
+  {/* Background Pattern */}
+  <div className="absolute inset-0 opacity-5">
+    <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
+    <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#26A65B] rounded-full blur-3xl"></div>
+  </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Partner With India's{' '}
-                <span className="text-[#F15A24]">Premier Drone Training Ecosystem</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Together, let's shape the future of drone innovation, training, and deployment across India and beyond.
-              </p>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Content */}
+      <div className="text-center lg:text-left">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+          Partner With India's{' '}
+          <span className="text-[#F15A24]">Premier Drone Training Ecosystem</span>
+        </h1>
+        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+          Together, let's shape the future of drone innovation, training, and deployment across India and beyond.
+        </p>
 
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 mb-8">
-                <div className="flex items-center">
-                  <Award className="w-4 h-4 mr-2 text-[#26A65B]" />
-                  <span>DGCA Approved</span>
-                </div>
-                <div className="flex items-center">
-                  <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
-                  <span>2500+ Pilots Trained</span>
-                </div>
-                <div className="flex items-center">
-                  <Building className="w-4 h-4 mr-2 text-[#26A65B]" />
-                  <span>50+ Training Centers</span>
-                </div>
-              </div>
-
-              {/* CTA */}
-              <button
-                onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
-              >
-                Become a Partner
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
-            </div>
-
-            {/* Hero Image */}
-            <div className="relative">
-              <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
-                <img
-                  src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Partnership collaboration showing flight demos, equipment, simulators, and industry presence"
-                  className="w-full h-80 object-cover rounded-lg"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4">
-                <div className="text-2xl font-bold text-[#26A65B]">500+</div>
-                <div className="text-sm text-gray-600">Active Partners</div>
-              </div>
-
-              <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
-                <div className="text-2xl font-bold text-[#F15A24]">15+</div>
-                <div className="text-sm text-gray-600">Industries</div>
-              </div>
-            </div>
+        {/* Trust Indicators */}
+        <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 mb-8">
+          <div className="flex items-center">
+            <Award className="w-4 h-4 mr-2 text-[#26A65B]" />
+            <span>DGCA Approved</span>
+          </div>
+          <div className="flex items-center">
+            <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
+            <span>2500+ Pilots Trained</span>
+          </div>
+          <div className="flex items-center">
+            <Building className="w-4 h-4 mr-2 text-[#26A65B]" />
+            <span>50+ Training Centers</span>
           </div>
         </div>
-      </section>
+
+        {/* CTA */}
+        <button
+          onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
+          className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
+        >
+          Become a Partner
+          <ArrowRight className="w-5 h-5 ml-2" />
+        </button>
+      </div>
+
+      {/* Hero Image */}
+      <div className="relative">
+        <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
+          <img
+            src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Partnership collaboration showing flight demos, equipment, simulators, and industry presence"
+            className="w-full h-80 object-cover rounded-lg"
+            loading="lazy"
+          />
+        </div>
+
+        {/* Floating Stats */}
+        <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4">
+          <div className="text-2xl font-bold text-[#26A65B]">500+</div>
+          <div className="text-sm text-gray-600">Active Partners</div>
+        </div>
+
+        <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
+          <div className="text-2xl font-bold text-[#F15A24]">15+</div>
+          <div className="text-sm text-gray-600">Industries</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Partnership Types */}
       <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Explore Our Partnership Opportunities
             </h2>
-          <div className="w-full overflow-x-auto">
-  <p className="text-sm text-gray-600 whitespace-nowrap">
-    From technology integration to talent acquisition, we offer diverse partnership models to drive mutual growth and innovation.
-  </p>
-</div>
-
-
+            <div className="w-full">
+              <p className="text-lg sm:text-xl text-gray-600">
+                From technology integration to talent acquisition, we offer diverse partnership models to drive mutual growth and innovation.
+              </p>
+            </div>
           </div>
+
 
           {/* Auto-scrolling Container */}
           <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -492,7 +493,7 @@ const PartnershipsPage: React.FC = () => {
                       className="w-[300px] flex-shrink-0 flex flex-col bg-white shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 border rounded-2xl"
                     >
                       {/* Header */}
-                     <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-4 text-white rounded-t-2xl">
+                      <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-4 text-white rounded-t-2xl">
 
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex items-center justify-center">
@@ -542,19 +543,21 @@ const PartnershipsPage: React.FC = () => {
             </button>
 
             {/* Dots Indicator */}
-        
+
 
             {/* Auto-scroll indicator */}
-            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 flex items-center text-xs text-gray-500">
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex items-center text-xs text-gray-500">
               <div className={`w-2 h-2 rounded-full mr-2 ${isAutoScrolling ? 'bg-[#F15A24] animate-pulse' : 'bg-gray-300'}`}></div>
               <span>{isAutoScrolling ? 'Auto-scrolling' : 'Hover to pause'}</span>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* Existing Partners */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="pt-2 lg:pt-4 pb-16 lg:pb-20 bg-gray-50">
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -566,7 +569,7 @@ const PartnershipsPage: React.FC = () => {
           </div>
 
           {/* Partners Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center mb-6"> {/* Adjusted mb-12 to mb-6 */}
             {existingPartners.map((partner, index) => (
               <div
                 key={index}
@@ -590,8 +593,10 @@ const PartnershipsPage: React.FC = () => {
             ))}
           </div>
 
+
+
           {/* Featured In Section */}
-          <section className="py-16 bg-white">
+          <section className="py-8 bg-white">  {/* Reduced padding from py-16 to py-8 */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">
                 Featured In
@@ -599,67 +604,41 @@ const PartnershipsPage: React.FC = () => {
               <div className="text-center">
                 <p className="text-gray-600 mb-8 text-xl font-semibold"></p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 place-items-center">
-                  {[
-                    {
-                      name: 'The Hindu',
-                      img: '/5.jpg',
-                      info: 'National Daily Coverage'
-                    },
-                    {
-                      name: 'Eenadu',
-                      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eenadu_logo.svg/512px-Eenadu_logo.svg.png',
-                      info: 'Regional Telugu Feature'
-                    },
-                    {
-                      name: 'Times of India',
-                      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Times_of_India_logo.svg/512px-The_Times_of_India_logo.svg.png',
-                      info: 'Tech & Education Column'
-                    },
-                    {
-                      name: 'Business Standard',
-                      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Business_Standard_logo.svg/512px-Business_Standard_logo.svg.png',
-                      info: 'Business Feature'
-                    },
-                    {
-                      name: 'Economic Times',
-                      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/The_Economic_Times_logo.svg/512px-The_Economic_Times_logo.svg.png',
-                      info: 'Start-up Highlights'
-                    }
-                  ].map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-white shadow-xl rounded-2xl p-8 min-h-[220px] flex flex-col items-center text-center"
-                    >
-                      <img
-                        src={item.img}
-                        alt={item.name}
-                        className="w-32 h-32 rounded-xl object-contain bg-white mb-5 border border-gray-200 shadow-sm"
-                      />
-                      <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
-                      <p className="text-sm text-gray-500">{item.info}</p>
-                    </div>
-                  ))}
+                  {[{ name: 'The Hindu', img: '/5.jpg', info: 'National Daily Coverage' },
+                  { name: 'Eenadu', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eenadu_logo.svg/512px-Eenadu_logo.svg.png', info: 'Regional Telugu Feature' },
+                  { name: 'Times of India', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Times_of_India_logo.svg/512px-The_Times_of_India_logo.svg.png', info: 'Tech & Education Column' },
+                  { name: 'Business Standard', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Business_Standard_logo.svg/512px-Business_Standard_logo.svg.png', info: 'Business Feature' },
+                  { name: 'Economic Times', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/The_Economic_Times_logo.svg/512px-The_Economic_Times_logo.svg.png', info: 'Start-up Highlights' }]
+                    .map((item, idx) => (
+                      <div key={idx} className="bg-white shadow-xl rounded-2xl p-8 min-h-[220px] flex flex-col items-center text-center">
+                        <img src={item.img} alt={item.name} className="w-32 h-32 rounded-xl object-contain bg-white mb-5 border border-gray-200 shadow-sm" />
+                        <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
+                        <p className="text-sm text-gray-500">{item.info}</p>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
           </section>
+
         </div>
       </section>
 
+
       {/* Benefits Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-4 lg:py-8 bg-white"> {/* Reduced padding */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"> {/* Reduced gap */}
             {/* Content */}
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"> {/* Reduced margin-bottom */}
                 Why Partner With Us?
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-gray-600 mb-4"> {/* Reduced margin-bottom */}
                 Leverage our expertise, infrastructure, and network to accelerate your business growth in the drone ecosystem.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-3"> {/* Reduced space between benefits */}
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-[#26A65B] mr-3 mt-0.5 flex-shrink-0" />
@@ -688,7 +667,7 @@ const PartnershipsPage: React.FC = () => {
               </div>
 
               {/* Floating Stats */}
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-6">
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-lg p-4"> {/* Reduced padding */}
                 <div className="text-3xl font-bold text-[#F15A24] mb-2">100%</div>
                 <div className="text-gray-600 font-medium">Partner Satisfaction</div>
               </div>
@@ -697,14 +676,15 @@ const PartnershipsPage: React.FC = () => {
         </div>
       </section>
 
+
       {/* Testimonials */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-8 lg:py-12 bg-gray-50"> {/* Reduced padding */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12"> {/* Reduced margin */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"> {/* Reduced margin */}
               What Our Partners Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4"> {/* Reduced margin */}
               Hear from industry leaders who have successfully partnered with us to drive innovation and growth.
             </p>
           </div>
@@ -713,7 +693,7 @@ const PartnershipsPage: React.FC = () => {
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 {/* Quote Icon */}
-                <Quote className="w-10 h-10 text-[#F15A24] mb-6" />
+                <Quote className="w-10 h-10 text-[#F15A24] mb-4" /> {/* Reduced margin */}
 
                 {/* Rating */}
                 <div className="flex items-center mb-4">
@@ -723,7 +703,7 @@ const PartnershipsPage: React.FC = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-gray-700 leading-relaxed mb-6">
+                <blockquote className="text-gray-700 leading-relaxed mb-4"> {/* Reduced margin */}
                   "{testimonial.quote}"
                 </blockquote>
 
@@ -746,6 +726,7 @@ const PartnershipsPage: React.FC = () => {
           </div>
         </div>
       </section>
+
 
       {/* Partnership Form */}
       <section id="partnership-form" className="pt-16 pb-0 bg-white">
@@ -1046,19 +1027,19 @@ const PartnershipsPage: React.FC = () => {
       {/* Final CTA */}
       <section className="py-16 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4"> {/* Reduced margin */}
             Need to Talk to Us Directly?
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-orange-100 mb-6"> {/* Reduced margin */}
             Our partnership team is ready to discuss opportunities and answer any questions you may have.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center"> {/* Reduced gap */}
             <a
               href="https://calendly.com/indiadroneacademy/partnership-discussion"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
+              className="bg-white text-[#F15A24] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
             >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule a Call
@@ -1067,7 +1048,7 @@ const PartnershipsPage: React.FC = () => {
               href="https://wa.me/919188883344?text=Hi, I'm interested in exploring partnership opportunities with IDA"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"
+              className="bg-[#25D366] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"
             >
               <MessageSquare className="w-5 h-5 mr-2" />
               WhatsApp Chat
@@ -1075,6 +1056,7 @@ const PartnershipsPage: React.FC = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

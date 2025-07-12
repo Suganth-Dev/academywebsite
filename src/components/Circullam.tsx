@@ -65,7 +65,8 @@ const InstitutionalCurriculumSection: React.FC = () => {
   const activeModuleData = curriculumModules.find(module => module.id === activeModule);
 
   return (
-  <section className="py-10 bg-gradient-to-br from-slate-50 to-blue-50">
+<section className="pt-0 pb-10 bg-gradient-to-br from-slate-50 to-blue-50">
+
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Header */}
     <div className="text-center mb-10">
@@ -81,7 +82,7 @@ const InstitutionalCurriculumSection: React.FC = () => {
     </div>
 
     {/* Stats Bar */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
       {[
         { value: '22', label: 'Total Weeks', color: 'blue' },
         { value: '13', label: 'Hands-on Projects', color: 'green' },

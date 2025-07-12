@@ -92,31 +92,32 @@ const StudentSuccessSnapshot: React.FC = () => {
     </div>
 
     {/* Stats Section */}
-    <div className="bg-white rounded-xl p-6 lg:p-8 shadow-md mb-10">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { number: '2500+', label: 'Students Placed', icon: Users },
-          { number: '100%', label: 'Success Rate', icon: TrendingUp },
-          { number: '₹6L+', label: 'Average Salary', icon: Award },
-          { number: '500+', label: 'Partner Companies', icon: Users }
-        ].map((stat, index) => {
-          const IconComponent = stat.icon;
-          return (
-            <div key={index} className="text-center">
-              <div className="w-12 h-12 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <IconComponent className="w-6 h-6 text-[#F15A24]" />
-              </div>
-              <div className="text-xl font-bold text-[#F15A24] mb-1">
-                {stat.number}
-              </div>
-              <div className="text-sm text-gray-600 font-medium">
-                {stat.label}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+   <div className="bg-white rounded-xl p-4 lg:p-6 shadow-md mb-6">
+  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    {[
+      { number: '2500+', label: 'Students Placed', icon: Users },
+      { number: '100%', label: 'Success Rate', icon: TrendingUp },
+      { number: '₹6L+', label: 'Average Salary', icon: Award },
+      { number: '500+', label: 'Partner Companies', icon: Users }
+    ].map((stat, index) => {
+      const IconComponent = stat.icon;
+      return (
+        <div key={index} className="text-center">
+          <div className="w-9 h-9 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-2">
+            <IconComponent className="w-5 h-5 text-[#F15A24]" />
+          </div>
+          <div className="text-lg font-bold text-[#F15A24] mb-0.5">
+            {stat.number}
+          </div>
+          <div className="text-xs text-gray-600 font-medium">
+            {stat.label}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
 
     {/* CTA Button */}
     <div className="text-center">

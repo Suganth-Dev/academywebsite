@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Award, 
-  Users, 
-  Plane, 
-  Building, 
-  Briefcase, 
+import {
+  Award,
+  Users,
+  Plane,
+  Building,
+  Briefcase,
   MapPin,
   CheckCircle,
   Star,
@@ -149,10 +149,10 @@ const WhyIDAPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-      
+
 
       {/* Hero Intro */}
-      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      <section className="pt-8 pb-20 lg:pt-10 lg:pb-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
@@ -173,7 +173,7 @@ const WhyIDAPage: React.FC = () => {
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 India Drone Academy leads India's UAV training ecosystem with DGCA-approved programs, hands-on learning, and high-end simulator labs. Our mission is to make drone certification accessible and career-focused.
               </p>
-              
+
               {/* Trust Badge */}
               <div className="inline-flex items-center bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-6 py-3 rounded-full font-bold mb-8">
                 <Award className="w-5 h-5 mr-2" />
@@ -184,11 +184,12 @@ const WhyIDAPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a
                   href="/apply"
-                  className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 text-center"
+                  className="bg-[#F15A24] text-white font-semibold text-base px-4 py-2 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 text-center"
                 >
                   Apply Now
                 </a>
               </div>
+
             </div>
 
             {/* Hero Image */}
@@ -207,7 +208,7 @@ const WhyIDAPage: React.FC = () => {
                 <div className="text-2xl font-bold text-[#26A65B]">100%</div>
                 <div className="text-sm text-gray-600">Success Rate</div>
               </div>
-              
+
               <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
                 <div className="text-2xl font-bold text-[#F15A24]">5 Days</div>
                 <div className="text-sm text-gray-600">To Certification</div>
@@ -217,8 +218,9 @@ const WhyIDAPage: React.FC = () => {
         </div>
       </section>
 
+
       {/* Vision & Mission */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-0 lg:py-8 bg-white -mt-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -229,11 +231,7 @@ const WhyIDAPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Founder Message */}
             <div>
-              <Quote className="w-12 h-12 text-[#F15A24] mb-6" />
-              <blockquote className="text-xl text-gray-700 leading-relaxed mb-8">
-                "{founderMessage.quote}"
-              </blockquote>
-              
+
               <div className="flex items-center mb-8">
                 <img
                   src={founderMessage.image}
@@ -281,7 +279,7 @@ const WhyIDAPage: React.FC = () => {
                     <Play className="w-8 h-8 text-[#F15A24] ml-1" />
                   </div>
                 </div>
-                
+
                 <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm">
                   Campus Tour - 2 min
                 </div>
@@ -291,64 +289,49 @@ const WhyIDAPage: React.FC = () => {
         </div>
       </section>
 
+
+
       {/* Training Milestones */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Training Milestones
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From application to career launch, we guide you through every step of becoming a certified drone pilot.
-            </p>
+      <section className="py-8 lg:py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Training Milestones</h2>
+            <p className="text-base text-gray-600 max-w-3xl mx-auto">From application to career launch, we guide you through every step of becoming a certified drone pilot.</p>
           </div>
 
-          {/* Journey Steps */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {journeySteps.map((step, index) => {
               const IconComponent = step.icon;
               return (
-                <div
-                  key={index}
-                  className={`relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group ${
-                    index === activeStep ? 'ring-4 ring-[#F15A24] ring-opacity-50' : ''
-                  }`}
-                  onClick={() => setActiveStep(index)}
-                >
+                <div key={index} className={`relative bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-200 group ${index === activeStep ? 'ring-4 ring-[#F15A24]' : ''}`} onClick={() => setActiveStep(index)}>
                   {/* Step Number Badge */}
                   <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                     {step.step}
                   </div>
 
-                  {/* Icon */}
-                  <div className={`w-16 h-16 ${step.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className={`w-8 h-8 ${step.textColor}`} />
+                  {/* Icon + Title and Description in Row */}
+                  <div className="flex items-center space-x-4">
+                    <div className={`w-16 h-16 ${step.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className={`w-8 h-8 ${step.textColor}`} />
+                    </div>
+
+                    <div className="ml-4">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
+                      <p className="text-gray-600 mb-4">{step.description}</p>
+                    </div>
                   </div>
 
-                  {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {step.description}
-                  </p>
-
                   {/* Details */}
-                  <div className={`${step.bgColor} rounded-lg p-4 border-l-4 border-${step.textColor.replace('text-', '')}`}>
-                    <p className="text-sm text-gray-700 font-medium">
-                      {step.details}
-                    </p>
+                  <div className={`${step.bgColor} p-4 rounded-lg`}>
+                    <p className="text-sm text-gray-700">{step.details}</p>
                   </div>
 
                   {/* Active Indicator */}
-                  {index === activeStep && (
-                    <div className="absolute top-4 right-4 w-3 h-3 bg-[#26A65B] rounded-full animate-pulse"></div>
-                  )}
-
+                  {index === activeStep && <div className="absolute top-4 right-4 w-3 h-3 bg-[#26A65B] rounded-full animate-pulse"></div>}
                   {/* Arrow to Next Step */}
                   {index < journeySteps.length - 1 && (
                     <div className="hidden xl:block absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
-                      <div className="w-8 h-8 bg-[#F15A24] rounded-full flex items-center justify-center text-white shadow-lg">
+                      <div className="w-8 h-8 bg-[#F15A24] rounded-full flex items-center justify-center text-white">
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
@@ -358,150 +341,81 @@ const WhyIDAPage: React.FC = () => {
             })}
           </div>
 
-          {/* Progress Indicator */}
-          <div className="flex justify-center mb-12">
-            <div className="bg-white rounded-full px-8 py-4 shadow-lg">
-              <div className="flex items-center space-x-4">
-                <span className="text-gray-600 font-medium">Your Progress:</span>
-                <div className="flex space-x-2">
-                  {journeySteps.map((_, index) => (
-                    <div
-                      key={index}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
-                        index <= activeStep ? 'bg-[#F15A24]' : 'bg-gray-300'
-                      }`}
-                      onClick={() => setActiveStep(index)}
-                    ></div>
-                  ))}
-                </div>
-                <span className="text-gray-600 font-medium">
-                  Step {activeStep + 1} of {journeySteps.length}
-                </span>
-              </div>
-            </div>
-          </div>
+         <div className="flex justify-center mb-8 mt-8">
+  <div className="bg-white rounded-full px-6 py-3 shadow-lg">
+    <div className="flex items-center space-x-4 mt-4">
+      <span className="text-gray-600">Your Progress:</span>
+      <div className="flex space-x-2">
+        {journeySteps.map((_, index) => (
+          <div key={index} className={`w-3 h-3 rounded-full cursor-pointer ${index <= activeStep ? 'bg-[#F15A24]' : 'bg-gray-300'}`} onClick={() => setActiveStep(index)}></div>
+        ))}
+      </div>
+      <span className="text-gray-600">Step {activeStep + 1} of {journeySteps.length}</span>
+    </div>
+  </div>
+</div>
 
-          {/* Call to Action */}
+
           <div className="text-center">
             <div className="bg-gradient-to-r from-[#F15A24] to-[#26A65B] rounded-2xl p-8 text-white max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4">Ready to Start Your Journey?</h3>
-              <p className="text-orange-100 mb-6 max-w-2xl mx-auto">
-                Join thousands of successful pilots who transformed their careers with our proven 5-step process.
-              </p>
+              <h3 className="text-xl font-bold mb-4">Ready to Start Your Journey?</h3>
+              <p className="text-orange-100 mb-6 max-w-2xl mx-auto">Join thousands of successful pilots who transformed their careers with our proven 5-step process.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="/apply"
-                  className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center justify-center"
-                >
+                <a href="/apply" className="bg-white text-[#F15A24] font-bold px-6 py-3 rounded-md hover:bg-[#D64A1A] transition-all duration-200 inline-flex items-center justify-center">
                   Begin Your Journey
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </a>
-                <a
-                  href="/courses"
-                  className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200"
-                >
-                  View All Courses
-                </a>
+                <a href="/courses" className="bg-transparent border-2 border-white text-white font-bold px-6 py-3 rounded-md hover:bg-white hover:text-[#F15A24] transition-all duration-200">View All Courses</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Differentiators Grid */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              What Makes Us India's Premier Drone Academy
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Six core differentiators that set us apart from other training institutes.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {/* Core Differentiators Grid */}
+      <section className="pt-8 lg:pt-12 pb-12 lg:pb-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">What Makes Us India's Premier Drone Academy</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Six core differentiators that set us apart from other training institutes.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {
-                icon: Award,
-                title: 'DGCA-Approved RPTO',
-                description: 'Officially recognized by the Directorate General of Civil Aviation (DGCA)',
-                color: 'text-[#26A65B]',
-                bgColor: 'bg-green-50'
-              },
-              {
-                icon: Users,
-                title: 'Expert Instructors',
-                description: 'All trainers are DGCA-rated with extensive industry experience',
-                color: 'text-blue-600',
-                bgColor: 'bg-blue-50'
-              },
-              {
-                icon: Plane,
-                title: 'Hands-on Flying',
-                description: 'Simulator + real-world outdoor flying at certified zones',
-                color: 'text-purple-600',
-                bgColor: 'bg-purple-50'
-              },
-              {
-                icon: Building,
-                title: 'State-of-the-Art Facility',
-                description: 'Modern classrooms, simulator labs, and dedicated airspace',
-                color: 'text-orange-600',
-                bgColor: 'bg-orange-50'
-              },
-              {
-                icon: Briefcase,
-                title: 'Placement Support',
-                description: 'Career guidance, partner network, and job connections',
-                color: 'text-red-600',
-                bgColor: 'bg-red-50'
-              },
-              {
-                icon: MapPin,
-                title: 'Pan-India Centers',
-                description: 'Hyderabad, Vijayawada, and expansion-ready locations',
-                color: 'text-indigo-600',
-                bgColor: 'bg-indigo-50'
-              }
-            ].map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
-                >
-                  <div className={`w-16 h-16 ${item.bgColor} rounded-2xl flex items-center justify-center mb-6`}>
-                    <IconComponent className={`w-8 h-8 ${item.color}`} />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {item.description}
-                  </p>
+              { icon: Award, title: 'DGCA-Approved RPTO', description: 'Officially recognized by DGCA', color: 'text-[#26A65B]', bgColor: 'bg-green-50' },
+              { icon: Users, title: 'Expert Instructors', description: 'DGCA-rated trainers with industry experience', color: 'text-blue-600', bgColor: 'bg-blue-50' },
+              { icon: Plane, title: 'Hands-on Flying', description: 'Simulator + real-world flying at certified zones', color: 'text-purple-600', bgColor: 'bg-purple-50' },
+              { icon: Building, title: 'State-of-the-Art Facility', description: 'Modern classrooms, labs, and airspace', color: 'text-orange-600', bgColor: 'bg-orange-50' },
+              { icon: Briefcase, title: 'Placement Support', description: 'Career guidance, job network', color: 'text-red-600', bgColor: 'bg-red-50' },
+              { icon: MapPin, title: 'Pan-India Centers', description: 'Centers in Hyderabad, Vijayawada, and more', color: 'text-indigo-600', bgColor: 'bg-indigo-50' }
+            ].map((item, index) => (
+              <div key={index} className="bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className={`w-12 h-12 ${item.bgColor} rounded-2xl flex items-center justify-center mb-4`}>
+                  <item.icon className={`w-6 h-6 ${item.color}`} />
                 </div>
-              );
-            })}
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+
+
+
       {/* IDA vs Others Comparison */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-8 lg:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              How We Compare
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See what makes us different before you decide. We believe in transparency and letting our results speak.
-            </p>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">How We Compare</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">See what makes us different before you decide.</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden">
             {/* Table Header */}
-            <div className="grid grid-cols-3 bg-gray-50 p-6 font-bold text-gray-900">
+            <div className="grid grid-cols-3 bg-gray-50 p-4 font-bold text-gray-900">
               <div>Feature</div>
               <div className="text-center text-[#F15A24]">India Drone Academy</div>
               <div className="text-center text-gray-500">Other Institutes</div>
@@ -509,193 +423,187 @@ const WhyIDAPage: React.FC = () => {
 
             {/* Table Rows */}
             {comparisonFeatures.map((feature, index) => (
-              <div key={index} className={`grid grid-cols-3 p-6 border-b border-gray-100 ${index % 2 === 0 ? 'bg-gray-25' : 'bg-white'}`}>
+              <div key={index} className={`grid grid-cols-3 p-4 border-b border-gray-100 ${index % 2 === 0 ? 'bg-gray-25' : 'bg-white'}`}>
                 <div className="font-medium text-gray-900">{feature.feature}</div>
-                <div className="text-center">
-                  {feature.ida === true ? (
-                    <CheckCircle className="w-6 h-6 text-[#26A65B] mx-auto" />
-                  ) : (
-                    <span className="text-[#26A65B] font-medium">{feature.ida}</span>
-                  )}
-                </div>
-                <div className="text-center">
-                  {feature.others === false ? (
-                    <X className="w-6 h-6 text-red-500 mx-auto" />
-                  ) : feature.others === true ? (
-                    <CheckCircle className="w-6 h-6 text-[#26A65B] mx-auto" />
-                  ) : (
-                    <span className="text-gray-500 font-medium">{feature.others}</span>
-                  )}
-                </div>
+                <div className="text-center">{feature.ida === true ? <CheckCircle className="w-5 h-5 text-[#26A65B]" /> : <span className="text-[#26A65B] font-medium">{feature.ida}</span>}</div>
+                <div className="text-center">{feature.others === false ? <X className="w-5 h-5 text-red-500" /> : feature.others === true ? <CheckCircle className="w-5 h-5 text-[#26A65B]" /> : <span className="text-gray-500 font-medium">{feature.others}</span>}</div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-8">
-            <p className="text-gray-600 italic">
-              "See what makes us different before you decide."
-            </p>
+          <div className="text-center mt-6">
+            <p className="text-gray-600 italic">"See what makes us different before you decide."</p>
           </div>
         </div>
       </section>
+
+
 
       {/* In the Media */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              IDA In The Spotlight
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Recognized by government bodies, featured in media, and trusted by industry leaders.
-            </p>
-          </div>
+ <section className="-mt-12 py-8 lg:py-16 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-8">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        IDA In The Spotlight
+      </h2>
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        Recognized by government bodies, featured in media, and trusted by industry leaders.
+      </p>
+    </div>
 
-          {/* Media Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center mb-12">
-            {mediaLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="group bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <Award className="w-8 h-8 text-[#F15A24]" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-1 text-sm">
-                  {logo.name}
-                </h3>
-                <p className="text-xs text-gray-600">
-                  {logo.type}
-                </p>
-              </div>
-            ))}
+    {/* Media Logos Grid */}
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center mb-8">
+      {mediaLogos.map((logo, index) => (
+        <div
+          key={index}
+          className="group bg-white rounded-xl p-4 text-center hover:shadow-md transition-all duration-200 transform hover:-translate-y-1"
+        >
+          <div className="w-12 h-12 bg-[#F15A24] bg-opacity-10 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <Award className="w-6 h-6 text-[#F15A24]" />
           </div>
-
-          {/* Featured Badge */}
-          <div className="text-center">
-            <div className="inline-flex items-center bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-6 py-3 rounded-full font-bold">
-              <Star className="w-5 h-5 mr-2" />
-              As Featured In Leading Industry Publications
-            </div>
-          </div>
+          <h3 className="font-semibold text-gray-900 mb-1 text-sm">
+            {logo.name}
+          </h3>
+          <p className="text-xs text-gray-600">
+            {logo.type}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Featured Badge */}
+    <div className="text-center">
+      <div className="inline-flex items-center bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-4 py-2 rounded-full font-bold">
+        <Star className="w-5 h-5 mr-2" />
+        As Featured In Leading Industry Publications
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Student Voices */}
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Hear From Our Pilots
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real stories from real graduates who transformed their careers with India Drone Academy.
-            </p>
-          </div>
+<section className="py-12 lg:py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-8">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Hear From Our Pilots
+      </h2>
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+        Real stories from real graduates who transformed their careers with India Drone Academy.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
-                {/* Quote Icon */}
-                <Quote className="w-10 h-10 text-[#F15A24] mb-6" />
-                
-                {/* Rating */}
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {testimonials.map((testimonial) => (
+        <div
+          key={testimonial.id}
+          className="bg-white rounded-2xl p-6 hover:shadow-md transition-shadow duration-200"
+        >
+          {/* Quote Icon */}
+          <Quote className="w-8 h-8 text-[#F15A24] mb-4" />
 
-                {/* Testimonial Text */}
-                <blockquote className="text-gray-700 leading-relaxed mb-6">
-                  "{testimonial.quote}"
-                </blockquote>
-
-                {/* Achievement Highlight */}
-                <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4 mb-6">
-                  <p className="text-[#26A65B] font-bold text-sm">
-                    🎉 {testimonial.achievement}
-                  </p>
-                </div>
-
-                {/* Author Info */}
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                    loading="lazy"
-                  />
-                  <div>
-                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                    <p className="text-[#F15A24] text-sm font-medium">{testimonial.course} • {testimonial.batch}</p>
-                  </div>
-                </div>
-              </div>
+          {/* Rating */}
+          <div className="flex items-center mb-3">
+            {[...Array(testimonial.rating)].map((_, i) => (
+              <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
             ))}
           </div>
 
-          {/* Link to Success Stories */}
-          <div className="text-center mt-12">
-            <a
-              href="/success-stories"
-              className="inline-flex items-center text-[#F15A24] font-bold hover:text-[#D64A1A] transition-colors duration-200"
-            >
-              Read More Success Stories
-              <ChevronRight className="w-5 h-5 ml-2" />
-            </a>
+          {/* Testimonial Text */}
+          <blockquote className="text-gray-700 leading-relaxed mb-4">
+            "{testimonial.quote}"
+          </blockquote>
+
+          {/* Achievement Highlight */}
+          <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3 mb-4">
+            <p className="text-[#26A65B] font-bold text-sm">
+              🎉 {testimonial.achievement}
+            </p>
+          </div>
+
+          {/* Author Info */}
+          <div className="flex items-center">
+            <img
+              src={testimonial.image}
+              alt={testimonial.name}
+              className="w-10 h-10 rounded-full object-cover mr-3"
+              loading="lazy"
+            />
+            <div>
+              <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+              <p className="text-gray-600 text-sm">{testimonial.role}</p>
+              <p className="text-[#F15A24] text-sm font-medium">
+                {testimonial.course} • {testimonial.batch}
+              </p>
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Link to Success Stories */}
+    <div className="text-center mt-8">
+      <a
+        href="/success-stories"
+        className="inline-flex items-center text-[#F15A24] font-bold hover:text-[#D64A1A] transition-colors duration-200"
+      >
+        Read More Success Stories
+        <ChevronRight className="w-5 h-5 ml-2" />
+      </a>
+    </div>
+  </div>
+</section>
+
 
       {/* Final CTA */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-[#F15A24] to-[#D64A1A] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Join India's Fastest-Growing Drone Pilot Community
-          </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            Take your first flight with confidence. Let's get licensed together and soar to new heights in your career.
-          </p>
-          
-          {/* Key Benefits */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white bg-opacity-10 rounded-lg p-4">
-              <CheckCircle className="w-8 h-8 text-white mx-auto mb-2" />
-              <p className="font-medium">DGCA Certified Training</p>
-            </div>
-            <div className="bg-white bg-opacity-10 rounded-lg p-4">
-              <CheckCircle className="w-8 h-8 text-white mx-auto mb-2" />
-              <p className="font-medium">100% Job Assistance</p>
-            </div>
-            <div className="bg-white bg-opacity-10 rounded-lg p-4">
-              <CheckCircle className="w-8 h-8 text-white mx-auto mb-2" />
-              <p className="font-medium">Lifetime Support</p>
-            </div>
-          </div>
+   <section className="py-12 lg:py-16 bg-gradient-to-r from-[#F15A24] to-[#D64A1A] text-white">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+      Join India's Fastest-Growing Drone Pilot Community
+    </h2>
+    <p className="text-lg text-orange-100 mb-6 max-w-2xl mx-auto">
+      Take your first flight with confidence. Let's get licensed together and soar to new heights in your career.
+    </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/apply"
-              className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
-            >
-              Apply Now
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </a>
-            <button className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 flex items-center justify-center">
-              <Download className="w-5 h-5 mr-2" />
-              Download Brochure
-            </button>
-            <a
-              href="https://wa.me/919876543210"
-              className="bg-[#25D366] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#20B954] transition-all duration-200"
-            >
-              Talk to Our Team
-            </a>
-          </div>
-        </div>
-      </section>
+    {/* Key Benefits */}
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <div className="bg-white bg-opacity-10 rounded-lg p-3">
+        <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
+        <p className="font-medium">DGCA Certified Training</p>
+      </div>
+      <div className="bg-white bg-opacity-10 rounded-lg p-3">
+        <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
+        <p className="font-medium">100% Job Assistance</p>
+      </div>
+      <div className="bg-white bg-opacity-10 rounded-lg p-3">
+        <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
+        <p className="font-medium">Lifetime Support</p>
+      </div>
+    </div>
+
+    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+      <a
+        href="/apply"
+        className="bg-white text-[#F15A24] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
+      >
+        Apply Now
+        <ArrowRight className="w-5 h-5 ml-2" />
+      </a>
+      <button className="bg-transparent border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 flex items-center justify-center">
+        <Download className="w-5 h-5 mr-2" />
+        Download Brochure
+      </button>
+      <a
+        href="https://wa.me/919876543210"
+        className="bg-[#25D366] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#20B954] transition-all duration-200"
+      >
+        Talk to Our Team
+      </a>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };

@@ -39,73 +39,73 @@ const VideoHeroSection: React.FC = () => {
 
   return (
     <>
-<section className="relative h-[87vh] w-full overflow-hidden">
-  {/* Background Video - covers full screen */}
-  <div className="absolute inset-0 z-0 overflow-hidden">
-    <iframe
-    src="https://www.youtube.com/embed/eud60W_tjOQ?autoplay=1&mute=1&controls=0&loop=1&playlist=eud60W_tjOQ"
+      <section className="relative h-[87vh] w-full overflow-hidden">
+        {/* Background Video - covers full screen */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/eud60W_tjOQ?autoplay=1&mute=1&controls=0&loop=1&playlist=eud60W_tjOQ"
 
-      className="w-[130vw] h-full object-cover transform -translate-x-1/6"
-      title="Drone Background Video"
-      frameBorder="0"
-      allow="autoplay; encrypted-media"
-      allowFullScreen
-    ></iframe>
+            className="w-[130vw] h-full object-cover transform -translate-x-1/6"
+            title="Drone Background Video"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          ></iframe>
 
-    {/* Gradient from left to right */}
-    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
-  </div>
-
-  {/* Foreground Content */}
-  <div className="relative z-10 max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-end pb-[6vh]">
-    <div className="max-w-2xl text-white">
-      {/* Badge */}
-      <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-3 py-1.5 rounded-full text-xs font-medium mb-8">
-        <Award className="w-4 h-4 mr-2" />
-        India’s Premier Drone Training Institute
-      </div>
-
-      {/* Heading */}
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-snug">
-        India's Leading<br />
-        <span className="text-[#F15A24]">DGCA-<br />Certified</span><br />
-        Drone Academy
-      </h1>
-
-      {/* Trust Indicators */}
-      <div className="flex flex-wrap gap-x-6 gap-y-4 text-sm text-gray-300 mb-8">
-        <div className="flex items-center">
-          <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
-          2500+ Careers Launched
+          {/* Gradient from left to right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent"></div>
         </div>
-        <div className="flex items-center">
-          <CheckCircle className="w-4 h-4 mr-2 text-[#26A65B]" />
-          100% Success Rate
-        </div>
-        <div className="w-full flex items-center">
-          <Award className="w-4 h-4 mr-2 text-[#26A65B]" />
-          Hands-on Drone Training
-        </div>
-      </div>
 
-      {/* CTA Buttons */}
-      <div className="flex gap-4 mt-4">
-        <button
-          onClick={handleApplyNow}
-          className="bg-[#F15A24] text-white text-sm font-semibold px-5 py-2 rounded-md hover:bg-[#D64A1A] transition"
-        >
-          Apply Now
-        </button>
-        <button
-          onClick={handleWatchDemo}
-          className="bg-white text-[#F15A24] text-sm font-semibold px-5 py-2 rounded-md hover:bg-gray-100 transition"
-        >
-          Watch Demo
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+        {/* Foreground Content */}
+        <div className="relative z-10 max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8 flex items-end pb-[6vh]">
+          <div className="max-w-2xl text-white">
+            {/* Badge */}
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-3 py-1.5 rounded-full text-xs font-medium mb-8">
+              <Award className="w-4 h-4 mr-2" />
+              India’s Premier Drone Training Institute
+            </div>
+
+            {/* Heading */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-snug">
+              India's Leading<br />
+              <span className="text-[#F15A24]">DGCA-<br />Certified</span><br />
+              Drone Academy
+            </h1>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap gap-x-6 gap-y-4 text-sm text-gray-300 mb-8">
+              <div className="flex items-center">
+                <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
+                2500+ Careers Launched
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="w-4 h-4 mr-2 text-[#26A65B]" />
+                100% Success Rate
+              </div>
+              <div className="w-full flex items-center">
+                <Award className="w-4 h-4 mr-2 text-[#26A65B]" />
+                Hands-on Drone Training
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex gap-4 mt-4">
+              <button
+                onClick={handleApplyNow}
+                className="bg-[#F15A24] text-white text-sm font-semibold px-5 py-2 rounded-md hover:bg-[#D64A1A] transition"
+              >
+                Apply Now
+              </button>
+              <button
+                onClick={handleWatchDemo}
+                className="bg-white text-[#F15A24] text-sm font-semibold px-5 py-2 rounded-md hover:bg-gray-100 transition"
+              >
+                Watch Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
 
