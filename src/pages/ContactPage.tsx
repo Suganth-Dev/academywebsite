@@ -10,7 +10,6 @@ import {
   Award,
   Instagram,
   Youtube,
-  Linkedin,
   Facebook,
   Twitter,
   CheckCircle,
@@ -25,8 +24,10 @@ import {
   Headphones,
   Star,
   Shield,
-  Zap
+  Zap,
+  Linkedin,
 } from 'lucide-react';
+
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -124,7 +125,7 @@ const ContactPage: React.FC = () => {
       address: 'White Waters, 5A/6B, Lane beside KIMS Hospital, Timber Lake Colony, Shaikpet, Hyderabad, Telangana 500008',
       phone: '+91 9188883344',
 
-    
+
       mapLink: 'https://maps.google.com/?q=White+Waters+Shaikpet+Hyderabad',
       isMain: true
     },
@@ -136,46 +137,55 @@ const ContactPage: React.FC = () => {
       isMain: false
     }
   ];
-
   const socialLinks = [
     {
-      icon: Instagram,
+      name: 'YouTube',
+      handle: '@indiadroneacademy',
+      followers: '427',
+      url: 'https://www.youtube.com/@indiadroneacademy',
+      icon: Youtube,
+      bgColor: 'bg-red-600',
+      color: 'text-white',
+    },
+    {
+      name: 'Facebook',
+      handle: 'indiadroneacademy',
+      followers: '163',
+      url: 'https://www.facebook.com/indiadroneacademy',
+      icon: Facebook,
+      bgColor: 'bg-blue-600',
+      color: 'text-white',
+    },
+    {
+      name: 'Twitter (X)',
+      handle: '@inddroneacademy',
+      followers: '16',
+      url: 'https://x.com/inddroneacademy',
+      icon: Twitter,
+      bgColor: 'bg-black',
+      color: 'text-white',
+    },
+    {
       name: 'Instagram',
       handle: '@indiadroneacademy',
-      followers: '15K+',
-      url: 'https://instagram.com/indiadroneacademy',
-      color: 'text-pink-600',
-      bgColor: 'bg-pink-50'
-    },
-    //hitye
-    {
-      icon: Youtube,
-      name: 'YouTube',
-      handle: 'India Drone Academy',
-      followers: '25K+',
-      url: 'https://youtube.com/@indiadroneacademy',
-      color: 'text-red-600',
-      bgColor: 'bg-red-50'
+      followers: '2159',
+      url: 'https://www.instagram.com/indiadroneacademy/',
+      icon: Instagram,
+      bgColor: 'bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600',
+      color: 'text-white',
     },
     {
-      icon: Linkedin,
       name: 'LinkedIn',
       handle: 'India Drone Academy',
-      followers: '10K+',
-      url: 'https://linkedin.com/company/indiadroneacademy',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50'
+      followers: '633',
+      url: 'https://www.linkedin.com/company/india-drone-academy/',
+      icon: Linkedin,
+      bgColor: 'bg-blue-700',
+      color: 'text-white',
     },
-    {
-      icon: Facebook,
-      name: 'Facebook',
-      handle: 'India Drone Academy',
-      followers: '20K+',
-      url: 'https://facebook.com/indiadroneacademy',
-      color: 'text-blue-700',
-      bgColor: 'bg-blue-50'
-    }
   ];
+
+
 
   const courseOptions = [
     'DGCA Drone Pilot Training',
@@ -339,7 +349,7 @@ const ContactPage: React.FC = () => {
                         </a>
                       </div>
 
-                     
+
                     </div>
 
                     <div className="flex gap-2 mt-4">
@@ -551,42 +561,39 @@ const ContactPage: React.FC = () => {
                   Stay updated with the latest news, student achievements, and drone industry insights.
                 </p>
               </div>
+<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+  {socialLinks.map((social, index) => {
+    const IconComponent = social.icon;
+    return (
+      <a
+        key={index}
+        href={social.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-center group"
+      >
+        <div className={`w-12 h-12 ${social.bgColor} rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-105 transition-transform duration-300`}>
+          <IconComponent className={`w-6 h-6 ${social.color}`} />
+        </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
-                  return (
-                    <a
-                      key={index}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center group"
-                    >
-                      <div className={`w-16 h-16 ${social.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className={`w-8 h-8 ${social.color}`} />
-                      </div>
+        <h3 className="text-base font-bold text-gray-900 mb-1">
+          {social.name}
+        </h3>
 
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">
-                        {social.name}
-                      </h3>
+        <p className="text-gray-600 text-sm mb-1">{social.handle}</p>
 
-                      <p className="text-gray-600 mb-2">
-                        {social.handle}
-                      </p>
+        <p className="text-xs text-gray-500 mb-2">{social.followers} followers</p>
 
-                      <p className="text-sm text-gray-500 mb-4">
-                        {social.followers} followers
-                      </p>
+        <div className="flex items-center justify-center text-[#F15A24] text-sm font-medium group-hover:text-[#D64A1A]">
+          Follow Us
+          <ExternalLink className="w-4 h-4 ml-1" />
+        </div>
+      </a>
+    );
+  })}
+</div>
 
-                      <div className="flex items-center justify-center text-[#F15A24] font-medium group-hover:text-[#D64A1A]">
-                        Follow Us
-                        <ExternalLink className="w-4 h-4 ml-2" />
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
+
             </div>
           </section>
 
