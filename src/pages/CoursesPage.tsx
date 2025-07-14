@@ -461,8 +461,10 @@ const CoursesPage: React.FC = () => {
               Comprehensive Drone Training Programs
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-              From DGCA certification to specialized skills, explore our complete range of drone training programs.
-              Choose from basic courses to advanced bundles designed for every career path and skill level.
+              Students enrolled in the DGCA Drone Pilot Certification at India Drone Academy
+can now boost their expertise with additional drone training programs.
+Explore specialized courses from mapping to cinematography, tailored for your career path.
+Limited-Time Offer: Get 20% Off on Any Add-On Course with DGCA Enrollment.
             </p>
 
             {/* Quick Stats */}
