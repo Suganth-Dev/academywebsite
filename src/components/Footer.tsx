@@ -39,13 +39,34 @@ const Footer: React.FC = () => {
     { name: 'Advanced Certification', href: '/courses/advanced' }
   ];
 
-  const socialLinks = [
-    { icon: Facebook, href: '#', name: 'Facebook' },
-    { icon: Twitter, href: '#', name: 'Twitter' },
-    { icon: Instagram, href: '#', name: 'Instagram' },
-    { icon: Linkedin, href: '#', name: 'LinkedIn' },
-    { icon: Youtube, href: '#', name: 'YouTube' }
-  ];
+const socialLinks = [
+  {
+    name: 'YouTube',
+    href: 'https://www.youtube.com/@indiadroneacademy',
+    icon: Youtube,
+  },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/indiadroneacademy',
+    icon: Facebook,
+  },
+  {
+    name: 'X (Twitter)',
+    href: 'https://x.com/inddroneacademy',
+    icon: Twitter,
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/indiadroneacademy/',
+    icon: Instagram,
+  },
+   {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/india-drone-academy/',
+    icon: Linkedin,
+  }
+];
+
 
   return (
     <footer className="bg-gray-900 text-white py-8">
@@ -133,16 +154,24 @@ const Footer: React.FC = () => {
               </div>
             )}
 
-            <div>
-              <h5 className="font-medium mb-4">Follow Us</h5>
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <a key={social.name} href={social.href} className="w-10 h-10 bg-gray-800 hover:bg-[#F15A24] rounded-lg flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1" aria-label={social.name}>
-                    <social.icon className="w-5 h-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
+          <div>
+  <h5 className="font-medium mb-4">Follow Us</h5>
+  <div className="flex space-x-4">
+    {socialLinks.map((social) => (
+      <a
+        key={social.name}
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 bg-gray-800 hover:bg-[#F15A24] rounded-lg flex items-center justify-center transition-all duration-200 transform hover:-translate-y-1"
+        aria-label={social.name}
+      >
+        <social.icon className="w-5 h-5 text-white" />
+      </a>
+    ))}
+  </div>
+</div>
+
           </div>
         </div>
       </div>
