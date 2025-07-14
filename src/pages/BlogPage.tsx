@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  Calendar, 
-  Clock, 
-  User, 
-  ArrowRight, 
-  Filter, 
+import {
+  Calendar,
+  Clock,
+  User,
+  ArrowRight,
+  Filter,
   Search,
   BookOpen,
   TrendingUp,
@@ -174,8 +174,8 @@ const BlogPage: React.FC = () => {
   const filteredPosts = blogPosts.filter(post => {
     const matchesFilter = activeFilter === 'All' || post.category === activeFilter;
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesFilter && matchesSearch;
   });
 
@@ -185,10 +185,10 @@ const BlogPage: React.FC = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     });
   };
 
@@ -203,118 +203,118 @@ const BlogPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-     
+
 
       {/* Hero Section */}
-    <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 relative overflow-hidden mt-8">
-  {/* Background Pattern */}
-  <div className="absolute inset-0 opacity-5">
-    <div className="absolute top-20 left-10 w-28 h-28 bg-[#F15A24] rounded-full blur-3xl"></div>
-    <div className="absolute bottom-20 right-10 w-36 h-36 bg-[#26A65B] rounded-full blur-3xl"></div>
-  </div>
-
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-    <div className="text-center">
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-        Drone Industry Insights &{' '}
-        <span className="text-[#F15A24]">Career Tips</span>
-      </h1>
-      <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-6 leading-relaxed">
-        Stay ahead with expert tips, student success stories, industry news, and comprehensive guides 
-        to accelerate your drone career journey.
-      </p>
-
-      {/* Search Bar */}
-      <div className="max-w-2xl mx-auto">
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search articles, guides, and stories..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 text-base"
-          />
+      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 relative overflow-hidden mt-8">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-28 h-28 bg-[#F15A24] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-36 h-36 bg-[#26A65B] rounded-full blur-3xl"></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              Drone Industry Insights &{' '}
+              <span className="text-[#F15A24]">Career Tips</span>
+            </h1>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-6 leading-relaxed">
+              Stay ahead with expert tips, student success stories, industry news, and comprehensive guides
+              to accelerate your drone career journey.
+            </p>
+
+            {/* Search Bar */}
+            <div className="max-w-2xl mx-auto">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search articles, guides, and stories..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 text-base"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       {/* Featured Post */}
-    <section className="py-8 -mt-6 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="mb-8">
-      <div className="flex items-center mb-3">
-        <Star className="w-5 h-5 text-[#F15A24] mr-2" />
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Featured Article</h2>
-      </div>
-
-      <article
-        className="bg-gradient-to-r from-[#F15A24] to-[#D64A1A] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
-        onClick={handleFeaturedPostClick}
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          {/* Image */}
-          <div className="relative h-56 lg:h-auto">
-            <img
-              src={featuredPost.image}
-              alt={featuredPost.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div className="absolute top-3 left-3 bg-white bg-opacity-90 text-[#F15A24] px-2 py-0.5 rounded-full text-xs font-bold">
-              Featured
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="p-5 sm:p-6 lg:p-8 text-white">
-            <div className="mb-3">
-              <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-xs font-medium">
-                {featuredPost.category}
-              </span>
+      <section className="py-8 -mt-6 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <div className="flex items-center mb-3">
+              <Star className="w-5 h-5 text-[#F15A24] mr-2" />
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Featured Article</h2>
             </div>
 
-            <h3 className="text-lg sm:text-xl font-bold mb-3 leading-snug group-hover:text-orange-100 transition-colors duration-200">
-              {featuredPost.title}
-            </h3>
+            <article
+              className="bg-gradient-to-r from-[#F15A24] to-[#D64A1A] rounded-xl overflow-hidden shadow-xl cursor-pointer group"
+              onClick={handleFeaturedPostClick}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                {/* Image */}
+                <div className="relative h-56 lg:h-auto">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 bg-white bg-opacity-90 text-[#F15A24] px-2 py-0.5 rounded-full text-xs font-bold">
+                    Featured
+                  </div>
+                </div>
 
-            <p className="text-orange-100 mb-4 leading-relaxed text-sm">
-              {featuredPost.excerpt}
-            </p>
+                {/* Content */}
+                <div className="p-5 sm:p-6 lg:p-8 text-white">
+                  <div className="mb-3">
+                    <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      {featuredPost.category}
+                    </span>
+                  </div>
 
-            {/* Meta Info */}
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center">
-                <img
-                  src={featuredPost.authorImage}
-                  alt={featuredPost.author}
-                  className="w-8 h-8 rounded-full mr-2"
-                  loading="lazy"
-                />
-                <div>
-                  <p className="text-sm font-medium">{featuredPost.author}</p>
-                  <p className="text-orange-200 text-xs">{formatDate(featuredPost.date)}</p>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 leading-snug group-hover:text-orange-100 transition-colors duration-200">
+                    {featuredPost.title}
+                  </h3>
+
+                  <p className="text-orange-100 mb-4 leading-relaxed text-sm">
+                    {featuredPost.excerpt}
+                  </p>
+
+                  {/* Meta Info */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center">
+                      <img
+                        src={featuredPost.authorImage}
+                        alt={featuredPost.author}
+                        className="w-8 h-8 rounded-full mr-2"
+                        loading="lazy"
+                      />
+                      <div>
+                        <p className="text-sm font-medium">{featuredPost.author}</p>
+                        <p className="text-orange-200 text-xs">{formatDate(featuredPost.date)}</p>
+                      </div>
+                    </div>
+                    <div className="text-right text-orange-200 text-xs">
+                      <p>{featuredPost.readTime}</p>
+                      <p>{featuredPost.views} views</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-white text-[#F15A24] text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-100 transition-all duration-200 flex items-center justify-center group-hover:shadow-md">
+                    Read Full Article
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                  </div>
                 </div>
               </div>
-              <div className="text-right text-orange-200 text-xs">
-                <p>{featuredPost.readTime}</p>
-                <p>{featuredPost.views} views</p>
-              </div>
-            </div>
-
-            <div className="bg-white text-[#F15A24] text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-100 transition-all duration-200 flex items-center justify-center group-hover:shadow-md">
-              Read Full Article
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-            </div>
+            </article>
           </div>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* Filter Section */}
@@ -325,32 +325,30 @@ const BlogPage: React.FC = () => {
               <Filter className="w-5 h-5 mr-2 text-gray-600" />
               <span className="text-gray-700 font-medium mr-4">Filter by Category:</span>
             </div>
-            
+
             {/* Filter Tabs */}
             <div className="flex flex-wrap gap-2">
               {filters.map((filter) => (
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center ${
-                    activeFilter === filter.id
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center ${activeFilter === filter.id
                       ? 'bg-[#F15A24] text-white shadow-md'
                       : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
+                    }`}
                 >
                   {filter.label}
-                  <span className={`ml-2 text-xs px-2 py-1 rounded-full ${
-                    activeFilter === filter.id
+                  <span className={`ml-2 text-xs px-2 py-1 rounded-full ${activeFilter === filter.id
                       ? 'bg-white bg-opacity-20 text-white'
                       : 'bg-gray-200 text-gray-600'
-                  }`}>
+                    }`}>
                     {filter.count}
                   </span>
                 </button>
               ))}
             </div>
           </div>
-          
+
           {/* Results Count */}
           <div className="mt-4 text-gray-600">
             Showing {Math.min(visiblePosts, filteredPosts.length)} of {filteredPosts.length} articles
@@ -399,12 +397,12 @@ const BlogPage: React.FC = () => {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                      
+
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4 bg-[#F15A24] text-white px-3 py-1 rounded-full text-sm font-medium">
                         {post.category}
                       </div>
-                      
+
                       {/* Views */}
                       <div className="absolute top-4 right-4 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs flex items-center">
                         <Eye className="w-3 h-3 mr-1" />
@@ -417,7 +415,7 @@ const BlogPage: React.FC = () => {
                       <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#F15A24] transition-colors duration-200">
                         {post.title}
                       </h3>
-                      
+
                       <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
                         {post.excerpt}
                       </p>
@@ -462,7 +460,7 @@ const BlogPage: React.FC = () => {
                           <Calendar className="w-4 h-4 mr-1" />
                           <span>{formatDate(post.date)}</span>
                         </div>
-                        
+
                         <div className="text-[#F15A24] font-bold hover:text-[#D64A1A] transition-colors duration-200 flex items-center group">
                           Read More
                           <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
@@ -490,89 +488,89 @@ const BlogPage: React.FC = () => {
       </section>
 
       {/* Newsletter Subscription */}
-    <section className="py-8 bg-gray-50">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-md text-center">
-      <div className="w-14 h-14 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-        <MessageSquare className="w-6 h-6 text-[#F15A24]" />
-      </div>
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-md text-center">
+            <div className="w-14 h-14 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MessageSquare className="w-6 h-6 text-[#F15A24]" />
+            </div>
 
-      <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
-        Stay Updated with Drone Insights
-      </h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3">
+              Stay Updated with Drone Insights
+            </h3>
 
-      <p className="text-gray-600 mb-6 text-sm sm:text-base max-w-2xl mx-auto">
-        Get the latest articles, industry updates, and exclusive content delivered to your inbox. 
-        Join 5,000+ drone enthusiasts who never miss an update.
-      </p>
+            <p className="text-gray-600 mb-6 text-sm sm:text-base max-w-2xl mx-auto">
+              Get the latest articles, industry updates, and exclusive content delivered to your inbox.
+              Join 5,000+ drone enthusiasts who never miss an update.
+            </p>
 
-      <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-        <input
-          type="email"
-          placeholder="Enter your email address"
-          className="flex-1 px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 text-sm"
-        />
-        <button className="bg-[#F15A24] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#D64A1A] transition-all duration-200 flex items-center justify-center">
-          Subscribe
-          <ArrowRight className="w-4 h-4 ml-2" />
-        </button>
-      </div>
+            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200 text-sm"
+              />
+              <button className="bg-[#F15A24] text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-[#D64A1A] transition-all duration-200 flex items-center justify-center">
+                Subscribe
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </button>
+            </div>
 
-      <p className="text-xs text-gray-500 mt-3">
-        No spam, unsubscribe anytime. We respect your privacy.
-      </p>
-    </div>
-  </div>
-</section>
+            <p className="text-xs text-gray-500 mt-3">
+              No spam, unsubscribe anytime. We respect your privacy.
+            </p>
+          </div>
+        </div>
+      </section>
 
 
       {/* CTA Section */}
-    <section className="py-8 lg:py-14 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-      Ready to Start Your Drone Journey?
-    </h2>
-    <p className="text-base sm:text-lg text-orange-100 mb-6 max-w-2xl mx-auto">
-      Transform your career with our DGCA-certified training programs. 
-      Join thousands of successful pilots who started with us.
-    </p>
+      <section className="py-6 lg:py-10 bg-gradient-to-br from-orange-600 to-orange-400 text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+            Ready to Start Your Drone Journey?
+          </h2>
+          <p className="text-base sm:text-lg text-orange-100 mb-6 max-w-2xl mx-auto">
+            Transform your career with our DGCA-certified training programs.
+            Join thousands of successful pilots who started with us.
+          </p>
 
-    {/* Key Benefits */}
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-      <div className="bg-white bg-opacity-10 rounded-lg p-3">
-        <Award className="w-6 h-6 text-white mx-auto mb-1" />
-        <p className="text-sm font-medium">DGCA Certified Training</p>
-      </div>
-      <div className="bg-white bg-opacity-10 rounded-lg p-3">
-        <Users className="w-6 h-6 text-white mx-auto mb-1" />
-        <p className="text-sm font-medium">Expert Instructors</p>
-      </div>
-      <div className="bg-white bg-opacity-10 rounded-lg p-3">
-        <TrendingUp className="w-6 h-6 text-white mx-auto mb-1" />
-        <p className="text-sm font-medium">Career Support</p>
-      </div>
-    </div>
+          {/* Key Benefits */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div className="bg-white bg-opacity-10 rounded-lg p-3">
+              <Award className="w-6 h-6 text-white mx-auto mb-1" />
+              <p className="text-sm font-medium">DGCA Certified Training</p>
+            </div>
+            <div className="bg-white bg-opacity-10 rounded-lg p-3">
+              <Users className="w-6 h-6 text-white mx-auto mb-1" />
+              <p className="text-sm font-medium">Expert Instructors</p>
+            </div>
+            <div className="bg-white bg-opacity-10 rounded-lg p-3">
+              <TrendingUp className="w-6 h-6 text-white mx-auto mb-1" />
+              <p className="text-sm font-medium">Career Support</p>
+            </div>
+          </div>
 
-    <div className="flex flex-col sm:flex-row gap-3 justify-center">
-      <button
-        onClick={() => navigate('/apply')}
-        className="bg-white text-[#F15A24] font-semibold text-sm px-6 py-3 rounded-lg hover:bg-gray-100 hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
-      >
-        Apply Now
-        <ArrowRight className="w-4 h-4 ml-2" />
-      </button>
-      <a
-        href="https://wa.me/919188883344?text=Hi, I need information about drone courses"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-transparent border-2 border-white text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 flex items-center justify-center"
-      >
-        <MessageSquare className="w-4 h-4 mr-2" />
-        Talk to Our Team
-      </a>
-    </div>
-  </div>
-</section>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button
+              onClick={() => navigate('/apply')}
+              className="bg-white text-[#F15A24] font-semibold text-sm px-6 py-3 rounded-lg hover:bg-gray-100 hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
+            >
+              Apply Now
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </button>
+            <a
+              href="https://wa.me/919188883344?text=Hi, I need information about drone courses"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-transparent border-2 border-white text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 flex items-center justify-center"
+            >
+              <MessageSquare className="w-4 h-4 mr-2" />
+              Talk to Our Team
+            </a>
+          </div>
+        </div>
+      </section>
 
     </div>
   );
