@@ -121,14 +121,10 @@ const PartnershipsPage: React.FC = () => {
   };
 
   // Pause auto-scroll on hover
-  const handleMouseEnter = () => {
-    setIsAutoScrolling(false);
-  };
+
 
   // Resume auto-scroll on mouse leave
-  const handleMouseLeave = () => {
-    setIsAutoScrolling(true);
-  };
+ 
 
   useEffect(() => {
     if (isSubmitted && thankYouRef.current) {
@@ -464,7 +460,7 @@ const PartnershipsPage: React.FC = () => {
 
 
           {/* Auto-scrolling Container */}
-          <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <div className="relative">
             {/* Left Button */}
             <button
               onClick={() => handleManualScroll('left')}
@@ -545,11 +541,26 @@ const PartnershipsPage: React.FC = () => {
             {/* Dots Indicator */}
 
 
-            {/* Auto-scroll indicator */}
-            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex items-center text-xs text-gray-500">
-              <div className={`w-2 h-2 rounded-full mr-2 ${isAutoScrolling ? 'bg-[#F15A24] animate-pulse' : 'bg-gray-300'}`}></div>
-              <span>{isAutoScrolling ? 'Auto-scrolling' : 'Hover to pause'}</span>
-            </div>
+         {/* Manual Play / Pause Controls */}
+<div className="flex justify-center items-center space-x-4 mt-6">
+  <button
+    onClick={() => setIsAutoScrolling(true)}
+    className={`px-4 py-2 rounded-lg font-bold transition duration-200 ${
+      isAutoScrolling ? 'bg-gray-300 text-gray-600' : 'bg-[#F15A24] text-white hover:bg-[#D64A1A]'
+    }`}
+  >
+    ▶ Play
+  </button>
+  <button
+    onClick={() => setIsAutoScrolling(false)}
+    className={`px-4 py-2 rounded-lg font-bold transition duration-200 ${
+      !isAutoScrolling ? 'bg-gray-300 text-gray-600' : 'bg-[#F15A24] text-white hover:bg-[#D64A1A]'
+    }`}
+  >
+    ⏸ Pause
+  </button>
+</div>
+
 
           </div>
         </div>
