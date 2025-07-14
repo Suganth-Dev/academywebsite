@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Filter, Plane, Wheat, Users, Clock, Award, MapPin, Calendar, Settings, Download, Camera, Wrench, Monitor, Target, Zap, Building } from 'lucide-react';
+import { ArrowRight, Filter, Plane, Wheat, Users, Clock, Award, MapPin,  Percent, Calendar, Settings, Download, Camera, Wrench, Monitor, Target, Zap, Building } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const CoursesPage: React.FC = () => {
@@ -272,23 +272,7 @@ const CoursesPage: React.FC = () => {
       features: ['Women-Focused', 'Agriculture Training', 'Rural Empowerment', 'Practical Skills'],
       locations: ['Pune', 'Hyderabad', 'Bangalore']
     },
-    {
-      id: 16,
-      title: 'DGCA Small + Cinematography',
-      category: 'Bundles',
-      badge: 'Creative Bundle',
-      badgeColor: 'bg-purple-600',
-      description: 'Complete package combining DGCA certification with aerial cinematography skills.',
-      duration: '8 Days',
-      price: '₹85,000',
-      gst: '+ 18% GST',
-      level: 'Beginner to Advanced',
-      icon: Camera,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
-      link: '/courses/dgca-cinematography-bundle',
-      features: ['DGCA Certification', 'Cinematography Skills', 'Creative Training', 'Portfolio Building'],
-      locations: ['Mumbai', 'Bangalore', 'Hyderabad']
-    },
+
     {
       id: 17,
       title: 'DGCA Medium + 3D Mapping',
@@ -462,9 +446,9 @@ const CoursesPage: React.FC = () => {
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
               Students enrolled in the DGCA Drone Pilot Certification at India Drone Academy
-can now boost their expertise with additional drone training programs.
-Explore specialized courses from mapping to cinematography, tailored for your career path.
-Limited-Time Offer: Get 20% Off on Any Add-On Course with DGCA Enrollment.
+              can now boost their expertise with additional drone training programs.
+              Explore specialized courses from mapping to cinematography, tailored for your career path.
+              Limited-Time Offer: Get 20% Off on Any Add-On Course with DGCA Enrollment.
             </p>
 
             {/* Quick Stats */}
@@ -481,6 +465,11 @@ Limited-Time Offer: Get 20% Off on Any Add-On Course with DGCA Enrollment.
                 <MapPin className="w-5 h-5 mr-1 text-[#26A65B]" />
                 <span>Multiple Locations</span>
               </div>
+              <div className="flex items-center text-gray-600">
+                <Percent className="w-5 h-5 mr-1 text-[#26A65B]" />
+                <span>Combo Discount</span>
+              </div>
+
             </div>
           </div>
         </div>
@@ -642,7 +631,7 @@ Limited-Time Offer: Get 20% Off on Any Add-On Course with DGCA Enrollment.
 
 
       {/* Bottom CTA Section */}
-      <section className="py-8 bg-gradient-to-r from-[#F15A24] to-[#D64A1A] text-white">
+      <section className="py-6 lg:py-10 bg-gradient-to-br from-orange-600 to-orange-400 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-xl sm:text-2xl font-bold mb-3">Ready to Start Your Drone Career?</h2>
           <p className="text-lg sm:text-xl text-orange-100 mb-4 max-w-2xl mx-auto">

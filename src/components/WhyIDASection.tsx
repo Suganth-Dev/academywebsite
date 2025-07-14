@@ -134,7 +134,8 @@ const WhyIDASection: React.FC = () => {
 
     {/* Bottom CTA */}
     <div className="text-center mt-12">
-      <div className="bg-gradient-to-r from-gray-50 to-white rounded-xl p-6 max-w-4xl mx-auto border border-gray-200">
+      <div className="bg-gradient-to-br from-orange-600 to-orange-400 rounded-xl p-6 max-w-4xl mx-auto border border-orange-300 text-white">
+
         <h3 className="text-xl font-bold text-gray-900 mb-3">
           Ready to Start Your Drone Career?
         </h3>

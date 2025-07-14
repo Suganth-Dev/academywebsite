@@ -591,7 +591,7 @@ const ContactPage: React.FC = () => {
           </section>
 
           {/* Final CTA */}
-          <section className="py-10 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
+          <section className="py-6 lg:py-10 bg-gradient-to-br from-orange-600 to-orange-400 text-white relative overflow-hidden">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 Need an Urgent Response?

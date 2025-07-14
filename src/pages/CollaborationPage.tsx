@@ -91,7 +91,7 @@ const CollaborationPage: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const criteriaList = [
-    { key: 'mou', label: 'Willingness to sign MoU with IDA for long-term drone technology collaboration' },
+   
     { key: 'infrastructure', label: 'Availability of AV-enabled classrooms, computer labs, and open flying grounds' },
     { key: 'transport', label: 'College bus facility to reach IDA flying zone' },
     { key: 'studentBase', label: 'Large base from engineering, agriculture, or management disciplines' },
@@ -551,7 +551,7 @@ const CollaborationPage: React.FC = () => {
 
 
       {/* Special Pricing Banner */}
-      <section className="py-10 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
+      <section className="py-6 lg:py-10 bg-gradient-to-br from-orange-600 to-orange-400 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Special Institutional Pricing
@@ -868,7 +868,7 @@ const CollaborationPage: React.FC = () => {
               className="bg-[#F15A24] text-white font-semibold text-sm sm:text-base px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-md transition-all duration-200 flex items-center justify-center"
             >
               <Phone className="w-4 h-4 mr-2" />
-              Call +91 8804349999 / 9188883344
+              Call +91 9188883344
             </a>
 
             <a

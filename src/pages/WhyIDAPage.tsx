@@ -341,23 +341,24 @@ const WhyIDAPage: React.FC = () => {
             })}
           </div>
 
-         <div className="flex justify-center mb-8 mt-8">
-  <div className="bg-white rounded-full px-6 py-3 shadow-lg">
-    <div className="flex items-center space-x-4 mt-4">
-      <span className="text-gray-600">Your Progress:</span>
-      <div className="flex space-x-2">
-        {journeySteps.map((_, index) => (
-          <div key={index} className={`w-3 h-3 rounded-full cursor-pointer ${index <= activeStep ? 'bg-[#F15A24]' : 'bg-gray-300'}`} onClick={() => setActiveStep(index)}></div>
-        ))}
-      </div>
-      <span className="text-gray-600">Step {activeStep + 1} of {journeySteps.length}</span>
-    </div>
-  </div>
-</div>
+          <div className="flex justify-center mb-8 mt-8">
+            <div className="bg-white rounded-full px-6 py-3 shadow-lg">
+              <div className="flex items-center space-x-4 mt-4">
+                <span className="text-gray-600">Your Progress:</span>
+                <div className="flex space-x-2">
+                  {journeySteps.map((_, index) => (
+                    <div key={index} className={`w-3 h-3 rounded-full cursor-pointer ${index <= activeStep ? 'bg-[#F15A24]' : 'bg-gray-300'}`} onClick={() => setActiveStep(index)}></div>
+                  ))}
+                </div>
+                <span className="text-gray-600">Step {activeStep + 1} of {journeySteps.length}</span>
+              </div>
+            </div>
+          </div>
 
 
           <div className="text-center">
-            <div className="bg-gradient-to-r from-[#F15A24] to-[#26A65B] rounded-2xl p-8 text-white max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-orange-600 to-orange-400
+ rounded-2xl p-8 text-white max-w-4xl mx-auto">
               <h3 className="text-xl font-bold mb-4">Ready to Start Your Journey?</h3>
               <p className="text-orange-100 mb-6 max-w-2xl mx-auto">Join thousands of successful pilots who transformed their careers with our proven 5-step process.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -440,169 +441,169 @@ const WhyIDAPage: React.FC = () => {
 
 
       {/* In the Media */}
- <section className="-mt-12 py-8 lg:py-16 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-8">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-        IDA In The Spotlight
-      </h2>
-      <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-        Recognized by government bodies, featured in media, and trusted by industry leaders.
-      </p>
-    </div>
-
-    {/* Media Logos Grid */}
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center mb-8">
-      {mediaLogos.map((logo, index) => (
-        <div
-          key={index}
-          className="group bg-white rounded-xl p-4 text-center hover:shadow-md transition-all duration-200 transform hover:-translate-y-1"
-        >
-          <div className="w-12 h-12 bg-[#F15A24] bg-opacity-10 rounded-lg mx-auto mb-2 flex items-center justify-center">
-            <Award className="w-6 h-6 text-[#F15A24]" />
-          </div>
-          <h3 className="font-semibold text-gray-900 mb-1 text-sm">
-            {logo.name}
-          </h3>
-          <p className="text-xs text-gray-600">
-            {logo.type}
-          </p>
-        </div>
-      ))}
-    </div>
-
-    {/* Featured Badge */}
-    <div className="text-center">
-      <div className="inline-flex items-center bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-4 py-2 rounded-full font-bold">
-        <Star className="w-5 h-5 mr-2" />
-        As Featured In Leading Industry Publications
-      </div>
-    </div>
-  </div>
-</section>
-
-
-      {/* Student Voices */}
-<section className="py-12 lg:py-16 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-8">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-        Hear From Our Pilots
-      </h2>
-      <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
-        Real stories from real graduates who transformed their careers with India Drone Academy.
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      {testimonials.map((testimonial) => (
-        <div
-          key={testimonial.id}
-          className="bg-white rounded-2xl p-6 hover:shadow-md transition-shadow duration-200"
-        >
-          {/* Quote Icon */}
-          <Quote className="w-8 h-8 text-[#F15A24] mb-4" />
-
-          {/* Rating */}
-          <div className="flex items-center mb-3">
-            {[...Array(testimonial.rating)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-            ))}
-          </div>
-
-          {/* Testimonial Text */}
-          <blockquote className="text-gray-700 leading-relaxed mb-4">
-            "{testimonial.quote}"
-          </blockquote>
-
-          {/* Achievement Highlight */}
-          <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3 mb-4">
-            <p className="text-[#26A65B] font-bold text-sm">
-              🎉 {testimonial.achievement}
+      <section className="-mt-12 py-8 lg:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              IDA In The Spotlight
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Recognized by government bodies, featured in media, and trusted by industry leaders.
             </p>
           </div>
 
-          {/* Author Info */}
-          <div className="flex items-center">
-            <img
-              src={testimonial.image}
-              alt={testimonial.name}
-              className="w-10 h-10 rounded-full object-cover mr-3"
-              loading="lazy"
-            />
-            <div>
-              <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-              <p className="text-gray-600 text-sm">{testimonial.role}</p>
-              <p className="text-[#F15A24] text-sm font-medium">
-                {testimonial.course} • {testimonial.batch}
-              </p>
+          {/* Media Logos Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center mb-8">
+            {mediaLogos.map((logo, index) => (
+              <div
+                key={index}
+                className="group bg-white rounded-xl p-4 text-center hover:shadow-md transition-all duration-200 transform hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 bg-[#F15A24] bg-opacity-10 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                  <Award className="w-6 h-6 text-[#F15A24]" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-1 text-sm">
+                  {logo.name}
+                </h3>
+                <p className="text-xs text-gray-600">
+                  {logo.type}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Featured Badge */}
+          <div className="text-center">
+            <div className="inline-flex items-center bg-[#26A65B] bg-opacity-10 text-[#26A65B] px-4 py-2 rounded-full font-bold">
+              <Star className="w-5 h-5 mr-2" />
+              As Featured In Leading Industry Publications
             </div>
           </div>
         </div>
-      ))}
-    </div>
+      </section>
 
-    {/* Link to Success Stories */}
-    <div className="text-center mt-8">
-      <a
-        href="/success-stories"
-        className="inline-flex items-center text-[#F15A24] font-bold hover:text-[#D64A1A] transition-colors duration-200"
-      >
-        Read More Success Stories
-        <ChevronRight className="w-5 h-5 ml-2" />
-      </a>
-    </div>
-  </div>
-</section>
+
+      {/* Student Voices */}
+      <section className="py-12 lg:py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Hear From Our Pilots
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+              Real stories from real graduates who transformed their careers with India Drone Academy.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="bg-white rounded-2xl p-6 hover:shadow-md transition-shadow duration-200"
+              >
+                {/* Quote Icon */}
+                <Quote className="w-8 h-8 text-[#F15A24] mb-4" />
+
+                {/* Rating */}
+                <div className="flex items-center mb-3">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+
+                {/* Testimonial Text */}
+                <blockquote className="text-gray-700 leading-relaxed mb-4">
+                  "{testimonial.quote}"
+                </blockquote>
+
+                {/* Achievement Highlight */}
+                <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3 mb-4">
+                  <p className="text-[#26A65B] font-bold text-sm">
+                    🎉 {testimonial.achievement}
+                  </p>
+                </div>
+
+                {/* Author Info */}
+                <div className="flex items-center">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-10 h-10 rounded-full object-cover mr-3"
+                    loading="lazy"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                    <p className="text-[#F15A24] text-sm font-medium">
+                      {testimonial.course} • {testimonial.batch}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Link to Success Stories */}
+          <div className="text-center mt-8">
+            <a
+              href="/success-stories"
+              className="inline-flex items-center text-[#F15A24] font-bold hover:text-[#D64A1A] transition-colors duration-200"
+            >
+              Read More Success Stories
+              <ChevronRight className="w-5 h-5 ml-2" />
+            </a>
+          </div>
+        </div>
+      </section>
 
 
       {/* Final CTA */}
-   <section className="py-12 lg:py-16 bg-gradient-to-r from-[#F15A24] to-[#D64A1A] text-white">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-      Join India's Fastest-Growing Drone Pilot Community
-    </h2>
-    <p className="text-lg text-orange-100 mb-6 max-w-2xl mx-auto">
-      Take your first flight with confidence. Let's get licensed together and soar to new heights in your career.
-    </p>
+      <section className="py-6 lg:py-10 bg-gradient-to-br from-orange-600 to-orange-400 text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+            Join India's Fastest-Growing Drone Pilot Community
+          </h2>
+          <p className="text-lg text-orange-100 mb-6 max-w-2xl mx-auto">
+            Take your first flight with confidence. Let's get licensed together and soar to new heights in your career.
+          </p>
 
-    {/* Key Benefits */}
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-      <div className="bg-white bg-opacity-10 rounded-lg p-3">
-        <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
-        <p className="font-medium">DGCA Certified Training</p>
-      </div>
-      <div className="bg-white bg-opacity-10 rounded-lg p-3">
-        <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
-        <p className="font-medium">100% Job Assistance</p>
-      </div>
-      <div className="bg-white bg-opacity-10 rounded-lg p-3">
-        <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
-        <p className="font-medium">Lifetime Support</p>
-      </div>
-    </div>
+          {/* Key Benefits */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div className="bg-white bg-opacity-10 rounded-lg p-3">
+              <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
+              <p className="font-medium">DGCA Certified Training</p>
+            </div>
+            <div className="bg-white bg-opacity-10 rounded-lg p-3">
+              <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
+              <p className="font-medium">100% Job Assistance</p>
+            </div>
+            <div className="bg-white bg-opacity-10 rounded-lg p-3">
+              <CheckCircle className="w-6 h-6 text-white mx-auto mb-2" />
+              <p className="font-medium">Lifetime Support</p>
+            </div>
+          </div>
 
-    <div className="flex flex-col sm:flex-row gap-3 justify-center">
-      <a
-        href="/apply"
-        className="bg-white text-[#F15A24] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
-      >
-        Apply Now
-        <ArrowRight className="w-5 h-5 ml-2" />
-      </a>
-      <button className="bg-transparent border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 flex items-center justify-center">
-        <Download className="w-5 h-5 mr-2" />
-        Download Brochure
-      </button>
-      <a
-        href="https://wa.me/919876543210"
-        className="bg-[#25D366] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#20B954] transition-all duration-200"
-      >
-        Talk to Our Team
-      </a>
-    </div>
-  </div>
-</section>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="/apply"
+              className="bg-white text-[#F15A24] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
+            >
+              Apply Now
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </a>
+            <button className="bg-transparent border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 flex items-center justify-center">
+              <Download className="w-5 h-5 mr-2" />
+              Download Brochure
+            </button>
+            <a
+              href="https://wa.me/919876543210"
+              className="bg-[#25D366] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#20B954] transition-all duration-200"
+            >
+              Talk to Our Team
+            </a>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Play, 
-  Star, 
-  Quote, 
-  ArrowRight, 
-  ChevronLeft, 
+import {
+  Play,
+  Star,
+  Quote,
+  ArrowRight,
+  ChevronLeft,
   ChevronRight,
   Award,
   Users,
@@ -109,7 +109,7 @@ const SuccessStoriesPage: React.FC = () => {
       salaryIncrease: '300%',
       testimonialVideo: true
     },
-   
+
     {
       id: 3,
       name: 'Sneha Joshi',
@@ -260,8 +260,8 @@ const SuccessStoriesPage: React.FC = () => {
 
   const filters = ['All', 'Career Switch', 'Entrepreneurship', 'Women Empowerment', 'Agriculture', 'Quick Placement'];
 
-  const filteredStories = activeFilter === 'All' 
-    ? successStories 
+  const filteredStories = activeFilter === 'All'
+    ? successStories
     : successStories.filter(story => story.category === activeFilter);
 
   const nextVideoSlide = () => {
@@ -293,7 +293,7 @@ const SuccessStoriesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
-      
+
 
       {/* Hero Section - Compressed */}
       <section className="py-12 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -311,7 +311,7 @@ const SuccessStoriesPage: React.FC = () => {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
               Real stories, real achievements, real transformations from certified drone pilots.
             </p>
-            
+
             {/* Key Stats - Compressed */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
@@ -345,7 +345,7 @@ const SuccessStoriesPage: React.FC = () => {
           {/* Video Carousel - Compressed */}
           <div className="relative max-w-4xl mx-auto">
             <div className="overflow-hidden rounded-xl">
-              <div 
+              <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentVideoSlide * 100}%)` }}
               >
@@ -362,14 +362,14 @@ const SuccessStoriesPage: React.FC = () => {
                             loading="lazy"
                           />
                           <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
-                          
+
                           {/* Play Button */}
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-4 shadow-lg transform group-hover:scale-110 transition-all duration-200">
                               <Play className="w-6 h-6 text-[#F15A24] ml-1" />
                             </div>
                           </div>
-                          
+
                           {/* Video Stats */}
                           <div className="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs flex items-center">
                             <Eye className="w-3 h-3 mr-1" />
@@ -388,11 +388,11 @@ const SuccessStoriesPage: React.FC = () => {
                         <p className="text-[#F15A24] font-bold mb-1">{video.role}</p>
                         <p className="text-gray-600 text-sm mb-1">{video.course}</p>
                         <p className="text-gray-500 text-sm mb-4">{video.location}</p>
-                        
+
                         <blockquote className="text-gray-700 italic mb-4">
                           "{video.caption}"
                         </blockquote>
-                        
+
                         {/* Achievement */}
                         <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3">
                           <p className="text-[#26A65B] font-bold text-sm">
@@ -426,9 +426,8 @@ const SuccessStoriesPage: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentVideoSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                    index === currentVideoSlide ? 'bg-[#F15A24]' : 'bg-gray-300'
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-colors duration-200 ${index === currentVideoSlide ? 'bg-[#F15A24]' : 'bg-gray-300'
+                    }`}
                 />
               ))}
             </div>
@@ -458,11 +457,10 @@ const SuccessStoriesPage: React.FC = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeFilter === filter
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeFilter === filter
                     ? 'bg-[#F15A24] text-white shadow-md'
                     : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                }`}
+                  }`}
               >
                 {filter}
               </button>
@@ -485,12 +483,12 @@ const SuccessStoriesPage: React.FC = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  
+
                   {/* Category Badge */}
                   <div className="absolute top-3 left-3 bg-[#F15A24] text-white px-2 py-1 rounded-full text-xs font-medium">
                     {story.category}
                   </div>
-                  
+
                   {/* Name Overlay */}
                   <div className="absolute bottom-3 left-3 text-white">
                     <h3 className="text-lg font-bold">{story.name}</h3>
@@ -558,7 +556,7 @@ const SuccessStoriesPage: React.FC = () => {
           {/* Spotlight Slider */}
           <div className="relative">
             <div className="overflow-hidden rounded-xl">
-              <div 
+              <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentSpotlight * 100}%)` }}
               >
@@ -575,7 +573,7 @@ const SuccessStoriesPage: React.FC = () => {
                             loading="lazy"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                          
+
                           {/* Video Badge */}
                           {story.testimonialVideo && (
                             <div className="absolute top-3 right-3 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center">
@@ -595,7 +593,7 @@ const SuccessStoriesPage: React.FC = () => {
                       {/* Story Content */}
                       <div className="flex flex-col justify-center">
                         <Quote className="w-10 h-10 text-[#F15A24] mb-4" />
-                        
+
                         <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 font-medium">
                           "{story.quote}"
                         </blockquote>
@@ -633,11 +631,10 @@ const SuccessStoriesPage: React.FC = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentSpotlight(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentSpotlight 
-                      ? 'bg-[#F15A24] scale-125' 
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSpotlight
+                      ? 'bg-[#F15A24] scale-125'
                       : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -646,7 +643,7 @@ const SuccessStoriesPage: React.FC = () => {
       </section>
 
       {/* Metrics & Stats - Compressed */}
-      <section className="py-12 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
+      <section className="py-6 lg:py-10 bg-gradient-to-br from-orange-600 to-orange-400 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -740,125 +737,125 @@ const SuccessStoriesPage: React.FC = () => {
       </section>
 
       {/* Share Your Story - Compressed */}
-<section className="py-12 bg-white">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-8">
-      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Are You a Proud IDA Graduate?</h2>
-      <p className="text-lg text-gray-600 max-w-2xl mx-auto">Share your transformation journey and inspire future students to pursue their drone career dreams.</p>
-    </div>
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Are You a Proud IDA Graduate?</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Share your transformation journey and inspire future students to pursue their drone career dreams.</p>
+          </div>
 
-    {!showSubmissionForm ? (
-      <div className="bg-gray-50 rounded-xl p-8 text-center">
-        <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Heart className="w-8 h-8 text-[#F15A24]" />
-        </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-4">Submit Your Photo and Feedback to Be Featured</h3>
-        <p className="text-gray-600 mb-6 max-w-xl mx-auto">Join our success story showcase and help inspire the next generation of drone pilots.</p>
-        <button onClick={() => setShowSubmissionForm(true)} className="bg-[#F15A24] text-white font-bold px-4 py-2 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center text-sm">
-          <Upload className="w-4 h-4 mr-2" />
-          Submit My Story
-        </button>
-      </div>
-    ) : (
-      <div className="bg-gray-50 rounded-xl p-8">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold text-gray-900">Share Your Success Story</h3>
-          <button onClick={() => setShowSubmissionForm(false)} className="text-gray-500 hover:text-gray-700 p-2">
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        <form onSubmit={handleFormSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="Your full name" />
+          {!showSubmissionForm ? (
+            <div className="bg-gray-50 rounded-xl p-8 text-center">
+              <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Heart className="w-8 h-8 text-[#F15A24]" />
               </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Submit Your Photo and Feedback to Be Featured</h3>
+              <p className="text-gray-600 mb-6 max-w-xl mx-auto">Join our success story showcase and help inspire the next generation of drone pilots.</p>
+              <button onClick={() => setShowSubmissionForm(true)} className="bg-[#F15A24] text-white font-bold px-4 py-2 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center text-sm">
+                <Upload className="w-4 h-4 mr-2" />
+                Submit My Story
+              </button>
             </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="your.email@example.com" />
+          ) : (
+            <div className="bg-gray-50 rounded-xl p-8">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xl font-bold text-gray-900">Share Your Success Story</h3>
+                <button onClick={() => setShowSubmissionForm(false)} className="text-gray-500 hover:text-gray-700 p-2">
+                  <X className="w-5 h-5" />
+                </button>
               </div>
-            </div>
-          </div>
 
-          <div>
-            <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-1">Course Completed *</label>
-            <div className="relative">
-              <Award className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <select id="course" name="course" value={formData.course} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200">
-                <option value="">Select your course</option>
-                <option value="DGCA Pilot Training">DGCA Pilot Training</option>
-                <option value="Agriculture Drone Training">Agriculture Drone Training</option>
-                <option value="Women Drone Program">Women Drone Program</option>
-                <option value="1-Day Special Course">1-Day Special Course</option>
-              </select>
-            </div>
-          </div>
+              <form onSubmit={handleFormSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                    <div className="relative">
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="Your full name" />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                      <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="your.email@example.com" />
+                    </div>
+                  </div>
+                </div>
 
-          <div>
-            <label htmlFor="testimonial" className="block text-sm font-medium text-gray-700 mb-1">Your Success Story *</label>
-            <div className="relative">
-              <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-              <textarea id="testimonial" name="testimonial" value={formData.testimonial} onChange={handleInputChange} required rows={4} className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="Share your transformation journey, career achievements, and how IDA helped you succeed..." />
-            </div>
-          </div>
+                <div>
+                  <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-1">Course Completed *</label>
+                  <div className="relative">
+                    <Award className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <select id="course" name="course" value={formData.course} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200">
+                      <option value="">Select your course</option>
+                      <option value="DGCA Pilot Training">DGCA Pilot Training</option>
+                      <option value="Agriculture Drone Training">Agriculture Drone Training</option>
+                      <option value="Women Drone Program">Women Drone Program</option>
+                      <option value="1-Day Special Course">1-Day Special Course</option>
+                    </select>
+                  </div>
+                </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Upload Your Photo</label>
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-[#F15A24] transition-colors duration-200 cursor-pointer">
-              <ImageIcon className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-              <p className="text-gray-600 text-sm mb-1">Click to upload or drag and drop</p>
-              <p className="text-gray-500 text-xs">PNG, JPG up to 5MB</p>
-            </div>
-          </div>
+                <div>
+                  <label htmlFor="testimonial" className="block text-sm font-medium text-gray-700 mb-1">Your Success Story *</label>
+                  <div className="relative">
+                    <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
+                    <textarea id="testimonial" name="testimonial" value={formData.testimonial} onChange={handleInputChange} required rows={4} className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200" placeholder="Share your transformation journey, career achievements, and how IDA helped you succeed..." />
+                  </div>
+                </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <button type="submit" className="flex-1 bg-[#F15A24] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center text-sm">
-              <Upload className="w-4 h-4 mr-2" />
-              Submit My Story
-            </button>
-            <button type="button" onClick={() => setShowSubmissionForm(false)} className="flex-1 bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-300 transition-all duration-200 text-sm">Cancel</button>
-          </div>
-        </form>
-      </div>
-    )}
-  </div>
-</section>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Upload Your Photo</label>
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-[#F15A24] transition-colors duration-200 cursor-pointer">
+                    <ImageIcon className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                    <p className="text-gray-600 text-sm mb-1">Click to upload or drag and drop</p>
+                    <p className="text-gray-500 text-xs">PNG, JPG up to 5MB</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button type="submit" className="flex-1 bg-[#F15A24] text-white font-bold py-2 px-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center text-sm">
+                    <Upload className="w-4 h-4 mr-2" />
+                    Submit My Story
+                  </button>
+                  <button type="button" onClick={() => setShowSubmissionForm(false)} className="flex-1 bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded-lg hover:bg-gray-300 transition-all duration-200 text-sm">Cancel</button>
+                </div>
+              </form>
+            </div>
+          )}
+        </div>
+      </section>
 
 
 
       {/* Final CTA - Compressed */}
-   <section className="py-12 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-      Ready to Start Your Drone Career?
-    </h2>
-    <p className="text-lg text-orange-100 mb-6 max-w-2xl mx-auto">
-      Join thousands of successful pilots who chose IDA. Your success story could be next.
-    </p>
-    
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="/apply"
-        className="bg-white text-[#F15A24] font-bold px-4 py-2 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center text-sm"
-      >
-        Apply Now
-        <ArrowRight className="w-5 h-5 ml-2" />
-      </a>
-      <a
-        href="/courses"
-        className="bg-transparent border-2 border-white text-white font-bold px-4 py-2 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 text-sm"
-      >
-        View Upcoming Courses
-      </a>
-    </div>
-  </div>
-</section>
+      <section className="py-6 lg:py-10 bg-gradient-to-br from-orange-600 to-orange-400 text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Ready to Start Your Drone Career?
+          </h2>
+          <p className="text-lg text-orange-100 mb-6 max-w-2xl mx-auto">
+            Join thousands of successful pilots who chose IDA. Your success story could be next.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/apply"
+              className="bg-white text-[#F15A24] font-bold px-4 py-2 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center text-sm"
+            >
+              Apply Now
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </a>
+            <a
+              href="/courses"
+              className="bg-transparent border-2 border-white text-white font-bold px-4 py-2 rounded-lg hover:bg-white hover:text-[#F15A24] transition-all duration-200 text-sm"
+            >
+              View Upcoming Courses
+            </a>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

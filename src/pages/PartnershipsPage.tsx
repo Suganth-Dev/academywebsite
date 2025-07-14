@@ -141,7 +141,7 @@ const PartnershipsPage: React.FC = () => {
     {
       icon: User,
       title: 'Drone Pilots',
-      description: 'Join India\'s fastest-growing pilot network and unlock jobs, missions, and rewards.',
+      description: 'Join India’s top drone pilot network for jobs, missions & rewards.',
       examples: [
         'DGCA & advanced drone training',
         'National job opportunities',
@@ -190,13 +190,13 @@ const PartnershipsPage: React.FC = () => {
     },
     {
       icon: Briefcase,
-      title: 'Drone Service Providers',
-      description: 'Partner on inspections, surveys, and data delivery with skilled pilots.',
+      title: 'Drone As a Service Providers (DAAS)',
+      description: 'Partner on spraying, survey, inspection, data delivery, etc.',
       examples: [
         'Access to certified drone pilots',
         'Project execution support',
         'Joint bidding & data services',
-        'Visualization & reporting tools'
+        'DAAS-based deployment'
       ],
       gradient: 'from-indigo-500 to-indigo-600'
     },
@@ -729,303 +729,116 @@ const PartnershipsPage: React.FC = () => {
 
 
       {/* Partnership Form */}
-      <section id="partnership-form" className="pt-16 pb-0 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Let's Build a Drone-Powered Future Together
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Share your goals and we'll tailor a partnership approach that fits your business needs and objectives.
-            </p>
+     <section id="partnership-form" className="pt-16 pb-0 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        Partner with India Drone Academy – Strategic Collaboration Form
+      </h2>
+      <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+        India Drone Academy (IDA) invites you to join hands through specialized partnership models, including our <strong>DAAS (Drone As a Service)</strong> program. This form helps us explore synergies tailored to your goals.
+      </p>
+      <p className="text-sm text-gray-500 mt-2"><strong>* All fields marked with an asterisk are required</strong></p>
+    </div>
+
+    <div className="bg-gray-50 rounded-2xl p-8 lg:pt-12 lg:pb-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
+
+        {/* Section 1: Basic Information */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Full Name *</strong></label>
+            <input type="text" name="fullName" required className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
           </div>
-
-          <div className="bg-gray-50 rounded-2xl p-8 lg:pt-12 lg:pb-6">
-            {!isSubmitted ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">
-                      Company/Organization Name *
-                    </label>
-                    <div className="relative">
-                      <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        id="companyName"
-                        name="companyName"
-                        value={formData.companyName}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="Your company name"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700 mb-2">
-                      Contact Person *
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        id="contactPerson"
-                        name="contactPerson"
-                        value={formData.contactPerson}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="Your full name"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="designation" className="block text-sm font-medium text-gray-700 mb-2">
-                      Designation *
-                    </label>
-                    <input
-                      type="text"
-                      id="designation"
-                      name="designation"
-                      value={formData.designation}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                      placeholder="CEO, CTO, Business Development Manager, etc."
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-                      City / Region *
-                    </label>
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="City, State, Country"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="your.email@company.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone *
-                    </label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                        placeholder="+91 98765 43210"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Type of Partnership *
-                  </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-x-8 gap-y-4">
-                    {partnershipOptions.map(option => (
-                      <label
-                        key={option.value}
-                        className="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:border-[#F15A24] transition-all"
-                      >
-                        <input
-                          type="checkbox"
-                          name="partnershipType"
-                          value={option.value}
-                          checked={formData.partnershipType.includes(option.value)}
-                          onChange={handleInputChange}
-                          className="h-5 w-5 text-[#F15A24] mr-4"
-                        />
-                        <span className="text-gray-800 font-medium">{option.label}</span>
-                      </label>
-                    ))}
-                  </div>
-                  {formData.partnershipType.includes('other') && (
-                    <div className="mt-4">
-                      <input
-                        type="text"
-                        name="otherPartnership"
-                        placeholder="Please specify"
-                        value={formData.otherPartnership}
-                        onChange={handleInputChange}
-                        className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-lg"
-                      />
-                    </div>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="revenue" className="block text-sm font-medium text-gray-700 mb-2">Last Year Turnover *</label>
-                    <select id="revenue" name="revenue" value={formData.revenue} onChange={handleInputChange} required className="w-full px-4 py-3 border border-gray-300 rounded-lg">
-                      <option value="">Select</option>
-                      <option value="<10L">Less than ₹10 Lakh</option>
-                      <option value="10-50L">₹10–50 Lakh</option>
-                      <option value="50L-2Cr">₹50 Lakh – 2 Cr</option>
-                      <option value="2-10Cr">₹2–10 Cr</option>
-                      <option value=">10Cr">Above ₹10 Cr</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">Company Website</label>
-                    <input type="url" id="website" name="website" value={formData.website} onChange={handleInputChange} placeholder="https://example.com" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">Company Tenure</label>
-                    <input type="number" id="experience" name="experience" value={formData.experience} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-                  </div>
-                  <div className="mb-4 w-full">
-                    <label htmlFor="teamSize" className="block text-sm font-medium text-gray-700 mb-1">
-                      Team Size
-                    </label>
-                    <select
-                      id="teamSize"
-                      name="teamSize"
-                      value={formData.teamSize}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select Team Size</option>
-                      <option value="1–5">1–5</option>
-                      <option value="6–10">6–10</option>
-                      <option value="11–15">11–15</option>
-                      <option value="16–25">16–25</option>
-                      <option value="26–50">26–50</option>
-                      <option value="51–100">51–100</option>
-                      <option value="101+">101+</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="clients" className="block text-sm font-medium text-gray-700 mb-2">Key Clients / Industries</label>
-                  <textarea id="clients" name="clients" value={formData.clients} onChange={handleInputChange} rows={3} className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Mention a few key clients or sectors you serve." />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="linkedin" className="block text-sm font-medium text-gray-700 mb-2">LinkedIn Profile</label>
-                    <input type="url" id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="https://linkedin.com/in/yourprofile" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="gst" className="block text-sm font-medium text-gray-700 mb-2">GST / Business Registration No.</label>
-                    <input type="text" id="gst" name="gst" value={formData.gst} onChange={handleInputChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-                  </div>
-                  <div>
-                    <label htmlFor="droneExperience" className="block text-sm font-medium text-gray-700 mb-2">Past Drone Collaboration?</label>
-                    <input type="text" id="droneExperience" name="droneExperience" value={formData.droneExperience} onChange={handleInputChange} placeholder="Yes / No. If yes, describe briefly." className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message / Proposal *
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F15A24] focus:border-transparent transition-all duration-200"
-                      placeholder="Tell us about your company, partnership goals, specific requirements, or any questions you have..."
-                    />
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#F15A24] text-white font-bold py-4 px-6 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                      Submitting Partnership Request...
-                    </>
-                  ) : (
-                    <>
-                      Submit Partnership Request
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </>
-                  )}
-                </button>
-              </form>
-            ) : (
-              <div ref={thankYouRef} className="text-center py-8">
-                <div className="w-16 h-16 bg-[#26A65B] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="w-8 h-8 text-[#26A65B]" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Partnership Request Received!
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Thank you for your interest in partnering with India Drone Academy. Our business development team will review your proposal and get back to you soon.
-                </p>
-                <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-4">
-                  <p className="text-[#26A65B] font-medium">
-                    📧 You'll receive a confirmation email shortly with next steps and additional information about our partnership programs.
-                  </p>
-                </div>
-              </div>
-            )}
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2">Organization / Institute Name</label>
+            <input type="text" name="organization" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          </div>
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Email ID *</strong></label>
+            <input type="email" name="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          </div>
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Mobile Number *</strong></label>
+            <input type="text" name="mobile" required className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          </div>
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2"><strong>City & State *</strong></label>
+            <input type="text" name="cityState" required className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
+          </div>
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2">Website</label>
+            <input type="url" name="website" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
           </div>
         </div>
-      </section>
+
+        {/* Section 2: Partnership Type */}
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Select Your Partnership Type *</strong></label>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {['Drone Pilots', 'Colleges & Universities', 'Drone Manufacturers', 'Software & AI Developers', 'Drone As a Service Providers', 'Agritech & Farmer Groups', 'RPTOs & Drone Training Institutes', 'Media & Event Agencies', 'Government & NGOs', 'GIS Experts & Organizations'].map(type => (
+              <label key={type}><input type="checkbox" name="partnershipType" value={type} className="mr-2" />{type}</label>
+            ))}
+          </div>
+        </div>
+
+        {/* Section 3: DAAS */}
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Are you interested in DAAS opportunities? *</strong></label>
+          <label><input type="radio" name="daas" value="offer" required className="mr-2" />Yes, I want to offer my drone services under DAAS</label><br/>
+          <label><input type="radio" name="daas" value="hire" className="mr-2" />Yes, I want to hire drones/pilots via DAAS</label>
+        </div>
+
+        {/* Section 4: Key Areas of Interest */}
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Key Areas of Interest *</strong></label>
+          <p className="text-sm text-gray-500 mb-4">Please select all areas of interest under your chosen partnership type(s):</p>
+          <div className="grid grid-cols-1 gap-3 text-sm">
+            {[ 
+              { title: 'Drone Pilots', options: 'DGCA training, Paid Missions, Simulator Access, Freelance Onboarding, DAAS Deployment' },
+              { title: 'Colleges & Universities', options: 'Curriculum for CSE/ECE/EEE, Lab setup, Faculty MOU, Workshops, Project Placements' },
+              { title: 'Drone Manufacturers', options: 'AI-ready Drone Kits, Payload Customization, GIS Testing, Expos & Demos, DAAS Equipment Supply' },
+              { title: 'Software & AI Developers', options: 'Flight Sim APIs, Object Detection, GIS Tools, Real-time Automation' },
+              { title: 'Drone As a Service Providers', options: 'Certified Pilot Access, Joint Project Bidding, Survey Partnerships, DAAS Operational Scaling' },
+              { title: 'Agritech & Farmer Groups', options: 'Aerial Spraying/Seeding, NDVI Health Analysis, Drone Didi Training, Land Mapping' },
+              { title: 'RPTOs & Training Institutes', options: 'Simulator Setup, Courseware Access, Co-certification, DAAS Collaboration' },
+              { title: 'Media & Event Agencies', options: 'Aerial Photography Training, Event Coverage, Live Drone Shows, Intern Collab' },
+              { title: 'Government & NGOs', options: 'Skill India Integration, Women Upliftment via Drone Didi, Smart City Surveys, DAAS for Public Services' },
+              { title: 'GIS Experts & Orgs', options: 'Data Collection, Land Use Mapping, AI Dashboard Integration, Drone-GIS Training' }
+            ].map(group => (
+              <div key={group.title} className="flex items-start space-x-4">
+                <label className="inline-flex items-center font-semibold whitespace-nowrap">
+                  <input type="checkbox" name="keyAreaGroup" value={group.title} className="mr-2" /> {group.title}
+                </label>
+                <p className="text-gray-700 flex-1">{group.options}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Section 5: Project Vision */}
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Project Vision *</strong></label>
+          <textarea name="projectVision" rows={5} required className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Tell us how you envision this partnership. What problems are you solving or exploring?" />
+        </div>
+
+        {/* Section 6: File Upload */}
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-2">File Upload (Optional)</label>
+          <input type="file" name="attachments" accept=".pdf,.docx,.pptx" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
+        </div>
+
+        <button type="submit" className="w-full bg-[#F15A24] text-white font-bold py-4 px-6 rounded-lg hover:bg-[#D64A1A] transition-all duration-200">
+          Submit Partnership Request
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
 
       {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
+      <section className="py-6 lg:py-10 bg-gradient-to-br from-orange-600 to-orange-400 text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4"> {/* Reduced margin */}
             Need to Talk to Us Directly?
