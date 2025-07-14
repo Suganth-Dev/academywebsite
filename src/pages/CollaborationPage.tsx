@@ -190,33 +190,33 @@ const CollaborationPage: React.FC = () => {
   ];
 
   const collaborationModels = [
-   {
-  title: 'MoU-Based Training at Your Campus',
-  description: 'We bring certified instructors and drone equipment to your campus.',
-  features: [
-    'On-campus delivery',
-    'Drone equipment included',
-    'Certified trainer support',
-    'Flexible scheduling'
-  ],
-  icon: Building2,
-  color: 'from-blue-500 to-blue-600'
-},
+    {
+      title: 'MoU-Based Training at Your Campus',
+      description: 'We bring certified instructors and drone equipment to your campus.',
+      features: [
+        'On-campus delivery',
+        'Drone equipment included',
+        'Certified trainer support',
+        'Flexible scheduling'
+      ],
+      icon: Building2,
+      color: 'from-blue-500 to-blue-600'
+    },
 
     {
-  title: 'Joint Certificate Program with Revenue Share',
-  description: 'Collaborative program where both institutions benefit from student enrollments.',
-  features: [
-    'Revenue sharing with joint certification',
-    'Marketing & partnership support',
-    'If Drone Lab is provided:',
-    '■ Joint certification program',
-    '■ Location branding (boards & banners)',
-    '■ 1+ annual hosted event'
-  ],
-  icon: Handshake,
-  color: 'from-green-500 to-green-600'
-},
+      title: 'Joint Certificate Program with Revenue Share',
+      description: 'Collaborative program where both institutions benefit from student enrollments.',
+      features: [
+        'Revenue sharing with joint certification',
+        'Marketing & partnership support',
+        'If Drone Lab is provided:',
+        '■ Joint certification program',
+        '■ Location branding (boards & banners)',
+        '■ 1+ annual hosted event'
+      ],
+      icon: Handshake,
+      color: 'from-green-500 to-green-600'
+    },
 
     {
       title: 'Custom Bootcamps for Final-Year Students',
@@ -292,8 +292,7 @@ const CollaborationPage: React.FC = () => {
 
 
       {/* Hero Section */}
-      <section className="pt-0 pb-16 lg:pt-0 lg:pb-16 min-h-screen bg-gradient-to-br from-gray-50 to-white relative overflow-hidden flex items-center">
-
+      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 relative overflow-hidden mt-8">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
@@ -330,8 +329,10 @@ const CollaborationPage: React.FC = () => {
 
               {/* CTA */}
               <button
-                onClick={() => document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
+                onClick={() =>
+                  document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })
+                }
+                className="bg-[#F15A24] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
               >
                 Get Started With a Collaboration
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -342,23 +343,22 @@ const CollaborationPage: React.FC = () => {
             <div className="relative">
               <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="MOU signing ceremony between IDA and educational institution"
-                  className="w-full h-[100%] min-h-[400px] max-h-[550px] object-cover rounded-lg"
-
+                  src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Partnership collaboration showing flight demos, equipment, simulators, and industry presence"
+                  className="w-full h-80 object-cover rounded-lg"
                   loading="lazy"
                 />
               </div>
 
               {/* Floating Stats */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4">
-                <div className="text-2xl font-bold text-[#26A65B]">50+</div>
-                <div className="text-sm text-gray-600">Partner Institutions</div>
+                <div className="text-2xl font-bold text-[#26A65B]">500+</div>
+                <div className="text-sm text-gray-600">Active Partners</div>
               </div>
 
               <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
-                <div className="text-2xl font-bold text-[#F15A24]">40%</div>
-                <div className="text-sm text-gray-600">Bulk Discount</div>
+                <div className="text-2xl font-bold text-[#F15A24]">15+</div>
+                <div className="text-sm text-gray-600">Industries</div>
               </div>
             </div>
           </div>
@@ -366,29 +366,29 @@ const CollaborationPage: React.FC = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="pt-8 pb-0 lg:pt-10 lg:pb-0 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-0">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
               What Your Institution Gains From This Collaboration
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Comprehensive benefits designed to enhance your institution's offerings and student outcomes.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {benefits.map((benefit, index) => {
               const IconComponent = benefit.icon;
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                  className="bg-white rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
                 >
-                  <div className={`w-12 h-12 ${benefit.bgColor} rounded-xl flex items-center justify-center mb-4`}>
-                    <IconComponent className={`w-6 h-6 ${benefit.color}`} />
+                  <div className={`w-10 h-10 ${benefit.bgColor} rounded-xl flex items-center justify-center mb-3`}>
+                    <IconComponent className={`w-5 h-5 ${benefit.color}`} />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
                     {benefit.title}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -401,36 +401,36 @@ const CollaborationPage: React.FC = () => {
         </div>
       </section>
 
+
+
+
       {/* Existing Collaborations */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-10 lg:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          {/* Heading */}
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Trusted by Top Engineering Colleges
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
               Join our prestigious network of premier engineering colleges and universities across India.
             </p>
           </div>
 
           {/* Partners Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
             {existingPartners.slice(0, visibleCount).map((partner, index) => (
-
-
               <div
                 key={index}
-                className="group bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <Building className="w-8 h-8 text-[#F15A24]" />
+                <div className="w-14 h-14 bg-[#F15A24] bg-opacity-10 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                  <Building className="w-6 h-6 text-[#F15A24]" />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-sm text-center leading-tight">
+                <h3 className="font-semibold text-gray-900 text-sm text-center leading-tight mb-1">
                   {partner.name}
                 </h3>
-                <p className="text-xs text-gray-600 text-center mb-1">
-                  {partner.type}
-                </p>
+                <p className="text-xs text-gray-600 text-center mb-1">{partner.type}</p>
                 <div className="flex items-center justify-center text-xs text-gray-500">
                   <MapPin className="w-3 h-3 mr-1" />
                   {partner.location}
@@ -438,107 +438,105 @@ const CollaborationPage: React.FC = () => {
               </div>
             ))}
           </div>
-{visibleCount < existingPartners.length && (
-  <div className="flex justify-center mt-8 mb-12">
-    <button
-      onClick={() => setVisibleCount(prev => prev + 3)}
-      className="px-6 py-3 border-2 border-[#F15A24] text-[#F15A24] font-semibold rounded-full hover:bg-[#F15A24] hover:text-white transition-all duration-200 shadow-sm"
-    >
-      Show More Colleges
-    </button>
-  </div>
-)}
 
+          {/* Show More */}
+          {visibleCount < existingPartners.length && (
+            <div className="flex justify-center mt-6 mb-8">
+              <button
+                onClick={() => setVisibleCount(prev => prev + 3)}
+                className="px-5 py-2 border border-[#F15A24] text-[#F15A24] text-sm font-medium rounded-full hover:bg-[#F15A24] hover:text-white transition-all duration-200 shadow-sm"
+              >
+                Show More Colleges
+              </button>
+            </div>
+          )}
 
           {/* Featured Partnerships */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <div className="bg-white rounded-2xl p-6 shadow-md">
+            <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
               Featured Partnerships
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-20 h-20 bg-[#26A65B] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-10 h-10 text-[#26A65B]" />
+                <div className="w-16 h-16 bg-[#26A65B] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Star className="w-8 h-8 text-[#26A65B]" />
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Narayanamma Institute</h4>
+                <h4 className="font-semibold text-gray-900 mb-1 text-base">Narayanamma Institute</h4>
                 <p className="text-gray-600 text-sm">500+ students trained in drone technology with 100% placement success</p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Trophy className="w-10 h-10 text-[#F15A24]" />
+                <div className="w-16 h-16 bg-[#F15A24] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Trophy className="w-8 h-8 text-[#F15A24]" />
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Mallareddy College</h4>
+                <h4 className="font-semibold text-gray-900 mb-1 text-base">Mallareddy College</h4>
                 <p className="text-gray-600 text-sm">Joint certification program with dedicated drone lab setup on campus</p>
               </div>
               <div className="text-center">
-                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-10 h-10 text-blue-600" />
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Award className="w-8 h-8 text-blue-600" />
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">JNTUH</h4>
+                <h4 className="font-semibold text-gray-900 mb-1 text-base">JNTUH</h4>
                 <p className="text-gray-600 text-sm">University-wide drone curriculum integration across multiple engineering branches</p>
               </div>
             </div>
-            
-
           </div>
 
           {/* Caption */}
-          <div className="text-center mt-8">
-            <p className="text-gray-600 italic">
+          <div className="text-center mt-6">
+            <p className="text-gray-600 italic text-sm">
               Expanding partnerships with top engineering colleges across South India
             </p>
           </div>
         </div>
       </section>
 
+
       {/* Collaboration Models */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-10 lg:py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Choose a Model That Works for You
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
               Flexible collaboration options designed to meet your institution's specific needs and goals.
             </p>
           </div>
 
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {collaborationModels.slice(0, 2).map((model, index) => {
-
               const IconComponent = model.icon;
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group"
+                  className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 overflow-hidden flex flex-col"
                 >
                   {/* Header */}
-                  <div className={`bg-gradient-to-r ${model.color} p-4 text-white`}>
-
-                    <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                      <IconComponent className="w-6 h-6 text-white" />
+                  <div className={`bg-gradient-to-r ${model.color} p-3 text-white`}>
+                    <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex items-center justify-center mb-3">
+                      <IconComponent className="w-5 h-5 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-1">
-{model.title}</h3>
-                    <p className="text-white text-opacity-90">{model.description}</p>
+                    <h3 className="text-base font-semibold mb-1">{model.title}</h3>
+                    <p className="text-white text-opacity-90 text-sm">{model.description}</p>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-4">
-                    <ul className="space-y-3 mb-6">
+                  {/* Features & Button Section */}
+                  <div className="flex flex-col justify-between h-full p-4">
+                    <ul className="space-y-2 mb-4">
                       {model.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center">
+                        <li key={featureIndex} className="flex items-center text-sm">
                           <CheckCircle className="w-3 h-3 text-[#26A65B] mr-2" />
-
                           <span className="text-gray-700">{feature}</span>
                         </li>
                       ))}
                     </ul>
 
+                    {/* CTA Button at Bottom */}
                     <button
-                      onClick={() => document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="w-full bg-[#F15A24] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200"
+                      onClick={() =>
+                        document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })
+                      }
+                      className="w-full mt-auto bg-[#F15A24] text-white font-semibold text-sm py-2.5 px-4 rounded-lg hover:bg-[#D64A1A] transition-all duration-200"
                     >
                       Request This Model
                     </button>
@@ -547,31 +545,34 @@ const CollaborationPage: React.FC = () => {
               );
             })}
           </div>
+
         </div>
       </section>
 
+
       {/* Special Pricing Banner */}
-      <section className="py-16 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
+      <section className="py-10 bg-gradient-to-r from-[#F15A24] to-[#26A65B] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Special Institutional Pricing
           </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-4xl mx-auto">
+          <p className="text-base sm:text-lg text-orange-100 mb-4 max-w-3xl mx-auto">
             We offer <strong>up to 40% discount</strong> for institutions onboarding batches of 20+ students.
           </p>
-          <p className="text-lg text-orange-100 mb-8">
+          <p className="text-sm sm:text-base text-orange-100 mb-6">
             Custom pricing available for government colleges, autonomous institutions, and women's colleges.
           </p>
 
           <button
             onClick={() => document.getElementById('collaboration-form')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-white text-[#F15A24] font-bold px-8 py-4 rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
+            className="bg-white text-[#F15A24] font-semibold text-sm sm:text-base px-6 py-3 rounded-md hover:bg-gray-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
           >
-            <Download className="w-5 h-5 mr-2" />
+            <Download className="w-4 h-4 mr-2" />
             Request Pricing Sheet
           </button>
         </div>
       </section>
+
 
       {/* Contact Form */}
       <section id="collaboration-form" className="py-16 lg:py-24 bg-gray-50">
@@ -581,14 +582,7 @@ const CollaborationPage: React.FC = () => {
             {!isSubmitted ? (
 
               <>
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                    Let's Build a Collaboration
-                  </h2>
-                  <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Fill this form and our team will reach out you soon to discuss partnership opportunities.
-                  </p>
-                </div>
+                
                 {/* Title Section */}
                 <div className="text-center mb-12">
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -859,36 +853,37 @@ const CollaborationPage: React.FC = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+      <section className="py-6 -mt-4 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
             Still Have Questions?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-base sm:text-lg text-gray-600 mb-6">
             Our business development team is here to help you explore partnership opportunities.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="tel:+919188883344"
-              className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center"
+              className="bg-[#F15A24] text-white font-semibold text-sm sm:text-base px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-md transition-all duration-200 flex items-center justify-center"
             >
-              <Phone className="w-5 h-5 mr-2" />
-              Call +91 8804349999/ +91 9188883344
+              <Phone className="w-4 h-4 mr-2" />
+              Call +91 8804349999 / 9188883344
             </a>
-         
+
             <a
               href="https://wa.me/919188883344?text=Hi, I'm interested in institutional collaboration with IDA"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"
+              className="bg-[#25D366] text-white font-semibold text-sm sm:text-base px-6 py-3 rounded-lg hover:bg-[#20B954] transition-all duration-200 flex items-center justify-center"
             >
-              <MessageSquare className="w-5 h-5 mr-2" />
+              <MessageSquare className="w-4 h-4 mr-2" />
               Talk on WhatsApp
             </a>
           </div>
         </div>
       </section>
+
     </div>
   );
 };
