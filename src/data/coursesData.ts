@@ -47,9 +47,9 @@ export const coursesData: Record<string, CourseData> = {
   'dgca-small': {
     id: 'dgca-small',
     title: 'DGCA Small Category Training',
-    subtitle: 'Government-Certified Training for Small Category Drones (up to 2kg)',
+    subtitle: 'Government-Certified Training for Small Category Drones (up to 25kg)',
     description: 'Become a certified commercial drone pilot for small category operations with our comprehensive DGCA-approved training program. Perfect for beginners entering the drone industry.',
-    heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/dgca-small.jpg',
     badge: 'DGCA Certified',
     badgeColor: 'bg-[#26A65B]',
     price: '₹45,000',
@@ -59,15 +59,15 @@ export const coursesData: Record<string, CourseData> = {
     mode: 'In-Person + Practical',
     certificate: 'DGCA Small Category License',
     language: 'English / Hindi / Telugu',
-    locations: ['Hyderabad', 'Bangalore', 'Mumbai', 'Delhi'],
+    locations: ['Hyderabad'],
     level: 'Beginner to Intermediate',
     learningOutcomes: [
       'Small drone airframe and component basics',
       'DGCA regulations for small category operations',
       'Flight planning and navigation for small drones',
       'Weather assessment and safety protocols',
-      'Simulator training (8+ hours)',
-      'Live flight experience (4+ hours)',
+      'Simulator training',
+      'Live flight experience ',
       'Emergency procedures and troubleshooting',
       'Commercial operations setup'
     ],
@@ -80,12 +80,12 @@ export const coursesData: Record<string, CourseData> = {
       {
         icon: 'Users',
         title: 'Expert Instructors',
-        description: 'Learn from certified pilots with 500+ flight hours'
+        description: 'Learn from DGCA certified Instructors'
       },
       {
         icon: 'Plane',
         title: 'Small Drone Equipment',
-        description: 'Train on professional small category drones'
+        description: 'Train on professional small class drones'
       },
       {
         icon: 'Briefcase',
@@ -119,15 +119,15 @@ export const coursesData: Record<string, CourseData> = {
     },
     faq: [
       {
-        question: 'What is the difference between small and medium category?',
-        answer: 'Small category covers drones up to 2kg weight, suitable for photography, surveillance, and light commercial operations. Medium category covers 2-25kg drones for heavier commercial applications.'
+        question: 'What is the difference between small and medium class?',
+        answer: 'Small class covers drones up to 25kg weight, suitable for photography, surveillance, and light commercial operations. Medium class covers more than 25kg and up to 50kg drones for heavier commercial applications.'
       },
       {
         question: 'Can I upgrade to medium category later?',
-        answer: 'Yes, we offer a 3-day Medium Upgrade course for ₹45,000 + GST for existing small category license holders.'
+        answer: 'Yes, we offer a 3-day Medium Upgrade course for ₹65,000 + GST for existing small class license holders.'
       },
       {
-        question: 'What jobs can I get with small category license?',
+        question: 'What jobs can I get with small class license?',
         answer: 'Aerial photography, real estate documentation, small area surveying, inspection services, and content creation roles.'
       }
     ],
@@ -142,9 +142,9 @@ export const coursesData: Record<string, CourseData> = {
   'dgca-medium': {
     id: 'dgca-medium',
     title: 'DGCA Medium Category Training',
-    subtitle: 'Advanced Certification for Medium Category Drones (2-25kg)',
+    subtitle: 'Advanced Certification for Medium Category Dronesmore than 25kg upto 50kg',
     description: 'Advanced training for medium category drone operations covering heavier payloads and complex commercial applications.',
-    heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/dgca-medium.jpg',
     badge: 'Professional Level',
     badgeColor: 'bg-blue-600',
     price: '₹65,000',
@@ -153,15 +153,15 @@ export const coursesData: Record<string, CourseData> = {
     mode: 'In-Person + Advanced Practical',
     certificate: 'DGCA Medium Category License',
     language: 'English / Hindi / Telugu',
-    locations: ['Hyderabad', 'Bangalore', 'Mumbai'],
+    locations: ['Hyderabad'],
     level: 'Intermediate to Advanced',
     learningOutcomes: [
       'Medium drone systems and operations',
       'Advanced flight planning and navigation',
       'Payload management and operations',
       'Complex weather assessment',
-      'Advanced simulator training (12+ hours)',
-      'Live flight experience (6+ hours)',
+      'Advanced simulator training ',
+      'Live flight experience ',
       'Commercial operations management',
       'Advanced emergency procedures'
     ],
@@ -226,7 +226,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'Medium Category Upgrade',
     subtitle: 'Upgrade from Small to Medium Category in 3 Days',
     description: 'Fast-track upgrade course for existing small category license holders to obtain medium category certification.',
-    heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/medium-upgrade.jpg',
     badge: 'Upgrade Course',
     badgeColor: 'bg-purple-600',
     price: '₹45,000',
@@ -235,7 +235,7 @@ export const coursesData: Record<string, CourseData> = {
     mode: 'Intensive Training',
     certificate: 'DGCA Medium Category License',
     language: 'English / Hindi',
-    locations: ['Hyderabad', 'Bangalore'],
+    locations: ['Hyderabad'],
     level: 'Intermediate',
     learningOutcomes: [
       'Medium category regulations and differences',
@@ -303,10 +303,10 @@ export const coursesData: Record<string, CourseData> = {
   },
   'dgca-combined': {
     id: 'dgca-combined',
-    title: 'Small + Medium Combined Package',
+    title: 'DGCA Small + Medium Combined Package',
     subtitle: 'Complete Dual Certification in 8 Days',
     description: 'Comprehensive training package covering both small and medium category certifications in one complete course.',
-    heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/small-medium.jpg',
     badge: 'Best Value',
     badgeColor: 'bg-[#F15A24]',
     price: '₹75,000',
@@ -316,7 +316,7 @@ export const coursesData: Record<string, CourseData> = {
     mode: 'Comprehensive Training',
     certificate: 'DGCA Small + Medium Category License',
     language: 'English / Hindi / Telugu',
-    locations: ['Hyderabad', 'Bangalore', 'Mumbai'],
+    locations: ['Hyderabad'],
     level: 'Beginner to Advanced',
     learningOutcomes: [
       'Complete small category training',
@@ -480,7 +480,7 @@ export const coursesData: Record<string, CourseData> = {
     mode: 'Field + Software Training',
     certificate: 'Mining Analysis Specialist',
     language: 'English / Hindi',
-    locations: ['Hyderabad', 'Bangalore'],
+    locations: ['Hyderabad'],
     level: 'Advanced',
     learningOutcomes: [
       'Volumetric calculation techniques',
@@ -644,9 +644,9 @@ export const coursesData: Record<string, CourseData> = {
 ,
   'agriculture-spraying': {
     id: 'agriculture-spraying',
-    title: 'Agriculture Spraying & Precision Farming',
+    title: 'Agriculture Crop Monitoring & Precision Farming',
     subtitle: 'Specialized Training for Agricultural Drone Operations',
-    description: 'Master precision agriculture techniques with drone technology. Learn crop monitoring, spraying operations, and data analysis for modern farming.',
+    description: 'Master precision agriculture techniques with drone technology. Learn spraying operations for modern farming.',
     heroImage: 'https://images.pexels.com/photos/1595108/pexels-photo-1595108.jpeg?auto=compress&cs=tinysrgb&w=1200',
     badge: 'Agriculture Specialist',
     badgeColor: 'bg-green-600',
@@ -656,16 +656,15 @@ export const coursesData: Record<string, CourseData> = {
     mode: 'Field Training + Practical',
     certificate: 'Agriculture Drone Specialist',
     language: 'English / Hindi / Regional',
-    locations: ['Pune', 'Hyderabad', 'Bangalore', 'Indore'],
+    locations: ['Hyderabad', ],
     level: 'Beginner Friendly',
     learningOutcomes: [
-      'Crop health assessment techniques',
+      
       'Precision spraying operations',
       'Agricultural drone regulations',
       'Spray pattern optimization',
       'Chemical handling and safety',
       'Field mapping and planning',
-      'ROI calculation for farmers',
       'Equipment maintenance'
     ],
     courseFeatures: [
@@ -1581,7 +1580,7 @@ export const coursesData: Record<string, CourseData> = {
     heroImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200',
     badge: 'Women Only',
     badgeColor: 'bg-pink-600',
-    price: '₹42,000',
+    price: '₹35,000',
     gst: '+ 18% GST',
     originalPrice: '₹50,000',
     duration: '5 Days',
@@ -2149,7 +2148,7 @@ export const coursesData: Record<string, CourseData> = {
 },
 'agriculture-precision': {
   id: 'agriculture-precision',
-  title: 'Agriculture Spraying & Precision Farming',
+  title: 'Agriculture Crop Monitoring & Precision Farming',
   subtitle: 'Precision spraying techniques for crop protection and optimized agriculture',
   description: 'This course trains participants in modern spraying techniques using drones for crop protection and field productivity. It combines flight skills with crop monitoring and mapping practices tailored for agriculture.',
   heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -2228,6 +2227,87 @@ export const coursesData: Record<string, CourseData> = {
     'Government-ready skills'
   ]
 },
+'assembly-basic': {
+  id: 'assembly-basic',
+  title: 'Drone Assembly & Repair (Basic)',
+  subtitle: 'Learn the essentials of drone assembly, repair, and basic maintenance',
+  description: 'This foundational program covers essential drone assembly, basic repairs, soldering, and maintenance. Learn how to handle minor repairs, basic calibration, and troubleshoot common drone issues. Ideal for beginners or enthusiasts looking to start a career in drone repair and maintenance.',
+  heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  badge: 'Special Courses',
+  badgeColor: 'bg-green-600',
+  price: '₹30,000',
+  gst: '+ 18% GST',
+  duration: '5 Days',
+  mode: 'Hands-on + Lab Work',
+  certificate: 'Basic Repair & Maintenance Certificate',
+  language: 'English / Hindi',
+  locations: ['Hyderabad', 'Bangalore'],
+  level: 'Beginner',
+  learningOutcomes: [
+    'Basic drone assembly and disassembly',
+    'Troubleshooting common issues (motors, ESCs)',
+    'Introduction to soldering and wiring',
+    'Basic calibration of IMU, GPS, and compass',
+    'Simple flight performance tuning',
+    'Fundamentals of drone repair and diagnostics'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Wrench',
+      title: 'Basic Repairs',
+      description: 'Live workshop on basic drone assembly and repair'
+    },
+    {
+      icon: 'Settings',
+      title: 'Basic Tuning',
+      description: 'Learn basic tuning for stable drone flight'
+    },
+    {
+      icon: 'Monitor',
+      title: 'Testing & Tools',
+      description: 'Hands-on with essential drone repair tools and basic testing'
+    },
+    {
+      icon: 'Award',
+      title: 'Certification',
+      description: 'Completion certificate for basic drone repair technicians'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'July 15, 2025',
+      endDate: 'July 19, 2025',
+      location: 'Bangalore',
+      seatsLeft: 8,
+      totalSeats: 15
+    }
+  ],
+  instructor: {
+    name: 'Mr. Ashwin Desai',
+    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'UAV Maintenance Specialist',
+    experience: '10+ Years in Drone Tech',
+    description: 'Ashwin is a UAV technician with expertise in basic drone repairs, hardware diagnostics, and flight tuning for beginner-level drones.',
+    credentials: ['FPV Technician', 'ESC Firmware Expert', 'Drone Lab Consultant']
+  },
+  faq: [
+    {
+      question: 'Is prior technical knowledge required?',
+      answer: 'No, this course is designed for beginners and no prior technical knowledge is required.'
+    },
+    {
+      question: 'Will I receive a toolkit?',
+      answer: 'Tools will be provided during the course. You can purchase kits separately after the training.'
+    }
+  ],
+  highlights: [
+    'Introductory soldering and wiring training',
+    'Basic-level drone repair and diagnostics',
+    'Focus on drone enthusiast skills and hobbyist repairs',
+    'Hands-on lab work and practical sessions'
+  ]
+},
+
 'assembly-advanced': {
   id: 'assembly-advanced',
   title: 'Drone Assembly & Repair (Advanced)',

@@ -66,7 +66,7 @@ const ApplyNowPage: React.FC = () => {
     { value: 'drone-assembly-advanced', label: 'Drone Assembly Advanced (5 Days) - ₹45,000 + GST' },
     { value: 'fpv-basic', label: 'FPV Training Basic (3 Days) - ₹25,000 + GST' },
     { value: 'fpv-advanced', label: 'FPV Training Advanced (5 Days) - ₹45,000 + GST' },
-    { value: 'women-bootcamp', label: 'Women Drone Pilot Bootcamp (5 Days) - ₹42,000 + GST' },
+    { value: 'women-bootcamp', label: 'Women Drone Pilot Bootcamp (5 Days) - ₹35,000 + GST' },
     { value: 'drone-didi-agri', label: 'Drone-Didi Agri Program (3 Days) - ₹22,000 + GST' },
     { value: 'dgca-cinematography-bundle', label: 'DGCA Small + Cinematography (8 Days) - ₹85,000 + GST' },
     { value: 'dgca-mapping-bundle', label: 'DGCA Medium + 3D Mapping (8 Days) - ₹90,000 + GST' },
@@ -298,10 +298,7 @@ const ApplyNowPage: React.FC = () => {
               <Shield className="w-4 h-4 mr-2 text-[#26A65B]" />
               <span>Secure Application</span>
             </div>
-            <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-2 text-[#26A65B]" />
-              <span>24hr Response</span>
-            </div>
+           
             <div className="flex items-center">
               <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
               <span>Expert Counseling</span>

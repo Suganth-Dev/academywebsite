@@ -18,6 +18,7 @@ import SitemapPage from './pages/SitemapPage';
 import CollaborationPage from './pages/CollaborationPage';
 import PartnershipsPage from './pages/PartnershipsPage';
 import CurriculumPage from './pages/CurriculumPage';
+
 //added
 function App() {
   return (

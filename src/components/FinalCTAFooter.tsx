@@ -45,12 +45,12 @@ const FinalCTAFooter: React.FC = () => {
               {
                 icon: <Users className="w-6 h-6 text-white mx-auto mb-1" />,
                 title: 'Expert Instructors',
-                desc: 'Learn from certified pilots with real industry experience',
+                desc: 'Learn from certified senior instuctors with real industry experience',
               },
               {
                 icon: <TrendingUp className="w-6 h-6 text-white mx-auto mb-1" />,
                 title: 'Career Support',
-                desc: '100% job assistance with 500+ hiring partners',
+                desc: '100% job assistance with 15+ hiring partners',
               }
             ].map((item, i) => (
               <div key={i} className="bg-white/10 rounded-lg p-4 border border-white/20">
@@ -66,8 +66,8 @@ const FinalCTAFooter: React.FC = () => {
             {[
               { number: '2500+', label: 'Graduates' },
               { number: '100%', label: 'Success Rate' },
-              { number: '₹6L+', label: 'Avg. Salary' },
-              { number: '5 Days', label: 'To Certification' }
+              { number: '₹2.5L-₹7.5L', label: 'Avg. Salary' },
+              { number: '5-15 Days', label: 'To Certification' }
             ].map((metric, index) => (
               <div key={index}>
                 <div className="text-xl lg:text-2xl font-bold mb-1">{metric.number}</div>

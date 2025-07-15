@@ -5,41 +5,46 @@ import { useNavigate } from 'react-router-dom';
 const StudentSuccessSnapshot: React.FC = () => {
   const navigate = useNavigate();
 
-  const testimonials = [
-    {
-      id: 1,
-      name: 'Rajesh Kumar',
-      role: 'Commercial Drone Pilot',
-      course: 'DGCA Pilot Training',
-      location: 'Mumbai',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300',
-      quote: 'IDA transformed my career completely. From a mechanical engineer to a certified drone pilot earning 6 figures. The training was comprehensive and the placement support was exceptional.',
-      achievement: 'Now earning ₹8L+ annually',
-      rating: 5
-    },
-    {
-      id: 2,
-      name: 'Priya Sharma',
-      role: 'Agriculture Drone Specialist',
-      course: 'Agriculture Drone Training',
-      location: 'Pune',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300',
-      quote: 'The Women Drone Program gave me confidence and skills to start my own agriculture drone service. I\'m now helping farmers across Maharashtra with precision agriculture.',
-      achievement: 'Started own drone service company',
-      rating: 5
-    },
-    {
-      id: 3,
-      name: 'Amit Patel',
-      role: 'Survey & Mapping Expert',
-      course: 'DGCA Pilot Training',
-      location: 'Bangalore',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
-      quote: 'The practical training at IDA was outstanding. Real-world projects and industry connections helped me land a job at a top surveying company within 2 weeks of certification.',
-      achievement: 'Placed in 2 weeks after certification',
-      rating: 5
-    }
-  ];
+const testimonials = [
+  {
+    id: 1,
+    name: 'Rajesh Kumar',
+    role: 'Commercial Drone Pilot',
+    course: 'DGCA Pilot Training',
+    location: 'Mumbai',
+    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300',
+    quote:
+      'The DGCA training at IDA gave me the confidence to operate drones professionally. The hands-on flying sessions and simulator access helped me master navigation and safety protocols.',
+    achievement: 'Now flying drones for infrastructure inspection projects across Maharashtra',
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Priya Sharma',
+    role: 'Agriculture Drone Specialist',
+    course: 'Agriculture Drone Training',
+    location: 'Pune',
+    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300',
+    quote:
+      'IDA’s Women Drone Program opened up a whole new world for me. I gained not just skills in spraying and crop health monitoring, but also the courage to conduct training demos in rural areas.',
+    achievement: 'Currently supporting women-led agri groups in drone spraying across 12 villages',
+    rating: 5,
+  },
+  {
+  id: 3,
+  name: 'Amit Patel',
+  role: 'Survey & Mapping Expert',
+  course: 'DGCA Pilot Training',
+  location: 'Bangalore',
+  image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
+  quote:
+    'The outdoor training and map creation sessions at IDA helped me move from just learning GIS in theory to actually using drones for real surveying work.',
+  achievement: 'Now working on urban land mapping projects using drone-GIS integration',
+  rating: 5,
+}
+
+];
+
 
   const handleReadMoreClick = () => {
     navigate('/success-stories');
@@ -97,8 +102,8 @@ const StudentSuccessSnapshot: React.FC = () => {
     {[
       { number: '2500+', label: 'Students Placed', icon: Users },
       { number: '100%', label: 'Success Rate', icon: TrendingUp },
-      { number: '₹6L+', label: 'Average Salary', icon: Award },
-      { number: '500+', label: 'Partner Companies', icon: Users }
+      { number: '₹2.5L-₹7.5L', label: 'Average Salary', icon: Award },
+      { number: '50+', label: 'Partner Companies', icon: Users }
     ].map((stat, index) => {
       const IconComponent = stat.icon;
       return (

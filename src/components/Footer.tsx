@@ -185,7 +185,7 @@ const socialLinks = [
           <div className="flex space-x-4 text-sm">
             <button onClick={() => handleNavigation('/privacy')} className="text-gray-400 hover:text-[#F15A24]">Privacy Policy</button>
             <button onClick={() => handleNavigation('/terms')} className="text-gray-400 hover:text-[#F15A24]">Terms of Service</button>
-            <button onClick={() => handleNavigation('/sitemap')} className="text-gray-400 hover:text-[#F15A24]">Sitemap</button>
+            
           </div>
         </div>
       </div>
