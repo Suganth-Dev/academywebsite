@@ -274,7 +274,6 @@ const PartnershipsPage: React.FC = () => {
     'Joint branding and media exposure',
     'Collaboration in government drone programs',
     'Feature opportunities on Drone TV',
-    'Scalable partner models (revenue-share / flat-fee / licensing)',
     'Pan-India network of training centers',
     'Industry-leading placement success rates',
     'Ongoing technical and business support'

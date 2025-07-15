@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowRight, Filter, Plane, Wheat, Users, Clock, Award, MapPin,  Percent, Calendar, Settings, Download, Camera, Wrench, Monitor, Target, Zap, Building } from 'lucide-react';
+import { ArrowRight, Filter, Plane, Wheat, Users, Clock, Award, MapPin, Percent, Calendar, Settings, Download, Camera, Wrench, Monitor, Target, Zap, Building } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import DownloadBrochureForm from '../components/DownloadBrochureForm';
 
 const CoursesPage: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -15,13 +16,13 @@ const CoursesPage: React.FC = () => {
       category: 'DGCA Certified',
       badge: 'Most Popular',
       badgeColor: 'bg-[#26A65B]',
-      description: 'Government-certified training for small category drones (up to 2kg) with complete theory and practical sessions.',
+      description: 'Government-certified training for small category drones (up to 25kg) with complete theory and practical sessions.',
       duration: '5 Days',
       price: '₹45,000',
       gst: '+ 18% GST',
       level: 'Beginner to Intermediate',
       icon: Plane,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/dgca-small.jpg',
       link: '/courses/dgca-small',
       features: ['DGCA Certification', 'Theory & Practical', 'Job Assistance', 'Small Drone Operations'],
 
@@ -32,16 +33,16 @@ const CoursesPage: React.FC = () => {
       category: 'DGCA Certified',
       badge: 'Professional',
       badgeColor: 'bg-blue-600',
-      description: 'Advanced certification for medium category drones (2-25kg) for commercial operations.',
+      description: 'Advanced certification for medium category drones more than 25kg upto 50kg for commercial operations.',
       duration: '5 Days',
       price: '₹65,000',
       gst: '+ 18% GST',
       level: 'Intermediate to Advanced',
       icon: Plane,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/dgca-medium.jpg',
       link: '/courses/dgca-medium',
       features: ['Medium Drone Ops', 'Advanced Training', 'Commercial License', 'Higher Payload'],
-      locations: ['Hyderabad', 'Bangalore', 'Mumbai']
+      locations: ['Hyderabad',]
     },
     {
       id: 3,
@@ -55,15 +56,15 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Intermediate',
       icon: Award,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/medium-upgrade.jpg',
       link: '/courses/medium-upgrade',
       features: ['Quick Upgrade', 'Medium Category', 'Advanced Operations', 'Commercial Ready'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad', ]
     },
     {
       id: 4,
-      title: 'Small + Medium Combined',
-      category: 'Bundles',
+      title: 'DGCA Small + Medium Combined',
+      category: 'DGCA Certified',
       badge: 'Best Value',
       badgeColor: 'bg-[#F15A24]',
       description: 'Complete certification package for both small and medium categories in one comprehensive course.',
@@ -72,10 +73,10 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Beginner to Advanced',
       icon: Award,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/small-medium.jpg',
       link: '/courses/dgca-combined',
       features: ['Dual Certification', 'Complete Training', 'Best Value', 'All Categories'],
-      locations: ['Hyderabad', 'Bangalore', 'Mumbai']
+      locations: ['Hyderabad']
     },
     {
       id: 5,
@@ -92,7 +93,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/site-asset-inspection',
       features: ['Infrastructure Mapping', 'Utilities Inspection', 'Survey Tools', 'Road & Rail Monitoring'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
 
     {
@@ -110,12 +111,12 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/mining-excavation',
       features: ['Volumetric Analysis', 'Mining Monitoring', '3D Modeling', 'Drone Mapping'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
 
     {
       id: 7,
-      title: 'Agriculture Spraying & Precision Farming',
+      title: 'Agriculture Crop Monitoring & Precision Farming',
       category: 'Special Courses',
       badge: 'For Farmers',
       badgeColor: 'bg-green-600',
@@ -128,7 +129,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/agriculture-precision',
       features: ['Spraying Techniques', 'Crop Monitoring', 'Agri Mapping', 'Flight Demos'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
 
     {
@@ -146,7 +147,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/aerial-cinematography',
       features: ['Cinematic Shots', 'Camera Gimbal Use', 'Creative Angles', 'Footage Editing'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
 
     {
@@ -164,11 +165,28 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/data-processing',
       features: ['Orthomosaics', 'DEM/DSM', '3D Models', 'QGIS Export'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
+{
+  id: 10,
+  title: 'Drone Assembly & Repair (Basic)',
+  category: 'Special Courses',
+  badge: 'Basic Repair',
+  badgeColor: 'bg-green-600',
+  description: 'Learn essential repairs, soldering, and maintenance for drones.',
+  duration: '5 Days',
+  price: '₹30,000',
+  gst: '+ 18% GST',
+  level: 'Beginner',
+  icon: Wrench,
+  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+  link: '/courses/assembly-basic',
+  features: ['Basic Soldering', 'Motor Setup', 'ESC Troubleshooting', 'Flight Performance Tuning'],
+  locations: ['Hyderabad']
+},
 
     {
-      id: 10,
+      id: 11,
       title: 'Drone Assembly & Repair (Advanced)',
       category: 'Special Courses',
       badge: 'Advanced Repair',
@@ -182,11 +200,11 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/assembly-advanced',
       features: ['Advanced Soldering', 'ESC Tuning', 'IMU Calibration', 'Motor Testing'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
 
     {
-      id: 11,
+      id: 12,
       title: 'Custom Training / Workshop for Institutes',
       category: 'Special Courses',
       badge: 'Institutional',
@@ -200,10 +218,10 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/custom-training',
       features: ['Curriculum Design', 'Field Training', 'Certification', 'Project Work'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
     {
-      id: 12,
+      id: 13,
       title: 'FPV Drone Training (Basic)',
       category: 'Special Courses',
       badge: 'Racing',
@@ -217,11 +235,11 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/fpv-basic',
       features: ['Line of Sight', 'Simulator Flying', 'Basic FPV Kit', 'Safety Protocols'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
 
     {
-      id: 13,
+      id: 14,
       title: 'FPV Drone Training (Advanced)',
       category: 'Special Courses',
       badge: 'Professional Racing',
@@ -235,42 +253,42 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/fpv-advanced',
       features: ['Advanced Racing', 'Competition Prep', 'Professional Techniques', 'Performance Tuning'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
 
     {
-      id: 14,
+      id: 15,
       title: 'Women Drone Pilot Bootcamp',
       category: 'Women Programs',
       badge: 'Women Only',
       badgeColor: 'bg-pink-600',
       description: 'Comprehensive training program designed specifically for women with mentorship and career guidance.',
       duration: '5 Days',
-      price: '₹42,000',
+      price: '₹35,000',
       gst: '+ 18% GST',
       level: 'All Levels',
       icon: Users,
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/women-bootcamp',
       features: ['Women-Only Batches', 'Mentorship', 'Career Guidance', 'Networking'],
-      locations: ['Bangalore', 'Mumbai', 'Delhi', 'Hyderabad']
+      locations: ['Hyderabad']
     },
     {
-      id: 15,
+      id: 16,
       title: 'Drone-Didi Agri Program',
       category: 'Women Programs',
       badge: 'Women Empowerment',
       badgeColor: 'bg-green-500',
       description: 'Specialized agriculture program for rural and urban women focusing on precision farming.',
-      duration: '3 Days',
-      price: '₹22,000',
+      duration: '15 Days',
+      price: '₹35,000',
       gst: '+ 18% GST',
       level: 'Beginner Friendly',
       icon: Wheat,
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/drone-didi-agri',
       features: ['Women-Focused', 'Agriculture Training', 'Rural Empowerment', 'Practical Skills'],
-      locations: ['Pune', 'Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
 
     {
@@ -288,7 +306,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/dgca-mapping-bundle',
       features: ['Medium Category', '3D Mapping', 'Survey Techniques', 'Professional Skills'],
-      locations: ['Hyderabad', 'Bangalore', 'Mumbai']
+      locations: ['Hyderabad']
     },
     {
       id: 18,
@@ -305,7 +323,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/ultimate-pro',
       features: ['Triple Certification', 'Complete Package', 'Professional Level', 'Career Ready'],
-      locations: ['Hyderabad', 'Bangalore', 'Mumbai']
+      locations: ['Hyderabad']
     },
     {
       id: 19,
@@ -322,7 +340,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/master-drone-tech',
       features: ['DGCA License', 'Photogrammetry', 'LiDAR & CAD', 'Internship Projects'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
     {
       id: 20,
@@ -339,7 +357,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/advanced-missions',
       features: ['Orbit & Oblique', 'Payload Drop', 'Thermal Imaging', 'Sensor Setup'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
     {
       id: 21,
@@ -356,7 +374,7 @@ const CoursesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
       link: '/courses/gis-analytics',
       features: ['CAD+GIS', 'Contours/TIN', 'X-Section Analysis', 'Alignment Modeling'],
-      locations: ['Hyderabad', 'Bangalore']
+      locations: ['Hyderabad']
     },
     {
       id: 22,
@@ -431,7 +449,11 @@ const CoursesPage: React.FC = () => {
     // In a real app, this would trigger a download
     console.log('Download brochure');
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Add these functions to open and close the modal
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
@@ -595,13 +617,15 @@ const CoursesPage: React.FC = () => {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleDownloadBrochure();
+                      openModal(); // Open the modal when clicking the Brochure button
                     }}
                     className="flex-1 bg-white border border-[#F15A24] text-[#F15A24] hover:bg-[#F15A24] hover:text-white font-bold py-2 px-4 rounded-lg transition-all duration-200 flex items-center justify-center"
                   >
                     <Download className="w-4 h-4 mr-2" />
                     Brochure
                   </button>
+
+
                 </div>
               </div>
             ))}
@@ -626,6 +650,32 @@ const CoursesPage: React.FC = () => {
           )}
         </div>
       </section>
+
+{isModalOpen && (
+  <>
+    {/* Background Overlay */}
+    <div
+      className="fixed inset-0 bg-black bg-opacity-50 z-40"
+      onClick={closeModal}
+    />
+
+    {/* Modal Content */}
+    <div className="fixed inset-0 z-50 overflow-y-auto px-4 py-10">
+      <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-md sm:max-w-lg mx-auto p-4 sm:p-5 mt-24">
+        {/* Close Button */}
+        <button
+          onClick={closeModal}
+          className="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl font-bold"
+        >
+          &times;
+        </button>
+
+        {/* Form */}
+        <DownloadBrochureForm />
+      </div>
+    </div>
+  </>
+)}
 
 
 
