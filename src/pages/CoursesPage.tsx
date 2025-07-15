@@ -90,7 +90,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Intermediate',
       icon: Target,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/site-asset.jpg',
       link: '/courses/site-asset-inspection',
       features: ['Infrastructure Mapping', 'Utilities Inspection', 'Survey Tools', 'Road & Rail Monitoring'],
       locations: ['Hyderabad']
@@ -108,7 +108,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Advanced',
       icon: Target,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/mining.webp',
       link: '/courses/mining-excavation',
       features: ['Volumetric Analysis', 'Mining Monitoring', '3D Modeling', 'Drone Mapping'],
       locations: ['Hyderabad']
@@ -126,7 +126,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Beginner Friendly',
       icon: Wheat,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/agricrop-monitor.webp',
       link: '/courses/agriculture-precision',
       features: ['Spraying Techniques', 'Crop Monitoring', 'Agri Mapping', 'Flight Demos'],
       locations: ['Hyderabad']

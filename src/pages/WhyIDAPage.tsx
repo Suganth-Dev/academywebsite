@@ -97,7 +97,7 @@ const WhyIDAPage: React.FC = () => {
   const founderMessage = {
     name: 'Dev.R',
     title: 'Founder & CEO, India Drone Academy',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+    image: '/devR.jpg',
     quote: 'India Drone Academy leads India\'s UAV training ecosystem with DGCA-approved programs, hands-on learning, and high-end simulator labs. Our mission is to make drone certification accessible and career-focused.',
     videoThumbnail: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=600'
   };
@@ -139,9 +139,9 @@ const WhyIDAPage: React.FC = () => {
   ];
   const teamMembers = [
     {
-      name: "Captain Rajesh Sharma",
+      name: "Dev.R",
       designation: "Founder & CEO",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
+      image: "/devR.jpg",
       experience: "15+ years in aviation"
     },
     {
@@ -151,33 +151,33 @@ const WhyIDAPage: React.FC = () => {
       experience: "PhD in Aeronautical Engineering"
     },
     {
-      name: "Vikram Singh",
-      designation: "Head of Operations",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300",
-      experience: "Ex-Indian Air Force"
+      name: "Vamsi Krishna Kurakula",
+      designation: "Director",
+      image: "/vamsi.jpg",
+      experience: "DGCA Certified RPAS Instructor "
     },
     {
-      name: "Meera Reddy",
-      designation: "Lead Instructor",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300",
-      experience: "500+ flight hours"
+      name: "Sumit Krishnan",
+      designation: " DGCA Certified RPAS Instructor (Medium and Small)",
+      image: "/sumit.jpg",
+      experience: "Aeronautical Engineer, A.M.AeSI, Author"
     },
     {
-      name: "Amit Kumar",
-      designation: "Technical Director",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
-      experience: "Drone Engineering Expert"
+      name: " V HariPrakash Raju",
+      designation: "DGCA Certified Remote Pilot",
+      image: "/hari.jpg",
+      experience: "Business Development"
     },
     {
-      name: "Sneha Joshi",
-      designation: "Business Development Head",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300",
-      experience: "10+ years in corporate partnerships"
+      name: "Pagidi Srikanth",
+      designation: "DGCA Certified Remote Pilot",
+      image: "/srikanth.jpg",
+      experience: "UAV Maintenance Engineer"
     },
     {
-      name: "Kiran Rao",
-      designation: "Agriculture Specialist",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300",
+      name: "G Rakesh",
+      designation: "DGCA Certified Remote Pilot",
+      image: "/rakesh.jpg",
       experience: "Expert in precision farming"
     },
     {
@@ -248,7 +248,7 @@ const WhyIDAPage: React.FC = () => {
             <div className="relative">
               <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="/whyida.jpg"
                   alt="Students training at India Drone Academy"
                   className="w-full h-80 object-cover rounded-lg"
                   loading="lazy"
@@ -389,13 +389,10 @@ const WhyIDAPage: React.FC = () => {
                 </ul>
               </div>
             </div>
-
-
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Founder Message */}
             <div>
-
               <div className="flex items-center mb-8">
                 <img
                   src={founderMessage.image}
@@ -450,7 +447,6 @@ const WhyIDAPage: React.FC = () => {
               </div>
             </div>
           </div>
-
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Founder Message */}
@@ -518,47 +514,44 @@ const WhyIDAPage: React.FC = () => {
       </section>
 
       {/* Team Members Scrolling Section */}
-      <section className="py-16 lg:py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Meet Our Expert Team
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Passionate professionals including certified trainers, drone pilots, GIS experts, software developers, and video editors — bringing rich experience from aviation, technology, and training.
-              </p>
+     <section className="py-16 lg:py-24 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Meet Our Expert Team
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Passionate professionals including certified trainers, drone pilots, GIS experts, software developers, and video editors — bringing rich experience from aviation, technology, and training.
+      </p>
+    </div>
 
-            </p>
-          </div>
-
-          {/* Scrolling Content */}
-          <div className="relative overflow-hidden">
-            <div className="flex gap-6 animate-scroll py-8 w-max">
-              {teamMembers.map((member, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-64 bg-gray-50 rounded-xl p-6 shadow hover:shadow-md transition-all duration-300 transform hover:-translate-y-2 text-center"
-                >
-                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#F15A24] border-opacity-20">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <h3 className="font-bold text-gray-900 text-lg mb-1">{member.name}</h3>
-                  <p className="text-[#F15A24] font-medium text-sm mb-2">{member.designation}</p>
-                  <p className="text-gray-600 text-xs">{member.experience}</p>
-                </div>
-              ))}
+    {/* Scrolling Cards */}
+    <div className="relative overflow-hidden">
+      <div className="flex gap-6 animate-scroll py-8 w-max">
+        {teamMembers.map((member, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-64 h-[420px] bg-white rounded-xl shadow hover:shadow-md transition-all duration-300 transform hover:-translate-y-2 flex flex-col overflow-hidden"
+          >
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-2/3 object-cover"
+              loading="lazy"
+            />
+            <div className="flex-1 flex flex-col justify-end items-center text-center p-4">
+              <h3 className="font-bold text-gray-900 text-lg">{member.name}</h3>
+              <p className="text-[#F15A24] font-medium text-sm mt-1">{member.designation}</p>
+              <p className="text-gray-600 text-xs mt-1">{member.experience}</p>
             </div>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
+  </div>
 
-        {/* Smooth Scrolling Animation */}
-        <style jsx>{`
+  {/* Scroll Animation */}
+  <style jsx>{`
     @keyframes scroll {
       0% {
         transform: translateX(0);
@@ -574,7 +567,8 @@ const WhyIDAPage: React.FC = () => {
       animation-play-state: paused;
     }
   `}</style>
-      </section>
+</section>
+
 
       {/* Training Milestones */}
       <section className="py-8 lg:py-16 bg-gray-50">
@@ -708,28 +702,16 @@ const WhyIDAPage: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Video Section */}
-            <div className="relative">
-              <div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-                <iframe
-                  src="https://www.youtube.com/embed/c-_51Uu537o?autoplay=1&mute=1"
-                  title="School students learning about drones"
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  allow="autoplay; encrypted-media; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 shadow-lg transform group-hover:scale-110 transition-all duration-200">
-                    <Play className="w-8 h-8 text-[#F15A24] ml-1" />
-                  </div>
-                </div>
-                <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm">
-                  School Drone Program - 3 min
-                </div>
-              </div>
+            <div className="relative rounded-xl overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.youtube.com/embed/c-_51Uu537o?autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=1"
+                title="Campus walkthrough video"
+                className="w-full h-80 object-cover rounded-xl"
+                allow="autoplay; encrypted-media; accelerometer; clipboard-write; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
             </div>
-
 
 
             {/* Content Section */}
