@@ -8,11 +8,11 @@ const StudentSuccessSnapshot: React.FC = () => {
 const testimonials = [
   {
     id: 1,
-    name: 'Rajesh Kumar',
+    name: 'Vipin Kumar',
     role: 'Commercial Drone Pilot',
     course: 'DGCA Pilot Training',
     location: 'Mumbai',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300',
+    image: 'vipin.jpg',
     quote:
       'The DGCA training at IDA gave me the confidence to operate drones professionally. The hands-on flying sessions and simulator access helped me master navigation and safety protocols.',
     achievement: 'Now flying drones for infrastructure inspection projects across Maharashtra',
@@ -20,11 +20,11 @@ const testimonials = [
   },
   {
     id: 2,
-    name: 'Priya Sharma',
+    name: 'Dhondi Jugge Rishika',
     role: 'Agriculture Drone Specialist',
     course: 'Agriculture Drone Training',
     location: 'Pune',
-    image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300',
+    image: '/Rishika.jpg',
     quote:
       'IDA’s Women Drone Program opened up a whole new world for me. I gained not just skills in spraying and crop health monitoring, but also the courage to conduct training demos in rural areas.',
     achievement: 'Currently supporting women-led agri groups in drone spraying across 12 villages',
@@ -32,11 +32,11 @@ const testimonials = [
   },
   {
   id: 3,
-  name: 'Amit Patel',
+  name: 'Satish',
   role: 'Survey & Mapping Expert',
   course: 'DGCA Pilot Training',
   location: 'Bangalore',
-  image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
+  image: 'satish.jpg',
   quote:
     'The outdoor training and map creation sessions at IDA helped me move from just learning GIS in theory to actually using drones for real surveying work.',
   achievement: 'Now working on urban land mapping projects using drone-GIS integration',
@@ -73,7 +73,7 @@ const testimonials = [
           <img
             src={testimonial.image}
             alt={testimonial.name}
-            className="w-12 h-12 rounded-full object-cover mx-auto mb-3"
+            className="w-16 h-16 rounded-full object-cover mx-auto mb-3"
             loading="lazy"
           />
           <h4 className="font-bold text-gray-900 text-base mb-0.5">{testimonial.name}</h4>

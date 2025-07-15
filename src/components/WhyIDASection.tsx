@@ -99,7 +99,7 @@ const WhyIDASection: React.FC = () => {
       <div className="relative">
         <div className="relative rounded-xl overflow-hidden shadow-xl">
           <img
-            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+            src="/team.jpg"
             alt="Students learning drone operations at India Drone Academy"
             className="w-full h-[360px] object-cover"
             loading="lazy"
