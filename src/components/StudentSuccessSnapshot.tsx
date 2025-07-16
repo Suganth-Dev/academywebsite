@@ -31,19 +31,79 @@ const testimonials = [
     rating: 5,
   },
   {
-  id: 3,
-  name: 'Satish',
-  role: 'Survey & Mapping Expert',
-  course: 'DGCA Pilot Training',
-  location: 'Bangalore',
-  image: 'satish.jpg',
-  quote:
-    'The outdoor training and map creation sessions at IDA helped me move from just learning GIS in theory to actually using drones for real surveying work.',
-  achievement: 'Now working on urban land mapping projects using drone-GIS integration',
-  rating: 5,
-}
-
+    id: 3,
+    name: 'Satish',
+    role: 'Survey & Mapping Expert',
+    course: 'DGCA Pilot Training',
+    location: 'Bangalore',
+    image: 'satish.jpg',
+    quote:
+      'The outdoor training and map creation sessions at IDA helped me move from just learning GIS in theory to actually using drones for real surveying work.',
+    achievement: 'Now working on urban land mapping projects using drone-GIS integration',
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'Shruti Naik',
+    role: 'Drone Instructor',
+    course: 'Instructor Development Program',
+    location: 'Hyderabad',
+    image: '/shruti.jpg',
+    quote:
+      'IDA transformed me from a drone learner to a certified instructor. The structured curriculum and simulator training made me confident to teach others.',
+    achievement: 'Now conducting drone training sessions in Telangana RPTOs',
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: 'Praveen Reddy',
+    role: 'Mining Surveyor',
+    course: 'Drone Mapping for Mining',
+    location: 'Chennai',
+    image: '/praveen.jpg',
+    quote:
+      'IDA’s mapping course helped me automate volume calculations for mining projects. The field sessions gave me practical exposure.',
+    achievement: 'Deployed drone mapping in 3 major mining zones across Tamil Nadu',
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: 'Zainab Fatima',
+    role: 'Student Trainee',
+    course: 'Drone Summer Bootcamp',
+    location: 'Lucknow',
+    image: '/zainab.jpg',
+    quote:
+      'The summer drone bootcamp was amazing! We learned about components, safety, and even flew real drones in the college ground.',
+    achievement: 'Presented drone demo at inter-college tech fest',
+    rating: 5,
+  },
+  {
+    id: 7,
+    name: 'Manoj Pillai',
+    role: 'Defense Simulation Analyst',
+    course: 'Drone Simulator Training',
+    location: 'Delhi',
+    image: '/manoj.jpg',
+    quote:
+      'The drone simulator at IDA was realistic and challenging. Perfect for defense scenario testing. Loved the terrain mapping module.',
+    achievement: 'Now assisting in simulation module design for defense units',
+    rating: 5,
+  },
+  {
+    id: 8,
+    name: 'Anita Sharma',
+    role: 'Environmental Analyst',
+    course: 'Environmental Drone Monitoring',
+    location: 'Jaipur',
+    image: '/anita.jpg',
+    quote:
+      'I learned to use drones to monitor forest boundaries and water pollution. A unique and useful program!',
+    achievement: 'Now part of Rajasthan’s drone-based ecological monitoring team',
+    rating: 5,
+  },
 ];
+
 
 
   const handleReadMoreClick = () => {
@@ -64,36 +124,59 @@ const testimonials = [
     </div>
 
     {/* Testimonials Grid */}
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
-      {testimonials.map((testimonial) => (
-        <div
-          key={testimonial.id}
-          className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition duration-200 transform hover:-translate-y-0.5 text-center"
-        >
-          <img
-            src={testimonial.image}
-            alt={testimonial.name}
-            className="w-16 h-16 rounded-full object-cover mx-auto mb-3"
-            loading="lazy"
-          />
-          <h4 className="font-bold text-gray-900 text-base mb-0.5">{testimonial.name}</h4>
-          <p className="text-gray-600 text-xs mb-0.5">{testimonial.role}</p>
-          <p className="text-[#F15A24] text-xs font-medium mb-2">{testimonial.course}</p>
-          <div className="flex justify-center mb-2">
-            {[...Array(testimonial.rating)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-            ))}
+<div className="overflow-hidden w-full py-10">
+      <div className="flex gap-6 animate-scroll">
+        {[...testimonials, ...testimonials].map((testimonial, index) => (
+          <div
+            key={index}
+            className="min-w-[300px] max-w-sm bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition duration-200 transform hover:-translate-y-0.5 text-center"
+          >
+            <img
+              src={testimonial.image}
+              alt={testimonial.name}
+              className="w-16 h-16 rounded-full object-cover mx-auto mb-3"
+              loading="lazy"
+            />
+            <h4 className="font-bold text-gray-900 text-base">{testimonial.name}</h4>
+            <p className="text-gray-500 text-xs">{testimonial.location}</p>
+            <p className="text-gray-600 text-xs mb-0.5">{testimonial.role}</p>
+            <p className="text-[#F15A24] text-xs font-medium mb-2">{testimonial.course}</p>
+            <div className="flex justify-center mb-2">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+              ))}
+            </div>
+            <blockquote className="text-gray-700 text-xs leading-snug mb-3 px-2">
+              "{testimonial.quote}"
+            </blockquote>
+            <div className="bg-[#26A65B] bg-opacity-10 rounded-md p-2">
+              <p className="text-[#26A65B] font-bold text-[10px]">
+                🎉 {testimonial.achievement}
+              </p>
+            </div>
           </div>
-          <blockquote className="text-gray-700 text-xs leading-snug mb-3 px-2">
-            "{testimonial.quote}"
-          </blockquote>
-          <div className="bg-[#26A65B] bg-opacity-10 rounded-md p-2">
-            <p className="text-[#26A65B] font-bold text-[10px]">
-              🎉 {testimonial.achievement}
-            </p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll {
+          animation: scroll 80s linear infinite;
+          display: flex;
+        }
+
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
 
     {/* Stats Section */}

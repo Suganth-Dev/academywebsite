@@ -94,13 +94,53 @@ const WhyIDAPage: React.FC = () => {
     { feature: 'Alumni Support', ida: true, others: false }
   ];
 
-  const founderMessage = {
-    name: 'Dev.R',
-    title: 'Founder & CEO, India Drone Academy',
-    image: '/devR.jpg',
-    quote: 'India Drone Academy leads India\'s UAV training ecosystem with DGCA-approved programs, hands-on learning, and high-end simulator labs. Our mission is to make drone certification accessible and career-focused.',
-    videoThumbnail: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=600'
-  };
+  const founderMessages = [
+    {
+      name: 'Dev.R',
+      title: 'Founder & CEO, India Drone Academy',
+      image: '/devR.jpg',
+      video: 'https://www.youtube.com/embed/AcgtRz2mEWo?autoplay=1&mute=1',
+      commitments: [
+        'India’s first fully DGCA-compliant drone training programs',
+        'Championing accessible UAV education nationwide',
+        'Building India’s largest drone talent network',
+      ],
+    },
+    {
+      name: 'Ananya Singh',
+      title: 'Director of Training',
+      image: '/ananya.jpg',
+      video: 'https://www.youtube.com/embed/gJgU3C2lRBQ?autoplay=1&mute=1',
+      commitments: [
+        'Curating hands-on training experiences',
+        'Training the next-gen drone instructors',
+        'Ensuring academic excellence in every batch',
+      ],
+    },
+    {
+      name: 'Vamsi Krishna Kurakula',
+      title: 'Chief Flight Instructor',
+      image: '/vamsi.jpg',
+      video: 'https://www.youtube.com/embed/v6sOYpMdwCo?autoplay=1&mute=1',
+      commitments: [
+        'Safe and certified practical flight sessions',
+        'One-on-one flight correction and drills',
+        'Managing simulator and real-world flying integration',
+      ],
+    },
+    {
+      name: 'Sumit Krishnan',
+      title: 'Program Coordinator',
+      image: '/sumit.jpg',
+      video: 'https://www.youtube.com/embed/KW3e0iEEavY?autoplay=1&mute=1',
+      commitments: [
+        'Seamless student onboarding and support',
+        'Connecting alumni to job placements',
+        'Organizing drone exhibitions and workshops',
+      ],
+    },
+  ];
+
 
   const testimonials = [
     {
@@ -142,50 +182,60 @@ const WhyIDAPage: React.FC = () => {
       name: "Dev.R",
       designation: "Founder & CEO",
       image: "/devR.jpg",
-      experience: "15+ years in aviation"
+      experience: "15+ years in aviation",
+      icon: "🎯",
     },
     {
       name: "Dr. Priya Patel",
       designation: "Chief Training Officer",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300",
-      experience: "PhD in Aeronautical Engineering"
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300",
+      experience: "PhD in Aeronautical Engineering",
+      icon: "🎓",
     },
     {
       name: "Vamsi Krishna Kurakula",
       designation: "Director",
       image: "/vamsi.jpg",
-      experience: "DGCA Certified RPAS Instructor "
+      experience: "DGCA Certified RPAS Instructor",
+      icon: "🧭",
     },
     {
       name: "Sumit Krishnan",
-      designation: " DGCA Certified RPAS Instructor (Medium and Small)",
+      designation: "RPAS Instructor (Med & Small)",
       image: "/sumit.jpg",
-      experience: "Aeronautical Engineer, A.M.AeSI, Author"
+      experience: "Aeronautical Engineer, A.M.AeSI, Author",
+      icon: "📘",
     },
     {
-      name: " V HariPrakash Raju",
-      designation: "DGCA Certified Remote Pilot",
+      name: "V HariPrakash Raju",
+      designation: "Remote Pilot",
       image: "/hari.jpg",
-      experience: "Business Development"
+      experience: "Business Development",
+      icon: "🚁",
     },
     {
       name: "Pagidi Srikanth",
-      designation: "DGCA Certified Remote Pilot",
+      designation: "Remote Pilot",
       image: "/srikanth.jpg",
-      experience: "UAV Maintenance Engineer"
+      experience: "UAV Maintenance Engineer",
+      icon: "🛠️",
     },
     {
       name: "G Rakesh",
-      designation: "DGCA Certified Remote Pilot",
+      designation: "Remote Pilot",
       image: "/rakesh.jpg",
-      experience: "Expert in precision farming"
+      experience: "Precision Farming Expert",
+      icon: "🌾",
     },
     {
       name: "Deepak Verma",
       designation: "Placement Director",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
-      experience: "500+ successful placements"
-    }
+      image:
+        "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
+      experience: "500+ successful placements",
+      icon: "📈",
+    },
   ];
   const mediaLogos = [
     { name: 'DGCA', type: 'Government Body', src: '/DGCA.jpeg' },
@@ -246,13 +296,59 @@ const WhyIDAPage: React.FC = () => {
 
             {/* Hero Image */}
             <div className="relative">
-              <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
-                <img
-                  src="/whyida.jpg"
-                  alt="Students training at India Drone Academy"
-                  className="w-full h-80 object-cover rounded-lg"
-                  loading="lazy"
-                />
+              <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl overflow-hidden">
+                {/* Auto-scroll image wrapper */}
+                <div className="relative w-full overflow-hidden">
+                  <div className="flex gap-4 animate-imageScroll w-max">
+                    {/* Duplicate images to make seamless scroll */}
+                    {[...Array(2)].map((_, i) => (
+                      <React.Fragment key={i}>
+                        <img
+                          src="/whyida.jpg"
+                          alt="Students training 1"
+                          className="h-80 min-w-[300px] object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                        <img
+                          src="/whyida1.jpg"
+                          alt="Students training 1"
+                          className="h-80 min-w-[300px] object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                        <img
+                          src="/whyida6.jpg"
+                          alt="Students training 2"
+                          className="h-80 min-w-[300px] object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                        <img
+                          src="/whyida2.jpg"
+                          alt="Students training 2"
+                          className="h-80 min-w-[300px] object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                        <img
+                          src="/whyida3.jpg"
+                          alt="Students training 3"
+                          className="h-80 min-w-[300px] object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                        <img
+                          src="/whyida4.jpg"
+                          alt="Students training 4"
+                          className="h-80 min-w-[300px] object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                        <img
+                          src="/whyida5.jpg"
+                          alt="Students training 5"
+                          className="h-80 min-w-[300px] object-cover rounded-lg"
+                          loading="lazy"
+                        />
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Floating Stats */}
@@ -265,7 +361,24 @@ const WhyIDAPage: React.FC = () => {
                 <div className="text-2xl font-bold text-[#F15A24]">5 Days</div>
                 <div className="text-sm text-gray-600">To Certification</div>
               </div>
+
+              {/* Scoped CSS for animation */}
+              <style jsx>{`
+    @keyframes imageScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-imageScroll {
+      animation: imageScroll 40s linear infinite;
+    }
+  `}</style>
             </div>
+
           </div>
         </div>
       </section>
@@ -280,278 +393,141 @@ const WhyIDAPage: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Founder Message */}
-            <div>
+          {founderMessages.map((person, index) => (
+            <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              {index % 2 === 0 ? (
+                <>
+                  {/* Text Left */}
+                  <div>
+                    <div className="flex items-center mb-8">
+                      <img
+                        src={person.image}
+                        alt={person.name}
+                        className="w-16 h-16 rounded-full object-cover mr-4"
+                        loading="lazy"
+                      />
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900">{person.name}</h4>
+                        <p className="text-[#F15A24] font-medium">{person.title}</p>
+                      </div>
+                    </div>
 
-              <div className="flex items-center mb-8">
-                <img
-                  src={founderMessage.image}
-                  alt={founderMessage.name}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900">{founderMessage.name}</h4>
-                  <p className="text-[#F15A24] font-medium">{founderMessage.title}</p>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h5 className="font-bold text-gray-900 mb-3">Our Commitment to You:</h5>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Government-certified training that employers trust
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Hands-on experience with latest drone technology
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Career support that extends beyond certification
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Video Thumbnail */}
-            <div className="relative rounded-xl overflow-hidden shadow-lg group">
-              <iframe
-                src="https://www.youtube.com/embed/AcgtRz2mEWo?autoplay=1&mute=1"
-                title="Campus walkthrough video"
-                className="w-full h-80 object-cover rounded-xl"
-                allow="autoplay; encrypted-media; accelerometer; clipboard-write; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              />
-            </div>
-
-
-
-          </div>
-
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Founder Message */}
-            {/* Video Thumbnail */}
-            <div className="relative">
-              <div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-                <img
-                  src={founderMessage.videoThumbnail}
-                  alt="Campus walkthrough video"
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 shadow-lg transform group-hover:scale-110 transition-all duration-200">
-                    <Play className="w-8 h-8 text-[#F15A24] ml-1" />
+                    <div className="bg-gray-50 rounded-lg p-6">
+                      <h5 className="font-bold text-gray-900 mb-3">Our Commitment to You:</h5>
+                      <ul className="space-y-2">
+                        {person.commitments.map((item, i) => (
+                          <li key={i} className="flex items-center text-gray-700">
+                            <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
 
-                <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm">
-                  Campus Tour - 2 min
-                </div>
-              </div>
-            </div>
-            <div>
-
-              <div className="flex items-center mb-8">
-                <img
-                  src={founderMessage.image}
-                  alt={founderMessage.name}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900">{founderMessage.name}</h4>
-                  <p className="text-[#F15A24] font-medium">{founderMessage.title}</p>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h5 className="font-bold text-gray-900 mb-3">Our Commitment to You:</h5>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Government-certified training that employers trust
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Hands-on experience with latest drone technology
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Career support that extends beyond certification
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Founder Message */}
-            <div>
-              <div className="flex items-center mb-8">
-                <img
-                  src={founderMessage.image}
-                  alt={founderMessage.name}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900">{founderMessage.name}</h4>
-                  <p className="text-[#F15A24] font-medium">{founderMessage.title}</p>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h5 className="font-bold text-gray-900 mb-3">Our Commitment to You:</h5>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Government-certified training that employers trust
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Hands-on experience with latest drone technology
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Career support that extends beyond certification
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Video Thumbnail */}
-            <div className="relative">
-              <div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-                <img
-                  src={founderMessage.videoThumbnail}
-                  alt="Campus walkthrough video"
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 shadow-lg transform group-hover:scale-110 transition-all duration-200">
-                    <Play className="w-8 h-8 text-[#F15A24] ml-1" />
+                  {/* Video Right */}
+                  <div className="relative rounded-xl overflow-hidden shadow-lg group">
+                    <iframe
+                      src={person.video}
+                      title={`${person.name} video`}
+                      className="w-full h-80 object-cover rounded-xl"
+                      allow="autoplay; encrypted-media; accelerometer; clipboard-write; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                    />
                   </div>
-                </div>
-
-                <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm">
-                  Campus Tour - 2 min
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Founder Message */}
-            {/* Video Thumbnail */}
-            <div className="relative">
-              <div className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-                <img
-                  src={founderMessage.videoThumbnail}
-                  alt="Campus walkthrough video"
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-6 shadow-lg transform group-hover:scale-110 transition-all duration-200">
-                    <Play className="w-8 h-8 text-[#F15A24] ml-1" />
+                </>
+              ) : (
+                <>
+                  {/* Video Left */}
+                  <div className="relative rounded-xl overflow-hidden shadow-lg group">
+                    <iframe
+                      src={person.video}
+                      title={`${person.name} video`}
+                      className="w-full h-80 object-cover rounded-xl"
+                      allow="autoplay; encrypted-media; accelerometer; clipboard-write; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                    />
                   </div>
-                </div>
 
-                <div className="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm">
-                  Campus Tour - 2 min
-                </div>
-              </div>
+                  {/* Text Right */}
+                  <div>
+                    <div className="flex items-center mb-8">
+                      <img
+                        src={person.image}
+                        alt={person.name}
+                        className="w-16 h-16 rounded-full object-cover mr-4"
+                        loading="lazy"
+                      />
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900">{person.name}</h4>
+                        <p className="text-[#F15A24] font-medium">{person.title}</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-lg p-6">
+                      <h5 className="font-bold text-gray-900 mb-3">Our Commitment to You:</h5>
+                      <ul className="space-y-2">
+                        {person.commitments.map((item, i) => (
+                          <li key={i} className="flex items-center text-gray-700">
+                            <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
-            <div>
-
-              <div className="flex items-center mb-8">
-                <img
-                  src={founderMessage.image}
-                  alt={founderMessage.name}
-                  className="w-16 h-16 rounded-full object-cover mr-4"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900">{founderMessage.name}</h4>
-                  <p className="text-[#F15A24] font-medium">{founderMessage.title}</p>
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h5 className="font-bold text-gray-900 mb-3">Our Commitment to You:</h5>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Government-certified training that employers trust
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Hands-on experience with latest drone technology
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#26A65B] mr-3" />
-                    Career support that extends beyond certification
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-
-          </div>
-
-
-
+          ))}
         </div>
       </section>
 
       {/* Team Members Scrolling Section */}
-     <section className="py-16 lg:py-24 bg-white overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-        Meet Our Expert Team
-      </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-        Passionate professionals including certified trainers, drone pilots, GIS experts, software developers, and video editors — bringing rich experience from aviation, technology, and training.
-      </p>
-    </div>
+      <section className="py-16 lg:py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Meet Our Expert Team
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Passionate professionals including certified trainers, drone pilots,
+              GIS experts, software developers, and video editors — bringing rich
+              experience from aviation, technology, and training.
+            </p>
+          </div>
 
-    {/* Scrolling Cards */}
-    <div className="relative overflow-hidden">
-      <div className="flex gap-6 animate-scroll py-8 w-max">
-        {teamMembers.map((member, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-64 h-[420px] bg-white rounded-xl shadow hover:shadow-md transition-all duration-300 transform hover:-translate-y-2 flex flex-col overflow-hidden"
-          >
-            <img
-              src={member.image}
-              alt={member.name}
-              className="w-full h-2/3 object-cover"
-              loading="lazy"
-            />
-            <div className="flex-1 flex flex-col justify-end items-center text-center p-4">
-              <h3 className="font-bold text-gray-900 text-lg">{member.name}</h3>
-              <p className="text-[#F15A24] font-medium text-sm mt-1">{member.designation}</p>
-              <p className="text-gray-600 text-xs mt-1">{member.experience}</p>
+          <div className="relative overflow-hidden">
+            <div className="flex gap-10 animate-scroll w-max py-6">
+              {teamMembers.map((member, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-48 text-center transition-transform transform hover:-translate-y-2 relative"
+                >
+                  <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#F15A24] shadow-lg">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    {/* Centered Icon Badge at Bottom */}
+                   
+
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-lg">{member.name}</h3>
+                  <p className="text-[#F15A24] text-sm font-medium mt-1">{member.designation}</p>
+                  <p className="text-gray-600 text-xs mt-1">{member.experience}</p>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
+        </div>
 
-  {/* Scroll Animation */}
-  <style jsx>{`
+        {/* Scroll Animation */}
+        <style jsx>{`
     @keyframes scroll {
       0% {
         transform: translateX(0);
@@ -561,13 +537,17 @@ const WhyIDAPage: React.FC = () => {
       }
     }
     .animate-scroll {
-      animation: scroll 60s linear infinite;
+      animation: scroll 50s linear infinite;
     }
     .animate-scroll:hover {
       animation-play-state: paused;
     }
   `}</style>
-</section>
+      </section>
+
+
+
+
 
 
       {/* Training Milestones */}
@@ -689,90 +669,7 @@ const WhyIDAPage: React.FC = () => {
       </section>
 
 
-      <section className="py-16 lg:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Inspiring Young Minds: Drone Awareness for School Students
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              IDA empowers school students through interactive workshops, live demos, and STEM-aligned drone education.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Video Section */}
-            <div className="relative rounded-xl overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.youtube.com/embed/c-_51Uu537o?autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=1"
-                title="Campus walkthrough video"
-                className="w-full h-80 object-cover rounded-xl"
-                allow="autoplay; encrypted-media; accelerometer; clipboard-write; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              />
-            </div>
-
-
-            {/* Content Section */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Nurturing the Next Generation of Drone Innovators
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-[#26A65B] mr-3 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-gray-900">Interactive Drone Demonstrations</h4>
-                    <p className="text-gray-600">Live flight demos sparking curiosity.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-[#26A65B] mr-3 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-gray-900">Hands-on Experience</h4>
-                    <p className="text-gray-600">Supervised drone flying sessions.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-[#26A65B] mr-3 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-gray-900">STEM Education Integration</h4>
-                    <p className="text-gray-600">Linking drone tech with science, math, and engineering.</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-[#26A65B] mr-3 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold text-gray-900">Career Exposure</h4>
-                    <p className="text-gray-600">Introducing students to drone career paths.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <div className="text-3xl font-bold text-[#F15A24] mb-2">50+</div>
-              <div className="text-gray-700">Schools Visited</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <div className="text-3xl font-bold text-[#F15A24] mb-2">5,000+</div>
-              <div className="text-gray-700">Students Inspired</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <div className="text-3xl font-bold text-[#F15A24] mb-2">12</div>
-              <div className="text-gray-700">States Covered</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <div className="text-3xl font-bold text-[#F15A24] mb-2">100%</div>
-              <div className="text-gray-700">Student Engagement</div>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
 
       {/* IDA vs Others Comparison */}

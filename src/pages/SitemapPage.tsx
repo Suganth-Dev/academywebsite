@@ -4,7 +4,7 @@ import { Globe, ArrowRight, ExternalLink, MapPin, Calendar, Users, Award, BookOp
 const SitemapPage: React.FC = () => {
   const siteStructure = [
     {
-      category: 'Main Pages',
+      Class: 'Main Pages',
       icon: Globe,
       pages: [
         { name: 'Home', url: '/', description: 'Main landing page with course overview and key information' },
@@ -14,7 +14,7 @@ const SitemapPage: React.FC = () => {
       ]
     },
     {
-      category: 'Training Courses',
+      Class: 'Training Courses',
       icon: Award,
       pages: [
         { name: 'All Courses', url: '/courses', description: 'Browse all available drone training programs' },
@@ -27,7 +27,7 @@ const SitemapPage: React.FC = () => {
       ]
     },
     {
-      category: 'Student Resources',
+      Class: 'Student Resources',
       icon: Users,
       pages: [
         { name: 'Success Stories', url: '/success-stories', description: 'Read inspiring stories from our graduates' },
@@ -36,7 +36,7 @@ const SitemapPage: React.FC = () => {
       ]
     },
     {
-      category: 'Legal & Policies',
+      Class: 'Legal & Policies',
       icon: BookOpen,
       pages: [
         { name: 'Privacy Policy', url: '/privacy', description: 'How we collect, use, and protect your information' },
@@ -152,7 +152,7 @@ const SitemapPage: React.FC = () => {
                     <div className="w-10 h-10 bg-[#F15A24] bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
                       <IconComponent className="w-6 h-6 text-[#F15A24]" />
                     </div>
-                    {section.category}
+                    {section.Class}
                   </h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

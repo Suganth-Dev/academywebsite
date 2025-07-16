@@ -12,11 +12,11 @@ const CoursesPage: React.FC = () => {
   const courses = [
     {
       id: 1,
-      title: 'DGCA Small Category',
-      category: 'DGCA Certified',
+      title: 'DGCA Small Class',
+      Class: 'DGCA Certified',
       badge: 'Most Popular',
       badgeColor: 'bg-[#26A65B]',
-      description: 'Government-certified training for small category drones (up to 25kg) with complete theory and practical sessions.',
+      description: 'Government-certified training for small Class drones (up to 25kg) with complete theory and practical sessions.',
       duration: '5 Days',
       price: '₹45,000',
       gst: '+ 18% GST',
@@ -29,11 +29,11 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 2,
-      title: 'DGCA Medium Category',
-      category: 'DGCA Certified',
+      title: 'DGCA Medium Class',
+      Class: 'DGCA Certified',
       badge: 'Professional',
       badgeColor: 'bg-blue-600',
-      description: 'Advanced certification for medium category drones more than 25kg upto 50kg for commercial operations.',
+      description: 'Advanced certification for medium Class drones more than 25kg upto 50kg for commercial operations.',
       duration: '5 Days',
       price: '₹65,000',
       gst: '+ 18% GST',
@@ -47,10 +47,10 @@ const CoursesPage: React.FC = () => {
     {
       id: 3,
       title: 'Medium Upgrade',
-      category: 'DGCA Certified',
+      Class: 'DGCA Certified',
       badge: 'Upgrade Course',
       badgeColor: 'bg-purple-600',
-      description: 'Upgrade from Small to Medium category certification in just 3 days.',
+      description: 'Upgrade from Small to Medium Class certification in just 3 days.',
       duration: '3 Days',
       price: '₹45,000',
       gst: '+ 18% GST',
@@ -58,13 +58,13 @@ const CoursesPage: React.FC = () => {
       icon: Award,
       image: '/medium-upgrade.jpg',
       link: '/courses/medium-upgrade',
-      features: ['Quick Upgrade', 'Medium Category', 'Advanced Operations', 'Commercial Ready'],
+      features: ['Quick Upgrade', 'Medium Class', 'Advanced Operations', 'Commercial Ready'],
       locations: ['Hyderabad', ]
     },
     {
       id: 4,
       title: 'DGCA Small + Medium Combined',
-      category: 'DGCA Certified',
+      Class: 'DGCA Certified',
       badge: 'Best Value',
       badgeColor: 'bg-[#F15A24]',
       description: 'Complete certification package for both small and medium categories in one comprehensive course.',
@@ -81,7 +81,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 5,
       title: 'Site Asset Mapping & Inspection',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Infrastructure',
       badgeColor: 'bg-blue-600',
       description: 'Inspection and mapping of roads, railways, telecom, and industrial infrastructure using drones.',
@@ -99,7 +99,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 6,
       title: 'Mining Excavation Volumetric Analysis',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Mining',
       badgeColor: 'bg-gray-700',
       description: 'Analyze and calculate volumes for mining excavation projects using aerial survey techniques.',
@@ -117,7 +117,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 7,
       title: 'Agriculture Crop Monitoring & Precision Farming',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'For Farmers',
       badgeColor: 'bg-green-600',
       description: 'Precision spraying techniques for crop protection and optimized agriculture operations.',
@@ -135,7 +135,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 8,
       title: 'Aerial Cinematography',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Creative',
       badgeColor: 'bg-purple-600',
       description: 'Learn professional aerial photography and cinematic drone shots for media projects.',
@@ -144,7 +144,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Intermediate',
       icon: Camera,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/aerial.avif',
       link: '/courses/aerial-cinematography',
       features: ['Cinematic Shots', 'Camera Gimbal Use', 'Creative Angles', 'Footage Editing'],
       locations: ['Hyderabad']
@@ -153,7 +153,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 9,
       title: 'Drone Survey & Data Processing',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Technical',
       badgeColor: 'bg-indigo-600',
       description: 'Post-processing and analytics of drone survey data for agriculture and mapping use cases.',
@@ -162,7 +162,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Intermediate',
       icon: Monitor,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/dataprocessing.png',
       link: '/courses/data-processing',
       features: ['Orthomosaics', 'DEM/DSM', '3D Models', 'QGIS Export'],
       locations: ['Hyderabad']
@@ -170,7 +170,7 @@ const CoursesPage: React.FC = () => {
 {
   id: 10,
   title: 'Drone Assembly & Repair (Basic)',
-  category: 'Special Courses',
+  Class: 'Special Courses',
   badge: 'Basic Repair',
   badgeColor: 'bg-green-600',
   description: 'Learn essential repairs, soldering, and maintenance for drones.',
@@ -179,7 +179,7 @@ const CoursesPage: React.FC = () => {
   gst: '+ 18% GST',
   level: 'Beginner',
   icon: Wrench,
-  image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+  image: '/repair-basic.jpg',
   link: '/courses/assembly-basic',
   features: ['Basic Soldering', 'Motor Setup', 'ESC Troubleshooting', 'Flight Performance Tuning'],
   locations: ['Hyderabad']
@@ -188,7 +188,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 11,
       title: 'Drone Assembly & Repair (Advanced)',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Advanced Repair',
       badgeColor: 'bg-red-600',
       description: 'Master advanced repairs, calibration, soldering and maintenance for drone fleets.',
@@ -197,7 +197,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Advanced',
       icon: Wrench,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/repair-advanced.jpg',
       link: '/courses/assembly-advanced',
       features: ['Advanced Soldering', 'ESC Tuning', 'IMU Calibration', 'Motor Testing'],
       locations: ['Hyderabad']
@@ -206,7 +206,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 12,
       title: 'Custom Training / Workshop for Institutes',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Institutional',
       badgeColor: 'bg-orange-500',
       description: 'Tailored drone workshops for universities and government agencies.',
@@ -215,7 +215,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Customized',
       icon: Building,
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/workshop1.jpg',
       link: '/courses/custom-training',
       features: ['Curriculum Design', 'Field Training', 'Certification', 'Project Work'],
       locations: ['Hyderabad']
@@ -223,7 +223,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 13,
       title: 'FPV Drone Training (Basic)',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Racing',
       badgeColor: 'bg-pink-600',
       description: 'FPV drone flight training for beginners focusing on racing and freestyle maneuvers.',
@@ -232,7 +232,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Beginner',
       icon: Zap,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/fpv-basic.png',
       link: '/courses/fpv-basic',
       features: ['Line of Sight', 'Simulator Flying', 'Basic FPV Kit', 'Safety Protocols'],
       locations: ['Hyderabad']
@@ -241,7 +241,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 14,
       title: 'FPV Drone Training (Advanced)',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Professional Racing',
       badgeColor: 'bg-red-600',
       description: 'Advanced FPV racing techniques and competition preparation.',
@@ -250,7 +250,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Advanced',
       icon: Zap,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/fpv-advanced.png',
       link: '/courses/fpv-advanced',
       features: ['Advanced Racing', 'Competition Prep', 'Professional Techniques', 'Performance Tuning'],
       locations: ['Hyderabad']
@@ -259,7 +259,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 15,
       title: 'Women Drone Pilot Bootcamp',
-      category: 'Women Programs',
+      Class: 'Women Programs',
       badge: 'Women Only',
       badgeColor: 'bg-pink-600',
       description: 'Comprehensive training program designed specifically for women with mentorship and career guidance.',
@@ -268,7 +268,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'All Levels',
       icon: Users,
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/whyida.jpg',
       link: '/courses/women-bootcamp',
       features: ['Women-Only Batches', 'Mentorship', 'Career Guidance', 'Networking'],
       locations: ['Hyderabad']
@@ -276,7 +276,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 16,
       title: 'Drone-Didi Agri Program',
-      category: 'Women Programs',
+      Class: 'Women Programs',
       badge: 'Women Empowerment',
       badgeColor: 'bg-green-500',
       description: 'Specialized agriculture program for rural and urban women focusing on precision farming.',
@@ -285,7 +285,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Beginner Friendly',
       icon: Wheat,
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/didi-agri.jpg',
       link: '/courses/drone-didi-agri',
       features: ['Women-Focused', 'Agriculture Training', 'Rural Empowerment', 'Practical Skills'],
       locations: ['Hyderabad']
@@ -294,24 +294,24 @@ const CoursesPage: React.FC = () => {
     {
       id: 17,
       title: 'DGCA Medium + 3D Mapping',
-      category: 'Bundles',
+      Class: 'Bundles',
       badge: 'Professional Bundle',
       badgeColor: 'bg-blue-600',
-      description: 'Advanced package combining medium category certification with professional mapping skills.',
+      description: 'Advanced package combining medium Class certification with professional mapping skills.',
       duration: '8 Days',
       price: '₹90,000',
       gst: '+ 18% GST',
       level: 'Intermediate to Advanced',
       icon: Target,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/medium-3d.png',
       link: '/courses/dgca-mapping-bundle',
-      features: ['Medium Category', '3D Mapping', 'Survey Techniques', 'Professional Skills'],
+      features: ['Medium Class', '3D Mapping', 'Survey Techniques', 'Professional Skills'],
       locations: ['Hyderabad']
     },
     {
       id: 18,
       title: 'Ultimate Pro Bundle',
-      category: 'Bundles',
+      Class: 'Bundles',
       badge: 'Ultimate Package',
       badgeColor: 'bg-gradient-to-r from-[#F15A24] to-[#26A65B]',
       description: 'Complete professional package: DGCA Medium + Cinematography + Mapping for career-ready professionals.',
@@ -328,7 +328,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 19,
       title: 'Master Drone Technology (Training + Internship)',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Job Ready',
       badgeColor: 'bg-gradient-to-r from-blue-500 to-green-500',
       description: '12-week training and internship on drone tech, data, GIS and engineering applications.',
@@ -337,7 +337,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Advanced',
       icon: Award,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/training-intern.jpg',
       link: '/courses/master-drone-tech',
       features: ['DGCA License', 'Photogrammetry', 'LiDAR & CAD', 'Internship Projects'],
       locations: ['Hyderabad']
@@ -345,7 +345,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 20,
       title: 'Advanced Drone Missions & Payload Handling',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Industrial',
       badgeColor: 'bg-blue-700',
       description: 'Train on dynamic payloads and advanced flight missions including thermal and LiDAR.',
@@ -354,7 +354,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Advanced',
       icon: Plane,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/mission.png',
       link: '/courses/advanced-missions',
       features: ['Orbit & Oblique', 'Payload Drop', 'Thermal Imaging', 'Sensor Setup'],
       locations: ['Hyderabad']
@@ -362,7 +362,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 21,
       title: 'Engineering GIS Analytics using Drone Data',
-      category: 'Special Courses',
+      Class: 'Special Courses',
       badge: 'Engineering',
       badgeColor: 'bg-green-600',
       description: 'Post-process drone data for engineering analytics, GIS modeling and infrastructure monitoring.',
@@ -371,7 +371,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Intermediate to Advanced',
       icon: Monitor,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/gis.png',
       link: '/courses/gis-analytics',
       features: ['CAD+GIS', 'Contours/TIN', 'X-Section Analysis', 'Alignment Modeling'],
       locations: ['Hyderabad']
@@ -379,7 +379,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 22,
       title: 'Simulator Refresher',
-      category: 'Online Training',
+      Class: 'Online Training',
       badge: 'Skill Enhancement',
       badgeColor: 'bg-blue-500',
       description: 'Enhance your skills with 50 hours of simulator practice and emergency scenarios.',
@@ -388,7 +388,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'All Levels',
       icon: Monitor,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/simulator.png',
       link: '/courses/simulator-refresher',
       features: ['50 Hours Practice', 'Skill Enhancement', 'Emergency Scenarios', 'Flexible Schedule'],
       locations: ['Online + Center Access']
@@ -396,7 +396,7 @@ const CoursesPage: React.FC = () => {
     {
       id: 23,
       title: 'Online Theory Crash Course',
-      category: 'Online Training',
+      Class: 'Online Training',
       badge: 'Online Learning',
       badgeColor: 'bg-green-500',
       description: 'Complete drone pilot theory course delivered online with interactive sessions.',
@@ -405,33 +405,39 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Beginner',
       icon: Monitor,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/online-class.png',
       link: '/courses/online-theory',
       features: ['Online Learning', 'Interactive Sessions', 'Self-Paced', 'Theory Foundation'],
       locations: ['Online']
     },
-    {
-      id: 24,
-      title: 'Corporate Training',
-      category: 'Special Courses',
-      badge: 'For Organizations',
-      badgeColor: 'bg-gray-700',
-      description: 'Customized training programs for organizations and institutions with flexible curriculum.',
-      duration: 'Flexible',
-      price: '₹25,000',
-      gst: '+ 18% GST',
-      level: 'Customized',
-      icon: Building,
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      link: '/courses/corporate',
-      features: ['Custom Curriculum', 'On-site Training', 'Bulk Pricing', 'Certification'],
-      locations: ['Pan India', 'On-site Available']
-    }
+   {
+  id: 24,
+  title: 'Drone Awareness for Schools',
+  Class: 'Special Courses',
+  badge: 'For School Students',
+  badgeColor: 'bg-yellow-600',
+  description: 'IDA empowers school students through live drone demos, hands-on flying, and STEM-integrated workshops.',
+  duration: '1 Day / Custom',
+  price: '₹15,000',
+  gst: '+ 18% GST',
+  level: 'Beginner (K-12)',
+  icon: Building,
+  image: '/school.png',
+  link: '/courses/school-awareness',
+  features: [
+    'Interactive Drone Demonstrations',
+    'Hands-on Supervised Flying',
+    'STEM Education Integration',
+    'Drone Career Path Guidance'
+  ],
+  locations: ['Pan India', 'On-campus Available']
+}
+
   ];
 
   const filteredCourses = activeFilter === 'All'
     ? courses
-    : courses.filter(course => course.category === activeFilter);
+    : courses.filter(course => course.Class === activeFilter);
 
   const handleCourseClick = (link: string) => {
     navigate(link);
@@ -504,7 +510,7 @@ const CoursesPage: React.FC = () => {
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex items-center">
               <Filter className="w-5 h-5 mr-2 text-gray-600" />
-              <span className="text-gray-700 font-medium">Filter by Category:</span>
+              <span className="text-gray-700 font-medium">Filter by Class:</span>
             </div>
 
             {/* Filter Buttons */}
@@ -575,7 +581,7 @@ const CoursesPage: React.FC = () => {
 
                 {/* Course Content */}
                 <div className="p-4 flex-1">
-                  <div className="text-xs text-[#F15A24] font-bold mb-2">{course.category}</div>
+                  <div className="text-xs text-[#F15A24] font-bold mb-2">{course.Class}</div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{course.title}</h3>
                   <p className="text-gray-600 mb-4 line-clamp-2">{course.description}</p>
                   <div className="flex items-center justify-between text-sm text-gray-500 mb-4">

@@ -45,7 +45,7 @@ const BlogPage: React.FC = () => {
     title: 'Drone Pilot Career Guide: Complete Roadmap to Success',
     excerpt: 'Everything you need to know about starting and advancing your career as a professional drone pilot in India.',
     image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: 'Career Tips',
+    Class: 'Career Tips',
     author: 'Captain Rajesh Kumar',
     authorImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100',
     date: '2024-12-15',
@@ -62,7 +62,7 @@ const BlogPage: React.FC = () => {
       title: 'Simulator vs Real Flying: Which Training Method is Better?',
       excerpt: 'Comparing the benefits of simulator training versus real-world flying experience for drone pilots.',
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Training',
+      Class: 'Training',
       author: 'Priya Sharma',
       authorImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100',
       date: '2024-12-12',
@@ -76,7 +76,7 @@ const BlogPage: React.FC = () => {
       title: 'Top 5 Drone Use Cases in India: Industry Applications',
       excerpt: 'Exploring the most promising applications of drone technology across various Indian industries.',
       image: 'https://images.pexels.com/photos/1595108/pexels-photo-1595108.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Industry News',
+      Class: 'Industry News',
       author: 'Amit Patel',
       authorImage: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=100',
       date: '2024-12-10',
@@ -90,7 +90,7 @@ const BlogPage: React.FC = () => {
       title: 'Women in Drone Technology: Breaking Barriers in Aviation',
       excerpt: 'Celebrating the achievements of women in the drone industry and exploring opportunities for female pilots.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Success Stories',
+      Class: 'Success Stories',
       author: 'Meera Reddy',
       authorImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100',
       date: '2024-12-08',
@@ -104,7 +104,7 @@ const BlogPage: React.FC = () => {
       title: 'DGCA Regulations Update: What Every Pilot Must Know',
       excerpt: 'Latest updates to DGCA drone regulations and their impact on commercial operations.',
       image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Industry News',
+      Class: 'Industry News',
       author: 'Captain Rajesh Kumar',
       authorImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100',
       date: '2024-12-05',
@@ -118,7 +118,7 @@ const BlogPage: React.FC = () => {
       title: 'Drone Photography Business: Complete Startup Guide',
       excerpt: 'Everything you need to know about starting a profitable drone photography business in India.',
       image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Career Tips',
+      Class: 'Career Tips',
       author: 'Sneha Joshi',
       authorImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100',
       date: '2024-12-03',
@@ -132,7 +132,7 @@ const BlogPage: React.FC = () => {
       title: 'Safety First: Essential Pre-Flight Checklist for Drone Pilots',
       excerpt: 'Master the critical safety protocols every professional drone pilot must follow before takeoff.',
       image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Training',
+      Class: 'Training',
       author: 'Captain Rajesh Kumar',
       authorImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100',
       date: '2024-12-01',
@@ -146,7 +146,7 @@ const BlogPage: React.FC = () => {
       title: 'Agriculture Drones: Revolutionizing Indian Farming',
       excerpt: 'How precision agriculture with drones is transforming farming practices across India.',
       image: 'https://images.pexels.com/photos/1595108/pexels-photo-1595108.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Industry News',
+      Class: 'Industry News',
       author: 'Dr. Kiran Singh',
       authorImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100',
       date: '2024-11-28',
@@ -160,7 +160,7 @@ const BlogPage: React.FC = () => {
       title: 'From Zero to Hero: Student Success Story',
       excerpt: 'Follow Rajesh\'s journey from complete beginner to certified commercial drone pilot.',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Success Stories',
+      Class: 'Success Stories',
       author: 'IDA Team',
       authorImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100',
       date: '2024-11-25',
@@ -172,7 +172,7 @@ const BlogPage: React.FC = () => {
   ];
 
   const filteredPosts = blogPosts.filter(post => {
-    const matchesFilter = activeFilter === 'All' || post.category === activeFilter;
+    const matchesFilter = activeFilter === 'All' || post.Class === activeFilter;
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -273,7 +273,7 @@ const BlogPage: React.FC = () => {
                 <div className="p-5 sm:p-6 lg:p-8 text-white">
                   <div className="mb-3">
                     <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-xs font-medium">
-                      {featuredPost.category}
+                      {featuredPost.Class}
                     </span>
                   </div>
 
@@ -323,7 +323,7 @@ const BlogPage: React.FC = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="flex items-center mb-4 lg:mb-0">
               <Filter className="w-5 h-5 mr-2 text-gray-600" />
-              <span className="text-gray-700 font-medium mr-4">Filter by Category:</span>
+              <span className="text-gray-700 font-medium mr-4">Filter by Class:</span>
             </div>
 
             {/* Filter Tabs */}
@@ -398,9 +398,9 @@ const BlogPage: React.FC = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
-                      {/* Category Badge */}
+                      {/* Class Badge */}
                       <div className="absolute top-4 left-4 bg-[#F15A24] text-white px-3 py-1 rounded-full text-sm font-medium">
-                        {post.category}
+                        {post.Class}
                       </div>
 
                       {/* Views */}

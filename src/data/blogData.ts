@@ -4,7 +4,7 @@ export interface BlogPost {
   content: string;
   excerpt: string;
   image: string;
-  category: string;
+  Class: string;
   author: string;
   authorImage: string;
   authorBio: string;
@@ -36,9 +36,9 @@ export const blogPosts: Record<string, BlogPost> = {
       <h3>2. Expanded Operational Categories</h3>
       <p>DGCA has introduced new operational categories that provide more flexibility for commercial operators:</p>
       <ul>
-        <li><strong>Category A+:</strong> Extended range operations up to 500m from pilot</li>
-        <li><strong>Category B Enhanced:</strong> Night operations with proper lighting systems</li>
-        <li><strong>Category C Urban:</strong> Specialized urban delivery operations</li>
+        <li><strong>Class A+:</strong> Extended range operations up to 500m from pilot</li>
+        <li><strong>Class B Enhanced:</strong> Night operations with proper lighting systems</li>
+        <li><strong>Class C Urban:</strong> Specialized urban delivery operations</li>
       </ul>
 
       <h3>3. Digital Integration Requirements</h3>
@@ -89,7 +89,7 @@ export const blogPosts: Record<string, BlogPost> = {
     `,
     excerpt: 'The latest DGCA regulations bring significant changes to commercial drone operations. Here\'s everything you need to know to stay compliant and competitive.',
     image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    category: 'DGCA Updates',
+    Class: 'DGCA Updates',
     author: 'Captain Rajesh Kumar',
     authorImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100',
     authorBio: 'Captain Rajesh Kumar is a former Indian Air Force pilot with over 15 years of experience in aviation. He is currently the Chief Flight Instructor at India Drone Academy.',
@@ -178,7 +178,7 @@ export const blogPosts: Record<string, BlogPost> = {
     `,
     excerpt: 'Discover the most lucrative and exciting career opportunities available to certified drone pilots in 2024.',
     image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    category: 'Career Tips',
+    Class: 'Career Tips',
     author: 'Priya Sharma',
     authorImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100',
     authorBio: 'Priya Sharma is a career counselor and drone industry expert who has helped hundreds of students transition into successful drone careers.',
@@ -259,7 +259,7 @@ export const blogPosts: Record<string, BlogPost> = {
     `,
     excerpt: 'Understanding the crucial role of simulator training in building confidence and skills for real-world drone operations.',
     image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    category: 'Training Tips',
+    Class: 'Training Tips',
     author: 'Amit Verma',
     authorImage: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=100',
     authorBio: 'Amit Verma is a senior simulator instructor with 8+ years of experience in drone simulation technology and training methodologies.',
@@ -417,7 +417,7 @@ export const blogPosts: Record<string, BlogPost> = {
     `,
     excerpt: 'Everything you need to know about starting a profitable drone photography business in India, from equipment to pricing strategies.',
     image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    category: 'Business',
+    Class: 'Business',
     author: 'Sneha Joshi',
     authorImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100',
     authorBio: 'Sneha Joshi is a successful drone photographer and business consultant who has helped dozens of pilots start their own photography businesses.',
@@ -560,7 +560,7 @@ export const blogPosts: Record<string, BlogPost> = {
     `,
     excerpt: 'Celebrating the achievements of women in the drone industry and exploring opportunities for female pilots and professionals.',
     image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    category: 'Inspiration',
+    Class: 'Inspiration',
     author: 'Captain Meera Patel',
     authorImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100',
     authorBio: 'Captain Meera Patel is a pioneering female drone instructor and women\'s aviation advocate with over 10 years of experience breaking barriers in the industry.',

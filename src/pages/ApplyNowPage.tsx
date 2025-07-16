@@ -29,7 +29,7 @@ interface FormData {
   location: string;
   batchDate: string;
   message: string;
-  category: string;
+  Class: string;
   preferredCourses: string[];
   city: string;
   state: string;
@@ -44,7 +44,7 @@ interface FormData {
 const ApplyNowPage: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     fullName: '', phone: '', email: '', course: '', location: '', batchDate: '', message: '',
-    category: '', preferredCourses: [], city: '', state: '', pinCode: '',
+    Class: '', preferredCourses: [], city: '', state: '', pinCode: '',
     isEmployed: '', careerPurpose: '', heardFrom: '', groupDetails: '', discountCode: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,8 +53,8 @@ const ApplyNowPage: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const courses = [
-    { value: 'dgca-small', label: 'DGCA Small Category (5 Days) - ₹45,000 + GST' },
-    { value: 'dgca-medium', label: 'DGCA Medium Category (5 Days) - ₹65,000 + GST' },
+    { value: 'dgca-small', label: 'DGCA Small Class (5 Days) - ₹45,000 + GST' },
+    { value: 'dgca-medium', label: 'DGCA Medium Class (5 Days) - ₹65,000 + GST' },
     { value: 'medium-upgrade', label: 'Medium Upgrade (3 Days) - ₹45,000 + GST' },
     { value: 'dgca-combined', label: 'Small + Medium Combined (8 Days) - ₹75,000 + GST' },
     { value: 'agriculture-spraying', label: 'Agriculture Spraying (3 Days) - ₹25,000 + GST' },
