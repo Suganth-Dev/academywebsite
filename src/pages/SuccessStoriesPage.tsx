@@ -137,7 +137,7 @@ const SuccessStoriesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
       quote: 'From mechanical engineer to commercial pilot - best decision ever!',
       achievement: 'Now earning ₹8L+ annually',
-      category: 'Career Switch',
+      Class: 'Career Switch',
       rating: 5
     },
     {
@@ -150,7 +150,7 @@ const SuccessStoriesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
       quote: 'Started my own agri-drone service. Now helping 200+ farmers.',
       achievement: 'Started own drone service company',
-      category: 'Entrepreneurship',
+      Class: 'Entrepreneurship',
       rating: 5
     },
     {
@@ -163,7 +163,7 @@ const SuccessStoriesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
       quote: 'Got 3 job offers within 2 weeks of certification!',
       achievement: 'Placed in 2 weeks after certification',
-      category: 'Quick Placement',
+      Class: 'Quick Placement',
       rating: 5
     },
     {
@@ -176,7 +176,7 @@ const SuccessStoriesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
       quote: 'From housewife to professional drone photographer in 6 months.',
       achievement: 'Built successful photography business',
-      category: 'Women Empowerment',
+      Class: 'Women Empowerment',
       rating: 5
     },
     {
@@ -189,7 +189,7 @@ const SuccessStoriesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
       quote: 'Helping fellow farmers increase yield by 30% using drone technology.',
       achievement: 'Serving 500+ farmers',
-      category: 'Agriculture',
+      Class: 'Agriculture',
       rating: 5
     },
     {
@@ -202,7 +202,7 @@ const SuccessStoriesPage: React.FC = () => {
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
       quote: 'Student to instructor - now training the next generation of pilots.',
       achievement: 'Became certified instructor',
-      category: 'Career Growth',
+      Class: 'Career Growth',
       rating: 5
     }
   ];
@@ -262,7 +262,7 @@ const SuccessStoriesPage: React.FC = () => {
 
   const filteredStories = activeFilter === 'All'
     ? successStories
-    : successStories.filter(story => story.category === activeFilter);
+    : successStories.filter(story => story.Class === activeFilter);
 
   const nextVideoSlide = () => {
     setCurrentVideoSlide((prev) => (prev + 1) % videoTestimonials.length);
@@ -484,9 +484,9 @@ const SuccessStoriesPage: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
-                  {/* Category Badge */}
+                  {/* Class Badge */}
                   <div className="absolute top-3 left-3 bg-[#F15A24] text-white px-2 py-1 rounded-full text-xs font-medium">
-                    {story.category}
+                    {story.Class}
                   </div>
 
                   {/* Name Overlay */}

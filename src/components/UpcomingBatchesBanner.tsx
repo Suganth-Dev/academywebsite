@@ -6,12 +6,12 @@ const UpcomingBatchesBanner: React.FC = () => {
   const navigate = useNavigate();
   const upcomingBatches = [
     {
-      course: 'DGCA Small Category',
+      course: 'DGCA Small Class',
       startDate: 'Every Monday',
       location: 'Hyderabad',
     },
     {
-      course: 'DGCA Medium Category',
+      course: 'DGCA Medium Class',
       startDate: 'Every Monday',
       location: 'Hyderabad',
     },
@@ -22,7 +22,7 @@ const UpcomingBatchesBanner: React.FC = () => {
     },
     {
       course: 'Agriculture Spraying',
-      startDate: 'Every Monday',
+      startDate: 'Every Wednesday',
       location: 'Hyderabad',
     },
     {
@@ -32,7 +32,7 @@ const UpcomingBatchesBanner: React.FC = () => {
     },
     {
       course: 'Women Drone Pilot Bootcamp',
-      startDate: 'Every Monday',
+      startDate: 'Every Wednesday',
       location: 'Hyderabad',
     },
     {
@@ -42,7 +42,7 @@ const UpcomingBatchesBanner: React.FC = () => {
     },
     {
       course: 'Drone Assembly & Repair',
-      startDate: 'Every Monday',
+      startDate: 'Every Wednesday',
       location: 'Hyderabad',
     },
     {
@@ -52,17 +52,17 @@ const UpcomingBatchesBanner: React.FC = () => {
     },
     {
       course: 'Simulator Refresher',
-      startDate: 'Every Monday',
+      startDate: 'Every Wednesday',
       location: 'Hyderabad',
     },
     {
       course: 'Corporate Training',
-      startDate: 'Flexible',
+      startDate: 'Thrusday',
       location: 'Pan India',
     },
     {
       course: 'Ultimate Pro Bundle',
-      startDate: '1st & 15th of Every Month',
+      startDate: 'Friday',
       location: 'Hyderabad',
     },
   ];

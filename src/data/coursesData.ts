@@ -46,9 +46,9 @@ export interface CourseData {
 export const coursesData: Record<string, CourseData> = {
   'dgca-small': {
     id: 'dgca-small',
-    title: 'DGCA Small Category Training',
-    subtitle: 'Government-Certified Training for Small Category Drones (up to 25kg)',
-    description: 'Become a certified commercial drone pilot for small category operations with our comprehensive DGCA-approved training program. Perfect for beginners entering the drone industry.',
+    title: 'DGCA Small Class Training',
+    subtitle: 'Government-Certified Training for Small Class Drones (up to 25kg)',
+    description: 'Become a certified commercial drone pilot for small Class operations with our comprehensive DGCA-approved training program. Perfect for beginners entering the drone industry.',
     heroImage: '/dgca-small.jpg',
     badge: 'DGCA Certified',
     badgeColor: 'bg-[#26A65B]',
@@ -57,13 +57,13 @@ export const coursesData: Record<string, CourseData> = {
     originalPrice: '₹55,000',
     duration: '5 Days',
     mode: 'In-Person + Practical',
-    certificate: 'DGCA Small Category License',
+    certificate: 'DGCA Small Class License',
     language: 'English / Hindi / Telugu',
     locations: ['Hyderabad'],
     level: 'Beginner to Intermediate',
     learningOutcomes: [
       'Small drone airframe and component basics',
-      'DGCA regulations for small category operations',
+      'DGCA regulations for small Class operations',
       'Flight planning and navigation for small drones',
       'Weather assessment and safety protocols',
       'Simulator training',
@@ -74,7 +74,7 @@ export const coursesData: Record<string, CourseData> = {
     courseFeatures: [
       {
         icon: 'Award',
-        title: 'DGCA Small Category Certification',
+        title: 'DGCA Small Class Certification',
         description: 'Government-recognized license for small drone operations'
       },
       {
@@ -123,7 +123,7 @@ export const coursesData: Record<string, CourseData> = {
         answer: 'Small class covers drones up to 25kg weight, suitable for photography, surveillance, and light commercial operations. Medium class covers more than 25kg and up to 50kg drones for heavier commercial applications.'
       },
       {
-        question: 'Can I upgrade to medium category later?',
+        question: 'Can I upgrade to medium Class later?',
         answer: 'Yes, we offer a 3-day Medium Upgrade course for ₹65,000 + GST for existing small class license holders.'
       },
       {
@@ -133,7 +133,7 @@ export const coursesData: Record<string, CourseData> = {
     ],
     highlights: [
       '5-day comprehensive training',
-      'DGCA small category certification',
+      'DGCA small Class certification',
       'Hands-on flying experience',
       'Job placement assistance'
     ]
@@ -141,9 +141,9 @@ export const coursesData: Record<string, CourseData> = {
 
   'dgca-medium': {
     id: 'dgca-medium',
-    title: 'DGCA Medium Category Training',
-    subtitle: 'Advanced Certification for Medium Category Dronesmore than 25kg upto 50kg',
-    description: 'Advanced training for medium category drone operations covering heavier payloads and complex commercial applications.',
+    title: 'DGCA Medium Class Training',
+    subtitle: 'Advanced Certification for Medium Class Dronesmore than 25kg upto 50kg',
+    description: 'Advanced training for medium Class drone operations covering heavier payloads and complex commercial applications.',
     heroImage: '/dgca-medium.jpg',
     badge: 'Professional Level',
     badgeColor: 'bg-blue-600',
@@ -151,7 +151,7 @@ export const coursesData: Record<string, CourseData> = {
     gst: '+ 18% GST',
     duration: '5 Days',
     mode: 'In-Person + Advanced Practical',
-    certificate: 'DGCA Medium Category License',
+    certificate: 'DGCA Medium Class License',
     language: 'English / Hindi / Telugu',
     locations: ['Hyderabad'],
     level: 'Intermediate to Advanced',
@@ -168,8 +168,8 @@ export const coursesData: Record<string, CourseData> = {
     courseFeatures: [
       {
         icon: 'Award',
-        title: 'DGCA Medium Category Certification',
-        description: 'Advanced license for medium category operations'
+        title: 'DGCA Medium Class Certification',
+        description: 'Advanced license for medium Class operations'
       },
       {
         icon: 'Users',
@@ -179,7 +179,7 @@ export const coursesData: Record<string, CourseData> = {
       {
         icon: 'Plane',
         title: 'Medium Drone Equipment',
-        description: 'Train on professional medium category drones'
+        description: 'Train on professional medium Class drones'
       },
       {
         icon: 'Briefcase',
@@ -206,26 +206,26 @@ export const coursesData: Record<string, CourseData> = {
     },
     faq: [
       {
-        question: 'Do I need small category license first?',
-        answer: 'No, you can directly pursue medium category certification. However, having small category experience is beneficial.'
+        question: 'Do I need small Class license first?',
+        answer: 'No, you can directly pursue medium Class certification. However, having small Class experience is beneficial.'
       },
       {
-        question: 'What additional opportunities does medium category provide?',
+        question: 'What additional opportunities does medium Class provide?',
         answer: 'Heavy payload operations, agricultural spraying, large area surveying, industrial inspections, and cargo delivery services.'
       }
     ],
     highlights: [
       'Advanced 5-day training',
-      'Medium category certification',
+      'Medium Class certification',
       'Heavy payload operations',
       'Premium job opportunities'
     ]
   },
   'medium-upgrade': {
     id: 'medium-upgrade',
-    title: 'Medium Category Upgrade',
-    subtitle: 'Upgrade from Small to Medium Category in 3 Days',
-    description: 'Fast-track upgrade course for existing small category license holders to obtain medium category certification.',
+    title: 'Medium Class Upgrade',
+    subtitle: 'Upgrade from Small to Medium Class in 3 Days',
+    description: 'Fast-track upgrade course for existing small Class license holders to obtain medium Class certification.',
     heroImage: '/medium-upgrade.jpg',
     badge: 'Upgrade Course',
     badgeColor: 'bg-purple-600',
@@ -233,12 +233,12 @@ export const coursesData: Record<string, CourseData> = {
     gst: '+ 18% GST',
     duration: '3 Days',
     mode: 'Intensive Training',
-    certificate: 'DGCA Medium Category License',
+    certificate: 'DGCA Medium Class License',
     language: 'English / Hindi',
     locations: ['Hyderabad'],
     level: 'Intermediate',
     learningOutcomes: [
-      'Medium category regulations and differences',
+      'Medium Class regulations and differences',
       'Advanced payload operations',
       'Enhanced safety protocols',
       'Medium drone practical training',
@@ -249,12 +249,12 @@ export const coursesData: Record<string, CourseData> = {
       {
         icon: 'Award',
         title: 'Quick Upgrade',
-        description: 'Fast-track to medium category certification'
+        description: 'Fast-track to medium Class certification'
       },
       {
         icon: 'Plane',
         title: 'Advanced Operations',
-        description: 'Learn medium category specific operations'
+        description: 'Learn medium Class specific operations'
       },
       {
         icon: 'Users',
@@ -287,17 +287,17 @@ export const coursesData: Record<string, CourseData> = {
     faq: [
       {
         question: 'Who is eligible for this upgrade course?',
-        answer: 'Existing DGCA small category license holders who want to upgrade to medium category operations.'
+        answer: 'Existing DGCA small Class license holders who want to upgrade to medium Class operations.'
       },
       {
         question: 'What is covered in the 3-day program?',
-        answer: 'Medium category specific regulations, advanced operations, payload management, and practical training on medium category drones.'
+        answer: 'Medium Class specific regulations, advanced operations, payload management, and practical training on medium Class drones.'
       }
     ],
     highlights: [
       'Quick 3-day upgrade',
       'For existing license holders',
-      'Medium category access',
+      'Medium Class access',
       'Enhanced career opportunities'
     ]
   },
@@ -305,7 +305,7 @@ export const coursesData: Record<string, CourseData> = {
     id: 'dgca-combined',
     title: 'DGCA Small + Medium Combined Package',
     subtitle: 'Complete Dual Certification in 8 Days',
-    description: 'Comprehensive training package covering both small and medium category certifications in one complete course.',
+    description: 'Comprehensive training package covering both small and medium Class certifications in one complete course.',
     heroImage: '/small-medium.jpg',
     badge: 'Best Value',
     badgeColor: 'bg-[#F15A24]',
@@ -314,25 +314,25 @@ export const coursesData: Record<string, CourseData> = {
     originalPrice: '₹110,000',
     duration: '8 Days',
     mode: 'Comprehensive Training',
-    certificate: 'DGCA Small + Medium Category License',
+    certificate: 'DGCA Small + Medium Class License',
     language: 'English / Hindi / Telugu',
     locations: ['Hyderabad'],
     level: 'Beginner to Advanced',
     learningOutcomes: [
-      'Complete small category training',
-      'Complete medium category training',
+      'Complete small Class training',
+      'Complete medium Class training',
       'Dual certification preparation',
       'Comprehensive flight experience',
       'Advanced operational knowledge',
       'Complete commercial readiness',
-      'Both category practical training',
+      'Both Class practical training',
       'Enhanced job opportunities'
     ],
     courseFeatures: [
       {
         icon: 'Award',
         title: 'Dual Certification',
-        description: 'Both small and medium category licenses'
+        description: 'Both small and medium Class licenses'
       },
       {
         icon: 'Users',
@@ -374,7 +374,7 @@ export const coursesData: Record<string, CourseData> = {
       },
       {
         question: 'Is this suitable for complete beginners?',
-        answer: 'Yes, the course is designed to take you from beginner to advanced level with both category certifications.'
+        answer: 'Yes, the course is designed to take you from beginner to advanced level with both Class certifications.'
       }
     ],
     highlights: [
@@ -553,7 +553,7 @@ export const coursesData: Record<string, CourseData> = {
   title: 'Master Drone Technology (Training + Internship)',
   subtitle: '12-Week Advanced Training & Internship in Drone Applications',
   description: 'A comprehensive program combining advanced drone pilot training with real-world internship exposure in drone data processing, GIS applications, and engineering solutions. Designed for individuals seeking deep industry knowledge and hands-on experience.',
-  heroImage: 'https://images.pexels.com/photos/163230/drone-camera-gopro-quadrocopter-163230.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/training-intern.jpg',
   badge: 'Professional',
   badgeColor: 'bg-blue-600',
   price: '₹95,000',
@@ -728,7 +728,7 @@ export const coursesData: Record<string, CourseData> = {
   title: 'Advanced Drone Missions & Payload Handling',
   subtitle: 'Train on Thermal, LiDAR, Oblique Flights & Payload Drop Missions',
   description: 'This advanced training program is designed for drone professionals seeking to master dynamic missions involving payload operations, thermal imaging, oblique capture, and LiDAR scanning. Gain hands-on experience with advanced flight patterns and mission planning for industrial and emergency use-cases.',
-  heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/mission.png',
   badge: 'Industrial',
   badgeColor: 'bg-blue-700',
   price: '₹30,000',
@@ -817,7 +817,7 @@ export const coursesData: Record<string, CourseData> = {
   title: 'Engineering GIS Analytics using Drone Data',
   subtitle: 'Post-process Drone Data for Engineering Projects & GIS Applications',
   description: 'Master drone data interpretation and processing for infrastructure planning, CAD integration, GIS modeling, and cross-section analysis. Ideal for engineers, surveyors, and GIS professionals.',
-  heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/gis.png',
   badge: 'Engineering',
   badgeColor: 'bg-green-600',
   price: '₹30,000',
@@ -905,7 +905,7 @@ export const coursesData: Record<string, CourseData> = {
   id: 'ultimate-pro',
   title: 'Ultimate Pro Bundle',
   subtitle: 'DGCA Medium + Cinematography + Mapping in One Career-Focused Package',
-  description: 'This 10-day intensive bundle combines DGCA medium category training with advanced cinematography and professional mapping skills. Ideal for those seeking a career in drone filmmaking, surveying, or commercial UAV services.',
+  description: 'This 10-day intensive bundle combines DGCA medium Class training with advanced cinematography and professional mapping skills. Ideal for those seeking a career in drone filmmaking, surveying, or commercial UAV services.',
   heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
   badge: 'Ultimate Package',
   badgeColor: 'bg-gradient-to-r from-[#F15A24] to-[#26A65B]',
@@ -918,7 +918,7 @@ export const coursesData: Record<string, CourseData> = {
   locations: ['Hyderabad', 'Bangalore', 'Mumbai'],
   level: 'Comprehensive',
   learningOutcomes: [
-    'DGCA medium category drone certification',
+    'DGCA medium Class drone certification',
     'Professional cinematography and aerial filming techniques',
     'Drone-based mapping and surveying skills',
     'End-to-end mission planning and execution',
@@ -976,7 +976,7 @@ export const coursesData: Record<string, CourseData> = {
   faq: [
     {
       question: 'Is DGCA license included?',
-      answer: 'Yes, DGCA Medium Category license training and certification is included in the bundle.'
+      answer: 'Yes, DGCA Medium Class license training and certification is included in the bundle.'
     },
     {
       question: 'Is prior drone experience required?',
@@ -993,9 +993,9 @@ export const coursesData: Record<string, CourseData> = {
 'dgca-mapping-bundle': {
   id: 'dgca-mapping-bundle',
   title: 'DGCA Medium + 3D Mapping',
-  subtitle: 'Medium Category DGCA Certification with 3D Mapping Specialization',
+  subtitle: 'Medium Class DGCA Certification with 3D Mapping Specialization',
   description: 'This bundle equips you with DGCA-certified medium drone operations training and advanced 3D mapping skills for professional surveying and infrastructure analysis. Perfect for aspiring drone surveyors and GIS technicians.',
-  heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/medium-3d.png',
   badge: 'Professional Bundle',
   badgeColor: 'bg-blue-600',
   price: '₹90,000',
@@ -1007,7 +1007,7 @@ export const coursesData: Record<string, CourseData> = {
   locations: ['Hyderabad', 'Bangalore', 'Mumbai'],
   level: 'Intermediate to Advanced',
   learningOutcomes: [
-    'DGCA Medium Category License training',
+    'DGCA Medium Class License training',
     'Drone-based terrain mapping and data acquisition',
     '3D model creation (Point Cloud, Mesh)',
     'Flight planning for large-scale surveys',
@@ -1025,7 +1025,7 @@ export const coursesData: Record<string, CourseData> = {
     {
       icon: 'Award',
       title: 'DGCA Medium License',
-      description: 'Operate medium category drones for commercial use'
+      description: 'Operate medium Class drones for commercial use'
     },
     {
       icon: 'Monitor',
@@ -1069,7 +1069,7 @@ export const coursesData: Record<string, CourseData> = {
     },
     {
       question: 'Will I get two certificates?',
-      answer: 'Yes. One for DGCA Medium Category training and one for 3D Mapping specialization.'
+      answer: 'Yes. One for DGCA Medium Class training and one for 3D Mapping specialization.'
     }
   ],
   highlights: [
@@ -1085,7 +1085,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'Aerial Cinematography',
     subtitle: 'Professional Drone Filming and Photography',
     description: 'Master the art of aerial cinematography and photography for creative industries, media production, and commercial applications.',
-    heroImage: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/aerial.avif',
     badge: 'Creative',
     badgeColor: 'bg-purple-600',
     price: '₹25,000',
@@ -1167,7 +1167,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'Data Processing (Survey, Mapping, Agri)',
     subtitle: 'Advanced Data Analysis and Processing Techniques',
     description: 'Learn to process and analyze data from survey, mapping, and agriculture operations using professional software and techniques.',
-    heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/dataprocessing.png',
     badge: 'Technical',
     badgeColor: 'bg-indigo-600',
     price: '₹25,000',
@@ -1413,7 +1413,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'FPV Drone Training (Basic)',
     subtitle: 'First Person View Racing and Maneuvering',
     description: 'Learn First Person View drone racing and basic maneuvering techniques for recreational and competitive flying.',
-    heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/fpv-basic.png',
     badge: 'Racing',
     badgeColor: 'bg-red-500',
     price: '₹25,000',
@@ -1495,7 +1495,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'FPV Drone Training (Advanced)',
     subtitle: 'Professional Racing and Competition Preparation',
     description: 'Advanced FPV racing techniques and competition preparation for serious racers and professional pilots.',
-    heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/fpv-advanced.png',
     badge: 'Professional Racing',
     badgeColor: 'bg-red-600',
     price: '₹45,000',
@@ -1577,7 +1577,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'Women Drone Pilot Bootcamp',
     subtitle: 'Empowering Women in Aviation Technology',
     description: 'A comprehensive training program designed specifically for women with mentorship, peer networking, and career guidance.',
-    heroImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/whyida.jpg',
     badge: 'Women Only',
     badgeColor: 'bg-pink-600',
     price: '₹35,000',
@@ -1585,7 +1585,7 @@ export const coursesData: Record<string, CourseData> = {
     originalPrice: '₹50,000',
     duration: '5 Days',
     mode: 'Women-Only Batches + Mentorship',
-    certificate: 'DGCA Small + Medium Category License',
+    certificate: 'DGCA Small + Medium Class License',
     language: 'English / Hindi',
     locations: ['Bangalore', 'Mumbai', 'Delhi', 'Hyderabad'],
     level: 'All Levels',
@@ -1660,7 +1660,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'Drone-Didi Agri Empowerment Program',
     subtitle: 'Rural and Urban Women in Agriculture Technology',
     description: 'Specialized agriculture program for rural and urban women focusing on precision farming and agri-entrepreneurship.',
-    heroImage: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/didi-agri.jpg',
     badge: 'Women Empowerment',
     badgeColor: 'bg-green-500',
     price: '₹22,000',
@@ -1670,7 +1670,7 @@ export const coursesData: Record<string, CourseData> = {
     mode: 'Field Training + Empowerment',
     certificate: 'Drone-Didi Agriculture Specialist',
     language: 'Hindi / Regional Languages',
-    locations: ['Pune', 'Hyderabad', 'Bangalore'],
+    locations: [ 'Hyderabad'],
     level: 'Beginner Friendly',
     learningOutcomes: [
       'Agricultural drone operations',
@@ -1743,7 +1743,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'Simulator Refresher (50 hrs)',
     subtitle: 'Enhance Your Skills with Advanced Simulator Practice',
     description: 'Comprehensive 50-hour simulator training program to enhance flying skills and practice emergency scenarios.',
-    heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/simulator.png',
     badge: 'Skill Enhancement',
     badgeColor: 'bg-blue-500',
     price: '₹15,000',
@@ -1825,7 +1825,7 @@ export const coursesData: Record<string, CourseData> = {
     title: 'Online Drone Pilot Theory Crash Course',
     subtitle: 'Complete Theory Foundation for Drone Pilots',
     description: 'Comprehensive online theory course covering all aspects of drone piloting with interactive sessions and assessments.',
-    heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    heroImage: '/online-class.png',
     badge: 'Online Learning',
     badgeColor: 'bg-green-500',
     price: '₹7,500',
@@ -1902,88 +1902,89 @@ export const coursesData: Record<string, CourseData> = {
       'Strong theory foundation'
     ]
   },
-  'corporate': {
-    id: 'corporate',
-    title: 'Custom Training/Workshop for Institutions',
-    subtitle: 'Customized Training Programs for Organizations',
-    description: 'Tailored drone training solutions for companies, educational institutions, and government organizations.',
-    heroImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    badge: 'For Organizations',
-    badgeColor: 'bg-gray-700',
-    price: '₹25,000',
-    gst: '+ 18% GST',
-    duration: 'Flexible',
-    mode: 'On-site / Remote / Hybrid',
-    certificate: 'Corporate Training Certificate',
-    language: 'English / Hindi / Regional',
-    locations: ['Pan India', 'On-site Available'],
-    level: 'Customized',
-    learningOutcomes: [
-      'Industry-specific drone applications',
-      'Custom operational procedures',
-      'Team-based training modules',
-      'Compliance and safety protocols',
-      'Equipment selection guidance',
-      'ROI optimization strategies',
-      'Maintenance and support training',
-      'Ongoing consultation services'
-    ],
-    courseFeatures: [
-      {
-        icon: 'Building',
-        title: 'Custom Curriculum',
-        description: 'Training designed for your specific needs'
-      },
-      {
-        icon: 'MapPin',
-        title: 'On-site Training',
-        description: 'We come to your location for convenience'
-      },
-      {
-        icon: 'Users',
-        title: 'Bulk Pricing',
-        description: 'Cost-effective rates for multiple participants'
-      },
-      {
-        icon: 'Award',
-        title: 'Certification',
-        description: 'Industry-recognized certificates for your team'
-      }
-    ],
-    batchDates: [
-      {
-        startDate: 'On Request',
-        endDate: 'Flexible',
-        location: 'Your Location',
-        seatsLeft: 50,
-        totalSeats: 50
-      }
-    ],
-    instructor: {
-      name: 'Corporate Training Team',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300',
-      title: 'Enterprise Solutions Specialists',
-      experience: '10+ Years Corporate Training',
-      description: 'Experienced team specializing in corporate drone training with expertise across multiple industries.',
-      credentials: ['DGCA Certified Trainers', 'Corporate Training Experts', 'Industry Specialists', 'Consultation Services']
+ 'school-awareness': {
+  id: 'school-awareness',
+  title: 'Drone Awareness for School Students',
+  subtitle: 'Inspiring Young Minds through Drone Education',
+  description: 'IDA empowers school students through live flight demos, interactive workshops, and STEM-integrated learning experiences.',
+  heroImage: '/school.png',
+  badge: 'For Schools',
+  badgeColor: 'bg-yellow-600',
+  price: '₹15,000',
+  gst: '+ 18% GST',
+  duration: '1 Day / Flexible',
+  mode: 'On-campus / Remote / Hybrid',
+  certificate: 'Drone Awareness Participation Certificate',
+  language: 'English / Hindi / Regional',
+  locations: ['Pan India', 'On-campus Available'],
+  level: 'Beginner (K-12)',
+  learningOutcomes: [
+    'Introduction to drones and their real-world applications',
+    'STEM learning through drone technology',
+    'Supervised hands-on drone flying experience',
+    'Awareness of drone safety rules and airspace',
+    'Career paths in drone and aerospace industries',
+    'Boosting curiosity and scientific thinking',
+    'Group-based interactive drone games and challenges',
+    'Understanding drone ethics and responsible usage'
+  ],
+  courseFeatures: [
+    {
+      icon: 'Drone',
+      title: 'Live Drone Demonstrations',
+      description: 'Exciting real-time drone flight demos that inspire curiosity'
     },
-    faq: [
-      {
-        question: 'What industries do you serve?',
-        answer: 'We provide training for construction, agriculture, surveying, security, media, logistics, and many other industries.'
-      },
-      {
-        question: 'Can you customize the training content?',
-        answer: 'Yes, we develop custom curriculum based on your specific industry requirements and operational needs.'
-      }
-    ],
-    highlights: [
-      'Custom training solutions',
-      'On-site delivery available',
-      'Industry-specific content',
-      'Ongoing support included'
-    ]
+    {
+      icon: 'Gamepad',
+      title: 'Hands-on Experience',
+      description: 'Students get to fly drones under expert supervision'
+    },
+    {
+      icon: 'Book',
+      title: 'STEM Integration',
+      description: 'Connects drones with science, math, and engineering concepts'
+    },
+    {
+      icon: 'Rocket',
+      title: 'Career Exposure',
+      description: 'Introduces future opportunities in drone technology'
+    }
+  ],
+  batchDates: [
+    {
+      startDate: 'On Request',
+      endDate: '1 Day / Custom',
+      location: 'School Campus',
+      seatsLeft: 100,
+      totalSeats: 100
+    }
+  ],
+  instructor: {
+    name: 'Drone Educator Team',
+    image: 'https://images.pexels.com/photos/1181319/pexels-photo-1181319.jpeg?auto=compress&cs=tinysrgb&w=300',
+    title: 'STEM & Drone Awareness Instructors',
+    experience: '5+ Years in Drone & STEM Education',
+    description: 'Our instructors are passionate about making drone technology accessible and fun for young students.',
+    credentials: ['DGCA Certified Trainers', 'STEM Educators', 'Drone Awareness Experts']
   },
+  faq: [
+    {
+      question: 'Is this suitable for all school students?',
+      answer: 'Yes, the workshop is designed for K-12 students with age-appropriate activities.'
+    },
+    {
+      question: 'Do students get to fly drones?',
+      answer: 'Yes! All flying sessions are supervised and conducted in safe, open areas.'
+    }
+  ],
+  highlights: [
+    'Live drone demos and flying',
+    'STEM-based engagement',
+    'Exciting & fun learning experience',
+    'Ideal for school events and science fairs'
+  ]
+},
+
   'site-asset-inspection': {
   id: 'site-inspection',
   title: 'Site Asset Mapping & Inspection',
@@ -2232,7 +2233,7 @@ export const coursesData: Record<string, CourseData> = {
   title: 'Drone Assembly & Repair (Basic)',
   subtitle: 'Learn the essentials of drone assembly, repair, and basic maintenance',
   description: 'This foundational program covers essential drone assembly, basic repairs, soldering, and maintenance. Learn how to handle minor repairs, basic calibration, and troubleshoot common drone issues. Ideal for beginners or enthusiasts looking to start a career in drone repair and maintenance.',
-  heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/repair-basic.jpg',
   badge: 'Special Courses',
   badgeColor: 'bg-green-600',
   price: '₹30,000',
@@ -2313,7 +2314,7 @@ export const coursesData: Record<string, CourseData> = {
   title: 'Drone Assembly & Repair (Advanced)',
   subtitle: 'Master advanced repairs, calibration, soldering and maintenance for drone fleets',
   description: 'This intensive program focuses on advanced drone assembly and maintenance skills including soldering, calibration, firmware configuration, and repair of components like ESCs, motors, and IMUs. Ideal for technicians and engineers maintaining drone fleets.',
-  heroImage: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/repair-advanced.jpg',
   badge: 'Special Courses',
   badgeColor: 'bg-red-600',
   price: '₹45,000',
@@ -2395,7 +2396,7 @@ export const coursesData: Record<string, CourseData> = {
   title: 'Custom Training / Workshop for Institutes',
   subtitle: 'Tailored drone workshops for universities and government agencies',
   description: 'This flexible program is designed for institutions that want to introduce drones into their curriculum or operations. Training is customized to fit institutional goals, whether technical, academic, or administrative.',
-  heroImage: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroImage: '/workshop1.jpg',
   badge: 'Special Courses',
   badgeColor: 'bg-orange-500',
   price: '₹25,000',

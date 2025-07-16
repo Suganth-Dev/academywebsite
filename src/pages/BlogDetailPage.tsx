@@ -102,7 +102,7 @@ const BlogDetailPage: React.FC = () => {
             <ChevronRight className="w-4 h-4 text-gray-400" />
             <button onClick={() => navigate('/blog')} className="text-gray-500 hover:text-[#F15A24]">Blog</button>
             <ChevronRight className="w-4 h-4 text-gray-400" />
-            <span className="text-gray-900 font-medium">{currentPost.category}</span>
+            <span className="text-gray-900 font-medium">{currentPost.Class}</span>
           </nav>
         </div>
       </section>
@@ -110,10 +110,10 @@ const BlogDetailPage: React.FC = () => {
       {/* Article Header */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Category Badge */}
+          {/* Class Badge */}
           <div className="mb-6">
             <span className="bg-[#F15A24] text-white px-4 py-2 rounded-full text-sm font-medium">
-              {currentPost.category}
+              {currentPost.Class}
             </span>
           </div>
 
@@ -291,7 +291,7 @@ const BlogDetailPage: React.FC = () => {
                     loading="lazy"
                   />
                   <div className="absolute top-4 left-4 bg-[#F15A24] text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {post.category}
+                    {post.Class}
                   </div>
                 </div>
 

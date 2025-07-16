@@ -10,8 +10,8 @@ const CourseOverview: React.FC = () => {
   const courses = [
     {
       id: 1,
-      title: 'DGCA Small Category',
-      description: 'Government-certified training for small category drones (up to 25kg)',
+      title: 'DGCA Small Class',
+      description: 'Government-certified training for small Class drones (up to 25kg)',
       duration: '5 Days',
       price: '₹45,000',
       gst: '+ 18% GST',
@@ -21,12 +21,12 @@ const CourseOverview: React.FC = () => {
       link: '/courses/dgca-small',
       badge: 'Most Popular',
       badgeColor: 'bg-[#26A65B]',
-      category: 'DGCA Certified'
+      Class: 'DGCA Certified'
     },
     {
       id: 2,
-      title: 'DGCA Medium Category',
-      description: 'Advanced certification for medium category drones more than 25kg upto 50kg',
+      title: 'DGCA Medium Class',
+      description: 'Advanced certification for medium Class drones more than 25kg upto 50kg',
       duration: '5 Days',
       price: '₹65,000',
       gst: '+ 18% GST',
@@ -36,7 +36,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/dgca-medium',
       badge: 'Professional',
       badgeColor: 'bg-blue-600',
-      category: 'DGCA Certified'
+      Class: 'DGCA Certified'
     },
     {
       id: 3,
@@ -51,7 +51,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/dgca-combined',
       badge: 'Best Value',
       badgeColor: 'bg-[#F15A24]',
-      category: 'DGCA Certified'
+      Class: 'DGCA Certified'
     },
     {
       id: 4,
@@ -66,7 +66,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/agriculture-spraying',
       badge: 'For Farmers',
       badgeColor: 'bg-green-600',
-      category: 'Special Courses'
+      Class: 'Special Courses'
     },
     {
       id: 5,
@@ -76,12 +76,12 @@ const CourseOverview: React.FC = () => {
       price: '₹25,000',
       gst: '+ 18% GST',
       icon: Camera,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/aerial.avif',
       features: ['Professional Filming', 'Camera Operations', 'Creative Techniques', 'Portfolio Building'],
       link: '/courses/aerial-cinematography',
       badge: 'Creative',
       badgeColor: 'bg-purple-600',
-      category: 'Special Courses'
+      Class: 'Special Courses'
     },
     {
       id: 6,
@@ -96,7 +96,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/women-bootcamp',
       badge: 'Women Only',
       badgeColor: 'bg-pink-600',
-      category: 'Women Programs'
+      Class: 'Women Programs'
     },
     {
       id: 7,
@@ -111,7 +111,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/site-mapping',
       badge: 'Professional',
       badgeColor: 'bg-blue-600',
-      category: 'Special Courses'
+      Class: 'Special Courses'
     },
     {
       id: 8,
@@ -126,7 +126,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/drone-assembly',
       badge: 'Technical',
       badgeColor: 'bg-gray-600',
-      category: 'Special Courses'
+      Class: 'Special Courses'
     },
     {
       id: 9,
@@ -141,7 +141,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/fpv-training',
       badge: 'Advanced',
       badgeColor: 'bg-red-600',
-      category: 'Special Courses'
+      Class: 'Special Courses'
     },
     {
       id: 10,
@@ -151,12 +151,12 @@ const CourseOverview: React.FC = () => {
       price: '₹15,000',
       gst: '+ 18% GST',
       icon: Monitor,
-      image: 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/simulator.png',
       features: ['50 Hours Practice', 'Skill Enhancement', 'Emergency Scenarios', 'Flexible Schedule'],
       link: '/courses/simulator-refresher',
       badge: 'Refresher',
       badgeColor: 'bg-blue-500',
-      category: 'Online Training'
+      Class: 'Online Training'
     },
     {
       id: 11,
@@ -171,7 +171,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/corporate',
       badge: 'For Organizations',
       badgeColor: 'bg-gray-700',
-      category: 'Corporate'
+      Class: 'Corporate'
     },
     {
       id: 12,
@@ -186,7 +186,7 @@ const CourseOverview: React.FC = () => {
       link: '/courses/ultimate-pro',
       badge: 'Ultimate Package',
       badgeColor: 'bg-gradient-to-r from-[#F15A24] to-[#26A65B]',
-      category: 'Bundles'
+      Class: 'Bundles'
     }
   ];
 
@@ -294,7 +294,7 @@ const CourseOverview: React.FC = () => {
 
                           {/* Course Content */}
                           <div className="p-6">
-                            <div className="text-xs text-[#F15A24] font-bold mb-2">{course.category}</div>
+                            <div className="text-xs text-[#F15A24] font-bold mb-2">{course.Class}</div>
                             <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-[#F15A24] transition-colors duration-200">
                               {course.title}
                             </h3>
