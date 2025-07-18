@@ -364,7 +364,7 @@ const CollaborationPage: React.FC = () => {
             <div className="relative">
               <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="/didi-agri.jpg"
                   alt="Partnership collaboration showing flight demos, equipment, simulators, and industry presence"
                   className="w-full h-80 object-cover rounded-lg"
                   loading="lazy"

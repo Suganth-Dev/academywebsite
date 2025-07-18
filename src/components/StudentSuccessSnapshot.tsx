@@ -71,8 +71,8 @@ const StudentSuccessSnapshot: React.FC = () => {
       name: 'Siddenki Udaya Sree',
       role: 'Student Trainee',
       course: 'Drone Summer Bootcamp',
-      location: 'Lucknow',
-      image: '/SIDDENKIUDAYASREE.jpg',
+      location: 'Hyderabad',
+      image: '/udaya.jpg',
       quote:
         'The summer drone bootcamp was amazing! We learned about components, safety, and even flew real drones in the college ground.',
       achievement: 'Presented drone demo at inter-college tech fest',

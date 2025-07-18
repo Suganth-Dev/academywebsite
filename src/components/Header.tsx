@@ -53,7 +53,7 @@ const navLinks = [
   { href: '/success-stories', label: t('nav.successStories') },
   { href: '/partnerships', label: t('nav.partnerships') },
   { href: '/collaborate', label: t('nav.collaborations') },
-  { href: '/blog', label: t('nav.blog') },
+  // { href: '/blog', label: t('nav.blog') },
   { href: '/contact', label: t('nav.contact') }
 ];
 
@@ -108,14 +108,14 @@ const navLinks = [
             </nav>
 
             <div className="hidden lg:flex items-center space-x-4">
-              <select
+              {/* <select
                 onChange={handleLanguageChange}
                 value={i18n.language}
                 className="border border-gray-300 rounded px-2 py-1 text-sm"
               >
                 <option value="en">EN</option>
                 <option value="te">TE</option>
-              </select>
+              </select> */}
               <button
                 onClick={() => handleNavigation('/apply')}
                 className="bg-[#F15A24] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 text-sm"

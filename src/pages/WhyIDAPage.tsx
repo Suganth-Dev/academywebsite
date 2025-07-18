@@ -107,7 +107,7 @@ const WhyIDAPage: React.FC = () => {
       ],
     },
     {
-      name: 'Ananya Singh',
+      name: 'Kamala',
       title: 'Director of Training',
       image: '/ananya.jpg',
       video: 'https://www.youtube.com/embed/gJgU3C2lRBQ?autoplay=1&mute=1',
@@ -186,14 +186,7 @@ const testimonials = [
       experience: "15+ years in aviation",
       icon: "🎯",
     },
-    {
-      name: "Dr. Priya Patel",
-      designation: "Chief Training Officer",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300",
-      experience: "PhD in Aeronautical Engineering",
-      icon: "🎓",
-    },
+ 
     {
       name: "Vamsi Krishna Kurakula",
       designation: "Director",
@@ -229,14 +222,7 @@ const testimonials = [
       experience: "Precision Farming Expert",
       icon: "🌾",
     },
-    {
-      name: "Deepak Verma",
-      designation: "Placement Director",
-      image:
-        "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
-      experience: "500+ successful placements",
-      icon: "📈",
-    },
+  
   ];
   const mediaLogos = [
     { name: 'DGCA', type: 'Government Body', src: '/DGCA.jpeg' },
