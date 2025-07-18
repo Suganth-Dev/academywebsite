@@ -23,47 +23,21 @@ import {
 
 const PartnershipsPage: React.FC = () => {
 
-  type PartnershipFormData = {
-    companyName: string;
-    contactPerson: string;
-    designation: string;
-    email: string;
-    phone: string;
-    city: string;
-    partnershipType: string[];
-    message: string;
-    otherPartnership: string;
-    revenue: string;
-    clients: string;
-    website: string;
-    experience: string;
-    teamSize: string;
-    model: string;
-    linkedin: string;
-    gst: string;
-    droneExperience: string;
-  };
 
-  const [formData, setFormData] = useState<PartnershipFormData>({
-    companyName: '',
-    contactPerson: '',
-    designation: '',
+  const [formData, setFormData] = useState({
+    fullName: '',
+    organization: '',
     email: '',
-    phone: '',
-    city: '',
-    partnershipType: [],
-    message: '',
-    otherPartnership: '',
-    revenue: '',
-    clients: '',
+    mobile: '',
+    cityState: '',
     website: '',
-    experience: '',
-    teamSize: '',
-    model: '',
-    linkedin: '',
-    gst: '',
-    droneExperience: ''
+    partnershipType: [] as string[],
+    daas: '',
+    keyAreaGroup: [] as string[],
+    projectVision: '',
+    attachments: null as File | null,
   });
+
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -124,7 +98,7 @@ const PartnershipsPage: React.FC = () => {
 
 
   // Resume auto-scroll on mouse leave
- 
+
 
   useEffect(() => {
     if (isSubmitted && thankYouRef.current) {
@@ -308,45 +282,81 @@ const PartnershipsPage: React.FC = () => {
       rating: 5
     }
   ];
-
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    const target = e.target as HTMLInputElement;
+    const target = e.target as HTMLInputElement; // Type assertion for HTMLInputElement
     const { name, value, type } = target;
 
-    if (type === 'checkbox' && name === 'partnershipType') {
-      const checked = target.checked;
-      const newSelection = checked
-        ? [...formData.partnershipType, value]
-        : formData.partnershipType.filter(item => item !== value);
-      setFormData({ ...formData, partnershipType: newSelection });
+    if (type === 'checkbox') {
+      // For 'checkbox' inputs, handle the checked state
+      if (name === 'partnershipType') {
+        const updatedPartnershipTypes = target.checked
+          ? [...formData.partnershipType, value]
+          : formData.partnershipType.filter(item => item !== value);
+        setFormData(prevState => ({ ...prevState, partnershipType: updatedPartnershipTypes }));
+      }
+      if (name === 'keyAreaGroup') {
+        const updatedKeyAreas = target.checked
+          ? [...formData.keyAreaGroup, value]
+          : formData.keyAreaGroup.filter(item => item !== value);
+        setFormData(prevState => ({ ...prevState, keyAreaGroup: updatedKeyAreas }));
+      }
+    } else if (type === 'radio') {
+      // For 'radio' inputs, directly set the value
+      setFormData(prevState => ({ ...prevState, [name]: value }));
+    } else if (type === 'file') {
+      // Handle file uploads
+      if (target.files) {
+        const file = target.files[0] || null; // If no file selected, set it to null
+        setFormData(prevState => ({ ...prevState, attachments: file }));
+      }
     } else {
-      setFormData({ ...formData, [name]: value });
+      // For text inputs and others, just update the value
+      setFormData(prevState => ({ ...prevState, [name]: value }));
     }
   };
 
+
+
+
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     try {
       const response = await fetch('https://clxqhy12ik.execute-api.ap-south-1.amazonaws.com/postpartner', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error('Network response was not ok');
-
-      setIsSubmitting(false);
-      setIsSubmitted(true);
+      if (response.ok) {
+        alert('Form submitted successfully!');
+        setFormData({
+          fullName: '',
+          organization: '',
+          email: '',
+          mobile: '',
+          cityState: '',
+          website: '',
+          partnershipType: [],
+          daas: '',
+          keyAreaGroup: [],
+          projectVision: '',
+          attachments: null,
+        });
+      } else {
+        alert('Error submitting the form.');
+      }
     } catch (error) {
-      setIsSubmitting(false);
-      console.error('Submission failed:', error);
+      console.error('Error submitting the form:', error);
+      alert('Error submitting the form.');
     }
   };
+
+
 
   const partnershipOptions: { label: string; value: string }[] = [
     { label: 'Drone Technology Partnership', value: 'technology' },
@@ -370,76 +380,76 @@ const PartnershipsPage: React.FC = () => {
       {/* Header Spacer */}
 
       {/* Hero Section */}
-     <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 relative overflow-hidden mt-8">
-  {/* Background Pattern */}
-  <div className="absolute inset-0 opacity-5">
-    <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
-    <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#26A65B] rounded-full blur-3xl"></div>
-  </div>
+      <section className="pt-4 pb-16 lg:pt-6 lg:pb-20 relative overflow-hidden mt-8">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-[#F15A24] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#26A65B] rounded-full blur-3xl"></div>
+        </div>
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      {/* Content */}
-      <div className="text-center lg:text-left">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-          Partner With India's{' '}
-          <span className="text-[#F15A24]">Premier Drone Training Ecosystem</span>
-        </h1>
-        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-          Together, let's shape the future of drone innovation, training, and deployment across India and beyond.
-        </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                Partner With India's{' '}
+                <span className="text-[#F15A24]">Premier Drone Training Ecosystem</span>
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Together, let's shape the future of drone innovation, training, and deployment across India and beyond.
+              </p>
 
-        {/* Trust Indicators */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 mb-8">
-          <div className="flex items-center">
-            <Award className="w-4 h-4 mr-2 text-[#26A65B]" />
-            <span>DGCA Approved</span>
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-600 mb-8">
+                <div className="flex items-center">
+                  <Award className="w-4 h-4 mr-2 text-[#26A65B]" />
+                  <span>DGCA Approved</span>
+                </div>
+                <div className="flex items-center">
+                  <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
+                  <span>2500+ Pilots Trained</span>
+                </div>
+                <div className="flex items-center">
+                  <Building className="w-4 h-4 mr-2 text-[#26A65B]" />
+                  <span>50+ Training Centers</span>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <button
+                onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
+              >
+                Become a Partner
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </button>
+            </div>
+
+            {/* Hero Image */}
+            <div className="relative">
+              <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Partnership collaboration showing flight demos, equipment, simulators, and industry presence"
+                  className="w-full h-80 object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Floating Stats */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4">
+                <div className="text-2xl font-bold text-[#26A65B]">500+</div>
+                <div className="text-sm text-gray-600">Active Partners</div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
+                <div className="text-2xl font-bold text-[#F15A24]">15+</div>
+                <div className="text-sm text-gray-600">Industries</div>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center">
-            <Users className="w-4 h-4 mr-2 text-[#26A65B]" />
-            <span>2500+ Pilots Trained</span>
-          </div>
-          <div className="flex items-center">
-            <Building className="w-4 h-4 mr-2 text-[#26A65B]" />
-            <span>50+ Training Centers</span>
-          </div>
         </div>
-
-        {/* CTA */}
-        <button
-          onClick={() => document.getElementById('partnership-form')?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-[#F15A24] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 inline-flex items-center"
-        >
-          Become a Partner
-          <ArrowRight className="w-5 h-5 ml-2" />
-        </button>
-      </div>
-
-      {/* Hero Image */}
-      <div className="relative">
-        <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
-          <img
-            src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800"
-            alt="Partnership collaboration showing flight demos, equipment, simulators, and industry presence"
-            className="w-full h-80 object-cover rounded-lg"
-            loading="lazy"
-          />
-        </div>
-
-        {/* Floating Stats */}
-        <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4">
-          <div className="text-2xl font-bold text-[#26A65B]">500+</div>
-          <div className="text-sm text-gray-600">Active Partners</div>
-        </div>
-
-        <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4">
-          <div className="text-2xl font-bold text-[#F15A24]">15+</div>
-          <div className="text-sm text-gray-600">Industries</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
 
 
@@ -540,25 +550,27 @@ const PartnershipsPage: React.FC = () => {
             {/* Dots Indicator */}
 
 
-         {/* Manual Play / Pause Controls */}
-<div className="flex justify-center items-center space-x-4 mt-6">
-  <button
-    onClick={() => setIsAutoScrolling(true)}
-    className={`px-4 py-2 rounded-lg font-bold transition duration-200 ${
-      isAutoScrolling ? 'bg-gray-300 text-gray-600' : 'bg-[#F15A24] text-white hover:bg-[#D64A1A]'
-    }`}
-  >
-    ▶ Play
-  </button>
-  <button
-    onClick={() => setIsAutoScrolling(false)}
-    className={`px-4 py-2 rounded-lg font-bold transition duration-200 ${
-      !isAutoScrolling ? 'bg-gray-300 text-gray-600' : 'bg-[#F15A24] text-white hover:bg-[#D64A1A]'
-    }`}
-  >
-    ⏸ Pause
-  </button>
-</div>
+            {/* Manual Play / Pause Controls */}
+            <div className="flex flex-col items-center mt-6 space-y-2">
+              {/* Dots */}
+              <div className="flex space-x-1">
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-2 h-2 rounded-full ${currentIndex === i ? 'bg-[#F15A24]' : 'bg-gray-300'}`}
+                  />
+                ))}
+              </div>
+
+              {/* Toggle Play/Pause Text */}
+              <div
+                onClick={() => setIsAutoScrolling(!isAutoScrolling)}
+                className="text-sm font-medium text-gray-700 cursor-pointer hover:text-[#F15A24]"
+              >
+                {isAutoScrolling ? 'Pause' : 'Play'}
+              </div>
+            </div>
+
 
 
           </div>
@@ -688,13 +700,13 @@ const PartnershipsPage: React.FC = () => {
 
 
       {/* Testimonials */}
-      <section className="py-8 lg:py-12 bg-gray-50"> {/* Reduced padding */}
+      {/* <section className="py-8 lg:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12"> {/* Reduced margin */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"> {/* Reduced margin */}
+          <div className="text-center mb-12"> 
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               What Our Partners Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4"> {/* Reduced margin */}
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
               Hear from industry leaders who have successfully partnered with us to drive innovation and growth.
             </p>
           </div>
@@ -702,22 +714,21 @@ const PartnershipsPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                {/* Quote Icon */}
-                <Quote className="w-10 h-10 text-[#F15A24] mb-4" /> {/* Reduced margin */}
-
-                {/* Rating */}
+              
+                <Quote className="w-10 h-10 text-[#F15A24] mb-4" /> 
+                
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
 
-                {/* Testimonial Text */}
-                <blockquote className="text-gray-700 leading-relaxed mb-4"> {/* Reduced margin */}
+              
+                <blockquote className="text-gray-700 leading-relaxed mb-4">
                   "{testimonial.quote}"
                 </blockquote>
 
-                {/* Author Info */}
+               
                 <div className="flex items-center">
                   <img
                     src={testimonial.image}
@@ -735,116 +746,216 @@ const PartnershipsPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
 
       {/* Partnership Form */}
-     <section id="partnership-form" className="pt-16 pb-0 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-16">
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-        Partner with India Drone Academy – Strategic Collaboration Form
-      </h2>
-      <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-        India Drone Academy (IDA) invites you to join hands through specialized partnership models, including our <strong>DAAS (Drone As a Service)</strong> program. This form helps us explore synergies tailored to your goals.
-      </p>
-      <p className="text-sm text-gray-500 mt-2"><strong>* All fields marked with an asterisk are required</strong></p>
-    </div>
+      <section id="partnership-form" className="pt-16 pb-0 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Partner with India Drone Academy – Strategic Collaboration Form
+            </h2>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              India Drone Academy (IDA) invites you to join hands through specialized partnership models, including our <strong>DAAS (Drone As a Service)</strong> program. This form helps us explore synergies tailored to your goals.
+            </p>
+            <p className="text-sm text-gray-500 mt-2"><strong>* All fields marked with an asterisk are required</strong></p>
+          </div>
 
-    <div className="bg-gray-50 rounded-2xl p-8 lg:pt-12 lg:pb-6">
-      <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-gray-50 rounded-2xl p-8 lg:pt-12 lg:pb-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
 
-        {/* Section 1: Basic Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Full Name *</strong></label>
-            <input type="text" name="fullName" required className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-          </div>
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">Organization / Institute Name</label>
-            <input type="text" name="organization" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-          </div>
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Email ID *</strong></label>
-            <input type="email" name="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-          </div>
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Mobile Number *</strong></label>
-            <input type="text" name="mobile" required className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-          </div>
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2"><strong>City & State *</strong></label>
-            <input type="text" name="cityState" required className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-          </div>
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2">Website</label>
-            <input type="url" name="website" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-          </div>
-        </div>
-
-        {/* Section 2: Partnership Type */}
-        <div>
-          <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Select Your Partnership Type *</strong></label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {['Drone Pilots', 'Colleges & Universities', 'Drone Manufacturers', 'Software & AI Developers', 'Drone As a Service Providers', 'Agritech & Farmer Groups', 'RPTOs & Drone Training Institutes', 'Media & Event Agencies', 'Government & NGOs', 'GIS Experts & Organizations'].map(type => (
-              <label key={type}><input type="checkbox" name="partnershipType" value={type} className="mr-2" />{type}</label>
-            ))}
-          </div>
-        </div>
-
-        {/* Section 3: DAAS */}
-        <div>
-          <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Are you interested in DAAS opportunities? *</strong></label>
-          <label><input type="radio" name="daas" value="offer" required className="mr-2" />Yes, I want to offer my drone services under DAAS</label><br/>
-          <label><input type="radio" name="daas" value="hire" className="mr-2" />Yes, I want to hire drones/pilots via DAAS</label>
-        </div>
-
-        {/* Section 4: Key Areas of Interest */}
-        <div>
-          <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Key Areas of Interest *</strong></label>
-          <p className="text-sm text-gray-500 mb-4">Please select all areas of interest under your chosen partnership type(s):</p>
-          <div className="grid grid-cols-1 gap-3 text-sm">
-            {[ 
-              { title: 'Drone Pilots', options: 'DGCA training, Paid Missions, Simulator Access, Freelance Onboarding, DAAS Deployment' },
-              { title: 'Colleges & Universities', options: 'Curriculum for CSE/ECE/EEE, Lab setup, Faculty MOU, Workshops, Project Placements' },
-              { title: 'Drone Manufacturers', options: 'AI-ready Drone Kits, Payload Customization, GIS Testing, Expos & Demos, DAAS Equipment Supply' },
-              { title: 'Software & AI Developers', options: 'Flight Sim APIs, Object Detection, GIS Tools, Real-time Automation' },
-              { title: 'Drone As a Service Providers', options: 'Certified Pilot Access, Joint Project Bidding, Survey Partnerships, DAAS Operational Scaling' },
-              { title: 'Agritech & Farmer Groups', options: 'Aerial Spraying/Seeding, NDVI Health Analysis, Drone Didi Training, Land Mapping' },
-              { title: 'RPTOs & Training Institutes', options: 'Simulator Setup, Courseware Access, Co-certification, DAAS Collaboration' },
-              { title: 'Media & Event Agencies', options: 'Aerial Photography Training, Event Coverage, Live Drone Shows, Intern Collab' },
-              { title: 'Government & NGOs', options: 'Skill India Integration, Women Upliftment via Drone Didi, Smart City Surveys, DAAS for Public Services' },
-              { title: 'GIS Experts & Orgs', options: 'Data Collection, Land Use Mapping, AI Dashboard Integration, Drone-GIS Training' }
-            ].map(group => (
-              <div key={group.title} className="flex items-start space-x-4">
-                <label className="inline-flex items-center font-semibold whitespace-nowrap">
-                  <input type="checkbox" name="keyAreaGroup" value={group.title} className="mr-2" /> {group.title}
-                </label>
-                <p className="text-gray-700 flex-1">{group.options}</p>
+              {/* Full Name */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Full Name *</strong></label>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                />
               </div>
-            ))}
+
+              {/* Organization Name */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Organization/Company Name</label>
+                <input
+                  type="text"
+                  name="organization"
+                  value={formData.organization}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Email ID *</strong></label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                />
+              </div>
+
+              {/* Mobile Number */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Mobile Number *</strong></label>
+                <input
+                  type="text"
+                  name="mobile"
+                  value={formData.mobile}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                />
+              </div>
+
+              {/* City & State */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2"><strong>City & State *</strong></label>
+                <input
+                  type="text"
+                  name="cityState"
+                  value={formData.cityState}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                />
+              </div>
+
+              {/* Website */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Website</label>
+                <input
+                  type="url"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                />
+              </div>
+
+              {/* Select Your Partnership Type */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Select Your Partnership Type *</strong></label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {['Drone Pilots', 'Drone Manufacturers', 'Software & AI Developers', 'Drone As a Service Providers', 'Agritech & Farmer Groups', 'RPTOs & Drone Training Institutes', 'Media & Event Agencies', 'Government & NGOs', 'GIS Experts & Organizations'].map(type => (
+                    <label key={type}>
+                      <input
+                        type="checkbox"
+                        name="partnershipType"
+                        value={type}
+                        checked={formData.partnershipType.includes(type)}
+                        onChange={handleInputChange}
+                        className="mr-2"
+                      />
+                      {type}
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* DAAS Opportunities */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Are you interested in DAAS opportunities? *</strong></label>
+                <label>
+                  <input
+                    type="radio"
+                    name="daas"
+                    value="offer"
+                    checked={formData.daas === 'offer'}
+                    onChange={handleInputChange}
+                  />
+                  Yes, I want to offer my drone services under DAAS
+                </label>
+                <br />
+                <label>
+                  <input
+                    type="radio"
+                    name="daas"
+                    value="hire"
+                    checked={formData.daas === 'hire'}
+                    onChange={handleInputChange}
+                  />
+                  Yes, I want to hire drones/pilots via DAAS
+                </label>
+              </div>
+
+              {/* Key Areas of Interest */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Key Areas of Interest *</strong></label>
+                <p className="text-sm text-gray-500 mb-4">Please select all areas of interest under your chosen partnership type(s):</p>
+                <div className="grid grid-cols-1 gap-3 text-sm">
+                  {[
+                    { title: 'Drone Pilots', options: 'DGCA training, Paid Missions, Simulator Access, Freelance Onboarding, DAAS Deployment' },
+                    { title: 'Drone Manufacturers', options: 'AI-ready Drone Kits, Payload Customization, GIS Testing, Expos & Demos, DAAS Equipment Supply' },
+                    { title: 'Software & AI Developers', options: 'Flight Sim APIs, Object Detection, GIS Tools, Real-time Automation' },
+                    { title: 'Drone As a Service Providers', options: 'Certified Pilot Access, Joint Project Bidding, Survey Partnerships, DAAS Operational Scaling' },
+                    { title: 'Agritech & Farmer Groups', options: 'Aerial Spraying/Seeding, NDVI Health Analysis, Drone Didi Training, Land Mapping' },
+                    { title: 'RPTOs & Training Institutes', options: 'Simulator Setup, Courseware Access, Co-certification, DAAS Collaboration' },
+                    { title: 'Media & Event Agencies', options: 'Aerial Photography Training, Event Coverage, Live Drone Shows, Intern Collab' },
+                    { title: 'Government & NGOs', options: 'Skill India Integration, Women Upliftment via Drone Didi, Smart City Surveys, DAAS for Public Services' },
+                    { title: 'GIS Experts & Orgs', options: 'Data Collection, Land Use Mapping, AI Dashboard Integration, Drone-GIS Training' }
+                  ].map(group => (
+                    <div key={group.title} className="flex items-start space-x-4">
+                      <label className="inline-flex items-center font-semibold whitespace-nowrap">
+                        <input
+                          type="checkbox"
+                          name="keyAreaGroup"
+                          value={group.title}
+                          checked={formData.keyAreaGroup.includes(group.title)}
+                          onChange={handleInputChange}
+                          className="mr-2"
+                        />
+                        {group.title}
+                      </label>
+                      <p className="text-gray-700 flex-1">{group.options}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Project Vision */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Project Vision *</strong></label>
+                <textarea
+                  name="projectVision"
+                  value={formData.projectVision}
+                  onChange={handleInputChange}
+                  rows={5}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                  placeholder="Tell us how you envision this partnership. What problems are you solving or exploring?"
+                />
+              </div>
+
+              {/* File Upload (Optional) */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">File Upload (Optional)</label>
+                <input
+                  type="file"
+                  name="attachments"
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-[#F15A24] text-white font-bold py-4 px-6 rounded-lg hover:bg-[#D64A1A] transition-all duration-200"
+              >
+                Submit Partnership Request
+              </button>
+            </form>
           </div>
         </div>
-
-        {/* Section 5: Project Vision */}
-        <div>
-          <label className="block text-sm font-bold text-gray-700 mb-2"><strong>Project Vision *</strong></label>
-          <textarea name="projectVision" rows={5} required className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Tell us how you envision this partnership. What problems are you solving or exploring?" />
-        </div>
-
-        {/* Section 6: File Upload */}
-        <div>
-          <label className="block text-sm font-bold text-gray-700 mb-2">File Upload (Optional)</label>
-          <input type="file" name="attachments" accept=".pdf,.docx,.pptx" className="w-full px-4 py-2 border border-gray-300 rounded-lg" />
-        </div>
-
-        <button type="submit" className="w-full bg-[#F15A24] text-white font-bold py-4 px-6 rounded-lg hover:bg-[#D64A1A] transition-all duration-200">
-          Submit Partnership Request
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* Final CTA */}

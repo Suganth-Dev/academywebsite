@@ -59,7 +59,7 @@ const CoursesPage: React.FC = () => {
       image: '/medium-upgrade.jpg',
       link: '/courses/medium-upgrade',
       features: ['Quick Upgrade', 'Medium Class', 'Advanced Operations', 'Commercial Ready'],
-      locations: ['Hyderabad', ]
+      locations: ['Hyderabad',]
     },
     {
       id: 4,
@@ -167,23 +167,23 @@ const CoursesPage: React.FC = () => {
       features: ['Orthomosaics', 'DEM/DSM', '3D Models', 'QGIS Export'],
       locations: ['Hyderabad']
     },
-{
-  id: 10,
-  title: 'Drone Assembly & Repair (Basic)',
-  Class: 'Special Courses',
-  badge: 'Basic Repair',
-  badgeColor: 'bg-green-600',
-  description: 'Learn essential repairs, soldering, and maintenance for drones.',
-  duration: '5 Days',
-  price: '₹30,000',
-  gst: '+ 18% GST',
-  level: 'Beginner',
-  icon: Wrench,
-  image: '/repair-basic.jpg',
-  link: '/courses/assembly-basic',
-  features: ['Basic Soldering', 'Motor Setup', 'ESC Troubleshooting', 'Flight Performance Tuning'],
-  locations: ['Hyderabad']
-},
+    {
+      id: 10,
+      title: 'Drone Assembly & Repair (Basic)',
+      Class: 'Special Courses',
+      badge: 'Basic Repair',
+      badgeColor: 'bg-green-600',
+      description: 'Learn essential repairs, soldering, and maintenance for drones.',
+      duration: '5 Days',
+      price: '₹30,000',
+      gst: '+ 18% GST',
+      level: 'Beginner',
+      icon: Wrench,
+      image: '/repair-basic.jpg',
+      link: '/courses/assembly-basic',
+      features: ['Basic Soldering', 'Motor Setup', 'ESC Troubleshooting', 'Flight Performance Tuning'],
+      locations: ['Hyderabad']
+    },
 
     {
       id: 11,
@@ -285,7 +285,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Beginner Friendly',
       icon: Wheat,
-      image: '/didi-agri.jpg',
+      image: '/whyida4.jpg',
       link: '/courses/drone-didi-agri',
       features: ['Women-Focused', 'Agriculture Training', 'Rural Empowerment', 'Practical Skills'],
       locations: ['Hyderabad']
@@ -303,7 +303,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Intermediate to Advanced',
       icon: Target,
-      image: '/medium-3d.png',
+      image: '/medium-3d.webp',
       link: '/courses/dgca-mapping-bundle',
       features: ['Medium Class', '3D Mapping', 'Survey Techniques', 'Professional Skills'],
       locations: ['Hyderabad']
@@ -320,7 +320,7 @@ const CoursesPage: React.FC = () => {
       gst: '+ 18% GST',
       level: 'Comprehensive',
       icon: Award,
-      image: 'https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: '/bundle.png',
       link: '/courses/ultimate-pro',
       features: ['Triple Certification', 'Complete Package', 'Professional Level', 'Career Ready'],
       locations: ['Hyderabad']
@@ -410,28 +410,28 @@ const CoursesPage: React.FC = () => {
       features: ['Online Learning', 'Interactive Sessions', 'Self-Paced', 'Theory Foundation'],
       locations: ['Online']
     },
-   {
-  id: 24,
-  title: 'Drone Awareness for Schools',
-  Class: 'Special Courses',
-  badge: 'For School Students',
-  badgeColor: 'bg-yellow-600',
-  description: 'IDA empowers school students through live drone demos, hands-on flying, and STEM-integrated workshops.',
-  duration: '1 Day / Custom',
-  price: '₹15,000',
-  gst: '+ 18% GST',
-  level: 'Beginner (K-12)',
-  icon: Building,
-  image: '/school.png',
-  link: '/courses/school-awareness',
-  features: [
-    'Interactive Drone Demonstrations',
-    'Hands-on Supervised Flying',
-    'STEM Education Integration',
-    'Drone Career Path Guidance'
-  ],
-  locations: ['Pan India', 'On-campus Available']
-}
+    {
+      id: 24,
+      title: 'Drone Awareness for Schools',
+      Class: 'Special Courses',
+      badge: 'For School Students',
+      badgeColor: 'bg-yellow-600',
+      description: 'IDA empowers school students through live drone demos, hands-on flying, and STEM-integrated workshops.',
+      duration: '1 Day / Custom',
+      price: '₹15,000',
+      gst: '+ 18% GST',
+      level: 'Beginner (K-12)',
+      icon: Building,
+      image: '/1.png',
+      link: '/courses/school-awareness',
+      features: [
+        'Interactive Drone Demonstrations',
+        'Hands-on Supervised Flying',
+        'STEM Education Integration',
+        'Drone Career Path Guidance'
+      ],
+      locations: ['Pan India', 'On-campus Available']
+    }
 
   ];
 
@@ -657,31 +657,31 @@ const CoursesPage: React.FC = () => {
         </div>
       </section>
 
-{isModalOpen && (
-  <>
-    {/* Background Overlay */}
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 z-40"
-      onClick={closeModal}
-    />
+      {isModalOpen && (
+        <>
+          {/* Background Overlay */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={closeModal}
+          />
 
-    {/* Modal Content */}
-    <div className="fixed inset-0 z-50 overflow-y-auto px-4 py-10">
-      <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-md sm:max-w-lg mx-auto p-4 sm:p-5 mt-24">
-        {/* Close Button */}
-        <button
-          onClick={closeModal}
-          className="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl font-bold"
-        >
-          &times;
-        </button>
+          {/* Modal Content */}
+          <div className="fixed inset-0 z-50 overflow-y-auto px-4 py-10">
+            <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-md sm:max-w-lg mx-auto p-4 sm:p-5 mt-24">
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl font-bold"
+              >
+                &times;
+              </button>
 
-        {/* Form */}
-        <DownloadBrochureForm />
-      </div>
-    </div>
-  </>
-)}
+              {/* Form */}
+              <DownloadBrochureForm />
+            </div>
+          </div>
+        </>
+      )}
 
 
 
