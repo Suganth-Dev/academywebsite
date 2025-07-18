@@ -374,7 +374,16 @@ const PartnershipsPage: React.FC = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+    const collaborators = [
+    { name: 'DGCA', type: 'Government Body', src: '/DGCA.jpeg' },
+    { name: 'Drone TV', type: 'Media Partner', src: '/DroneTv.png' },
+    { name: 'Corteva Agriscience', type: 'Industry Leader', src: '/Corteva.png' },
+    { name: 'Drogo Drones', type: 'Technology Partner', src: '/Drogo.png' },
+    { name: 'Woxon University', type: 'Academic Partner', src: '/Woxen.png' },
+    { name: 'Marut Drones', type: 'Drone Manufacturer', src: '/marut.png' },
+    { name: 'FTIH', type: 'Academic & Media Institute', src: '/ftih.png' }
+  ];
+const scrollingLogos = [...collaborators, ...collaborators];
   return (
     <div className="min-h-screen bg-white">
       {/* Header Spacer */}
@@ -428,12 +437,13 @@ const PartnershipsPage: React.FC = () => {
             {/* Hero Image */}
             <div className="relative">
               <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
-                <img
-                  src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Partnership collaboration showing flight demos, equipment, simulators, and industry presence"
-                  className="w-full h-80 object-cover rounded-lg"
-                  loading="lazy"
-                />
+               <img
+  src="/partner1.png"  // Reference the image from the public folder
+  alt="Partnership collaboration showing flight demos, equipment, simulators, and industry presence"
+  className="w-full h-80 object-cover rounded-lg"
+  loading="lazy"
+/>
+
               </div>
 
               {/* Floating Stats */}
@@ -578,10 +588,11 @@ const PartnershipsPage: React.FC = () => {
       </section>
 
       {/* Existing Partners */}
-      <section className="pt-2 lg:pt-4 pb-16 lg:pb-20 bg-gray-50">
+        <section className="py-10 lg:py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        {/* Section Header */}
+       <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Who We've Worked With
             </h2>
@@ -590,61 +601,113 @@ const PartnershipsPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Partners Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center mb-6"> {/* Adjusted mb-12 to mb-6 */}
-            {existingPartners.map((partner, index) => (
+        {/* Auto-scrolling Strip */}
+        <div className="relative overflow-hidden">
+          <div className="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 w-16 h-full bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+
+          <div className="flex animate-scroll space-x-6 py-4 justify-center">
+            {scrollingLogos.map((collaborator, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="flex-shrink-0 bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition duration-200 min-w-[160px] text-center group"
               >
-                <div className="w-16 h-16 bg-gray-100 rounded-lg mx-auto mb-4 overflow-hidden">
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-1 text-sm">
-                  {partner.name}
-                </h3>
-                <p className="text-xs text-gray-600">
-                  {partner.type}
-                </p>
+                <img
+                  src={collaborator.src}
+                  alt={`${collaborator.name} Logo`}
+                  className="w-24 h-24 object-contain mx-auto mb-3 group-hover:scale-110 transition-transform duration-200"
+                />
+                <h3 className="font-semibold text-gray-900 text-xs mb-0.5">{collaborator.name}</h3>
+                <p className="text-[10px] text-gray-600">{collaborator.type}</p>
               </div>
             ))}
           </div>
+        </div>
 
+        {/* Trust Indicators */}
+        <div className="mt-12 bg-white rounded-xl p-6 lg:p-8 shadow-md">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-
-          {/* Featured In Section */}
-          <section className="py-8 bg-white">  {/* Reduced padding from py-16 to py-8 */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-10">
-                Featured In
-              </h2>
-              <div className="text-center">
-                <p className="text-gray-600 mb-8 text-xl font-semibold"></p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 place-items-center">
-                  {[{ name: 'The Hindu', img: '/5.jpg', info: 'National Daily Coverage' },
-                  { name: 'Eenadu', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Eenadu_logo.svg/512px-Eenadu_logo.svg.png', info: 'Regional Telugu Feature' },
-                  { name: 'Times of India', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/The_Times_of_India_logo.svg/512px-The_Times_of_India_logo.svg.png', info: 'Tech & Education Column' },
-                  { name: 'Business Standard', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Business_Standard_logo.svg/512px-Business_Standard_logo.svg.png', info: 'Business Feature' },
-                  { name: 'Economic Times', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/The_Economic_Times_logo.svg/512px-The_Economic_Times_logo.svg.png', info: 'Start-up Highlights' }]
-                    .map((item, idx) => (
-                      <div key={idx} className="bg-white shadow-xl rounded-2xl p-8 min-h-[220px] flex flex-col items-center text-center">
-                        <img src={item.img} alt={item.name} className="w-32 h-32 rounded-xl object-contain bg-white mb-5 border border-gray-200 shadow-sm" />
-                        <p className="font-semibold text-gray-800 text-base mb-1">{item.name}</p>
-                        <p className="text-sm text-gray-500">{item.info}</p>
-                      </div>
-                    ))}
-                </div>
+            {/* Left Info */}
+            <div>
+              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
+                Government Recognition & Industry Trust
+              </h3>
+              <div className="space-y-3 text-sm">
+                {[
+                  {
+                    title: 'DGCA Approved Training Center',
+                    desc: 'Official certification recognized across India'
+                  },
+                  {
+                    title: 'Industry Partnerships',
+                    desc: 'Direct placement opportunities with leading companies'
+                  },
+                  {
+                    title: 'Academic Collaborations',
+                    desc: 'Research partnerships with top educational institutes and universities'
+                  },
+                  {
+                    title: 'Technology Integration',
+                    desc: 'Latest drone technology and equipment'
+                  }
+                ].map((item, idx) => (
+                  <div className="flex items-start" key={idx}>
+                    <div className="w-2 h-2 bg-[#26A65B] rounded-full mt-1.5 mr-3"></div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{item.title}</h4>
+                      <p className="text-gray-600 text-xs">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </section>
 
+            {/* Right Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { color: '#F15A24', value: '15+', label: 'Hiring Partners' },
+                { color: '#26A65B', value: '6+', label: 'Training Centers' },
+                { color: '#3B82F6', value: '6+', label: 'States Covered' },
+                { color: '#8B5CF6', value: '100%', label: 'Job Assistance' }
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="text-center rounded-lg p-4"
+                  style={{ backgroundColor: `${item.color}1A` }}
+                >
+                  <div className="text-2xl font-bold mb-1" style={{ color: item.color }}>
+                    {item.value}
+                  </div>
+                  <div className="text-xs text-gray-700 font-medium">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </section>
+
+      </div>
+
+      {/* Animation Keyframes */}
+      <style jsx>{`
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-scroll {
+      animation: scroll 30s linear infinite;
+    }
+
+    .animate-scroll:hover {
+      animation-play-state: paused;
+    }
+  `}</style>
+    </section>
 
 
       {/* Benefits Section */}
@@ -674,7 +737,7 @@ const PartnershipsPage: React.FC = () => {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="/partner2.png"
                   alt="Partnership benefits visualization"
                   className="w-full h-96 object-cover"
                   loading="lazy"
