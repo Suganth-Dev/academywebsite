@@ -108,8 +108,8 @@ const WhyIDAPage: React.FC = () => {
     },
     {
       name: 'Kamala',
-      title: 'Director of Training',
-      image: '/ananya.jpg',
+      title: 'Cofounder & Administrator',
+      image: '/kamala.jpg',
       video: 'https://www.youtube.com/embed/gJgU3C2lRBQ?autoplay=1&mute=1',
       commitments: [
         'Curating hands-on training experiences',
@@ -130,7 +130,7 @@ const WhyIDAPage: React.FC = () => {
     },
     {
       name: 'Sumit Krishnan',
-      title: 'Program Coordinator',
+      title: 'RPAS Instructor (Small & Med)',
       image: '/sumit.jpg',
       video: 'https://www.youtube.com/embed/KW3e0iEEavY?autoplay=1&mute=1',
       commitments: [

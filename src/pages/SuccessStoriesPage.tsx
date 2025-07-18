@@ -653,7 +653,7 @@ const spotlightStories = [
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { number: '10,000+', label: 'Pilots Trained', icon: Users },
+              { number: '2,500+', label: 'Pilots Trained', icon: Users },
               { number: '95%', label: 'Course Satisfaction', icon: Star },
               { number: '15+', label: 'States Covered', icon: MapPin },
               { number: '500+', label: 'Partner Companies', icon: Briefcase }
