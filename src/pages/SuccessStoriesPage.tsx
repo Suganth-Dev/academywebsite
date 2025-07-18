@@ -199,7 +199,7 @@ const successStories = [
     course: 'Drone Summer Bootcamp',
     batch: 'July 2023',
     location: 'Lucknow',
-    image: '/SIDDENKI UDAYA SREE.jpg',
+    image: '/SIDDENKIUDAYASREE.jpg',
     quote: 'The summer drone bootcamp was amazing! We learned about components, safety, and even flew real drones in the college ground.',
     achievement: 'Presented drone demo at inter-college tech fest',
     Class: 'Career Growth',
