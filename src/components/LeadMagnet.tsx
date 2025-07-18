@@ -10,46 +10,47 @@ const LeadMagnet: React.FC = () => {
     profession: '',
     source: '',
     purpose: '',
-    subscribe: false
+    subscribe: false,
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const target = e.target as HTMLInputElement;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [target.name]: target.value,
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would integrate with your backend/CRM/WhatsApp
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        city: '',
-        profession: '',
-        source: '',
-        purpose: '',
-        subscribe: false
+    try {
+      const response = await fetch('https://zsyeapvwb6.execute-api.ap-south-1.amazonaws.com/DownloadGuideSubmission', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
 
+      const result = await response.json();
+      console.log('Response from API:', result);
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        console.error('Error:', result.error || 'Unknown error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
-    <section id="lead-magnet" className="py-10 lg:py-16 bg-gradient-to-br from-orange-50 to-red-50">
+<section id="lead-magnet" className="py-10 lg:py-16 bg-gradient-to-br from-orange-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
           {/* Content */}
           <div>
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
@@ -66,7 +67,7 @@ const LeadMagnet: React.FC = () => {
                 'Industry insights and market trends',
                 'Training requirements and certification process',
                 'Equipment recommendations for beginners',
-                'Success stories and case studies'
+                'Success stories and case studies',
               ].map((benefit, i) => (
                 <li key={i} className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-[#26A65B] mr-2 mt-0.5 flex-shrink-0" />
@@ -193,7 +194,6 @@ const LeadMagnet: React.FC = () => {
                     </select>
                   </div>
 
-
                   {/* Source */}
                   <div>
                     <label htmlFor="source" className="block font-medium text-gray-700 mb-1">How did you hear about us? *</label>
@@ -238,7 +238,6 @@ const LeadMagnet: React.FC = () => {
                     </select>
                   </div>
 
-
                   {/* Opt-in */}
                   <div className="flex items-start space-x-2">
                     <input
@@ -256,7 +255,7 @@ const LeadMagnet: React.FC = () => {
                     </label>
                   </div>
 
-                  {/* Submit */}
+                  {/* Submit Button */}
                   <button
                     type="submit"
                     className="w-full bg-[#F15A24] text-white font-bold py-3 px-4 rounded-md hover:bg-[#D64A1A] transition transform hover:-translate-y-0.5 flex items-center justify-center"

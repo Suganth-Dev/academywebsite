@@ -119,7 +119,7 @@ const WhyIDAPage: React.FC = () => {
     },
     {
       name: 'Vamsi Krishna Kurakula',
-      title: 'Chief Flight Instructor',
+      title: 'Director',
       image: '/vamsi.jpg',
       video: 'https://www.youtube.com/embed/v6sOYpMdwCo?autoplay=1&mute=1',
       commitments: [
@@ -142,41 +142,42 @@ const WhyIDAPage: React.FC = () => {
   ];
 
 
-  const testimonials = [
-    {
-      id: 1,
-      name: 'Rajesh Kumar',
-      role: 'Commercial Drone Pilot',
-      course: 'DGCA Pilot Training',
-      batch: 'March 2024',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300',
-      quote: 'IDA didn\'t just teach me to fly drones—they transformed my entire career. From a mechanical engineer earning ₹3L to a certified pilot earning ₹8L annually. The practical training and job support made all the difference.',
-      rating: 5,
-      achievement: 'Now earning ₹8L+ annually'
-    },
-    {
-      id: 2,
-      name: 'Priya Sharma',
-      role: 'Agriculture Drone Specialist',
-      course: 'Agriculture Drone Training',
-      batch: 'February 2024',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300',
-      quote: 'As a woman entering the drone industry, IDA\'s supportive environment gave me confidence. Their agriculture program helped me start my own precision farming service. I now serve 200+ farmers across Maharashtra.',
-      rating: 5,
-      achievement: 'Started own drone service company'
-    },
-    {
-      id: 3,
-      name: 'Amit Patel',
-      role: 'Survey & Mapping Expert',
-      course: 'DGCA Pilot Training',
-      batch: 'January 2024',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300',
-      quote: 'The industry connections at IDA are unmatched. Within 2 weeks of certification, I had 3 job offers. The instructors are industry veterans who share real insights, not just textbook knowledge.',
-      rating: 5,
-      achievement: 'Placed in 2 weeks after certification'
-    }
-  ];
+const testimonials = [
+  {
+    id: 1,
+    name: 'Vipin Kumar',
+    role: 'Commercial Drone Pilot',
+    course: 'DGCA Pilot Training',
+    batch: 'March 2024',
+    image: 'vipin.jpg',
+    quote: 'The DGCA training at IDA gave me the confidence to operate drones professionally. The hands-on flying sessions and simulator access helped me master navigation and safety protocols.',
+    rating: 5,
+    achievement: 'Now flying drones for infrastructure inspection projects across Maharashtra'
+  },
+  {
+    id: 2,
+    name: 'Dhondi Jugge Rishika',
+    role: 'Agriculture Drone Specialist',
+    course: 'Agriculture Drone Training',
+    batch: 'February 2024',
+    image: '/Rishika.jpg',
+    quote: 'IDA’s Women Drone Program opened up a whole new world for me. I gained not just skills in spraying and crop health monitoring, but also the courage to conduct training demos in rural areas.',
+    rating: 5,
+    achievement: 'Currently supporting women-led agri groups in drone spraying across 12 villages'
+  },
+  {
+    id: 3,
+    name: 'Satish',
+    role: 'Survey & Mapping Expert',
+    course: 'DGCA Pilot Training',
+    batch: 'January 2024',
+    image: 'satish.jpg',
+    quote: 'The outdoor training and map creation sessions at IDA helped me move from just learning GIS in theory to actually using drones for real surveying work.',
+    rating: 5,
+    achievement: 'Now working on urban land mapping projects using drone-GIS integration'
+  }
+];
+
   const teamMembers = [
     {
       name: "Dev.R",

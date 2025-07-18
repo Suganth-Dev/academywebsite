@@ -126,86 +126,87 @@ const SuccessStoriesPage: React.FC = () => {
     }
   ];
 
-  const successStories = [
-    {
-      id: 1,
-      name: 'Rajesh Kumar',
-      role: 'Commercial Drone Pilot',
-      course: 'DGCA Pilot Training',
-      batch: 'March 2024',
-      location: 'Mumbai',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'From mechanical engineer to commercial pilot - best decision ever!',
-      achievement: 'Now earning ₹8L+ annually',
-      Class: 'Career Switch',
-      rating: 5
-    },
-    {
-      id: 2,
-      name: 'Priya Sharma',
-      role: 'Agriculture Drone Specialist',
-      course: 'Agriculture Drone Training',
-      batch: 'February 2024',
-      location: 'Pune',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Started my own agri-drone service. Now helping 200+ farmers.',
-      achievement: 'Started own drone service company',
-      Class: 'Entrepreneurship',
-      rating: 5
-    },
-    {
-      id: 3,
-      name: 'Amit Patel',
-      role: 'Survey & Mapping Expert',
-      course: 'DGCA Pilot Training',
-      batch: 'January 2024',
-      location: 'Bangalore',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Got 3 job offers within 2 weeks of certification!',
-      achievement: 'Placed in 2 weeks after certification',
-      Class: 'Quick Placement',
-      rating: 5
-    },
-    {
-      id: 4,
-      name: 'Meera Reddy',
-      role: 'Drone Photographer',
-      course: 'Women Drone Program',
-      batch: 'December 2023',
-      location: 'Hyderabad',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'From housewife to professional drone photographer in 6 months.',
-      achievement: 'Built successful photography business',
-      Class: 'Women Empowerment',
-      rating: 5
-    },
-    {
-      id: 5,
-      name: 'Kiran Singh',
-      role: 'Agri-Tech Entrepreneur',
-      course: 'Agriculture Drone Training',
-      batch: 'November 2023',
-      location: 'Punjab',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Helping fellow farmers increase yield by 30% using drone technology.',
-      achievement: 'Serving 500+ farmers',
-      Class: 'Agriculture',
-      rating: 5
-    },
-    {
-      id: 6,
-      name: 'Deepak Verma',
-      role: 'Senior Drone Instructor',
-      course: 'DGCA Pilot Training',
-      batch: 'October 2023',
-      location: 'Delhi',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Student to instructor - now training the next generation of pilots.',
-      achievement: 'Became certified instructor',
-      Class: 'Career Growth',
-      rating: 5
-    }
-  ];
+const successStories = [
+  {
+    id: 1,
+    name: 'Vipin Kumar',
+    role: 'Commercial Drone Pilot',
+    course: 'DGCA Pilot Training',
+    batch: 'March 2024',
+    location: 'Mumbai',
+    image: 'vipin.jpg',
+    quote: 'The DGCA training at IDA gave me the confidence to operate drones professionally. The hands-on flying sessions and simulator access helped me master navigation and safety protocols.',
+    achievement: 'Now flying drones for infrastructure inspection projects across Maharashtra',
+    Class: 'Career Switch',
+    rating: 5
+  },
+  {
+    id: 2,
+    name: 'Dhondi Jugge Rishika',
+    role: 'Agriculture Drone Specialist',
+    course: 'Agriculture Drone Training',
+    batch: 'February 2024',
+    location: 'Pune',
+    image: '/Rishika.jpg',
+    quote: 'IDA’s Women Drone Program opened up a whole new world for me. I gained not just skills in spraying and crop health monitoring, but also the courage to conduct training demos in rural areas.',
+    achievement: 'Currently supporting women-led agri groups in drone spraying across 12 villages',
+    Class: 'Entrepreneurship',
+    rating: 5
+  },
+  {
+    id: 3,
+    name: 'Satish',
+    role: 'Survey & Mapping Expert',
+    course: 'DGCA Pilot Training',
+    batch: 'January 2024',
+    location: 'Bangalore',
+    image: 'satish.jpg',
+    quote: 'The outdoor training and map creation sessions at IDA helped me move from just learning GIS in theory to actually using drones for real surveying work.',
+    achievement: 'Now working on urban land mapping projects using drone-GIS integration',
+    Class: 'Quick Placement',
+    rating: 5
+  },
+  {
+    id: 4,
+    name: 'N.Divya',
+    role: 'Drone Instructor',
+    course: 'Instructor Development Program',
+    batch: 'December 2023',
+    location: 'Hyderabad',
+    image: '/N.Divya.jpg',
+    quote: 'IDA transformed me from a drone learner to a certified instructor. The structured curriculum and simulator training made me confident to teach others.',
+    achievement: 'Now conducting drone training sessions in Telangana RPTOs',
+    Class: 'Women Empowerment',
+    rating: 5
+  },
+  {
+    id: 5,
+    name: 'Mahesh',
+    role: 'Mining Surveyor',
+    course: 'Drone Mapping for Mining',
+    batch: 'November 2023',
+    location: 'Chennai',
+    image: '/mahesh.jpg',
+    quote: 'IDA’s mapping course helped me automate volume calculations for mining projects. The field sessions gave me practical exposure.',
+    achievement: 'Deployed drone mapping in 3 major mining zones across Tamil Nadu',
+    Class: 'Agriculture',
+    rating: 5
+  },
+  {
+    id: 6,
+    name: 'Siddenki Udaya Sree',
+    role: 'Student Trainee',
+    course: 'Drone Summer Bootcamp',
+    batch: 'July 2023',
+    location: 'Lucknow',
+    image: '/SIDDENKI UDAYA SREE.jpg',
+    quote: 'The summer drone bootcamp was amazing! We learned about components, safety, and even flew real drones in the college ground.',
+    achievement: 'Presented drone demo at inter-college tech fest',
+    Class: 'Career Growth',
+    rating: 5
+  }
+];
+
 
   const reviewWall = [
     {
@@ -436,110 +437,111 @@ const SuccessStoriesPage: React.FC = () => {
       </section>
 
       {/* Success Stories Grid - Compressed */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Certified & Soaring
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Meet our graduates who've transformed their careers and are now leading in their fields.
-            </p>
-          </div>
+<section className="py-12 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-8">
+      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        Certified & Soaring
+      </h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        Meet our graduates who've transformed their careers and are now leading in their fields.
+      </p>
+    </div>
 
-          {/* Filters - Compressed */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            <div className="flex items-center mr-3 mb-2">
-              <Filter className="w-4 h-4 mr-2 text-gray-600" />
-              <span className="text-sm text-gray-700 font-medium">Filter:</span>
+    {/* Filters - Compressed */}
+    <div className="flex flex-wrap justify-center gap-2 mb-8">
+      <div className="flex items-center mr-3 mb-2">
+        <Filter className="w-4 h-4 mr-2 text-gray-600" />
+        <span className="text-sm text-gray-700 font-medium">Filter:</span>
+      </div>
+      {filters.map((filter) => (
+        <button
+          key={filter}
+          onClick={() => setActiveFilter(filter)}
+          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeFilter === filter
+            ? 'bg-[#F15A24] text-white shadow-md'
+            : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+            }`}
+        >
+          {filter}
+        </button>
+      ))}
+    </div>
+
+    {/* Stories Grid - Compressed */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {filteredStories.slice(0, visibleStories).map((story, index) => (
+        <div
+          key={story.id}
+          className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
+        >
+          {/* Story Image */}
+          <div className="relative h-56 overflow-hidden">
+            <img
+              src={story.image}
+              alt={story.name}
+              className="w-full h-full object-contain"  // Use object-contain to keep the face visible
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+            {/* Class Badge */}
+            <div className="absolute top-3 left-3 bg-[#F15A24] text-white px-2 py-1 rounded-full text-xs font-medium">
+              {story.Class}
             </div>
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeFilter === filter
-                    ? 'bg-[#F15A24] text-white shadow-md'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
 
-          {/* Stories Grid - Compressed */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredStories.slice(0, visibleStories).map((story, index) => (
-              <div
-                key={story.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
-              >
-                {/* Story Image */}
-                <div className="relative h-40 overflow-hidden">
-                  <img
-                    src={story.image}
-                    alt={story.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-
-                  {/* Class Badge */}
-                  <div className="absolute top-3 left-3 bg-[#F15A24] text-white px-2 py-1 rounded-full text-xs font-medium">
-                    {story.Class}
-                  </div>
-
-                  {/* Name Overlay */}
-                  <div className="absolute bottom-3 left-3 text-white">
-                    <h3 className="text-lg font-bold">{story.name}</h3>
-                    <p className="text-orange-200 text-sm">{story.role}</p>
-                  </div>
-                </div>
-
-                {/* Story Content */}
-                <div className="p-4">
-                  {/* Rating */}
-                  <div className="flex items-center mb-3">
-                    {[...Array(story.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-
-                  {/* Quote */}
-                  <blockquote className="text-gray-700 mb-3 text-sm leading-relaxed">
-                    "{story.quote}"
-                  </blockquote>
-
-                  {/* Course Info */}
-                  <div className="text-xs text-gray-600 mb-3">
-                    <p className="font-medium">{story.course}</p>
-                    <p>{story.batch} • {story.location}</p>
-                  </div>
-
-                  {/* Achievement */}
-                  <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-2">
-                    <p className="text-[#26A65B] font-bold text-xs">
-                      🏆 {story.achievement}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Load More */}
-          {visibleStories < filteredStories.length && (
-            <div className="text-center mt-6">
-              <button
-                onClick={loadMoreStories}
-                className="bg-[#F15A24] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
-              >
-                View More Stories
-              </button>
+            {/* Name Overlay */}
+            <div className="absolute bottom-3 left-3 text-white">
+              <h3 className="text-lg font-bold">{story.name}</h3>
+              <p className="text-orange-200 text-sm">{story.role}</p>
             </div>
-          )}
+          </div>
+
+          {/* Story Content */}
+          <div className="p-4">
+            {/* Rating */}
+            <div className="flex items-center mb-3">
+              {[...Array(story.rating)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+              ))}
+            </div>
+
+            {/* Quote */}
+            <blockquote className="text-gray-700 mb-3 text-sm leading-relaxed">
+              "{story.quote}"
+            </blockquote>
+
+            {/* Course Info */}
+            <div className="text-xs text-gray-600 mb-3">
+              <p className="font-medium">{story.course}</p>
+              <p>{story.batch} • {story.location}</p>
+            </div>
+
+            {/* Achievement */}
+            <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-2">
+              <p className="text-[#26A65B] font-bold text-xs">
+                🏆 {story.achievement}
+              </p>
+            </div>
+          </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Load More */}
+    {visibleStories < filteredStories.length && (
+      <div className="text-center mt-6">
+        <button
+          onClick={loadMoreStories}
+          className="bg-[#F15A24] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+        >
+          View More Stories
+        </button>
+      </div>
+    )}
+  </div>
+</section>
+
 
       {/* Spotlight Story Slider - Compressed */}
       <section className="py-12 bg-white">

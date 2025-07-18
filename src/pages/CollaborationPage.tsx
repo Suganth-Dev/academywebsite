@@ -233,44 +233,65 @@ const CollaborationPage: React.FC = () => {
       [e.target.name]: e.target.value
     });
   };
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      const response = await fetch("https://wga2b0zo70.execute-api.ap-south-1.amazonaws.com/postcollaborate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
+  try {
+    const {
+      infrastructure,
+      transport,
+      studentBase,
+      mbaSupport,
+      promotion,
+      techInterest,
+      pastExposure
+    } = formData.criteria;
 
-      const result = await response.json();
-
-      if (response.ok) {
-        setIsSubmitted(true);
-
-        // ✅ Delay scroll slightly to allow thank-you state to update
-        setTimeout(() => {
-          document.getElementById("collaboration-form")?.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        }, 100);
-
-        console.log("Submission successful:", result);
-      } else {
-        console.error("Submission failed:", result.error);
-        alert("Failed to submit: " + result.error);
+    const payload = {
+      ...formData,
+      criteria: {
+        avClassrooms: infrastructure,
+        collegeBusFacility: transport,
+        largeStudentBase: studentBase,
+        mbaSupportForBranding: mbaSupport,
+        studentSocialMediaPromo: promotion,
+        innovationInterest: techInterest,
+        priorDroneExposure: pastExposure
       }
-    } catch (error) {
-      console.error("Network error:", error);
-      alert("Something went wrong. Please try again later.");
-    } finally {
-      setIsSubmitting(false);
+    };
+
+    const response = await fetch("https://wga2b0zo70.execute-api.ap-south-1.amazonaws.com/postcollaborate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        document.getElementById("collaboration-form")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 100);
+      console.log("Submission successful:", result);
+    } else {
+      console.error("Submission failed:", result.error);
+      alert("Failed to submit: " + result.error);
     }
-  };
+  } catch (error) {
+    console.error("Network error:", error);
+    alert("Something went wrong. Please try again later.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
 
   const handleRadioChange = (key: string, value: 'Yes' | 'No') => {
