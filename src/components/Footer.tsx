@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
     { name: 'Courses', href: '/courses' },
     { name: 'Why IDA?', href: '/why-ida' },
     { name: 'Success Stories', href: '/success-stories' },
-    { name: 'Blog', href: '/blog' },
+    // { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
     { name: 'Apply Now', href: '/apply' },
     { name: 'Career Support', href: '/contact' }
@@ -89,7 +89,7 @@ const socialLinks = [
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 text-[#F15A24] mt-0.5" />
                 <address className="text-gray-400 not-italic">
-                  IPage UM Services Pvt Ltd
+                  India Drone Academy
                   5A/6B, White Waters,<br />
                   Timber Lake Colony, Shaikpet,<br />
                   Hyderabad - 500008 India<br />
