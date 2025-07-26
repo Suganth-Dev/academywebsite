@@ -47,78 +47,78 @@ const SuccessStoriesPage: React.FC = () => {
   // Auto-rotate spotlight stories
 
   const videoTestimonials = [
-{
-  id: 1,
-  name: 'Sherya Reddy',
-  role: 'Commercial Drone Pilot',
-  course: 'DGCA Pilot Training',
-  location: 'Hyderabad',
-  videoUrl: 'https://www.youtube.com/embed/T1eHJKPLtSg', // Embedded URL for video
-  caption: 'From zero to licensed in 5 days — leveraging my CSE AIML background for precision in drone technology.',
-  achievement: 'Now earning ₹8L+ annually and applying AI/ML in drone operations for smarter solutions.',
-  duration: '2:30',
-  views: '12.5K'
-},
+    {
+      id: 1,
+      name: 'Sherya Reddy',
+      role: 'Commercial Drone Pilot',
+      course: 'DGCA Pilot Training',
+      location: 'Hyderabad',
+      videoUrl: 'https://www.youtube.com/embed/YeJaTI32lpQ', // Embedded URL for video
+      caption: 'From zero to licensed in 5 days — leveraging my CSE AIML background for precision in drone technology.',
+      achievement: 'Now earning ₹8L+ annually and applying AI/ML in drone operations for smarter solutions.',
+      duration: '2:30',
+      views: '12.5K'
+    },
 
-{
-  id: 2,
-  name: 'Varshita',
-  role: 'Agriculture Drone Specialist',
-  course: 'Agriculture Drone Training',
-  location: 'Hyderabad',
-  videoUrl: 'https://www.youtube.com/embed/eoI4b8culkU', // Updated to use embedded URL
-  caption: 'India Drone Academy opened new doors for me, providing a fresh perspective and hands-on experience through internship and simulation labs.',
-  achievement: 'Gained invaluable exposure to drone technology, leading to the launch of my own drone service company.',
-  duration: '3:15',
-  views: '8.2K'
-},
+    {
+      id: 2,
+      name: 'Varshita',
+      role: 'Agriculture Drone Specialist',
+      course: 'Agriculture Drone Training',
+      location: 'Hyderabad',
+      videoUrl: 'https://www.youtube.com/embed/KPFG-npNnpA', // Updated to use embedded URL
+      caption: 'India Drone Academy opened new doors for me, providing a fresh perspective and hands-on experience through internship and simulation labs.',
+      achievement: 'Gained invaluable exposure to drone technology, leading to the launch of my own drone service company.',
+      duration: '3:15',
+      views: '8.2K'
+    },
 
-{
-  id: 3,
-  name: 'Spandana Sripada',
-  role: 'Survey & Mapping Expert',
-  course: 'DGCA Pilot Training',
-  location: 'Hyderabad',
-  videoUrl: 'https://www.youtube.com/embed/OutmSfoDUts', // Updated to use embedded URL
-  caption: 'From gaining theoretical and practical drone knowledge to discovering a promising career path.',
-  achievement: 'Placed in 2 weeks after certification, with a clear plan to work with drones in the future.',
-  duration: '2:45',
-  views: '15.1K'
-}
+    {
+      id: 3,
+      name: 'Spandana Sripada',
+      role: 'Survey & Mapping Expert',
+      course: 'DGCA Pilot Training',
+      location: 'Hyderabad',
+      videoUrl: 'https://www.youtube.com/embed/wQ6cbWk3N4k', // Updated to use embedded URL
+      caption: 'From gaining theoretical and practical drone knowledge to discovering a promising career path.',
+      achievement: 'Placed in 2 weeks after certification, with a clear plan to work with drones in the future.',
+      duration: '2:45',
+      views: '15.1K'
+    }
 
   ];
 
 
-const spotlightStories = [
-  {
-    id: 1,
-    name: 'Captain Meera Reddy',
-    role: 'Chief Drone Pilot at TechMahindra',
-    course: 'DGCA Pilot Training',
-    location: 'Hyderabad',
-    batch: 'March 2023',
-    quote:
-      "IDA’s drone training and certification played a crucial role in shaping my career. As a student, I was looking for hands-on training that would not only enhance my technical skills but also provide real-world applications. The comprehensive program equipped me with in-depth knowledge of drone operations, safety protocols, and industry standards. The certification not only boosted my confidence but also made me stand out in a competitive job market. Thanks to IDA, I gained practical experience and was able to land a role leading drone operations at a top company, where I’m now contributing to innovative projects and furthering my career in the growing drone industry.",
-    currentStatus: 'Leading a team of 15 drone pilots across India',
-    achievement: 'Promoted to Chief Pilot in 8 months',
-    salaryIncrease: '300%',
-    testimonialVideo: 'https://www.youtube.com/embed/UbJ6EjAZfIM',
-  },
-  {
-    id: 2,
-    name: 'Sneha Joshi',
-    role: 'Celebrity Drone Photographer',
-    course: 'DGCA Pilot Training',
-    location: 'Mumbai',
-    batch: 'February 2023',
-    quote:
-      'My experience with IDA’s drone training and certification completely transformed my career. As a student, I was unsure of how to apply my technical background in a rapidly evolving field. The hands-on training I received gave me a clear understanding of drone technology and its applications in real-world scenarios. The certification not only provided me with industry-recognized credentials but also connected me with experts and opportunities in the drone sector. I was able to secure a role in a prominent company, where I now manage drone operations, conduct aerial surveys, and contribute to cutting-edge projects. IDA helped me turn my passion for technology into a successful career.',
-    currentStatus: 'Working with top Bollywood productions and celebrity events',
-    achievement: 'Successfully conducted drone surveys and mapping for various academic projects.',
-    salaryIncrease: '500%',
-    testimonialVideo: 'https://www.youtube.com/embed/KHGOdjPw0n4',
-  },
-];
+  const spotlightStories = [
+    {
+      id: 1,
+      name: 'Captain Meera Reddy',
+      role: 'Chief Drone Pilot at TechMahindra',
+      course: 'DGCA Pilot Training',
+      location: 'Hyderabad',
+      batch: 'March 2023',
+      quote:
+        "IDA’s drone training gave me the hands-on experience and certification I needed to stand out in the job market. The program enhanced my technical skills, taught real-world drone operations, and helped me secure a role leading drone projects at a top company.",
+      currentStatus: 'Leading a team of 15 drone pilots across India',
+      achievement: 'Promoted to Chief Pilot in 8 months',
+      salaryIncrease: '300%',
+      testimonialVideo: 'https://www.youtube.com/embed/1W0Rwl7ZUtk',
+    },
+    {
+      id: 2,
+      name: 'Sneha Joshi',
+      role: 'Celebrity Drone Photographer',
+      course: 'DGCA Pilot Training',
+      location: 'Mumbai',
+      batch: 'February 2023',
+      quote:
+       "IDA’s drone training transformed my career by bridging my technical background with real-world applications. The hands-on learning and certification gave me industry recognition and connections, helping me land a role managing drone operations and contributing to advanced projects at a top company.",
+      currentStatus: 'Working with top Bollywood productions and celebrity events',
+      achievement: 'Successfully conducted drone surveys and mapping for various academic projects.',
+      salaryIncrease: '500%',
+      testimonialVideo: 'https://www.youtube.com/embed/ms3c5cLHSRA',
+    },
+  ];
 
 
   const successStories = [
@@ -350,18 +350,19 @@ const spotlightStories = [
                       <div className="relative">
                         <div className="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer">
                           {/* YouTube Embedded Video */}
-                          <div className="relative w-full h-96"> {/* Ensure the container takes up full width and height */}
+                          <div className="relative w-full h-64"> {/* Reduced height from h-96 to h-64 */}
                             <iframe
-                              width="100%"  // Ensures the iframe takes full width of the container
-                              height="100%" // Ensures the iframe takes full height of the container
+                              width="100%"
+                              height="100%"
                               src={video.videoUrl}
                               title={video.name}
                               frameBorder="0"
                               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                               allowFullScreen
-                              className="rounded-lg object-cover" // object-cover will zoom and fill the container, removing the black borders
+                              className="rounded-lg w-full h-full object-fill" // Ensure it fills the parent properly
                             />
                           </div>
+
 
                           {/* Video Stats */}
                           <div className="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded-full text-xs flex items-center">
@@ -561,7 +562,7 @@ const spotlightStories = [
                         <div className="relative rounded-lg overflow-hidden shadow-lg">
                           {/* Video Iframe */}
                           {story.testimonialVideo && (
-                            <div className="w-full h-[500px]"> {/* You can adjust height here */}
+                            <div className="w-full h-[300px]"> {/* Adjusted height from 500px to 300px */}
                               <iframe
                                 src={story.testimonialVideo}
                                 title={`Testimonial video of ${story.name}`}
@@ -571,11 +572,12 @@ const spotlightStories = [
                                 className="w-full h-full rounded-lg"
                               />
                             </div>
+
                           )}
                         </div>
 
                         {/* Floating Stats */}
-                       
+
                       </div>
 
                       {/* Story Content */}
@@ -587,10 +589,10 @@ const spotlightStories = [
                         </blockquote>
 
                         {/* Author Info */}
-                        
+
 
                         {/* Current Status */}
-                       
+
                         {/* Achievement Highlight */}
                         <div className="bg-[#26A65B] bg-opacity-10 rounded-lg p-3">
                           <p className="text-[#26A65B] font-bold text-sm">

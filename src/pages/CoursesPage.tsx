@@ -529,12 +529,12 @@ const CoursesPage: React.FC = () => {
               ))}
 
               {/* ✅ Curriculum Page Button */}
-              <button
+              {/* <button
                 onClick={() => navigate('/curriculum')}
                 className="px-3 py-2 rounded-lg font-medium transition-all duration-200 bg-[#26A65B] text-white hover:bg-[#1e894b]"
               >
                 Drone in Curriculum
-              </button>
+              </button> */}
             </div>
           </div>
 
