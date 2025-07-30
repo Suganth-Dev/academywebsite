@@ -94,52 +94,52 @@ const WhyIDAPage: React.FC = () => {
     { feature: 'Alumni Support', ida: true, others: false }
   ];
 
-  const founderMessages = [
-    {
-      name: 'Dev.R',
-      title: 'Founder & CEO, India Drone Academy',
-      image: '/devR.jpg',
-      video: 'https://www.youtube.com/embed/AcgtRz2mEWo?autoplay=1&mute=1',
-      commitments: [
-        'India’s first fully DGCA-compliant drone training programs',
-        'Championing accessible UAV education nationwide',
-        'Building India’s largest drone talent network',
-      ],
-    },
-    {
-      name: 'Kamala',
-      title: 'Cofounder & Administrator',
-      image: '/kamala.jpg',
-      video: 'https://www.youtube.com/embed/gJgU3C2lRBQ?autoplay=1&mute=1',
-      commitments: [
-        'Curating hands-on training experiences',
-        'Training the next-gen drone instructors',
-        'Ensuring academic excellence in every batch',
-      ],
-    },
-    {
-      name: 'Vamsi Krishna Kurakula',
-      title: 'Director',
-      image: '/vamsi.jpg',
-      video: 'https://www.youtube.com/embed/v6sOYpMdwCo?autoplay=1&mute=1',
-      commitments: [
-        'Safe and certified practical flight sessions',
-        'One-on-one flight correction and drills',
-        'Managing simulator and real-world flying integration',
-      ],
-    },
-    {
-      name: 'Sumit Krishnan',
-      title: 'RPAS Instructor (Small & Med)',
-      image: '/sumit.jpg',
-      video: 'https://www.youtube.com/embed/KW3e0iEEavY?autoplay=1&mute=1',
-      commitments: [
-        'Seamless student onboarding and support',
-        'Connecting alumni to job placements',
-        'Organizing drone exhibitions and workshops',
-      ],
-    },
-  ];
+ const founderMessages = [
+  {
+    name: 'Dev.R',
+    title: 'Founder & CEO, India Drone Academy',
+    image: '/devR.jpg',
+    video: 'https://www.youtube.com/embed/AcgtRz2mEWo?autoplay=1&mute=1',
+    commitments: [
+      'Visionary leadership to make India a global drone hub',
+      'Strategic partnerships with government and industry bodies',
+      'Driving innovation in drone education and simulation platforms',
+    ],
+  },
+  {
+    name: 'Kamala',
+    title: 'Cofounder & Administrator',
+    image: '/kamala.jpg',
+    video: 'https://www.youtube.com/embed/gJgU3C2lRBQ?autoplay=1&mute=1',
+    commitments: [
+      'Overseeing daily operations and student welfare',
+      'Streamlining batch schedules and academic workflows',
+      'Maintaining institutional compliance and documentation',
+    ],
+  },
+  {
+    name: 'Vamsi Krishna Kurakula',
+    title: 'Director',
+    image: '/vamsi.jpg',
+    video: 'https://www.youtube.com/embed/v6sOYpMdwCo?autoplay=1&mute=1',
+    commitments: [
+      'Supervising DGCA-certified flight training modules',
+      'Leading simulator platform integration and pilot evaluations',
+      'Expanding the academy’s outreach through strategic collaborations',
+    ],
+  },
+  {
+    name: 'Sumit Krishnan',
+    title: 'RPAS Instructor (Small & Med)',
+    image: '/sumit.jpg',
+    video: 'https://www.youtube.com/embed/KW3e0iEEavY?autoplay=1&mute=1',
+    commitments: [
+      'Conducting RPTO-certified ground and flight training',
+      'Personal mentoring for RPAS license aspirants',
+      'Ensuring safety protocols and flight drill excellence',
+    ],
+  },
+];
 
 
 const testimonials = [
