@@ -225,13 +225,19 @@ const testimonials = [
   
   ];
   const mediaLogos = [
+     { name: 'CITD', type: 'Academic & Media Institute', src: '/citd.png' },
+     { name: 'DTEA', type: 'Academic & Media Institute', src: '/dtea.jpg' },
+      { name: 'NCC', type: 'Academic & Media Institute', src: '/ncc.png' },
+       { name: 'SVCFA', type: 'Academic & Media Institute', src: '/svcfa.jpg' },
+        { name: 'DroneTv', type: 'Academic & Media Institute', src: '/DroneTv.png' },
+         { name: 'DroneExpo', type: 'Academic & Media Institute', src: '/droneexpo.jpg' },
     { name: 'DGCA', type: 'Government Body', src: '/DGCA.jpeg' },
     { name: 'Drone TV', type: 'Media Partner', src: '/DroneTv.png' },
     { name: 'Corteva Agriscience', type: 'Industry Leader', src: '/Corteva.png' },
     { name: 'Drogo Drones', type: 'Technology Partner', src: '/Drogo.png' },
     { name: 'Woxon University', type: 'Academic Partner', src: '/Woxen.png' },
     { name: 'Marut Drones', type: 'Drone Manufacturer', src: '/marut.png' },
-    { name: 'FTIH', type: 'Academic & Media Institute', src: '/ftih.png' }
+   
 
   ];
 

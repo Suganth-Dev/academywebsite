@@ -3,6 +3,12 @@ import { Award, Star } from 'lucide-react';
 
 const CollaborationsStrip: React.FC = () => {
   const collaborators = [
+    { name: 'CITD', type: 'Academic & Media Institute', src: '/citd.png' },
+     { name: 'DTEA', type: 'Academic & Media Institute', src: '/dtea.jpg' },
+      { name: 'NCC', type: 'Academic & Media Institute', src: '/ncc.png' },
+       { name: 'SVCFA', type: 'Academic & Media Institute', src: '/svcfa.jpg' },
+        { name: 'DroneTv', type: 'Academic & Media Institute', src: '/DroneTv.png' },
+         { name: 'DroneExpo', type: 'Academic & Media Institute', src: '/droneexpo.jpg' },
     { name: 'DGCA', type: 'Government Body', src: '/DGCA.jpeg' },
     { name: 'Drone TV', type: 'Media Partner', src: '/DroneTv.png' },
     { name: 'Corteva Agriscience', type: 'Industry Leader', src: '/Corteva.png' },
