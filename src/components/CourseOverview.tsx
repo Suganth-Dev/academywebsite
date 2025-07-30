@@ -245,9 +245,7 @@ const CourseOverview: React.FC = () => {
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900 mb-4">
             Our Training Programs
           </h2>
-          <p className="text-base text-gray-600 max-w-none mx-auto whitespace-nowrap mb-2">
-            Join our certified drone training programs designed to equip beginners and professionals with practical skills for diverse industry applications.
-          </p>
+          
 
 
         </div>

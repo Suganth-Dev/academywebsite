@@ -136,18 +136,22 @@ const socialLinks = [
 
             {!isSubscribed ? (
               <form onSubmit={handleNewsletterSubmit} className="mb-4 flex">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-lg focus:ring-2 focus:ring-[#F15A24] text-white"
-                />
-                <button type="submit" className="bg-[#F15A24] hover:bg-[#D64A1A] px-4 py-3 rounded-r-lg transition-colors duration-200">
-                  <Send className="w-5 h-5" />
-                </button>
-              </form>
+  <input
+    type="email"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    placeholder="Enter your email"
+    required
+    className="w-54 px-3 py-2 text-sm bg-gray-800 border border-gray-700 rounded-l-lg focus:ring-2 focus:ring-[#F15A24] text-white"
+  />
+  <button
+    type="submit"
+    className="bg-[#F15A24] hover:bg-[#D64A1A] px-3 py-2 rounded-r-lg transition-colors duration-200"
+  >
+    <Send className="w-4 h-4" />
+  </button>
+</form>
+
             ) : (
               <div className="bg-[#26A65B] bg-opacity-20 border border-[#26A65B] rounded-lg p-4 mb-4">
                 <p className="text-[#26A65B] font-medium">✅ Successfully subscribed! Check your email.</p>
