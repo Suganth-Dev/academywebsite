@@ -122,7 +122,7 @@ const PrivacyPolicyPage: React.FC = () => {
         {
           subtitle: 'How to Exercise Your Rights',
           items: [
-            'Contact us at privacy@indiadroneacademy.com',
+           
             'Call our privacy helpline at +91 7799100040',
             'Submit a written request to our office address',
             'Use the privacy settings in your student portal'
@@ -245,42 +245,7 @@ const PrivacyPolicyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-[#F15A24] to-[#26A65B] rounded-2xl p-8 text-white">
-            <h2 className="text-2xl font-bold mb-6">Questions About Your Privacy?</h2>
-            <p className="text-orange-100 mb-8">
-              If you have any questions about this privacy policy or how we handle your data, 
-              please don't hesitate to contact us.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-center">
-                <Mail className="w-6 h-6 mr-3" />
-                <div>
-                  <p className="font-bold">Email</p>
-                  <p className="text-orange-100">privacy@indiadroneacademy.com</p>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <Phone className="w-6 h-6 mr-3" />
-                <div>
-                  <p className="font-bold">Phone</p>
-                  <p className="text-orange-100">+91 7799100040</p>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="w-6 h-6 mr-3" />
-                <div>
-                  <p className="font-bold">Address</p>
-                  <p className="text-orange-100">Hyderabad, Telangana</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Updates Notice */}
       <section className="py-16 bg-gray-50">
