@@ -189,42 +189,7 @@ const TermsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact for Questions */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-[#F15A24] to-[#26A65B] rounded-2xl p-8 text-white">
-            <h2 className="text-2xl font-bold mb-6">Questions About These Terms?</h2>
-            <p className="text-orange-100 mb-8">
-              If you have any questions about these terms and conditions or need clarification 
-              on any point, please contact us before enrolling.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-center">
-                <Mail className="w-6 h-6 mr-3" />
-                <div>
-                  <p className="font-bold">Email</p>
-                  <p className="text-orange-100">legal@indiadroneacademy.com</p>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <Phone className="w-6 h-6 mr-3" />
-                <div>
-                  <p className="font-bold">Phone</p>
-                  <p className="text-orange-100">+91 7799100040</p>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="w-6 h-6 mr-3" />
-                <div>
-                  <p className="font-bold">Office</p>
-                  <p className="text-orange-100">Hyderabad, Telangana</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       {/* Agreement Confirmation */}
       <section className="py-16 bg-gray-50">

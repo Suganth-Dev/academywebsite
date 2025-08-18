@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { i18n } = useTranslation();
-const { t } = useTranslation();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -30,32 +28,24 @@ const { t } = useTranslation();
     };
   }, [isMenuOpen]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   const handleNavigation = (path: string) => {
     navigate(path);
     closeMenu();
   };
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(e.target.value);
-  };
-const navLinks = [
-  { href: '/', label: t('nav.home') },
-  { href: '/courses', label: t('nav.courses') },
-  { href: '/why-ida', label: t('nav.whyIda') },
-  { href: '/success-stories', label: t('nav.successStories') },
-  { href: '/partnerships', label: t('nav.partnerships') },
-  { href: '/collaborate', label: t('nav.collaborations') },
-  // { href: '/blog', label: t('nav.blog') },
-  { href: '/contact', label: t('nav.contact') }
-];
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/courses', label: 'Courses' },
+    { href: '/why-ida', label: 'Why IDA?' },
+    { href: '/success-stories', label: 'Success Stories' },
+    { href: '/partnerships', label: 'Partnerships' },
+    { href: '/collaborate', label: 'Collaborations' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/contact', label: 'Contact' }
+  ];
 
   const isActiveLink = (href: string) => {
     if (href === '/' && location.pathname === '/') return true;
@@ -73,16 +63,11 @@ const navLinks = [
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <div className="flex-shrink-0">
-              <button 
-                onClick={() => handleNavigation('/')}
-                className="flex items-center"
-              >
+              <button onClick={() => handleNavigation('/')} className="flex items-center">
                 <img 
                   src="/IDA.png" 
                   alt="India Drone Academy Logo" 
-                  className={`transition-all duration-300 ${
-                    isScrolled ? 'h-14' : 'h-14'
-                  }`}
+                  className="h-14 transition-all duration-300"
                 />
               </button>
             </div>
@@ -98,9 +83,11 @@ const navLinks = [
                       }`}
                     >
                       {link.label}
-                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#26A65B] transition-all duration-200 ${
-                        isActiveLink(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                      }`}></span>
+                      <span
+                        className={`absolute -bottom-1 left-0 h-0.5 bg-[#26A65B] transition-all duration-200 ${
+                          isActiveLink(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`}
+                      ></span>
                     </button>
                   </li>
                 ))}
@@ -108,19 +95,11 @@ const navLinks = [
             </nav>
 
             <div className="hidden lg:flex items-center space-x-4">
-              {/* <select
-                onChange={handleLanguageChange}
-                value={i18n.language}
-                className="border border-gray-300 rounded px-2 py-1 text-sm"
-              >
-                <option value="en">EN</option>
-                <option value="te">TE</option>
-              </select> */}
               <button
                 onClick={() => handleNavigation('/apply')}
                 className="bg-[#F15A24] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#D64A1A] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 text-sm"
               >
-                {t('applyNow')}
+                Apply Now
               </button>
             </div>
 
@@ -130,11 +109,7 @@ const navLinks = [
               aria-label="Toggle navigation menu"
               aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6 text-black" />
-              ) : (
-                <Menu className="h-6 w-6 text-black" />
-              )}
+              {isMenuOpen ? <X className="h-6 w-6 text-black" /> : <Menu className="h-6 w-6 text-black" />}
             </button>
           </div>
         </div>
@@ -147,16 +122,14 @@ const navLinks = [
         onClick={closeMenu}
       />
 
-      <div className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${
-        isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
+      <div
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
-            <img 
-              src="/logo.png" 
-              alt="India Drone Academy Logo" 
-              className="h-8"
-            />
+            <img src="/logo.png" alt="India Drone Academy Logo" className="h-8" />
             <button
               onClick={closeMenu}
               className="p-2 rounded-md hover:bg-gray-200 transition-colors duration-200"
@@ -173,8 +146,8 @@ const navLinks = [
                   <button
                     onClick={() => handleNavigation(link.href)}
                     className={`block w-full text-left font-medium text-lg hover:text-[#26A65B] hover:bg-gray-50 transition-all duration-200 py-4 px-4 rounded-lg border-l-4 ${
-                      isActiveLink(link.href) 
-                        ? 'text-[#26A65B] bg-gray-50 border-[#26A65B]' 
+                      isActiveLink(link.href)
+                        ? 'text-[#26A65B] bg-gray-50 border-[#26A65B]'
                         : 'text-black border-transparent hover:border-[#26A65B]'
                     }`}
                   >
