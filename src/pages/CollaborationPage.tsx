@@ -329,7 +329,7 @@ const CollaborationPage: React.FC = () => {
                 <span className="text-[#F15A24]">Leading Drone Training Academy</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                We empower institutions to deliver government-certified drone training programs on their campuses.
+                India Drone Academy enables institutions to host government-certified drone training programs.
               </p>
 
               {/* Trust Indicators */}

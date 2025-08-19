@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isGalleryDropdownOpen, setIsGalleryDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null); // Reference for dropdown menu
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -28,6 +30,25 @@ const Header: React.FC = () => {
     };
   }, [isMenuOpen]);
 
+  // Close the dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsGalleryDropdownOpen(false);
+      }
+    };
+
+    if (isGalleryDropdownOpen) {
+      document.addEventListener('click', handleClickOutside);
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isGalleryDropdownOpen]);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -43,7 +64,6 @@ const Header: React.FC = () => {
     { href: '/success-stories', label: 'Success Stories' },
     { href: '/partnerships', label: 'Partnerships' },
     { href: '/collaborate', label: 'Collaborations' },
-    { href: '/gallery', label: 'Gallery' },
     { href: '/contact', label: 'Contact' }
   ];
 
@@ -53,12 +73,14 @@ const Header: React.FC = () => {
     return false;
   };
 
+  const handleGalleryDropdownToggle = () => {
+    setIsGalleryDropdownOpen(!isGalleryDropdownOpen);
+  };
+
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
-          isScrolled ? 'shadow-lg py-3' : 'shadow-md py-4'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-lg py-3' : 'shadow-md py-4'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -78,19 +100,45 @@ const Header: React.FC = () => {
                   <li key={link.href}>
                     <button
                       onClick={() => handleNavigation(link.href)}
-                      className={`font-medium text-sm hover:text-[#26A65B] transition-colors duration-200 relative group ${
-                        isActiveLink(link.href) ? 'text-[#26A65B]' : 'text-black'
-                      }`}
+                      className={`font-medium text-sm hover:text-[#26A65B] transition-colors duration-200 relative group ${isActiveLink(link.href) ? 'text-[#26A65B]' : 'text-black'}`}
                     >
                       {link.label}
                       <span
-                        className={`absolute -bottom-1 left-0 h-0.5 bg-[#26A65B] transition-all duration-200 ${
-                          isActiveLink(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                        }`}
+                        className={`absolute -bottom-1 left-0 h-0.5 bg-[#26A65B] transition-all duration-200 ${isActiveLink(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`}
                       ></span>
                     </button>
                   </li>
                 ))}
+
+                {/* Gallery Dropdown */}
+                <li ref={dropdownRef}>
+                  <button
+                    onClick={handleGalleryDropdownToggle}
+                    className="font-medium text-sm hover:text-[#26A65B] transition-colors duration-200 relative group"
+                  >
+                    Gallery
+                    <span
+                      className={`absolute -bottom-1 left-0 h-0.5 bg-[#26A65B] transition-all duration-200 ${isGalleryDropdownOpen ? 'w-full' : 'w-0 group-hover:w-full'}`}
+                    ></span>
+                  </button>
+
+                  {isGalleryDropdownOpen && (
+                    <div className="absolute bg-white shadow-lg rounded-lg mt-2 py-2 w-48">
+                      <button
+                        onClick={() => handleNavigation('/gallery')}
+                        className="block px-4 py-2 text-black text-sm hover:text-[#26A65B] hover:bg-gray-100 w-full text-left"
+                      >
+                        Photos
+                      </button>
+                      <button
+                        onClick={() => handleNavigation('/video')}
+                        className="block px-4 py-2 text-black text-sm hover:text-[#26A65B] hover:bg-gray-100 w-full text-left"
+                      >
+                        Videos
+                      </button>
+                    </div>
+                  )}
+                </li>
               </ul>
             </nav>
 
@@ -116,16 +164,12 @@ const Header: React.FC = () => {
       </header>
 
       <div 
-        className={`fixed inset-0 bg-black transition-opacity duration-300 z-40 lg:hidden ${
-          isMenuOpen ? 'opacity-50 visible' : 'opacity-0 invisible'
-        }`}
+        className={`fixed inset-0 bg-black transition-opacity duration-300 z-40 lg:hidden ${isMenuOpen ? 'opacity-50 visible' : 'opacity-0 invisible'}`}
         onClick={closeMenu}
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
@@ -145,11 +189,7 @@ const Header: React.FC = () => {
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavigation(link.href)}
-                    className={`block w-full text-left font-medium text-lg hover:text-[#26A65B] hover:bg-gray-50 transition-all duration-200 py-4 px-4 rounded-lg border-l-4 ${
-                      isActiveLink(link.href)
-                        ? 'text-[#26A65B] bg-gray-50 border-[#26A65B]'
-                        : 'text-black border-transparent hover:border-[#26A65B]'
-                    }`}
+                    className={`block w-full text-left font-medium text-lg hover:text-[#26A65B] hover:bg-gray-50 transition-all duration-200 py-4 px-4 rounded-lg border-l-4 ${isActiveLink(link.href) ? 'text-[#26A65B] bg-transparent border-none' : 'text-black border-transparent hover:border-[#26A65B]'}`}
                   >
                     {link.label}
                   </button>

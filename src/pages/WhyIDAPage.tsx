@@ -479,64 +479,64 @@ const testimonials = [
       </section>
 
       {/* Team Members Scrolling Section */}
-      <section className="py-16 lg:py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Meet Our Expert Team
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Passionate professionals including certified trainers, drone pilots,
-              GIS experts, software developers, and video editors — bringing rich
-              experience from aviation, technology, and training.
-            </p>
-          </div>
+<section className="py-16 lg:py-24 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        Meet Our Expert Team
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Passionate professionals including certified trainers, drone pilots,
+        GIS experts, software developers, and video editors — bringing rich
+        experience from aviation, technology, and training.
+      </p>
+    </div>
 
-          <div className="relative overflow-hidden">
-            <div className="flex gap-10 animate-scroll w-max py-6">
-              {teamMembers.map((member, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-48 text-center transition-transform transform hover:-translate-y-2 relative"
-                >
-                  <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#F15A24] shadow-lg">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    {/* Centered Icon Badge at Bottom */}
-                   
-
-                  </div>
-                  <h3 className="font-bold text-gray-900 text-lg">{member.name}</h3>
-                  <p className="text-[#F15A24] text-sm font-medium mt-1">{member.designation}</p>
-                  <p className="text-gray-600 text-xs mt-1">{member.experience}</p>
-                </div>
-              ))}
+    {/* Scrolling Container */}
+    <div className="relative overflow-hidden">
+      <div className="flex gap-10 animate-scroll w-max py-6">
+        {/* Render twice for seamless loop */}
+        {[...teamMembers, ...teamMembers].map((member, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-48 text-center transition-transform transform hover:-translate-y-2"
+          >
+            <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#F15A24] shadow-lg">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
+            <h3 className="font-bold text-gray-900 text-lg">{member.name}</h3>
+            <p className="text-[#F15A24] text-sm font-medium mt-1">{member.designation}</p>
+            <p className="text-gray-600 text-xs mt-1">{member.experience}</p>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
+  </div>
 
-        {/* Scroll Animation */}
-        <style jsx>{`
+  {/* Scroll Animation */}
+  <style jsx>{`
     @keyframes scroll {
       0% {
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
       }
     }
     .animate-scroll {
+      display: flex;
       animation: scroll 50s linear infinite;
     }
     .animate-scroll:hover {
       animation-play-state: paused;
     }
   `}</style>
-      </section>
+</section>
 
 
 
