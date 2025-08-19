@@ -405,7 +405,7 @@ const scrollingLogos = [...collaborators, ...collaborators];
                 <span className="text-[#F15A24]">Premier Drone Training Ecosystem</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Together, let's shape the future of drone innovation, training, and deployment across India and beyond.
+               Together, let’s shape the future of drone innovation, pilot training, and UAV deployment across India and beyond.
               </p>
 
               {/* Trust Indicators */}
@@ -472,7 +472,7 @@ const scrollingLogos = [...collaborators, ...collaborators];
             </h2>
             <div className="w-full">
               <p className="text-lg sm:text-xl text-gray-600">
-                From technology integration to talent acquisition, we offer diverse partnership models to drive mutual growth and innovation.
+               From drone technology integration to UAV talent acquisition, we offer strategic partnership models that fuel growth and innovation.
               </p>
             </div>
           </div>

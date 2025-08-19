@@ -19,7 +19,7 @@ import CollaborationPage from './pages/CollaborationPage';
 import PartnershipsPage from './pages/PartnershipsPage';
 import CurriculumPage from './pages/CurriculumPage';
 import GalleryPage from './pages/GalleryPage';
-
+import VideoPage from './pages/VideoPage';
 //added
 function App() {
   return (
@@ -44,6 +44,7 @@ function App() {
           <Route path="/partnerships" element={<PartnershipsPage />} />
             <Route path="/curriculum" element={<CurriculumPage />} />
                    <Route path="/gallery" element={<GalleryPage />} />
+                     <Route path="/video" element={<VideoPage/>} />
         </Routes>
         <Footer />
       </div>
