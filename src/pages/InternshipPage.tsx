@@ -217,7 +217,7 @@ const InternshipPage: React.FC = () => {
             <div className="relative">
               <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
                 <img
-                  src="/internship-hero.jpg"
+                  src="/workshop.jpg"
                   alt="Internship program showing drone training, mentorship, and career development"
                   className="w-full h-80 object-cover rounded-lg"
                   loading="lazy"

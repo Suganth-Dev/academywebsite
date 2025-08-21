@@ -210,7 +210,7 @@ const WorkshopRegistrationPage: React.FC = () => {
             <div className="relative">
               <div className="relative bg-gradient-to-br from-[#F15A24] to-[#D64A1A] rounded-2xl p-8 shadow-2xl">
                 <img
-                  src="/workshop-hero.jpg" // Replace with your actual image path
+                  src="/workshop1.jpg" // Replace with your actual image path
                   alt="Drone Workshop"
                   className="w-full h-80 object-cover rounded-lg"
                   loading="lazy"
