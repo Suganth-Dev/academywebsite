@@ -84,13 +84,13 @@ export const coursesData: Record<string, CourseData> = {
       },
       {
         icon: 'Plane',
-        title: 'Small Drone Equipment',
+        title: 'State-of-the-Art Facilities',
         description: 'Train on professional small class drones'
       },
       {
         icon: 'Briefcase',
-        title: 'Job Assistance',
-        description: '100% placement support with partner companies'
+        title: 'Practical Flying Skills',
+        description: 'Real flight practice under expert supervision.'
       }
     ],
     batchDates: [
