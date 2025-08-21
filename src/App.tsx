@@ -20,6 +20,8 @@ import PartnershipsPage from './pages/PartnershipsPage';
 import CurriculumPage from './pages/CurriculumPage';
 import GalleryPage from './pages/GalleryPage';
 import VideoPage from './pages/VideoPage';
+import InternshipPage from './pages/InternshipPage';
+import WorkshopRegistrationPage from './pages/WorkshopRegistrationPage';
 //added
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
             <Route path="/curriculum" element={<CurriculumPage />} />
                    <Route path="/gallery" element={<GalleryPage />} />
                      <Route path="/video" element={<VideoPage/>} />
+                      <Route path="/applyintern" element={<InternshipPage/>} />
+                      <Route path="/applyworkshop" element={<WorkshopRegistrationPage/>} />
         </Routes>
         <Footer />
       </div>
