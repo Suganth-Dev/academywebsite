@@ -1987,7 +1987,7 @@ export const coursesData: Record<string, CourseData> = {
 
   'site-asset-inspection': {
   id: 'site-inspection',
-  title: 'Site Asset Mapping & Inspection',
+  title: 'Site Inspection & Asset Mapping',
   subtitle: 'Inspection and mapping of roads, railways, telecom, and industrial assets',
   description: 'Inspection and mapping of roads, railways, telecom, and industrial sites using drone technology. Understand tools, software, and field protocols.',
   heroImage: '/site-asset.jpg',
