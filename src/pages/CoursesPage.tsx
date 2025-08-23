@@ -80,7 +80,7 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 5,
-      title: 'Site Asset Mapping & Inspection',
+      title: 'Site Inspection & Asset Mapping',
       Class: 'Special Courses',
       badge: 'Infrastructure',
       badgeColor: 'bg-blue-600',

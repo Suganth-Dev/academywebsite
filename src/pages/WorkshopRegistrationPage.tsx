@@ -500,7 +500,7 @@ const WorkshopRegistrationPage: React.FC = () => {
                         </div>
                       </div>
 
-                      <div>
+                      {/* <div>
                         <label htmlFor="aadhaarNumber" className="block text-xs font-semibold text-gray-700 mb-1">
                           Aadhar Number <span className="text-red-500">*</span>
                         </label>
@@ -517,7 +517,7 @@ const WorkshopRegistrationPage: React.FC = () => {
                             required
                           />
                         </div>
-                      </div>
+                      </div> */}
 
                       <div>
                         <label htmlFor="email" className="block text-xs font-semibold text-gray-700 mb-1">
